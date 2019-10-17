@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Elements URL</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Elements URL</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For getting the elements directly from the url select this option. You can do this by clicking on the menu option &quot;Extras&quot; and select Elements URL.</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0027.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Heading1 Black"><text styleclass="Heading1 Black" translate="true">Steps:</text></para>
+    <list id="6" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Fill in the URL you want to get the elements.</text></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0028.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <list id="7" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Click the Get elements button.</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0029.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">The application will now get all the elements from the URL and put the data to the database.</text></para>
+    <para styleclass="Body Text"><image src="clip0030.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="8" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Click in the Select column on the elements you want to use in the test scenario</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0040.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="9" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Fill in the name of the Test Case in the Test Case textbox.</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0041.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="10" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Click the Add to test steps button</text></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0042.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <list id="11" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Body Text" translate="true">Select the test scenario you want to add the elements to and click the Open button.</text></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0035.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">All the selected element are now added to the selected test scenario. You can check this by using the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Edit-Teststeps" styleclass="Body Text" translate="true">Edit Test Steps</link><text styleclass="Body Text" translate="true"> option.</text></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

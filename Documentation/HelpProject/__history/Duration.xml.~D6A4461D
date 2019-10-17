@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Duration</title>
+  <keywords>
+    <keyword translate="true">Duration</keyword>
+  </keywords>
+  <a-keywords>
+    <a-keyword>Duration</a-keyword>
+  </a-keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Duration</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">With the Duration option it will be possible to set the time the user wants to show the rectangle at the selected element.</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Just as the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Border-Color" styleclass="Normal" translate="true">Border Color</link><text styleclass="Normal" translate="true"> option and the </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Border-Width" styleclass="Normal" translate="true">Border Thickness</link><text styleclass="Normal" translate="true"> option, there is a drop down box to select one of the following values:</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">10</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">20</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">50</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">100</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">200</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">500</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">750</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">1000</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">1250</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">1500</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">2000</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">3000</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">5000</text></para>
+    <para styleclass="Normal" style="text-align:center; margin-right:1489px; margin-left:47px;"><text styleclass="Normal" translate="true">10000</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Keep in mind that all these values are in milliseconds.</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0008.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Heading1 Black"><text styleclass="Heading1 Black" translate="true">Steps:</text></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Select the Duration you want in the drop box. </text></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0009.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <list id="5" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Click the save button to confirm the changes.</text></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0003.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

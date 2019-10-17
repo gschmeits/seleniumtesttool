@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<HelpWorkshopProject>
+  <ProjectFile Name="HelpProject.hxc"/>
+  <IncludeFile Name="HelpProject_topiclist.HxF"/>
+  <Files>
+    <File Url="HelpProject.hxt"/>
+    <File Url="HelpProject.hxk"/>
+  </Files>
+  <Dirs>
+  </Dirs>
+  <Options/>
+</HelpWorkshopProject>

@@ -1,0 +1,44 @@
+﻿<Window x:Class="BlogsPrajeesh.BlogSpot.WPFControls.WPFMessageBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" MinWidth="400" MaxWidth="400"
+    Title="{Binding Title}" ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="BikeBillSluiten"
+                Margin="303,0,0,54"
+                Grid.Column="1"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Click="BikeBillSluiten_Click">
+            <Image Source="Images/Hopstarter-Sleek-Xp-Software-Windows-Close-Program.ico" />
+        </Button>
+        <Image Source="{Binding MessageImageSource}" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Height="48" Width="48" Margin="10 0 0 0" />
+        <TextBlock Text="{Binding Message}" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Left"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,26,0,0" Height="51" Width="327" />
+        <Expander Header="Toon Details" Grid.Row="2" Grid.ColumnSpan="2" Visibility="{Binding ShowDetails}">
+            <TextBlock Margin="15 4 10 4" Text="{Binding InnerMessageDetails}" TextWrapping="Wrap"
+                       HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Left" />
+        </Expander>
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center"
+                    HorizontalAlignment="Right" Margin="0 0 5 0">
+            <Button Content="Ja" Visibility="{Binding YesNoVisibility}" Command="{Binding YesCommand}" Margin="5 5 5 5" Height="24" Width="80" />
+            <Button Content="_Nee" Visibility="{Binding YesNoVisibility}" Command="{Binding NoCommand}" Margin="5 5 5 5" Height="24" Width="80" />
+            <Button Content="_Annuleren" Visibility="{Binding CancelVisibility}" Command="{Binding CancelCommand}" Margin="5 5 5 5" Height="24" Width="80" />
+            <Button Content="O_K" Visibility="{Binding OkVisibility}" Command="{Binding OkCommand}" Margin="5 5 5 5" Height="24" Width="80" />
+            <Button Content="_Sluiten" Visibility="{Binding CloseVisibility}" Command="{Binding CloseCommand}" Margin="5 5 5 5" Height="24" Width="80" />
+        </StackPanel>
+    </Grid>
+</Window>

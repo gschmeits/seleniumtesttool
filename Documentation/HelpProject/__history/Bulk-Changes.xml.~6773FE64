@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Bulk Changes</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Bulk Changes</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For Bulk Changes there are 3 options:</text></para>
+    <para styleclass="Normal"></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="line-height:2.00; font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal" style="line-height:2.00;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Import-Elements" styleclass="Normal" translate="true">Import Elements</link></li>
+      <li styleclass="Normal" style="line-height:2.00;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Copy-Elements" styleclass="Normal" translate="true">Copy Elements</link></li>
+      <li styleclass="Normal" style="line-height:2.00;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Delete-Elements" styleclass="Normal" translate="true">Delete Elements</link></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

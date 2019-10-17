@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Configuration</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Configuration</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">In the configuration screen there are four options the user can change:</text></para>
+    <para styleclass="Normal"></para>
+    <list id="1" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="line-height:2.00; font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal" style="line-height:2.00;"><text styleclass="Normal" translate="true">The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Border-Color" styleclass="Normal" translate="true">Border Color</link></li>
+      <li styleclass="Normal" style="line-height:2.00;"><text styleclass="Normal" translate="true">The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Border-Width" styleclass="Normal" translate="true">Border Thickness</link></li>
+      <li styleclass="Normal" style="line-height:2.00;"><text styleclass="Normal" translate="true">The</text><link displaytype="text" defaultstyle="true" type="topiclink" href="Duration" styleclass="Normal" translate="true"> Duration (in milliseconds</link><text styleclass="Normal" translate="true">) the rectangle is visible</text></li>
+      <li styleclass="Normal" style="line-height:2.00;"><text styleclass="Normal" translate="true">How many </text><link displaytype="text" defaultstyle="true" type="topiclink" href="Extras" styleclass="Normal" translate="true">Extra Checks</link><text styleclass="Normal" translate="true"> are needed when an element is not found </text><text styleclass="Body Text" translate="true">instantly</text></li>
+    </list>
+    <para styleclass="Normal" style="line-height:2.00;"></para>
+  </body>
+</topic>

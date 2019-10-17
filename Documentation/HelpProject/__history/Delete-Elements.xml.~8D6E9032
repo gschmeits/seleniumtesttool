@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Delete Elements</title>
+  <keywords>
+    <keyword translate="true">Delete</keyword>
+    <keyword translate="true">Delete Elements</keyword>
+  </keywords>
+  <a-keywords>
+    <a-keyword>Delete</a-keyword>
+    <a-keyword>Delete Elements</a-keyword>
+  </a-keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Delete Elements</text></para>
+    </header>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

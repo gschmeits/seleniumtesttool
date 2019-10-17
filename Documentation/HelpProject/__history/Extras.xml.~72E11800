@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Extras</title>
+  <keywords>
+    <keyword translate="true">Extras</keyword>
+  </keywords>
+  <a-keywords>
+    <a-keyword>Extras</a-keyword>
+  </a-keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Extras</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The Extras Menu has 2 options:</text></para>
+    <para styleclass="Normal"></para>
+    <list id="0" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="line-height:2.00; font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal" style="line-height:2.00;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Elements-URL" styleclass="Normal" translate="true">Elements URL</link></li>
+      <li styleclass="Normal" style="line-height:2.00;"><link displaytype="text" defaultstyle="true" type="topiclink" href="Elements-Database" styleclass="Normal" translate="true">Elements Database</link></li>
+    </list>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

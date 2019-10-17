@@ -1,0 +1,141 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTestResults", "WPFTestResults\WPFTestResults.csproj", "{55B089F2-E874-44BA-B7E9-F138A42EF931}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorage", "DataStorage\DataStorage.csproj", "{301A8404-9E2F-42B7-9F81-8D60C9673F06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralFunctionality", "GeneralFunctionality\GeneralFunctionality.csproj", "{D1FDC253-9569-490B-92A6-7FF07B50DE16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTestResults.Tests", "WPFTestResults.Tests\WPFTestResults.Tests.csproj", "{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicentieWPF", "LicentieWPF\LicentieWPF.csproj", "{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogsPrajeesh.BlogSpot.WPFControls", "BlogsPrajeesh.BlogSpot.WPFControls\BlogsPrajeesh.BlogSpot.WPFControls.csproj", "{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFTestResultsMS.Tests", "WPFTestResultsMS.Tests\WPFTestResultsMS.Tests.csproj", "{A281293B-9B25-46D8-AF64-AB972658DFF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A9C42F9C-E1CE-4126-9013-B08EAAEE1FBE}"
+	ProjectSection(SolutionItems) = preProject
+		ReleaseNotes.md = ReleaseNotes.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CHROME|Any CPU = CHROME|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		FireFox|Any CPU = FireFox|Any CPU
+		Google|Any CPU = Google|Any CPU
+		InternetExplorer|Any CPU = InternetExplorer|Any CPU
+		Planning|Any CPU = Planning|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.CHROME|Any CPU.ActiveCfg = CHROME|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.CHROME|Any CPU.Build.0 = CHROME|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.FireFox|Any CPU.ActiveCfg = FireFox|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.FireFox|Any CPU.Build.0 = FireFox|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.Google|Any CPU.ActiveCfg = Google|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.Google|Any CPU.Build.0 = Google|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.InternetExplorer|Any CPU.ActiveCfg = InternetExplorer|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.InternetExplorer|Any CPU.Build.0 = InternetExplorer|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.Planning|Any CPU.ActiveCfg = Release|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.Planning|Any CPU.Build.0 = Release|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55B089F2-E874-44BA-B7E9-F138A42EF931}.Release|Any CPU.Build.0 = Release|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.CHROME|Any CPU.ActiveCfg = CHROME|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.CHROME|Any CPU.Build.0 = CHROME|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.FireFox|Any CPU.ActiveCfg = FireFox|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.FireFox|Any CPU.Build.0 = FireFox|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.Google|Any CPU.ActiveCfg = Google|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.Google|Any CPU.Build.0 = Google|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.InternetExplorer|Any CPU.ActiveCfg = InternetExplorer|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.InternetExplorer|Any CPU.Build.0 = InternetExplorer|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.Planning|Any CPU.ActiveCfg = Release|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.Planning|Any CPU.Build.0 = Release|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{301A8404-9E2F-42B7-9F81-8D60C9673F06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.CHROME|Any CPU.ActiveCfg = CHROME|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.CHROME|Any CPU.Build.0 = CHROME|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.FireFox|Any CPU.ActiveCfg = FireFox|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.FireFox|Any CPU.Build.0 = FireFox|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.Google|Any CPU.ActiveCfg = Google|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.Google|Any CPU.Build.0 = Google|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.InternetExplorer|Any CPU.ActiveCfg = InternetExplorer|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.InternetExplorer|Any CPU.Build.0 = InternetExplorer|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.Planning|Any CPU.ActiveCfg = Release|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.Planning|Any CPU.Build.0 = Release|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1FDC253-9569-490B-92A6-7FF07B50DE16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.CHROME|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.CHROME|Any CPU.Build.0 = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.FireFox|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.FireFox|Any CPU.Build.0 = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.Google|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.Google|Any CPU.Build.0 = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.InternetExplorer|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.InternetExplorer|Any CPU.Build.0 = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.Planning|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.Planning|Any CPU.Build.0 = Debug|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC6B03D-AEE7-4552-BF6D-C2B4CD4DACA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.CHROME|Any CPU.ActiveCfg = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.CHROME|Any CPU.Build.0 = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.FireFox|Any CPU.ActiveCfg = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.FireFox|Any CPU.Build.0 = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.Google|Any CPU.ActiveCfg = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.Google|Any CPU.Build.0 = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.InternetExplorer|Any CPU.ActiveCfg = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.InternetExplorer|Any CPU.Build.0 = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.Planning|Any CPU.ActiveCfg = Debug|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.Planning|Any CPU.Build.0 = Debug|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22190E5C-BF5E-404C-87D2-11DD14A9F6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.CHROME|Any CPU.ActiveCfg = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.CHROME|Any CPU.Build.0 = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.FireFox|Any CPU.ActiveCfg = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.FireFox|Any CPU.Build.0 = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Google|Any CPU.ActiveCfg = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Google|Any CPU.Build.0 = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.InternetExplorer|Any CPU.ActiveCfg = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.InternetExplorer|Any CPU.Build.0 = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Planning|Any CPU.ActiveCfg = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Planning|Any CPU.Build.0 = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.CHROME|Any CPU.ActiveCfg = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.CHROME|Any CPU.Build.0 = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.FireFox|Any CPU.ActiveCfg = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.FireFox|Any CPU.Build.0 = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.Google|Any CPU.ActiveCfg = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.Google|Any CPU.Build.0 = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.InternetExplorer|Any CPU.ActiveCfg = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.InternetExplorer|Any CPU.Build.0 = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.Planning|Any CPU.ActiveCfg = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.Planning|Any CPU.Build.0 = Debug|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A281293B-9B25-46D8-AF64-AB972658DFF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {306AF9DA-9FF1-450F-BC3B-B2F3B1F7E86D}
+	EndGlobalSection
+EndGlobal

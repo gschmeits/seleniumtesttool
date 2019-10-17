@@ -1,0 +1,4 @@
+<Playlist Version="1.0">
+<Add Test="UnitTestProject1.UnitTest1.A001_CheckIfFormFieldExists" />
+<Add Test="UnitTestProject1.UnitTest1.A002_CheckIfFormExists" />
+</Playlist>

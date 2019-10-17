@@ -1,0 +1,836 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">DataStorage.Annotations Namespace</title>
+  <keywords>
+    <keyword translate="true">DataStorage.Annotations namespace</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="title" style="font-family:&apos;Segoe UI&apos;; font-size:16pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">DataStorage.Annotations Namespace</text></para>
+    </header>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Classes</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><table rowcount="71" colcount="3" style="width:100%; cell-padding:1px; cell-spacing:0px; page-break-inside:auto; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#a0a0a0; border-style:solid; background-color:none; head-row-background-color:none; alt-row-background-color:none;">
+      <tr style="vertical-align:top">
+        <td style="width:75px; height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="classSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><text styleclass="iconcolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">&#32;</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="namecolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="descriptioncolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspChildControlTypeAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspChildControlTypeAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspDataFieldAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspDataFieldAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspDataFieldsAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspDataFieldsAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMethodPropertyAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMethodPropertyAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcActionAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcActionAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is an MVC action. If applied to a method, the MVC action name is calculated implicitly from the context. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcActionSelectorAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcActionSelectorAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. When applied to a parameter of an attribute, indicates that this parameter is an MVC action name.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcAreaAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcAreaAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. Indicates that a parameter is an MVC area. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcAreaMasterLocationFormatAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcAreaMasterLocationFormatAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcAreaPartialViewLocationFormatAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcAreaPartialViewLocationFormatAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcAreaViewLocationFormatAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcAreaViewLocationFormatAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcControllerAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcControllerAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is an MVC controller. If applied to a method, the MVC controller name is calculated implicitly from the context. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String, String)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcDisplayTemplateAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcDisplayTemplateAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. Indicates that a parameter is an MVC display template. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.Mvc.Html.DisplayExtensions.DisplayForModel(HtmlHelper, String)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcEditorTemplateAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcEditorTemplateAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. Indicates that a parameter is an MVC editor template. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.Mvc.Html.EditorExtensions.EditorForModel(HtmlHelper, String)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcMasterAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcMasterAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. Indicates that a parameter is an MVC Master. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.Mvc.Controller.View(String, String)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcMasterLocationFormatAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcMasterLocationFormatAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcModelTypeAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcModelTypeAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. Indicates that a parameter is an MVC model type. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.Mvc.Controller.View(String, Object)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcPartialViewAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcPartialViewAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is an MVC partial view. If applied to a method, the MVC partial view name is calculated implicitly from the context. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.Mvc.Html.RenderPartialExtensions.RenderPartial(HtmlHelper, String)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcPartialViewLocationFormatAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcPartialViewLocationFormatAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcSuppressViewErrorAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcSuppressViewErrorAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. Allows disabling inspections for MVC views within a class or a method.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcTemplateAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcTemplateAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. Indicates that a parameter is an MVC template. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.ComponentModel.DataAnnotations.UIHintAttribute(System.String)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcViewAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcViewAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is an MVC view component. If applied to a method, the MVC view name is calculated implicitly from the context. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.Mvc.Controller.View(Object)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcViewComponentAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcViewComponentAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is an MVC view component name.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcViewComponentViewAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcViewComponentViewAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is an MVC view component view. If applied to a method, the MVC view component view name is default.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspMvcViewLocationFormatAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspMvcViewLocationFormatAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspRequiredAttributeAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspRequiredAttributeAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AspTypePropertyAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AspTypePropertyAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AssertionConditionAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AssertionConditionAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates the condition parameter of the assertion method. The method itself should be marked by </text><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AssertionMethodAttribute" styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">AssertionMethodAttribute</link><text styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> attribute. The mandatory argument of the attribute is the assertion type.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AssertionMethodAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AssertionMethodAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the marked method is assertion method, i.e. it halts control flow if one of the conditions is satisfied. To set the condition, mark one of the parameters with </text><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AssertionConditionAttribute" styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">AssertionConditionAttribute</link><text styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> attribute.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.BaseTypeRequiredAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">BaseTypeRequiredAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">When applied to a target attribute, specifies a requirement for any type marked with the target attribute to implement or inherit specific type or types.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.CanBeNullAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">CanBeNullAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the value of the marked element could be </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">null</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> sometimes, so the check for </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">null</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> is necessary before its usage.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.CannotApplyEqualityOperatorAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">CannotApplyEqualityOperatorAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the value of the marked type (or its derivatives) cannot be compared using &apos;==&apos; or &apos;!=&apos; operators and </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Equals()</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> should be used instead. However, using &apos;==&apos; or &apos;!=&apos; for comparison with </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">null</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> is always permitted.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.CollectionAccessAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">CollectionAccessAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates how method, constructor invocation or property access over collection type affects content of the collection.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.ContractAnnotationAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ContractAnnotationAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Describes dependency between method input and output.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.HtmlAttributeValueAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">HtmlAttributeValueAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.HtmlElementAttributesAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">HtmlElementAttributesAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.InstantHandleAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">InstantHandleAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Tells code analysis engine if the parameter is completely handled when the invoked method is on stack. If the parameter is a delegate, indicates that delegate is executed while the method is executed. If the parameter is an enumerable, indicates that it is enumerated while the method is executed.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.InvokerParameterNameAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">InvokerParameterNameAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the function argument should be string literal and match one of the parameters of the caller function. For example, ReSharper annotates the parameter of </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.argumentnullexception.aspx" target="_blank" styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ArgumentNullException</link><text styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.ItemCanBeNullAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ItemCanBeNullAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Can be appplied to symbols of types derived from IEnumerable as well as to symbols of Task and Lazy classes to indicate that the value of a collection item, of the Task.Result property or of the Lazy.Value property can be null.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.ItemNotNullAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ItemNotNullAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Can be appplied to symbols of types derived from IEnumerable as well as to symbols of Task and Lazy classes to indicate that the value of a collection item, of the Task.Result property or of the Lazy.Value property can never be null.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.LinqTunnelAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">LinqTunnelAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that method is pure LINQ method, with postponed enumeration (like Enumerable.Select, .Where). This annotation allows inference of [InstantHandle] annotation for parameters of delegate type by analyzing LINQ method chains.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.LocalizationRequiredAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">LocalizationRequiredAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that marked element should be localized or not.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.MacroAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">MacroAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Allows specifying a macro for a parameter of a </text><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.SourceTemplateAttribute" styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">source template</link><text styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.MeansImplicitUseAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">MeansImplicitUseAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Should be used on attributes and causes ReSharper to not mark symbols marked with such attributes as unused (as well as by other usage inspections)</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.MustUseReturnValueAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">MustUseReturnValueAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the return value of method invocation must be used.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.NoEnumerationAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">NoEnumerationAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that IEnumerable, passed as parameter, is not enumerated.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.NoReorderAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">NoReorderAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Prevents the Member Reordering feature from tossing members of the marked class.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.NotifyPropertyChangedInvocatorAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">NotifyPropertyChangedInvocatorAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the method is contained in a type that implements </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.ComponentModel.INotifyPropertyChanged</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> interface and this method is used to notify that some property value changed.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.NotNullAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">NotNullAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the value of the marked element could never be </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">null</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.PathReferenceAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">PathReferenceAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that a parameter is a path to a file or a folder within a web project. Path can be relative or absolute, starting from web root (~).</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.ProvidesContextAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ProvidesContextAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates the type member or parameter of some type, that should be used instead of all other ways to get the value that type. This annotation is useful when you have some &quot;context&quot; value evaluated and stored somewhere, meaning that all other ways to get this value must be consolidated with existing one.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.PublicAPIAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">PublicAPIAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">This attribute is intended to mark publicly available API which should not be removed and so is treated as used.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.PureAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">PureAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that a method does not make any observable state changes. The same as </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Diagnostics.Contracts.PureAttribute</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorDirectiveAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorDirectiveAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorHelperCommonAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorHelperCommonAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorImportNamespaceAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorImportNamespaceAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorInjectionAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorInjectionAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorLayoutAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorLayoutAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorPageBaseTypeAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorPageBaseTypeAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorSectionAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorSectionAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Razor attribute. Indicates that a parameter or a method is a Razor section. Use this attribute for custom wrappers similar to </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">System.Web.WebPages.WebPageBase.RenderSection(String)</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorWriteLiteralMethodAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorWriteLiteralMethodAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorWriteMethodAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorWriteMethodAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RazorWriteMethodParameterAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RazorWriteMethodParameterAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.RegexPatternAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">RegexPatternAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that parameter is regular expression pattern.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.SourceTemplateAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">SourceTemplateAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">An extension method marked with this attribute is processed by ReSharper code completion as a &apos;Source Template&apos;. When extension method is completed over some expression, it&apos;s source code is automatically expanded like a template at call site.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.StringFormatMethodAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">StringFormatMethodAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the marked method builds string by format pattern and (optional) arguments. Parameter, which contains format string, should be given in constructor. The format string should be in </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank" styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">String</link><text styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">-like form.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.TerminatesProgramAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TerminatesProgramAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; font-weight:bold; text-decoration:none; vertical-align:baseline; color:#ff0000;" translate="true">Obsolete.</text></para>
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the marked method unconditionally terminates control flow execution. For example, it could unconditionally throw exception.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.UsedImplicitlyAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">UsedImplicitlyAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Indicates that the marked symbol is used implicitly (e.g. via reflection, in external library), so this symbol will not be marked as unused (as well as by other usage inspections).</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.ValueProviderAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ValueProviderAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">For a parameter that is expected to be one of the limited set of values. Specify fields of which type should be used as values for this parameter.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.XamlItemBindingOfItemsControlAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">XamlItemBindingOfItemsControlAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">XAML attribute. Indicates the property of some </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">BindingBase</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">-derived type, that is used to bind some item of </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ItemsControl</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">-derived type. This annotation will enable the </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">DataContext</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> type resolve for XAML bindings for such properties.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.XamlItemsControlAttribute" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">XamlItemsControlAttribute</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">XAML attribute. Indicates the type that has </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ItemsSource</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> property and should be treated as </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">ItemsControl</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">-derived type, to enable inner items </text><text styleclass="code" style="font-family:&apos;Courier New&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000066; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">DataContext</text><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> type resolve.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Enumerations</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="typelist" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><table rowcount="5" colcount="3" style="width:100%; cell-padding:1px; cell-spacing:0px; page-break-inside:auto; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#a0a0a0; border-style:solid; background-color:none; head-row-background-color:none; alt-row-background-color:none;">
+      <tr style="vertical-align:top">
+        <td style="width:75px; height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="enumerationSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><text styleclass="iconcolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">&#32;</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="namecolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Enumeration</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="descriptioncolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubenumeration.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public enumeration</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.AssertionConditionType" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AssertionConditionType</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Specifies assertion type. If the assertion method argument satisfies the condition, then the execution continues. Otherwise, execution is assumed to be halted.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubenumeration.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public enumeration</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.CollectionAccessType" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">CollectionAccessType</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubenumeration.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public enumeration</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.ImplicitUseKindFlags" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ImplicitUseKindFlags</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubenumeration.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public enumeration</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.ImplicitUseTargetFlags" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ImplicitUseTargetFlags</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Specify what is considered used implicitly when marked with </text><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.MeansImplicitUseAttribute" styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">MeansImplicitUseAttribute</link><text styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> or </text><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Annotations.UsedImplicitlyAttribute" styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">UsedImplicitlyAttribute</link><text styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal_copyrightfooter" style="text-align:left; text-indent:0px; margin-top:5px; margin-right:13px; margin-bottom:0px; margin-left:13px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="copyrightfooter" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#bbbbbb; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Help File generated with GhostDoc</text></para>
+    <para styleclass="Normal" style="margin-top:4px; margin-right:13px; margin-bottom:4px; margin-left:13px; line-height:1.00; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text></para>
+  </body>
+</topic>

@@ -1,0 +1,828 @@
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/* Sections
+     ========================================================================== */
+/**
+   * Remove the margin in all browsers.
+   */
+body {
+  margin: 0; }
+
+/**
+   * Correct the font size and margin on `h1` elements within `section` and
+   * `article` contexts in Chrome, Firefox, and Safari.
+   */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/* Grouping content
+     ========================================================================== */
+/**
+   * 1. Add the correct box sizing in Firefox.
+   * 2. Show the overflow in Edge and IE.
+   */
+hr {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/* Text-level semantics
+     ========================================================================== */
+/**
+   * Remove the gray background on active links in IE 10.
+   */
+a {
+  background-color: transparent; }
+
+/**
+   * 1. Remove the bottom border in Chrome 57-
+   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+   */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+   * Add the correct font weight in Chrome, Edge, and Safari.
+   */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+   * Add the correct font size in all browsers.
+   */
+small {
+  font-size: 80%; }
+
+/**
+   * Prevent `sub` and `sup` elements from affecting the line height in
+   * all browsers.
+   */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+/* Embedded content
+     ========================================================================== */
+/**
+   * Remove the border on images inside links in IE 10.
+   */
+img {
+  border-style: none; }
+
+/* Forms
+     ========================================================================== */
+/**
+   * 1. Change the font styles in all browsers.
+   * 2. Remove the margin in Firefox and Safari.
+   */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+   * Remove the inheritance of text transform in Edge, Firefox, and IE.
+   * 1. Remove the inheritance of text transform in Firefox.
+   */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+   * Correct the inability to style clickable types in iOS and Safari.
+   */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+/**
+   * Remove the inner border and padding in Firefox.
+   */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+   * Restore the focus styles unset by the previous rule.
+   */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+   * Correct the padding in Firefox.
+   */
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+/**
+   * 1. Correct the text wrapping in Edge and IE.
+   * 2. Correct the color inheritance from `fieldset` elements in IE.
+   * 3. Remove the padding so developers are not caught out when they zero out
+   *    `fieldset` elements in all browsers.
+   */
+legend {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+   * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+   */
+progress {
+  vertical-align: baseline; }
+
+/**
+   * Remove the default vertical scrollbar in IE 10+.
+   */
+textarea {
+  overflow: auto; }
+
+/**
+   * 1. Add the correct box sizing in IE 10.
+   * 2. Remove the padding in IE 10.
+   */
+[type="checkbox"],
+[type="radio"] {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+   * Correct the cursor style of increment and decrement buttons in Chrome.
+   */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+   * 1. Correct the odd appearance in Chrome and Safari.
+   * 2. Correct the outline style in Safari.
+   */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+   * Remove the inner padding in Chrome and Safari on macOS.
+   */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+   * 1. Correct the inability to style clickable types in iOS and Safari.
+   * 2. Change font properties to `inherit` in Safari.
+   */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* Interactive
+     ========================================================================== */
+/*
+   * Add the correct display in Edge, IE 10+, and Firefox.
+   */
+details {
+  display: block; }
+
+/*
+   * Add the correct display in all browsers.
+   */
+summary {
+  display: list-item; }
+
+/* Misc
+     ========================================================================== */
+/**
+   * Add the correct display in IE 10+.
+   */
+template {
+  display: none; }
+
+/**
+   * Add the correct display in IE 10.
+   */
+[hidden] {
+  display: none; }
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -1em; }
+
+.col-1 {
+  width: 8.33333%;
+  padding: 0 1em; }
+
+.col-2 {
+  width: 16.66667%;
+  padding: 0 1em; }
+
+.col-3 {
+  width: 25%;
+  padding: 0 1em; }
+
+.col-4 {
+  width: 33.33333%;
+  padding: 0 1em; }
+
+.col-5 {
+  width: 41.66667%;
+  padding: 0 1em; }
+
+.col-6 {
+  width: 50%;
+  padding: 0 1em; }
+
+.col-7 {
+  width: 58.33333%;
+  padding: 0 1em; }
+
+.col-8 {
+  width: 66.66667%;
+  padding: 0 1em; }
+
+.col-9 {
+  width: 75%;
+  padding: 0 1em; }
+
+.col-10 {
+  width: 83.33333%;
+  padding: 0 1em; }
+
+.col-11 {
+  width: 91.66667%;
+  padding: 0 1em; }
+
+.col-12 {
+  width: 100%;
+  padding: 0 1em; }
+
+@media (max-width: 599px) {
+  [class*="col-"] {
+    width: 100%; } }
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  line-height: 1.3; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+  color: #555;
+  font-size: 13pt;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 400; }
+  body * {
+    border: none; }
+  body h1, body h2, body h3, body h4 {
+    color: #000; }
+  body h1 {
+    font-size: 2rem; }
+  body h2 {
+    font-size: 1.6rem; }
+  body.dark-theme {
+    background-color: #2C2C2C;
+    color: #cfd2da; }
+    body.dark-theme * {
+      border-color: #434857; }
+    body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4 {
+      color: #FFF; }
+    body.dark-theme .list .details {
+      border-color: #383c49; }
+
+#identity {
+  width: 100%;
+  background-color: #000;
+  color: #FFF; }
+  #identity__content {
+    max-width: 980px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    #identity__content > * {
+      display: inline-block;
+      line-height: 1; }
+    #identity__content > span:last-of-type {
+      font-weight: bold; }
+    #identity__content__colors {
+      margin: 0 1em;
+      padding: 0;
+      list-style: none; }
+      #identity__content__colors li {
+        float: left;
+        margin: 0;
+        padding: 1em .4em; }
+        #identity__content__colors li:nth-child(1) {
+          background-color: #EF413D; }
+        #identity__content__colors li:nth-child(2) {
+          background-color: #00AFC8; }
+        #identity__content__colors li:nth-child(3) {
+          background-color: #0072BC; }
+        #identity__content__colors li:nth-child(4) {
+          background-color: #FFCB05; }
+        #identity__content__colors li:nth-child(5) {
+          background-color: #00AE4D; }
+        #identity__content__colors li:nth-child(6) {
+          background-color: #D94B9B; }
+        #identity__content__colors li:nth-child(7) {
+          background-color: #60489D; }
+  #identity #mode-toggle {
+    margin-left: auto; }
+
+#wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  padding-top: 2em; }
+  #wrapper > h1 {
+    margin-top: 0; }
+  #wrapper .card h3 {
+    margin-top: 0; }
+  #wrapper .card.success, #wrapper .card.error {
+    color: #FFF;
+    min-height: 155px; 
+    height: 155px;
+    text-align: center; }
+  #wrapper .card.success {
+    background-color: #00CB56;
+     }
+  #wrapper .card.error {
+    background-color: #F45653;
+ }
+  #wrapper .card__content {
+    min-height: 155px; 
+    height: 155px;}
+    #wrapper .card__content #chart {
+      position: relative; }
+      #wrapper .card__content #chart::after {
+        content: attr(data-percent) "%";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+  #wrapper .card .counter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 2rem;
+    line-height: 1; }
+    #wrapper .card .counter svg {
+      margin-left: .5em; }
+      #wrapper .card .counter svg.check {
+        width: 35px;
+        height: 35px;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2); }
+        #wrapper .card .counter svg.check line {
+          stroke-width: 5;
+          stroke: #FFF; }
+      #wrapper .card .counter svg.cross {
+        width: 30px;
+        height: 30px;
+        margin-top: 5px; }
+        #wrapper .card .counter svg.cross line {
+          stroke-width: 5;
+          stroke: #FFF; }
+
+svg.donut circle.donut-ring, svg.donut circle.donut-segment {
+  stroke-width: 3; }
+
+svg.donut circle.donut-ring {
+  stroke: #F45653; }
+
+svg.donut circle.donut-segment {
+  stroke: #00CB56; }
+  svg.donut circle.donut-segment.p-1 {
+    stroke-dasharray: 1 99; }
+  svg.donut circle.donut-segment.p-2 {
+    stroke-dasharray: 2 98; }
+  svg.donut circle.donut-segment.p-3 {
+    stroke-dasharray: 3 97; }
+  svg.donut circle.donut-segment.p-4 {
+    stroke-dasharray: 4 96; }
+  svg.donut circle.donut-segment.p-5 {
+    stroke-dasharray: 5 95; }
+  svg.donut circle.donut-segment.p-6 {
+    stroke-dasharray: 6 94; }
+  svg.donut circle.donut-segment.p-7 {
+    stroke-dasharray: 7 93; }
+  svg.donut circle.donut-segment.p-8 {
+    stroke-dasharray: 8 92; }
+  svg.donut circle.donut-segment.p-9 {
+    stroke-dasharray: 9 91; }
+  svg.donut circle.donut-segment.p-10 {
+    stroke-dasharray: 10 90; }
+  svg.donut circle.donut-segment.p-11 {
+    stroke-dasharray: 11 89; }
+  svg.donut circle.donut-segment.p-12 {
+    stroke-dasharray: 12 88; }
+  svg.donut circle.donut-segment.p-13 {
+    stroke-dasharray: 13 87; }
+  svg.donut circle.donut-segment.p-14 {
+    stroke-dasharray: 14 86; }
+  svg.donut circle.donut-segment.p-15 {
+    stroke-dasharray: 15 85; }
+  svg.donut circle.donut-segment.p-16 {
+    stroke-dasharray: 16 84; }
+  svg.donut circle.donut-segment.p-17 {
+    stroke-dasharray: 17 83; }
+  svg.donut circle.donut-segment.p-18 {
+    stroke-dasharray: 18 82; }
+  svg.donut circle.donut-segment.p-19 {
+    stroke-dasharray: 19 81; }
+  svg.donut circle.donut-segment.p-20 {
+    stroke-dasharray: 20 80; }
+  svg.donut circle.donut-segment.p-21 {
+    stroke-dasharray: 21 79; }
+  svg.donut circle.donut-segment.p-22 {
+    stroke-dasharray: 22 78; }
+  svg.donut circle.donut-segment.p-23 {
+    stroke-dasharray: 23 77; }
+  svg.donut circle.donut-segment.p-24 {
+    stroke-dasharray: 24 76; }
+  svg.donut circle.donut-segment.p-25 {
+    stroke-dasharray: 25 75; }
+  svg.donut circle.donut-segment.p-26 {
+    stroke-dasharray: 26 74; }
+  svg.donut circle.donut-segment.p-27 {
+    stroke-dasharray: 27 73; }
+  svg.donut circle.donut-segment.p-28 {
+    stroke-dasharray: 28 72; }
+  svg.donut circle.donut-segment.p-29 {
+    stroke-dasharray: 29 71; }
+  svg.donut circle.donut-segment.p-30 {
+    stroke-dasharray: 30 70; }
+  svg.donut circle.donut-segment.p-31 {
+    stroke-dasharray: 31 69; }
+  svg.donut circle.donut-segment.p-32 {
+    stroke-dasharray: 32 68; }
+  svg.donut circle.donut-segment.p-33 {
+    stroke-dasharray: 33 67; }
+  svg.donut circle.donut-segment.p-34 {
+    stroke-dasharray: 34 66; }
+  svg.donut circle.donut-segment.p-35 {
+    stroke-dasharray: 35 65; }
+  svg.donut circle.donut-segment.p-36 {
+    stroke-dasharray: 36 64; }
+  svg.donut circle.donut-segment.p-37 {
+    stroke-dasharray: 37 63; }
+  svg.donut circle.donut-segment.p-38 {
+    stroke-dasharray: 38 62; }
+  svg.donut circle.donut-segment.p-39 {
+    stroke-dasharray: 39 61; }
+  svg.donut circle.donut-segment.p-40 {
+    stroke-dasharray: 40 60; }
+  svg.donut circle.donut-segment.p-41 {
+    stroke-dasharray: 41 59; }
+  svg.donut circle.donut-segment.p-42 {
+    stroke-dasharray: 42 58; }
+  svg.donut circle.donut-segment.p-43 {
+    stroke-dasharray: 43 57; }
+  svg.donut circle.donut-segment.p-44 {
+    stroke-dasharray: 44 56; }
+  svg.donut circle.donut-segment.p-45 {
+    stroke-dasharray: 45 55; }
+  svg.donut circle.donut-segment.p-46 {
+    stroke-dasharray: 46 54; }
+  svg.donut circle.donut-segment.p-47 {
+    stroke-dasharray: 47 53; }
+  svg.donut circle.donut-segment.p-48 {
+    stroke-dasharray: 48 52; }
+  svg.donut circle.donut-segment.p-49 {
+    stroke-dasharray: 49 51; }
+  svg.donut circle.donut-segment.p-50 {
+    stroke-dasharray: 50 50; }
+  svg.donut circle.donut-segment.p-51 {
+    stroke-dasharray: 51 49; }
+  svg.donut circle.donut-segment.p-52 {
+    stroke-dasharray: 52 48; }
+  svg.donut circle.donut-segment.p-53 {
+    stroke-dasharray: 53 47; }
+  svg.donut circle.donut-segment.p-54 {
+    stroke-dasharray: 54 46; }
+  svg.donut circle.donut-segment.p-55 {
+    stroke-dasharray: 55 45; }
+  svg.donut circle.donut-segment.p-56 {
+    stroke-dasharray: 56 44; }
+  svg.donut circle.donut-segment.p-57 {
+    stroke-dasharray: 57 43; }
+  svg.donut circle.donut-segment.p-58 {
+    stroke-dasharray: 58 42; }
+  svg.donut circle.donut-segment.p-59 {
+    stroke-dasharray: 59 41; }
+  svg.donut circle.donut-segment.p-60 {
+    stroke-dasharray: 60 40; }
+  svg.donut circle.donut-segment.p-61 {
+    stroke-dasharray: 61 39; }
+  svg.donut circle.donut-segment.p-62 {
+    stroke-dasharray: 62 38; }
+  svg.donut circle.donut-segment.p-63 {
+    stroke-dasharray: 63 37; }
+  svg.donut circle.donut-segment.p-64 {
+    stroke-dasharray: 64 36; }
+  svg.donut circle.donut-segment.p-65 {
+    stroke-dasharray: 65 35; }
+  svg.donut circle.donut-segment.p-66 {
+    stroke-dasharray: 66 34; }
+  svg.donut circle.donut-segment.p-67 {
+    stroke-dasharray: 67 33; }
+  svg.donut circle.donut-segment.p-68 {
+    stroke-dasharray: 68 32; }
+  svg.donut circle.donut-segment.p-69 {
+    stroke-dasharray: 69 31; }
+  svg.donut circle.donut-segment.p-70 {
+    stroke-dasharray: 70 30; }
+  svg.donut circle.donut-segment.p-71 {
+    stroke-dasharray: 71 29; }
+  svg.donut circle.donut-segment.p-72 {
+    stroke-dasharray: 72 28; }
+  svg.donut circle.donut-segment.p-73 {
+    stroke-dasharray: 73 27; }
+  svg.donut circle.donut-segment.p-74 {
+    stroke-dasharray: 74 26; }
+  svg.donut circle.donut-segment.p-75 {
+    stroke-dasharray: 75 25; }
+  svg.donut circle.donut-segment.p-76 {
+    stroke-dasharray: 76 24; }
+  svg.donut circle.donut-segment.p-77 {
+    stroke-dasharray: 77 23; }
+  svg.donut circle.donut-segment.p-78 {
+    stroke-dasharray: 78 22; }
+  svg.donut circle.donut-segment.p-79 {
+    stroke-dasharray: 79 21; }
+  svg.donut circle.donut-segment.p-80 {
+    stroke-dasharray: 80 20; }
+  svg.donut circle.donut-segment.p-81 {
+    stroke-dasharray: 81 19; }
+  svg.donut circle.donut-segment.p-82 {
+    stroke-dasharray: 82 18; }
+  svg.donut circle.donut-segment.p-83 {
+    stroke-dasharray: 83 17; }
+  svg.donut circle.donut-segment.p-84 {
+    stroke-dasharray: 84 16; }
+  svg.donut circle.donut-segment.p-85 {
+    stroke-dasharray: 85 15; }
+  svg.donut circle.donut-segment.p-86 {
+    stroke-dasharray: 86 14; }
+  svg.donut circle.donut-segment.p-87 {
+    stroke-dasharray: 87 13; }
+  svg.donut circle.donut-segment.p-88 {
+    stroke-dasharray: 88 12; }
+  svg.donut circle.donut-segment.p-89 {
+    stroke-dasharray: 89 11; }
+  svg.donut circle.donut-segment.p-90 {
+    stroke-dasharray: 90 10; }
+  svg.donut circle.donut-segment.p-91 {
+    stroke-dasharray: 91 9; }
+  svg.donut circle.donut-segment.p-92 {
+    stroke-dasharray: 92 8; }
+  svg.donut circle.donut-segment.p-93 {
+    stroke-dasharray: 93 7; }
+  svg.donut circle.donut-segment.p-94 {
+    stroke-dasharray: 94 6; }
+  svg.donut circle.donut-segment.p-95 {
+    stroke-dasharray: 95 5; }
+  svg.donut circle.donut-segment.p-96 {
+    stroke-dasharray: 96 4; }
+  svg.donut circle.donut-segment.p-97 {
+    stroke-dasharray: 97 3; }
+  svg.donut circle.donut-segment.p-98 {
+    stroke-dasharray: 98 2; }
+  svg.donut circle.donut-segment.p-99 {
+    stroke-dasharray: 99 1; }
+  svg.donut circle.donut-segment.p-100 {
+    stroke-dasharray: 100 0; }
+
+ul#runtime {
+  padding: .5em 0;
+  margin: 0;
+  list-style: none;
+  font-size: .9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 100%; }
+
+.card {
+  border-radius: .25em;
+  border: 1px solid #333;
+  background-color: transparent;
+  position: relative; }
+  .card__content {
+    position: relative;
+    padding: 1.25em; }
+
+#mode-toggle input[type='checkbox'] {
+  display: none; }
+  #mode-toggle input[type='checkbox']:checked ~ .toggle {
+    background: #009688;
+    left: 26px;
+    -webkit-transition: .5s;
+    transition: .5s; }
+  #mode-toggle input[type='checkbox']:checked ~ .switch {
+    background: #6DBEB7;
+    -webkit-transition: .5s;
+    transition: .5s; }
+
+#mode-toggle .switch {
+  display: block;
+  width: 50px;
+  height: 20px;
+  background: #939393;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  -webkit-transition: .5s;
+  transition: .5s; }
+
+#mode-toggle .toggle {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  -webkit-transition: .5s;
+  transition: .5s; }
+
+#mode-toggle .holder {
+  display: inline-block;
+  margin: 9px;
+  margin: 5px;
+  width: 50px;
+  height: 20px;
+  text-align: center;
+  position: relative; }
+
+.list {
+  margin-top: 2em;
+  border-radius: .25em;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden; }
+  .list__content__row {
+    width: 100%;
+    margin-top: .3em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid; }
+    .list__content__row:first-child {
+      margin-top: 0; }
+    .list__content__row:last-child {
+      border-bottom: none; }
+    .list__content__row.success {
+      border-left: 10px solid #00CB56; }
+    .list__content__row.error {
+      border-left: 10px solid #F45653; }
+    .list__content__row:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.1); }
+    .list__content__row > div:first-child {
+      border-top-width: 1px;
+      border-top-style: solid; }
+    .list__content__row > div:last-child {
+      border-top-width: 1px;
+      border-top-style: dashed; }
+    .list__content__row .element {
+      padding: 1em;
+      word-break: break-all; }
+    .list__content__row .details {
+      border-top: 1px dashed;
+      font-size: .9rem; }
+      .list__content__row .details > [class*="col-"] > span {
+        display: block;
+        padding: .5em 1em; }
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; 
+}

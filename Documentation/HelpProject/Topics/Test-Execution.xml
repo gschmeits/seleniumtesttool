@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Test Execution</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Test Execution</text></para>
+    </header>
+    <para styleclass="Normal" style="page-break-before:always;"><text styleclass="Normal" translate="true">For test execution it is needed that there is at least 1 test scenario. Otherwise the menu option for Execute Test will be disabled.</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">For Test Execution the user has to do the following steps:</text></para>
+    <para styleclass="Normal"></para>
+    <list id="203" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Click on the Execution Menu</text></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0049.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <list id="204" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Select the test to be execute and click the Open button</text></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Body Text"><image src="clip0025.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <list id="205" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Click on one of the five radio button for selecting a browser</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0050.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <list id="206" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Fill in the version of the app that will be tested. This opportunity is optional. &#160;</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0051.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <list id="207" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Click the Execute Test button</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0052.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">After the test execution all the test results are visible in the Main Window:</text></para>
+    <para styleclass="Body Text"><image src="clip0053.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"><text styleclass="Image Caption" translate="true">&#32;</text></para>
+  </body>
+</topic>

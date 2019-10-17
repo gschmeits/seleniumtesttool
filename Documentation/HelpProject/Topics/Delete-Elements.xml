@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Delete Elements</title>
+  <keywords>
+    <keyword translate="true">Delete</keyword>
+    <keyword translate="true">Delete Elements</keyword>
+  </keywords>
+  <a-keywords>
+    <a-keyword>Delete</a-keyword>
+    <a-keyword>Delete Elements</a-keyword>
+  </a-keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Delete Elements</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">When there are too much test steps it is also possible to delete test steps with the bulk option. For doing this you can use the following option:</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Heading1 Black"><text styleclass="Heading1 Black" translate="true">Steps:</text></para>
+    <list id="4" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Open the Delete Elements option in the Bulk Changes Menu. </text></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0044.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <list id="5" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Click the Get TestSet button to select the test scenario which elements you want to copy.</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0045.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="6" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Select an XML file with the test script you want to use and click the Open button</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0025.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="5" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">The Delete instruction text box will be available and the user can fill in the delete instruction. </text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0046.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="8" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">For instance &apos;testnr &gt; 100 and testnr &lt; 200&apos;</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0047.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="6" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">When there is some text in the Delete instruction text box, the Execute Deletion button will be available and the user can execute the instruction. After clicking the Execute Deletion button the test steps will be deleted from the table in the database.</text></li>
+    </list>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">After that the application will show a message box.</text></para>
+    <para styleclass="Body Text"><image src="clip0048.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <para styleclass="Body Text"></para>
+  </body>
+</topic>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Copy Elements</title>
+  <keywords>
+    <keyword translate="true">Copy</keyword>
+    <keyword translate="true">Copy Elements</keyword>
+  </keywords>
+  <a-keywords>
+    <a-keyword>Copy</a-keyword>
+    <a-keyword>Copy Elements</a-keyword>
+  </a-keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Copy Elements</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">After testing a smaller part of the test steps it will be possible to put the test step from the smaller test scenario into another test scenario. For doing this you can use the following option:</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Heading1 Black"><text styleclass="Heading1 Black" translate="true">Steps:</text></para>
+    <list id="163" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Normal" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Normal"><text styleclass="Normal" translate="true">Open the Copy Elements option in the Bulk Changes Menu. </text></li>
+    </list>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0023.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <list id="164" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Click the Source button to select the test scenario which elements you want to copy.</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0024.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="165" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Select an XML file with the test script you want to use and click the Open button</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0025.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="164" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Click the Destination button to select the test scenario which elements you want to copy.</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0024.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="165" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Select an XML file with the test script you want to use and click the Open button</text></li>
+    </list>
+    <para styleclass="Body Text"><image src="clip0026.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <list id="166" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"></li>
+    </list>
+  </body>
+</topic>

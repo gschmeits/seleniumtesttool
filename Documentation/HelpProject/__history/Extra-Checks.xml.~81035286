@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Extra Checks</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Extra Checks</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">If an element is not found directly, it will be possible that this element just on the site, but not directly loaded. After a while </text></para>
+  </body>
+</topic>

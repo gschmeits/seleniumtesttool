@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<Tests>
+ <Test>
+    <testid>1</testid>
+    <testcase>Login</testcase>
+	<element>login_username</element>
+	<attribute>id</attribute>
+	<action>sendkeys</action>
+	<text>Ger</text>
+ </Test>
+ <Test>
+    <testid>2</testid>
+    <testcase>Login</testcase>
+	<element>login_passwd</element>
+	<attribute>id</attribute>
+	<action>sendkeys</action>
+	<text>Marianne1962!</text>
+ </Test>
+   <Test>
+    <testid>3</testid>
+    <testcase>Login</testcase>
+	<element>login_rememberme-icon-el</element>
+	<attribute>id</attribute>
+	<action>empty</action>
+	<text>empty</text>
+ </Test>
+<Test>
+    <testid>4</testid>
+    <testcase>Login</testcase>
+	<element>login_rememberme-label-el</element>
+	<attribute>id</attribute>
+	<action>empty</action>
+	<text>empty</text>
+ </Test>
+ <Test>
+    <testid>5</testid>
+    <testcase>Login</testcase>
+	<element>login-btn</element>
+	<attribute>id</attribute>
+	<action>click</action>
+	<text>empty</text>
+ </Test>
+</Tests> 

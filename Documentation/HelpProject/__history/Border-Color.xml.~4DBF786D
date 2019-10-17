@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Border Color</title>
+  <keywords>
+    <keyword translate="true">Border Color</keyword>
+  </keywords>
+  <a-keywords>
+    <a-keyword>Border Color</a-keyword>
+  </a-keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Border Color</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">With this option the user can set the color of the rectangle showed when a visible element is found in the web page.</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

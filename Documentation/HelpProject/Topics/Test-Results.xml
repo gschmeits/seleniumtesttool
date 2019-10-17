@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Test Results</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Test Results</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">All the test results are stored in the MySQL database and can be showed if the user select this.</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">At first, after selection the start test run and the until test run, the test results are visible in a data grid.</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0054.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">Also it is possible to show the test results in a HTML page. For this the user can click the Show HTML Page button.</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0055.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"></para>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">Clicking this button will result in the following overview:</text></para>
+    <para styleclass="Body Text"><image src="clip0056.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">Also is is possible to show the test results on the web. For this go to the TestReports directory and you can find all the test results in HTML format.</text></para>
+    <para styleclass="Body Text"><image src="clip0057.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

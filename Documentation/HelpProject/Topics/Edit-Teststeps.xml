@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Edit Test Steps</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Edit Test Steps</text></para>
+    </header>
+    <para styleclass="Normal" style="page-break-before:always;"><text styleclass="Normal" translate="true">All the test steps for the selected test scenario can be edit. You can add test steps or edit or even delete test step. We will explain how you can do that.</text></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"><image src="clip0043.png" scale="100.00%" styleclass="Image Caption"></image></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"></para>
+    <para styleclass="Normal"></para>
+  </body>
+</topic>

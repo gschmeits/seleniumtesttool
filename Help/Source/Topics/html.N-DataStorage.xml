@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">DataStorage Namespace</title>
+  <keywords>
+    <keyword translate="true">DataStorage namespace</keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="title" style="font-family:&apos;Segoe UI&apos;; font-size:16pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">DataStorage Namespace</text></para>
+    </header>
+    <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class GenericDataRead.</text></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Classes</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="typelist" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><table rowcount="31" colcount="3" style="width:100%; cell-padding:1px; cell-spacing:0px; page-break-inside:auto; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#a0a0a0; border-style:solid; background-color:none; head-row-background-color:none; alt-row-background-color:none;">
+      <tr style="vertical-align:top">
+        <td style="width:75px; height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="classSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><text styleclass="iconcolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">&#32;</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="namecolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="descriptioncolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.DatabaseConnection" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">DatabaseConnection</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class DatabaseConnection.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.ElementsFromDatabase" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ElementsFromDatabase</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.General" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">General</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class General.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.GenericDataAccess" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">GenericDataAccess</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_protclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Protected class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.GenericDataConnection" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">GenericDataConnection</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.GenericDataRead" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">GenericDataRead</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.InloggerData" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">InloggerData</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.LastTestRun" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">LastTestRun</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class LastTestRun.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Login" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Login</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Login.Medewerker" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Login</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Login.Medewerker" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.Login.Medewerker" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Medewerker</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.LoginUsers" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">LoginUsers</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.NewElements" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">NewElements</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.NewElements.AllElements" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">NewElements</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.NewElements.AllElements" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.NewElements.AllElements" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">AllElements</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.NewElements.ElementsFromDataGrid" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">NewElements</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.NewElements.ElementsFromDataGrid" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.NewElements.ElementsFromDataGrid" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ElementsFromDataGrid</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.SerialKeyXML" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">SerialKeyXML</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestCases" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestCases</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class TestCases.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResults</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class TestResults.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.TestResultsHTML" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResults</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.TestResultsHTML" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.TestResultsHTML" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsHTML</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class TestResultsHTML.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.Testrun_Browsers" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResults</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.Testrun_Browsers" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.Testrun_Browsers" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Testrun_Browsers</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.Testruns_Selenium" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResults</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.Testruns_Selenium" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.Testruns_Selenium" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Testruns_Selenium</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.TotalTestResultsHTML" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResults</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.TotalTestResultsHTML" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResults.TotalTestResultsHTML" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TotalTestResultsHTML</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class TotalTestResultsHTML.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsFactory</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class TestResultsFactory.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.ResultsCount" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsFactory</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.ResultsCount" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.ResultsCount" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ResultsCount</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class ResultsCount.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.Scenario" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsFactory</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.Scenario" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.Scenario" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Scenario</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class Scenario.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.SelectedScenario" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsFactory</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.SelectedScenario" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.SelectedScenario" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">SelectedScenario</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class SelectedScenario.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.SelectedScenarioCall" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsFactory</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.SelectedScenarioCall" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.SelectedScenarioCall" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">SelectedScenarioCall</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class SelectedScenarioCall.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestCases" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsFactory</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestCases" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestCases" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestCases</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestResultPie" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsFactory</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestResultPie" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestResultPie" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultPie</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class TestResultPie.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestResults" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsFactory</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestResults" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestResults" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResults</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class TestResults.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubclass.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public class</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestResultsSelect" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsFactory</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestResultsSelect" styleclass="cs" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</link><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-DataStorage.TestResultsFactory.TestResultsSelect" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">TestResultsSelect</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Class TestResultsSelect.</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Normal_copyrightfooter" style="text-align:left; text-indent:0px; margin-top:5px; margin-right:13px; margin-bottom:0px; margin-left:13px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="copyrightfooter" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#bbbbbb; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Help File generated with GhostDoc</text></para>
+    <para styleclass="Normal" style="margin-top:4px; margin-right:13px; margin-bottom:4px; margin-left:13px; line-height:1.00; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text></para>
+  </body>
+</topic>

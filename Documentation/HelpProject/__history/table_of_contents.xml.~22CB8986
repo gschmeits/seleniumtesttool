@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map xmlns:xsi="http://www.w3.org/2001/XInclude">
+  <topicref type="topic" id="432355216201432" build="ALL" modified="2018-05-15T08:37:16.692Z" icon="0" href="Introduction">
+    <caption translate="true">Introduction</caption>
+  </topicref>
+  <topicref type="topic" id="432354825741673" build="ALL" modified="2018-05-15T11:04:07.308Z" icon="0" href="Configuration">
+    <caption translate="true">Configuration</caption>
+    <topicref type="topic" id="432354474416133" build="ALL" modified="2018-05-15T11:06:37.812Z" icon="0" href="Border-Color">
+      <caption translate="true">Border Color</caption>
+    </topicref>
+  </topicref>
+  <topicref type="topic" id="432355499126171" build="ALL" modified="2018-05-15T11:01:26.458Z" icon="0" href="Extras">
+    <caption translate="true">Extras</caption>
+    <topicref type="topic" id="432354438281298" build="ALL" modified="2018-05-15T11:01:47.661Z" icon="0" href="Elements-URL">
+      <caption translate="true">Elements URL</caption>
+    </topicref>
+    <topicref type="topic" id="432354015755403" build="ALL" modified="2018-05-15T11:02:01.926Z" icon="0" href="Elements-Database">
+      <caption translate="true">Elements Database</caption>
+    </topicref>
+  </topicref>
+  <topicref type="topic" id="432351946428378" build="ALL" modified="2018-05-15T11:01:16.674Z" icon="0" href="Extra">
+    <caption translate="true">Help</caption>
+    <topicref type="topic" id="432354147132760" build="ALL" modified="2018-05-15T09:22:42.296Z" icon="0" href="License">
+      <caption translate="true">License</caption>
+    </topicref>
+  </topicref>
+</map>

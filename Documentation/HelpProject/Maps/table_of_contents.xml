@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map xmlns:xsi="http://www.w3.org/2001/XInclude">
+  <topicref type="topic" id="432355216201432" build="ALL" modified="2018-05-15T08:37:16.692Z" icon="0" href="Introduction">
+    <caption translate="true">Introduction</caption>
+  </topicref>
+  <topicref type="topic" id="432354825741673" build="ALL" modified="2018-05-15T11:04:07.308Z" icon="0" href="Configuration">
+    <caption translate="true">Configuration</caption>
+    <topicref type="topic" id="432354474416133" build="ALL" modified="2018-05-15T11:06:37.812Z" icon="0" href="Border-Color">
+      <caption translate="true">Border Color</caption>
+    </topicref>
+    <topicref type="topic" id="432363525433979" build="ALL" modified="2018-05-16T10:03:06.633Z" icon="0" href="Border-Width">
+      <caption translate="true">Border Thickness</caption>
+    </topicref>
+    <topicref type="topic" id="432365246493240" build="ALL" modified="2018-05-16T10:10:10.993Z" icon="0" href="Duration">
+      <caption translate="true">Duration</caption>
+    </topicref>
+    <topicref type="topic" id="432366134689124" build="ALL" modified="2018-05-16T11:00:19.270Z" icon="0" href="Extra-Checks">
+      <caption translate="true">Extra Checks</caption>
+    </topicref>
+  </topicref>
+  <topicref type="topic" id="432355499126171" build="ALL" modified="2018-05-15T11:01:26.458Z" icon="0" href="Extras">
+    <caption translate="true">Extras</caption>
+    <topicref type="topic" id="432354438281298" build="ALL" modified="2018-05-15T11:01:47.661Z" icon="0" href="Elements-URL">
+      <caption translate="true">Elements URL</caption>
+    </topicref>
+    <topicref type="topic" id="432354015755403" build="ALL" modified="2018-05-15T11:02:01.926Z" icon="0" href="Elements-Database">
+      <caption translate="true">Elements Database</caption>
+    </topicref>
+  </topicref>
+  <topicref type="topic" id="43235177279944" build="ALL" modified="2018-05-16T12:11:28.676Z" icon="0" href="Bulk-Changes">
+    <caption translate="true">Bulk Changes</caption>
+    <topicref type="topic" id="432363775025656" build="ALL" modified="2018-05-16T13:04:38.922Z" icon="0" href="Import-Elements">
+      <caption translate="true">Import Elements</caption>
+    </topicref>
+    <topicref type="topic" id="432363210536175" build="ALL" modified="2018-05-16T12:12:49.579Z" icon="0" href="Copy-Elements">
+      <caption translate="true">Copy Elements</caption>
+    </topicref>
+    <topicref type="topic" id="432365836213508" build="ALL" modified="2018-05-16T12:12:59.865Z" icon="0" href="Delete-Elements">
+      <caption translate="true">Delete Elements</caption>
+    </topicref>
+  </topicref>
+  <topicref type="topic" id="432363922289616" build="ALL" modified="2018-05-16T12:11:06.879Z" icon="0" href="Edit-Teststeps">
+    <caption translate="true">Edit Test Steps</caption>
+  </topicref>
+  <topicref type="topic" id="432363739589516" build="ALL" modified="2018-05-16T12:10:06.120Z" icon="0" href="Test-Execution">
+    <caption translate="true">Test Execution</caption>
+  </topicref>
+  <topicref type="topic" id="432697715109210" build="ALL" modified="2018-06-18T13:30:25.694Z" icon="0" href="Test-Results">
+    <caption translate="true">Test Results</caption>
+  </topicref>
+</map>

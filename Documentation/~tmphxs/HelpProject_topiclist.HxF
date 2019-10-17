@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE HelpFileList SYSTEM "ms-help://hx/resources/HelpFileList.DTD">
+<HelpFileList DTDVersion="1.0">
+<File Url="border-color.html"/>
+<File Url="configuration.html"/>
+<File Url="elements-database.html"/>
+<File Url="elements-url.html"/>
+<File Url="extra.html"/>
+<File Url="extras.html"/>
+<File Url="introduction.html"/>
+<File Url="license.html"/>
+<File Url="hmpopup_html.js"/>
+<File Url="helpman_topicinit.js"/>
+<File Url="jquery.js"/>
+<File Url="helpman_settings.js"/>
+<File Url="default.css"/>
+</HelpFileList>

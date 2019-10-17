@@ -1,0 +1,5 @@
+CREATE TABLE `autotest`.`selenium_elements` (
+  `idselenium_elements` BIGINT NOT NULL AUTO_INCREMENT,
+  `tagname` VARCHAR(255) NULL,
+  `selenium_elementscol` VARCHAR(45) NULL,
+  PRIMARY KEY (`idselenium_elements`));

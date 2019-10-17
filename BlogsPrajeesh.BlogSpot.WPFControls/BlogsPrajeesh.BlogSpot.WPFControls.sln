@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogsPrajeesh.BlogSpot.WPFControls", "BlogsPrajeesh.BlogSpot.WPFControls.csproj", "{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Basis|Any CPU = Basis|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Planning|Any CPU = Planning|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Winkelorder|Any CPU = Winkelorder|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Basis|Any CPU.ActiveCfg = Release|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Basis|Any CPU.Build.0 = Release|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Planning|Any CPU.ActiveCfg = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Planning|Any CPU.Build.0 = Planning|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Winkelorder|Any CPU.ActiveCfg = Release|Any CPU
+		{FB5058F4-D8F2-4396-8703-C0F0DA8974B9}.Winkelorder|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

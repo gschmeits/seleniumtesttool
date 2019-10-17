@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Introduction</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Introduction</text></para>
+    </header>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">A few years ago I was working on a project where we are working on add ins for Office365. These add ins must be tested when they where ready.</text></para>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">For this all the tests where created with Visual Studio with using Selenium. That was working fine. But there are some little issues to work with that:</text></para>
+    <list id="0" type="ul" listtype="bullet" formatstring="&#183;" format-charset="SYMBOL_CHARSET" levelreset="true" legalstyle="false" startfrom="1" styleclass="Body Text" style="font-family:Symbol; font-size:11pt; color:#000000;">
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">You need developer experience to use this</text></li>
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">It is a labor-intensive process to create test scenarios</text></li>
+      <li styleclass="Body Text"><text styleclass="Body Text" translate="true">Visual Studio is needed to create and update the tests</text></li>
+    </list>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">With this solution everybody can create, updating and executing test scenarios for web sites.</text></para>
+    <para styleclass="Body Text"><text styleclass="Body Text" translate="true">So, hopefully the user likes this application.</text></para>
+    <para styleclass="Body Text"></para>
+  </body>
+</topic>

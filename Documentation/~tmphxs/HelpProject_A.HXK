@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE HelpIndex SYSTEM "MS-Help://Hx/Resources/HelpIndex.DTD">
+<HelpIndex Name="A" DTDVersion="1.0" Visible="No" LangId="1033">
+<Keyword Term="Border Color">
+  <Jump Url="border-color.html"/>
+</Keyword>
+</HelpIndex>

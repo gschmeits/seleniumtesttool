@@ -1,0 +1,153 @@
+﻿<Window x:Class="WPFTestResults.SettingsTextScript"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Settings - TextScript"
+        Height="300"
+        Width="600"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow">
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1"
+                                 MappingMode="RelativeToBoundingBox"
+                                 StartPoint="0.5,0">
+                <GradientStop Color="White"
+                              Offset="1" />
+                <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"
+                              Offset="0.01" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Test Script Settings"
+               Grid.ColumnSpan="2"
+               FontSize="22"
+               FontWeight="Bold"
+               VerticalAlignment="Center"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center" />
+        <Label Grid.Row="3"
+               Grid.Column="0"
+               Content="TestSet Name:"
+               Margin="5,0"
+               VerticalAlignment="Center"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" />
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               Content="URL:"
+               Margin="5,0"
+               VerticalAlignment="Center"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" />
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Content="Applicationname:"
+               Margin="0,5,5,0"
+               VerticalAlignment="Top"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" Height="28" />
+        <Label Grid.Row="4"
+               Grid.Column="0"
+               Content="Page Nr.:"
+               Margin="0,5,5,0"
+               VerticalAlignment="Top"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" Height="28" />
+        <TextBox Name="TextBoxTestSetName"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Margin="5,5,10,4"
+                 Height="24"
+                 VerticalAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 TextWrapping="Wrap"
+                 KeyDown="TextBoxTestSetName_KeyDown" />
+        <TextBox Name="TextBoxURL"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Margin="5,4,10,5"
+                 Height="24"
+                 VerticalAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 TextWrapping="Wrap"
+                 KeyDown="TextBoxURL_KeyDown" />
+        <TextBox Name="TextBoxApplication"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 Margin="5,5,10,0"
+                 Height="24"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 TextWrapping="Wrap"
+                 KeyDown="TextBoxApplication_KeyDown" />
+        <TextBox Name="TextBoxPage"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Margin="5,5,10,0"
+                 Height="24"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Width="90"
+                 KeyDown="TextBoxApplication_KeyDown" />
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2">
+            <Button Name="ButtonSaveTestSet"
+                    Style="{DynamicResource MyButtonStyle}"
+                    Grid.Row="4"
+                    Margin="5,45,5,15"
+                    Height="32"
+                    Width="150"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.ColumnSpan="2"
+                    IsEnabled="False"
+                    Content="Save TestSet"
+                    Click="ButtonSaveTestSet_Click" />
+            <Button Name="ButtonCreateTestSet"
+                    Style="{DynamicResource MyButtonStyle}"
+                    Grid.Row="4"
+                    Margin="5,45,5,15"
+                    Height="32"
+                    Width="150"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.ColumnSpan="2"
+                    Content="Create New TestSet"
+                    Click="ButtonCreateTestSet_Click" />
+
+
+        </StackPanel>
+
+        <Button Name="ButtonGetTestSet"
+                Style="{DynamicResource MyButtonStyle}"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="5,0"
+                Height="32"
+                Width="75"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Content="Get TestSet"
+                Click="ButtonGetTestSet_Click" />
+    </Grid>
+</Window>
