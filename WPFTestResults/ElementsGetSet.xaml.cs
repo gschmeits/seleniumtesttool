@@ -17,8 +17,6 @@ namespace WPFTestResults
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Data;
-    using System.Diagnostics;
     using System.IO;
     using System.Linq;
     using System.Net;
@@ -45,7 +43,6 @@ namespace WPFTestResults
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Interactions;
-    using OpenQA.Selenium.Remote;
     using OpenQA.Selenium.Support.UI;
 
     using UrlFactory;
@@ -380,6 +377,65 @@ namespace WPFTestResults
             return thisVisible;
         }
 
+        private void ActieUitvoeren(
+            IWebElement content,
+            string actie,
+            string tekst1,
+            ChromeDriver driver1,
+            string attribute = "")
+        {
+            var actions = new Actions(driver1);
+
+            switch (actie.ToLower())
+            {
+                case "click":
+                    actions = new Actions(driver1);
+                    actions.MoveToElement(content);
+                    actions.Perform();
+                    content.Click();
+                    break;
+                case "value":
+                    if (tekst1 != string.Empty)
+                    {
+                        actions = new Actions(driver1);
+                        actions.MoveToElement(content);
+                        actions.Perform();
+                        content.Click();
+                        content.Clear();
+                        content.SendKeys(tekst1);
+                    }
+
+                    break;
+                case "sendkeys":
+                    actions = new Actions(driver1);
+                    actions.MoveToElement(content);
+                    actions.Perform();
+                    content.Click();
+                    content.Clear();
+                    content.SendKeys(tekst1);
+                    break;
+                case "select":
+                    IWebElement education = null;
+                    SelectElement selectElement = null;
+
+                    selectElement = new SelectElement(content);
+                    selectElement.SelectByText(tekst1);
+                    break;
+                case "move_to":
+                    actions = new Actions(driver1);
+                    actions.MoveToElement(content);
+                    actions.Perform();
+                    break;
+                case "upload":
+                    var file1 = tekst1.Replace("\'", "\\'");
+                    content.Click();
+                    Thread.Sleep(5000);
+                    SendKeys.SendWait(file1);
+                    SendKeys.SendWait(@"{Enter}");
+                    break;
+            }
+        }
+
         /// <summary>
         ///     Handles the Click event of the ButtonCheckboxCheckAll control.
         /// </summary>
@@ -676,7 +732,7 @@ namespace WPFTestResults
 
                             var num2 = num1 + 1;
                             if (this.PasswordAtrribute.SelectedIndex != 0 && this.PasswordTag.Text != string.Empty
-                                                                      && this.PasswordText.Password != string.Empty)
+                                                                          && this.PasswordText.Password != string.Empty)
                             {
                                 DataStorage.TestCases.AddTestCase(
                                     bestandsnaam,
@@ -685,7 +741,7 @@ namespace WPFTestResults
                                     this.PasswordTag.Text,
                                     this.PasswordTag.Text,
                                     this.PasswordAtrribute.Text.ToLower(),
-                                    ComboBoxAction3.Text,
+                                    this.ComboBoxAction3.Text,
                                     string.Empty,
                                     string.Empty,
                                     "yes",
@@ -709,7 +765,7 @@ namespace WPFTestResults
                                     "LoginButton",
                                     this.ButtonTag.Text,
                                     this.ButtonAttribute.Text.ToLower(),
-                                    ComboBoxAction4.Text,
+                                    this.ComboBoxAction4.Text,
                                     string.Empty,
                                     string.Empty,
                                     "yes",
@@ -724,8 +780,10 @@ namespace WPFTestResults
 
                             var num4 = num3 + 1;
 
-
-                            if (this.ButtonAttributeExtra1.Text != string.Empty && ButtonTagnameExtra1.Text != string.Empty && DescriptionExtra1.Text != string.Empty && ComboBoxAction5.SelectedIndex != 0)
+                            if (this.ButtonAttributeExtra1.Text != string.Empty
+                                && this.ButtonTagnameExtra1.Text != string.Empty
+                                && this.DescriptionExtra1.Text != string.Empty
+                                && this.ComboBoxAction5.SelectedIndex != 0)
                             {
                                 DataStorage.TestCases.AddTestCase(
                                     bestandsnaam,
@@ -743,13 +801,15 @@ namespace WPFTestResults
                                     string.Empty,
                                     this.DescriptionExtra1.Text,
                                     string.Empty,
-                                    ComboBoxAction5.Text,
+                                    this.ComboBoxAction5.Text,
                                     string.Empty);
-
                             }
 
                             var num5 = num4 + 1;
-                            if (this.ButtonAttributeExtra2.Text != string.Empty && ButtonTagnameExtra2.Text != string.Empty && DescriptionExtra2.Text != string.Empty && ComboBoxAction6.SelectedIndex != 0)
+                            if (this.ButtonAttributeExtra2.Text != string.Empty
+                                && this.ButtonTagnameExtra2.Text != string.Empty
+                                && this.DescriptionExtra2.Text != string.Empty
+                                && this.ComboBoxAction6.SelectedIndex != 0)
                             {
                                 DataStorage.TestCases.AddTestCase(
                                     bestandsnaam,
@@ -758,7 +818,7 @@ namespace WPFTestResults
                                     this.DescriptionExtra2.Text,
                                     this.ButtonTagnameExtra2.Text,
                                     this.ButtonAttributeExtra2.Text.ToLower(),
-                                    ComboBoxAction6.Text,
+                                    this.ComboBoxAction6.Text,
                                     string.Empty,
                                     string.Empty,
                                     "yes",
@@ -767,28 +827,31 @@ namespace WPFTestResults
                                     string.Empty,
                                     this.DescriptionExtra2.Text,
                                     string.Empty,
-                                    ComboBoxAction6.Text,
+                                    this.ComboBoxAction6.Text,
                                     string.Empty);
                             }
+
                             var num6 = num5 + 1;
 
-                            if (this.ButtonAttributeExtra3.Text != string.Empty && ButtonTagnameExtra3.Text != string.Empty && DescriptionExtra3.Text != string.Empty && ComboBoxAction2.SelectedIndex != 0)
+                            if (this.ButtonAttributeExtra3.Text != string.Empty
+                                && this.ButtonTagnameExtra3.Text != string.Empty
+                                && this.DescriptionExtra3.Text != string.Empty
+                                && this.ComboBoxAction2.SelectedIndex != 0)
                             {
                                 var testtext = string.Empty;
-                                if (ComboBoxAction2.Text == "select" | ComboBoxAction2.Text == "value")
+                                if (this.ComboBoxAction2.Text == "select" | this.ComboBoxAction2.Text == "value")
                                 {
-                                    testtext = DescriptionExtra3.Text;
+                                    testtext = this.DescriptionExtra3.Text;
                                 }
-
 
                                 DataStorage.TestCases.AddTestCase(
                                     bestandsnaam,
                                     this.Order6.Text,
-                                    ButtonTagnameExtra3.Text,
-                                    ButtonTagnameExtra3.Text,
+                                    this.ButtonTagnameExtra3.Text,
+                                    this.ButtonTagnameExtra3.Text,
                                     this.ButtonTagnameExtra3.Text,
                                     this.ButtonAttributeExtra3.Text.ToLower(),
-                                    ComboBoxAction2.Text,
+                                    this.ComboBoxAction2.Text,
                                     testtext,
                                     string.Empty,
                                     "yes",
@@ -797,7 +860,7 @@ namespace WPFTestResults
                                     string.Empty,
                                     this.DescriptionExtra3.Text,
                                     string.Empty,
-                                    ComboBoxAction2.Text,
+                                    this.ComboBoxAction2.Text,
                                     string.Empty);
                             }
 
@@ -1084,19 +1147,80 @@ namespace WPFTestResults
 
         private void DataGridElements_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            var dataGridRow = DataGridElements.Items.IndexOf(DataGridElements.CurrentItem);
-            var dataGridColumn = DataGridElements.CurrentColumn;
+            var dataGridRow = this.DataGridElements.Items.IndexOf(this.DataGridElements.CurrentItem);
+            var dataGridColumn = this.DataGridElements.CurrentColumn;
             if (dataGridColumn.ToString() == "1")
             {
                 var isChecked1 = (this.DataGridElements.Columns[1].GetCellContent(dataGridRow) as CheckBox).IsChecked;
             }
+
             if (dataGridColumn.ToString() == "1")
             {
                 var isChecked8 = (this.DataGridElements.Columns[8].GetCellContent(dataGridRow) as CheckBox).IsChecked;
             }
+        }
 
+        private void DataGridElements_CurrentCellChanged(object sender, EventArgs e)
+        {
+            var dataGridRow = this.DataGridElements.Items.IndexOf(this.DataGridElements.CurrentItem);
+            var kolom = this.DataGridElements.CurrentColumn;
+            var checkedGer = false;
+            var checkedGer0 = false;
+            DataGridRow row = (DataGridRow)this.DataGridElements.ItemContainerGenerator.ContainerFromIndex(dataGridRow);
+            TextBlock cellContent = this.DataGridElements.Columns[0].GetCellContent(row) as TextBlock;
+            TextBlock cellContentText = this.DataGridElements.Columns[5].GetCellContent(row) as TextBlock;
+            CheckBox cellContent1 = this.DataGridElements.Columns[8].GetCellContent(row) as CheckBox;
+            CheckBox cellContent0 = this.DataGridElements.Columns[0].GetCellContent(row) as CheckBox;
 
+            this.url = this.ElementSetting != "SET" ? this.TextBoxURL.Text : this.ComboBoxURL.Text;
 
+            if (kolom.DisplayIndex == 0)
+            {
+                if (cellContent0.IsChecked == false)
+                {
+                    checkedGer0 = true;
+                }
+                else
+                {
+                    checkedGer0 = false;
+                }
+
+                ElementsFromDatabase.UpdateCheckBox(cellContent.Text, checkedGer0);
+            }
+
+            if (kolom.DisplayIndex == 8)
+            {
+                if (cellContent1.IsChecked == false)
+                {
+                    checkedGer = true;
+                }
+                else
+                {
+                    checkedGer = false;
+                }
+
+                if (checkedGer == true)
+                {
+                    ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, cellContentText.Text);
+                }
+                else
+                {
+                    ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, string.Empty);
+                }
+            }
+
+            if (kolom.DisplayIndex == 8)
+            {
+
+                this.DataGridElements.ItemsSource = null;
+                this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
+            }
+            if (kolom.DisplayIndex == 0)
+            {
+
+                this.DataGridElements.ItemsSource = null;
+                this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
+            }
         }
 
         /// <summary>
@@ -1300,6 +1424,37 @@ namespace WPFTestResults
             foreach (var childNode in node.ChildNodes) this.ExamineNode(childNode, driver2WebDriver);
         }
 
+        private IWebElement FindElement(string AttributeText, string TagText, ChromeDriver driver1)
+        {
+            IWebElement content = null;
+
+            switch (AttributeText.ToUpper())
+            {
+                case "NAME":
+                    driver1.FindElement(By.Name(TagText));
+                    content = driver1.FindElement(By.Name(TagText));
+                    break;
+                case "XPATH":
+                    driver1.FindElement(By.XPath(TagText));
+                    content = driver1.FindElement(By.XPath(TagText));
+                    break;
+                case "CLASS":
+                    driver1.FindElement(By.ClassName(TagText));
+                    content = driver1.FindElement(By.ClassName(TagText));
+                    break;
+                case "ID":
+                    driver1.FindElement(By.Id(TagText));
+                    content = driver1.FindElement(By.Id(TagText));
+                    break;
+                case "CSSSELECTOR":
+                    driver1.FindElement(By.CssSelector(TagText));
+                    content = driver1.FindElement(By.CssSelector(TagText));
+                    break;
+            }
+
+            return content;
+        }
+
         /// <summary>
         ///     Finds the test applications.
         /// </summary>
@@ -1366,76 +1521,118 @@ namespace WPFTestResults
                             _driver.Navigate().GoToUrl(this.TextBoxURL.Text);
                             _driver.Manage().Window.Maximize();
 
-
                             IWebElement content = null;
 
                             for (int i = 1; i < 7; i++)
                             {
-                                if (Order1.Text == i.ToString())
+                                if (this.Order1.Text == i.ToString())
                                 {
-                                    if (ComboBoxAction1.Text != string.Empty && UserText.Text != string.Empty)
+                                    if (this.ComboBoxAction1.Text != string.Empty && this.UserText.Text != string.Empty)
                                     {
-                                        content = FindElement(UserAttribute.Text.ToLower(), UserTag.Text.ToLower(), _driver);
-                                        ActieUitvoeren(content, ComboBoxAction1.Text, UserText.Text, _driver, UserAttribute.Text);
+                                        content = this.FindElement(
+                                            this.UserAttribute.Text.ToLower(),
+                                            this.UserTag.Text.ToLower(),
+                                            _driver);
+                                        this.ActieUitvoeren(
+                                            content,
+                                            this.ComboBoxAction1.Text,
+                                            this.UserText.Text,
+                                            _driver,
+                                            this.UserAttribute.Text);
                                     }
                                 }
 
-                                if (Order2.Text == i.ToString())
+                                if (this.Order2.Text == i.ToString())
                                 {
-                                    if (ComboBoxAction3.Text != string.Empty && PasswordText.Password != string.Empty)
+                                    if (this.ComboBoxAction3.Text != string.Empty
+                                        && this.PasswordText.Password != string.Empty)
                                     {
-                                        content = FindElement(
-                                            PasswordAtrribute.Text.ToLower(),
-                                            PasswordTag.Text.ToLower(), _driver);
-                                        ActieUitvoeren(content, ComboBoxAction3.Text, PasswordText.Password, _driver, PasswordAtrribute.Text);
+                                        content = this.FindElement(
+                                            this.PasswordAtrribute.Text.ToLower(),
+                                            this.PasswordTag.Text.ToLower(),
+                                            _driver);
+                                        this.ActieUitvoeren(
+                                            content,
+                                            this.ComboBoxAction3.Text,
+                                            this.PasswordText.Password,
+                                            _driver,
+                                            this.PasswordAtrribute.Text);
                                     }
                                 }
 
-                                if (Order3.Text == i.ToString())
+                                if (this.Order3.Text == i.ToString())
                                 {
-                                    if (ComboBoxAction4.Text != string.Empty)
+                                    if (this.ComboBoxAction4.Text != string.Empty)
                                     {
-                                        content = FindElement(ButtonAttribute.Text.ToLower(), ButtonTag.Text.ToLower(), _driver);
-                                        ActieUitvoeren(content, ComboBoxAction4.Text, "", _driver, ButtonAttribute.Text);
+                                        content = this.FindElement(
+                                            this.ButtonAttribute.Text.ToLower(),
+                                            this.ButtonTag.Text.ToLower(),
+                                            _driver);
+                                        this.ActieUitvoeren(
+                                            content,
+                                            this.ComboBoxAction4.Text,
+                                            string.Empty,
+                                            _driver,
+                                            this.ButtonAttribute.Text);
                                     }
                                 }
 
-                                if (Order4.Text == i.ToString())
+                                if (this.Order4.Text == i.ToString())
                                 {
-                                    if (ComboBoxAction5.Text != string.Empty && DescriptionExtra1.Text != string.Empty)
+                                    if (this.ComboBoxAction5.Text != string.Empty
+                                        && this.DescriptionExtra1.Text != string.Empty)
                                     {
-                                        content = FindElement(
-                                            ButtonAttributeExtra1.Text.ToLower(),
-                                            ButtonTagnameExtra1.Text.ToLower(), _driver);
-                                        ActieUitvoeren(content, ComboBoxAction5.Text, DescriptionExtra1.Text, _driver, ButtonAttributeExtra1.Text);
+                                        content = this.FindElement(
+                                            this.ButtonAttributeExtra1.Text.ToLower(),
+                                            this.ButtonTagnameExtra1.Text.ToLower(),
+                                            _driver);
+                                        this.ActieUitvoeren(
+                                            content,
+                                            this.ComboBoxAction5.Text,
+                                            this.DescriptionExtra1.Text,
+                                            _driver,
+                                            this.ButtonAttributeExtra1.Text);
                                     }
                                 }
 
-                                if (Order5.Text == i.ToString())
+                                if (this.Order5.Text == i.ToString())
                                 {
-                                    if (ComboBoxAction6.Text != string.Empty && DescriptionExtra2.Text != string.Empty)
+                                    if (this.ComboBoxAction6.Text != string.Empty
+                                        && this.DescriptionExtra2.Text != string.Empty)
                                     {
-                                        content = FindElement(
-                                            ButtonAttributeExtra2.Text.ToLower(),
-                                            ButtonTagnameExtra2.Text.ToLower(), _driver);
-                                        ActieUitvoeren(content, ComboBoxAction6.Text, DescriptionExtra2.Text, _driver, ButtonAttributeExtra2.Text);
+                                        content = this.FindElement(
+                                            this.ButtonAttributeExtra2.Text.ToLower(),
+                                            this.ButtonTagnameExtra2.Text.ToLower(),
+                                            _driver);
+                                        this.ActieUitvoeren(
+                                            content,
+                                            this.ComboBoxAction6.Text,
+                                            this.DescriptionExtra2.Text,
+                                            _driver,
+                                            this.ButtonAttributeExtra2.Text);
                                     }
                                 }
 
-                                if (Order6.Text == i.ToString())
+                                if (this.Order6.Text == i.ToString())
                                 {
-                                    if (ComboBoxAction2.Text != string.Empty && DescriptionExtra3.Text != string.Empty)
+                                    if (this.ComboBoxAction2.Text != string.Empty
+                                        && this.DescriptionExtra3.Text != string.Empty)
                                     {
-                                        content = FindElement(
-                                            ButtonAttributeExtra3.Text.ToLower(),
-                                            ButtonTagnameExtra3.Text.ToLower(), _driver);
-                                        ActieUitvoeren(content, ComboBoxAction2.Text, DescriptionExtra3.Text, _driver, ButtonAttributeExtra3.Text);
+                                        content = this.FindElement(
+                                            this.ButtonAttributeExtra3.Text.ToLower(),
+                                            this.ButtonTagnameExtra3.Text.ToLower(),
+                                            _driver);
+                                        this.ActieUitvoeren(
+                                            content,
+                                            this.ComboBoxAction2.Text,
+                                            this.DescriptionExtra3.Text,
+                                            _driver,
+                                            this.ButtonAttributeExtra3.Text);
                                     }
                                 }
                             }
 
                             yy = new HashSet<string>();
-
 
                             this.HaalGegevensSite(_driver, this.TextBoxURL.Text);
                             foreach (var urlstring in yy.ToList()) this.HaalGegevensSite(_driver, urlstring);
@@ -1488,92 +1685,6 @@ namespace WPFTestResults
                 this.LabelFoundElements.Content = "Found Elements: " + this.DataGridElements.Items.Count;
                 this.LabelFoundElements.Visibility = Visibility.Visible;
             }
-        }
-
-
-        private void ActieUitvoeren(IWebElement content, string actie, string tekst1, ChromeDriver driver1, string attribute = "")
-        {
-            var actions = new Actions(driver1);
-
-            switch (actie.ToLower())
-            {
-                case "click":
-                    actions = new Actions(driver1);
-                    actions.MoveToElement(content);
-                    actions.Perform();
-                    content.Click();
-                    break;
-                case "value":
-                    if (tekst1 != string.Empty)
-                    {
-                        actions = new Actions(driver1);
-                        actions.MoveToElement(content);
-                        actions.Perform();
-                        content.Click();
-                        content.Clear();
-                        content.SendKeys(tekst1);
-                    }
-
-                    break;
-                case "sendkeys":
-                    actions = new Actions(driver1);
-                    actions.MoveToElement(content);
-                    actions.Perform();
-                    content.Click();
-                    content.Clear();
-                    content.SendKeys(tekst1);
-                    break;
-                case "select":
-                    IWebElement education = null;
-                    SelectElement selectElement = null;
-
-                    selectElement = new SelectElement(content);
-                    selectElement.SelectByText(tekst1);
-                    break;
-                case "move_to":
-                    actions = new Actions(driver1);
-                    actions.MoveToElement(content);
-                    actions.Perform();
-                    break;
-                case "upload":
-                    var file1 = tekst1.Replace("\'", "\\'");
-                    content.Click();
-                    Thread.Sleep(5000);
-                    SendKeys.SendWait(file1);
-                    SendKeys.SendWait(@"{Enter}");
-                    break;
-            }
-        }
-
-        private IWebElement FindElement(string AttributeText, string TagText, ChromeDriver driver1)
-        {
-            IWebElement content = null;
-
-            switch (AttributeText.ToUpper())
-            {
-                case "NAME":
-                    driver1.FindElement(By.Name(TagText));
-                    content = driver1.FindElement(By.Name(TagText));
-                    break;
-                case "XPATH":
-                    driver1.FindElement(By.XPath(TagText));
-                    content = driver1.FindElement(By.XPath(TagText));
-                    break;
-                case "CLASS":
-                    driver1.FindElement(By.ClassName(TagText));
-                    content = driver1.FindElement(By.ClassName(TagText));
-                    break;
-                case "ID":
-                    driver1.FindElement(By.Id(TagText));
-                    content = driver1.FindElement(By.Id(TagText));
-                    break;
-                case "CSSSELECTOR":
-                    driver1.FindElement(By.CssSelector(TagText));
-                    content = driver1.FindElement(By.CssSelector(TagText));
-                    break;
-            }
-
-            return content;
         }
 
         /// <summary>
@@ -1929,66 +2040,6 @@ namespace WPFTestResults
 
             this.LeegMaken();
         }
-
-        private void DataGridElements_CurrentCellChanged(object sender, EventArgs e)
-        {
-            var dataGridRow = DataGridElements.Items.IndexOf(DataGridElements.CurrentItem);
-            var kolom = DataGridElements.CurrentColumn;
-            var checkedGer = false;
-            var checkedGer0 = false;
-            DataGridRow row = (DataGridRow)DataGridElements.ItemContainerGenerator.ContainerFromIndex(dataGridRow);
-            TextBlock cellContent = DataGridElements.Columns[0].GetCellContent(row) as TextBlock;
-            TextBlock cellContentText = DataGridElements.Columns[5].GetCellContent(row) as TextBlock;
-            CheckBox cellContent1 = DataGridElements.Columns[8].GetCellContent(row) as CheckBox;
-            CheckBox cellContent0 = DataGridElements.Columns[0].GetCellContent(row) as CheckBox;
-
-            this.url = this.ElementSetting != "SET" ? this.TextBoxURL.Text : this.ComboBoxURL.Text;
-
-            if (kolom.DisplayIndex == 0)
-            {
-                if (cellContent0.IsChecked == false)
-                {
-                    checkedGer0 = true;
-                }
-                else
-                {
-                    checkedGer0 = false;
-                }
-
-                ElementsFromDatabase.UpdateCheckBox(cellContent.Text, checkedGer0);
-
-
-            if (kolom.DisplayIndex == 8)
-            {
-
-                if (cellContent1.IsChecked == false)
-                {
-                    checkedGer = true;
-                }
-                else
-                {
-                    checkedGer = false;
-                }
-
-                if (checkedGer == true)
-                {
-                    ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, cellContentText.Text);
-                }
-                else
-                {
-                    ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, string.Empty);
-                }
-
-            }
-
-            if (kolom.DisplayIndex == 8 | kolom.DisplayIndex = 0)
-            {
-
-                this.DataGridElements.ItemsSource = null;
-                this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
-            }
-
-            }
     }
 
     /// <summary>
