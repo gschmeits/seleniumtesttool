@@ -1084,10 +1084,19 @@ namespace WPFTestResults
 
         private void DataGridElements_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            /*var g = DataGridElements.CurrentCell.RowIndex
+            var dataGridRow = DataGridElements.Items.IndexOf(DataGridElements.CurrentItem);
+            var dataGridColumn = DataGridElements.CurrentColumn;
+            if (dataGridColumn.ToString() == "1")
+            {
+                var isChecked1 = (this.DataGridElements.Columns[1].GetCellContent(dataGridRow) as CheckBox).IsChecked;
+            }
+            if (dataGridColumn.ToString() == "1")
+            {
+                var isChecked8 = (this.DataGridElements.Columns[8].GetCellContent(dataGridRow) as CheckBox).IsChecked;
+            }
 
-            DataGridElements.Columns[1].GetCellContent(DataGridRow.C)
-            var isChecked = (this.DataGridElements.Columns[1].GetCellContent() as CheckBox).IsChecked;*/
+
+
         }
 
         /// <summary>
@@ -1920,6 +1929,66 @@ namespace WPFTestResults
 
             this.LeegMaken();
         }
+
+        private void DataGridElements_CurrentCellChanged(object sender, EventArgs e)
+        {
+            var dataGridRow = DataGridElements.Items.IndexOf(DataGridElements.CurrentItem);
+            var kolom = DataGridElements.CurrentColumn;
+            var checkedGer = false;
+            var checkedGer0 = false;
+            DataGridRow row = (DataGridRow)DataGridElements.ItemContainerGenerator.ContainerFromIndex(dataGridRow);
+            TextBlock cellContent = DataGridElements.Columns[0].GetCellContent(row) as TextBlock;
+            TextBlock cellContentText = DataGridElements.Columns[5].GetCellContent(row) as TextBlock;
+            CheckBox cellContent1 = DataGridElements.Columns[8].GetCellContent(row) as CheckBox;
+            CheckBox cellContent0 = DataGridElements.Columns[0].GetCellContent(row) as CheckBox;
+
+            this.url = this.ElementSetting != "SET" ? this.TextBoxURL.Text : this.ComboBoxURL.Text;
+
+            if (kolom.DisplayIndex == 0)
+            {
+                if (cellContent0.IsChecked == false)
+                {
+                    checkedGer0 = true;
+                }
+                else
+                {
+                    checkedGer0 = false;
+                }
+
+                ElementsFromDatabase.UpdateCheckBox(cellContent.Text, checkedGer0);
+
+
+            if (kolom.DisplayIndex == 8)
+            {
+
+                if (cellContent1.IsChecked == false)
+                {
+                    checkedGer = true;
+                }
+                else
+                {
+                    checkedGer = false;
+                }
+
+                if (checkedGer == true)
+                {
+                    ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, cellContentText.Text);
+                }
+                else
+                {
+                    ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, string.Empty);
+                }
+
+            }
+
+            if (kolom.DisplayIndex == 8 | kolom.DisplayIndex = 0)
+            {
+
+                this.DataGridElements.ItemsSource = null;
+                this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
+            }
+
+            }
     }
 
     /// <summary>

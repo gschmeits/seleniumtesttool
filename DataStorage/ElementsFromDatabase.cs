@@ -52,9 +52,24 @@ namespace DataStorage
             General.ExecuteQueryCommand(query);
         }
 
-        public static void UpdateCheckBox(string id)
+        public static void UpdateCheckBox(string id, Boolean wel)
         {
+            var selecteren = 0;
+            if (wel == true)
+            {
+                selecteren = 1;
+            }
+            var query = "UPDATE selenium_elements ";
+            query += "SET selenium_check = '" + selecteren + "' WHERE id = " + id + ";";
+            General.ExecuteQueryCommand(query);
 
+        }
+
+        public static void UpdateCheckBoxText(string id, string tekst)
+        {
+            var query = "UPDATE selenium_elements ";
+            query += "SET text = '" + tekst + "' WHERE id = " + id + ";";
+            General.ExecuteQueryCommand(query);
         }
 
 
