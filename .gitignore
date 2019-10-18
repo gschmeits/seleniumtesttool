@@ -262,16 +262,15 @@ __pycache__/
 *.pyc
 
 **/Documentation/
-**/old/*.*
-**/Documentation/*.*
-**/Help/*.*
-**/Data/*.*
+**/old/*
+**/Documentation/*
+**/Help/*
+**/Data/*
 *.exe
 vtmiddenbra*.*
-**/Console*.*
+**/Console*.*/*
 **/screenshots/*.png
-**/Data/*.*
-**/WindowsFormsApp1/*.*
-**/hulpmiddelen/*.*
-**/packages/*.*
-
+**/Data/*
+**/WindowsFormsApp1/*
+**/hulpmiddelen/*
+**/packages/*
