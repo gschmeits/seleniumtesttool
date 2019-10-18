@@ -1,0 +1,415 @@
+﻿<Window x:Class="WPFTestResults.ElementsGetSet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFTestResults"
+        mc:Ignorable="d"
+        Closing="Window_Closing" Loaded="Window_Loaded" Title="Extras - Find Elements" Height="972"
+        Width="1824" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow"
+        Background="{x:Null}">
+    <Grid>
+        <Panel.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}" Offset="0.01"/>
+            </LinearGradientBrush>
+        </Panel.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="462*"/>
+            <RowDefinition Height="48*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="181*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,5">
+            <Label Content="URL:" Margin="0,3,5,4" VerticalAlignment="Center" VerticalContentAlignment="Center"
+             HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="62" Height="26"/>
+            <TextBox KeyDown="TextBoxURL_KeyDown" LostFocus="TextBoxURL_LostFocus" TextChanged="TextBoxURL_TextChanged"
+               Name="TextBoxURL" Margin="5,0,5,0" Height="24" Width="400" Text="" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" TextWrapping="Wrap" TabIndex="1" Visibility="Collapsed"/>
+            <ComboBox DropDownClosed="ComboBoxUrlDropDownClosed" Name="ComboBoxURL" Margin="5,0,5,0" Height="24"
+                Width="400" Text="http://127.0.0.1:8000/en" VerticalAlignment="Center"
+                VerticalContentAlignment="Center" TabIndex="1"/>
+            <Label Content="Application Name:" Margin="0,3,5,4" VerticalAlignment="Center"
+             VerticalContentAlignment="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Right"
+             Height="26" Visibility="Hidden"/>
+            <ComboBox Name="ComboBoxApplications" Width="200" Height="26" Visibility="Hidden"/>
+            <Button Click="ButtonNieuw_Click" Name="ButtonNieuw" Content="New" Style="{DynamicResource MyButtonStyle}"
+              Margin="5,0,0,0"/>
+            <Button Click="ButtonTest_Click" Name="ButtonTest" Content="Test" Style="{DynamicResource MyButtonStyle}"
+              Margin="5,0,0,0" Visibility="Hidden"/>
+        </StackPanel>
+        <Label Name="LabelID" Content="ddd" Visibility="Hidden"/>
+        <CheckBox Name="CheckBoxWholeWebsite" Content="Get elements from the whole website" Grid.Row="2"
+              Margin="15,0,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="14"
+              Visibility="Hidden" FontWeight="Bold"/>
+        <Border Name="BorderInlog" Margin="75,83,75,118" Grid.Row="2" BorderThickness="1" BorderBrush="#FF0D21EA"
+            Grid.ColumnSpan="2"/>
+        <StackPanel Name="Inlog" Margin="0,83,0,40" HorizontalAlignment="Center" Orientation="Vertical"
+                Grid.Row="2" Width="760" Grid.Column="1">
+            <CheckBox Click="loginCheck_Click" Name="loginCheck" Margin="0,15,0,0" HorizontalAlignment="Center"
+                TabIndex="2" IsChecked="True">
+                Do you need to login?
+            </CheckBox>
+            <StackPanel Name="StackPanelLoad" Orientation="Horizontal" Margin="0,5,0,10" HorizontalAlignment="Center">
+                <Label Content="Select URL to load:" VerticalContentAlignment="Center"/>
+                <ComboBox DropDownClosed="ComboBoxLoginData_DropDownClosed" Name="ComboBoxLoginData" Width="440" Height="24"
+                  HorizontalAlignment="Center" />
+                <Label Margin="90,0,0,0" Content="Action" />
+                <Label Margin="30,0,0,0" Content="Order" />
+            </StackPanel>
+            <StackPanel Name="username" Margin="0,5,0,5" Orientation="Horizontal">
+                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <ComboBox Name="UserAttribute" Width="60" TabIndex="2" Height="26">
+                    <ListBoxItem> </ListBoxItem>
+                    <ListBoxItem>Id</ListBoxItem>
+                    <ListBoxItem>Name</ListBoxItem>
+                    <ListBoxItem>XPath</ListBoxItem>
+                    <ListBoxItem>Class</ListBoxItem>
+                    <ListBoxItem>CSSSelector</ListBoxItem>
+                </ComboBox>
+                <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="120">Tagname Username:</Label>
+                <TextBox Name="UserTag" Width="150" Height="26" TabIndex="3" VerticalContentAlignment="Center"/>
+                <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Width="80">Username:</Label>
+                <TextBox Name="UserText" Width="150" TabIndex="4" VerticalContentAlignment="Center" Height="26"/>
+                <ComboBox Name="ComboBoxAction1"
+                          Margin="5"
+                          Width="100"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          Height="26" SelectedIndex="2">
+                    <ListBoxItem Content="" />
+                    <ListBoxItem Content="click" />
+                    <ListBoxItem Content="sendkeys" />
+                    <ListBoxItem Content="select" />
+                    <ListBoxItem Content="value" />
+                    <ListBoxItem Content="checkbox" />
+                    <ListBoxItem Content="move_to" />
+                    <ListBoxItem Content="upload" />
+                    <ListBoxItem Content="switch_to" />
+                    <ListBoxItem Content="set_value" />
+                    <ListBoxItem Content="get_value" />
+                    <ListBoxItem Content="wait" />
+                    <ListBoxItem Content="scroll" />
+                </ComboBox>
+                <TextBox Margin="5,0,0,0" Name="Order1" Width="25" Text="1" VerticalContentAlignment="Center" Height="26"  HorizontalContentAlignment="Center" TabIndex="5"/>
+            </StackPanel>
+
+            <StackPanel Name="Extra" Margin="0,5,0,5" Orientation="Horizontal" >
+                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <ComboBox Name="ButtonAttributeExtra3" Width="60" TabIndex="6" Height="26">
+                    <ListBoxItem></ListBoxItem>
+                    <ListBoxItem>Id</ListBoxItem>
+                    <ListBoxItem>Name</ListBoxItem>
+                    <ListBoxItem>XPath</ListBoxItem>
+                    <ListBoxItem>Class</ListBoxItem>
+                    <ListBoxItem>CSSSelector</ListBoxItem>
+                </ComboBox>
+                <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="120">Tagname:</Label>
+                <TextBox Name="ButtonTagnameExtra3" Width="150" TabIndex="7" Height="26" VerticalContentAlignment="Center"/>
+                <Label HorizontalContentAlignment="Right" Width="80" VerticalContentAlignment="Center">Value:</Label>
+                <TextBox Name="DescriptionExtra3" Width="150" TabIndex="8" Height="26" VerticalContentAlignment="Center"/>
+                <ComboBox Name="ComboBoxAction2"
+                          Margin="5"
+                          Width="100"
+                          Height="26"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center" SelectedIndex="4">
+                    <ListBoxItem Content="" />
+                    <ListBoxItem Content="click" />
+                    <ListBoxItem Content="sendkeys" />
+                    <ListBoxItem Content="select" />
+                    <ListBoxItem Content="value" />
+                    <ListBoxItem Content="checkbox" />
+                    <ListBoxItem Content="move_to" />
+                    <ListBoxItem Content="upload" />
+                    <ListBoxItem Content="switch_to" />
+                    <ListBoxItem Content="set_value" />
+                    <ListBoxItem Content="get_value" />
+                    <ListBoxItem Content="wait" />
+                    <ListBoxItem Content="scroll" />
+                </ComboBox>
+                <TextBox Margin="5,0,0,0" Name="Order6" Width="25" Text="6" VerticalContentAlignment="Center" Height="26" HorizontalContentAlignment="Center" TabIndex="9"/>
+            </StackPanel>
+
+            <StackPanel Name="passwordname" Margin="0,5" Orientation="Horizontal">
+                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <ComboBox Name="PasswordAtrribute" Width="60" Height="26" TabIndex="10">
+                    <ListBoxItem> </ListBoxItem>
+                    <ListBoxItem>Id</ListBoxItem>
+                    <ListBoxItem>Name</ListBoxItem>
+                    <ListBoxItem>XPath</ListBoxItem>
+                    <ListBoxItem>Class</ListBoxItem>
+                    <ListBoxItem>CSSSelector</ListBoxItem>
+                </ComboBox>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="120">Tagname password:</Label>
+                <TextBox Name="PasswordTag" Width="150" TabIndex="11" Height="26" VerticalContentAlignment="Center"/>
+                <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Width="80">Password:</Label>
+                <PasswordBox Name="PasswordText" Height="26" Width="150" TabIndex="12" VerticalContentAlignment="Center" PasswordChar="*"/>
+                <ComboBox Name="ComboBoxAction3"
+                          Margin="5"
+                          Width="100"
+                          Height="26"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center" SelectedIndex="2">
+                    <ListBoxItem Content="" />
+                    <ListBoxItem Content="click" />
+                    <ListBoxItem Content="sendkeys" />
+                    <ListBoxItem Content="select" />
+                    <ListBoxItem Content="value" />
+                    <ListBoxItem Content="checkbox" />
+                    <ListBoxItem Content="move_to" />
+                    <ListBoxItem Content="upload" />
+                    <ListBoxItem Content="switch_to" />
+                    <ListBoxItem Content="set_value" />
+                    <ListBoxItem Content="get_value" />
+                    <ListBoxItem Content="wait" />
+                    <ListBoxItem Content="scroll" />
+                </ComboBox>
+                <TextBox Margin="5,0,0,0" Name="Order2" Width="25" Text="2" Height="26" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="11"/>
+            </StackPanel>
+            <StackPanel Name="buttonName" Margin="0,5" Orientation="Horizontal" >
+                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <ComboBox Name="ButtonAttribute" Width="60" TabIndex="14" Height="26"> 
+                    <ListBoxItem></ListBoxItem>
+                    <ListBoxItem>Id</ListBoxItem>
+                    <ListBoxItem>Name</ListBoxItem>
+                    <ListBoxItem>XPath</ListBoxItem>
+                    <ListBoxItem>Class</ListBoxItem>
+                    <ListBoxItem>CSSSelector</ListBoxItem>
+                </ComboBox>
+                <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Width="120">Tagname button:</Label>
+                <TextBox Name="ButtonTag" Width="150" TabIndex="12" Height="26" VerticalContentAlignment="Center"/>
+                <ComboBox Name="ComboBoxAction4"
+                          Width="100"
+                          Height="26"
+                          Margin="235,0,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center" SelectedIndex="1" IsEnabled="False" IsEditable="True">
+                    <ListBoxItem Content="" />
+                    <ListBoxItem Content="click" />
+                    <ListBoxItem Content="sendkeys" />
+                    <ListBoxItem Content="select" />
+                    <ListBoxItem Content="value" />
+                    <ListBoxItem Content="checkbox" />
+                    <ListBoxItem Content="move_to" />
+                    <ListBoxItem Content="upload" />
+                    <ListBoxItem Content="switch_to" />
+                    <ListBoxItem Content="set_value" />
+                    <ListBoxItem Content="get_value" />
+                    <ListBoxItem Content="wait" />
+                    <ListBoxItem Content="scroll" />
+                </ComboBox>
+                <TextBox Margin="10,0,0,0" Name="Order3" Width="25" Height="26" Text="3" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="16"/>
+            </StackPanel>
+           
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <Label Name="LabelFoundElements1" Content="Extra buttons to click:" VerticalContentAlignment="Center"
+                       FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Name="buttonExtaName" Margin="0,5" Orientation="Horizontal" Height="26">
+                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <ComboBox Name="ButtonAttributeExtra1" Height="26" Width="60" TabIndex="17">
+                    <ListBoxItem></ListBoxItem>
+                    <ListBoxItem>Id</ListBoxItem>
+                    <ListBoxItem>Name</ListBoxItem>
+                    <ListBoxItem>XPath</ListBoxItem>
+                    <ListBoxItem>Class</ListBoxItem>
+                    <ListBoxItem>CSSSelector</ListBoxItem>
+                </ComboBox>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="120">Tagname button:</Label>
+                <TextBox Name="ButtonTagnameExtra1" Height="26" Width="150" TabIndex="18" VerticalContentAlignment="Center"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="80">Description:</Label>
+                <TextBox Name="DescriptionExtra1" Height="26" Width="150" TabIndex="19" VerticalContentAlignment="Center"/>
+                <ComboBox Name="ComboBoxAction5"
+                          Margin="5,0"
+                          Width="100"
+                          Height="26"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center" SelectedIndex="1">
+                    <ListBoxItem Content="" />
+                    <ListBoxItem Content="click" />
+                    <ListBoxItem Content="sendkeys" />
+                    <ListBoxItem Content="select" />
+                    <ListBoxItem Content="value" />
+                    <ListBoxItem Content="checkbox" />
+                    <ListBoxItem Content="move_to" />
+                    <ListBoxItem Content="upload" />
+                    <ListBoxItem Content="switch_to" />
+                    <ListBoxItem Content="set_value" />
+                    <ListBoxItem Content="get_value" />
+                    <ListBoxItem Content="wait" />
+                    <ListBoxItem Content="scroll" />
+                </ComboBox>
+                <TextBox Margin="5,0,0,0" Name="Order4" Width="25" Text="4" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="20"/>
+            </StackPanel>
+            <StackPanel Name="ButtonAttributeExtra2s" Margin="0,5" Orientation="Horizontal" Height="26">
+                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <ComboBox Name="ButtonAttributeExtra2" Width="60" TabIndex="21">
+                    <ListBoxItem></ListBoxItem>
+                    <ListBoxItem>Id</ListBoxItem>
+                    <ListBoxItem>Name</ListBoxItem>
+                    <ListBoxItem>XPath</ListBoxItem>
+                    <ListBoxItem>Class</ListBoxItem>
+                    <ListBoxItem>CSSSelector</ListBoxItem>
+                </ComboBox>
+                <Label HorizontalContentAlignment="Right" Width="120">Tagname button:</Label>
+                <TextBox Name="ButtonTagnameExtra2" Height="26" Width="150" TabIndex="22" VerticalContentAlignment="Center"/>
+                <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Width="80">Description:</Label>
+                <TextBox Name="DescriptionExtra2" Width="150" Height="26" TabIndex="23" VerticalContentAlignment="Center"/>
+                <ComboBox Name="ComboBoxAction6"
+                          Margin="5,0"
+                          Width="100"
+                          Height="26"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center" SelectedIndex="1">
+                    <ListBoxItem Content="" />
+                    <ListBoxItem Content="click" />
+                    <ListBoxItem Content="sendkeys" />
+                    <ListBoxItem Content="select" />
+                    <ListBoxItem Content="value" />
+                    <ListBoxItem Content="checkbox" />
+                    <ListBoxItem Content="move_to" />
+                    <ListBoxItem Content="upload" />
+                    <ListBoxItem Content="switch_to" />
+                    <ListBoxItem Content="set_value" />
+                    <ListBoxItem Content="get_value" />
+                    <ListBoxItem Content="wait" />
+                    <ListBoxItem Content="scroll" />
+                </ComboBox>
+                <TextBox Margin="5,0,0,0" Name="Order5" Width="25" Text="5" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="22"/>
+            </StackPanel>
+            <StackPanel Name="StackPanelSave" Orientation="Horizontal" Margin="5,10,0,0">
+                <Label Content="URL to Save:" VerticalContentAlignment="Center"/>
+                <TextBox LostFocus="TextBoxURLSave_LostFocus" Name="TextBoxURLSave" Width="400" Height="24"
+                         HorizontalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TabIndex="2147483641"/>
+                <Button Click="ButtonSave_Click" Name="ButtonSave" Content="Save Login Data" Margin="35,0,5,0" Width="100" 
+                        Style="{DynamicResource MyButtonStyle}" HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Right" IsManipulationEnabled="true"/>
+            </StackPanel>
+        </StackPanel>
+        <Grid Name="GridSelectTags" Margin="0, 500, 0, 118" HorizontalAlignment="Center" Row="2" Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Select the tags you want to find" Grid.ColumnSpan="6" HorizontalAlignment="Center"
+                 VerticalAlignment="Center" FontWeight="Bold" FontSize="24" FontFamily="Open Sans Semibold"/>
+            <CheckBox Name="CheckBoxA" Content="a (hyperlink)" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="1" Width="100" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxInput" Content="input" HorizontalAlignment="Center" VerticalContentAlignment="Center"
+                Grid.Row="1" Grid.Column="1" Width="100" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxIframe" Content="iframe" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="2" Width="100" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxImg" Content="img" Width="100" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="3" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxDiv" Content="div" Width="100" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="4" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxLi" Content="li" Width="100" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="5" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxTable" Content="table" Width="100" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="2" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxTd" Content="td" Width="100" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxTh" Content="th" Width="100" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="2" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxTr" Content="tr" Width="100" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="3" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxOption" Content="option" Width="100" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="4" Margin="10,0,0,0"/>
+            <CheckBox Name="CheckBoxSpan" Content="span" Width="100" HorizontalAlignment="Center"
+                VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="5" Margin="10,0,0,0"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="6" HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                <Button Click="ButtonCheckboxCheckAll_Click" Name="ButtonCheckboxCheckAll" Margin="5,0"
+                Style="{DynamicResource MyButtonStyle}" Content="All Checked"/>
+                <Button Click="ButtonCheckboxCheckNone_Click" Name="ButtonCheckboxCheckNone" Margin="5,0"
+                Style="{DynamicResource MyButtonStyle}" Content="None Checked"/>
+            </StackPanel>
+        </Grid>
+        <Border Name="BorderSelect" Margin="350,488,400,118" Grid.Row="2" BorderThickness="1"
+            BorderBrush="#FF0D21EA" Grid.Column="1"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <Label Name="LabelFoundElements" Content="Found Elements:" VerticalContentAlignment="Center"
+             FontWeight="Bold"/>
+        </StackPanel>
+        <Button Click="ButtonGetElements_Click" Name="ButtonGetElements" Style="{DynamicResource MyButtonStyle}"
+            Grid.Row="3" Width="200" IsEnabled="false" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+            HorizontalContentAlignment="Center" Content="Get Elements" TabIndex="7" Grid.Column="1"
+            Margin="10,0,0,26"/>
+        <StackPanel Orientation="Horizontal" Margin="215,0,0,0" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Width="1035">
+            <CheckBox Name="CheckBoxObjectVisibility" Content="Object Visibility" VerticalAlignment="Center"
+                Visibility="Hidden"/>
+            <Label Name="LabelTestCase" Content="Test Case: " Margin="50,0,0,0" Height="28" Visibility="Visible"
+             HorizontalContentAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox Name="TextBoxTestCase" Visibility="Visible" Width="100" Height="24" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Left"
+               TabIndex="8"/>
+            <Label Name="LabelTestPage" Content="Test Page:" Height="28" FontWeight="Bold" Visibility="Visible"
+             HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Name="TextBoxTestCasePage" Visibility="Visible" Width="50" Height="24" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Left"
+               TabIndex="9"/>
+            <Button Click="ButtonSelectAllClick" x:Name="ButtonSelectAll" Style="{DynamicResource MyButtonStyle}"
+              Width="105" Content="Select All" IsEnabled="false" VerticalAlignment="Center"
+              HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="15,0,25,0"/>
+            <Button Click="ButtonSetToTest_Click" IsEnabledChanged="ButtonSetToTest_IsEnabledChanged"
+              Name="ButtonSetToTest" Style="{DynamicResource MyButtonStyle}" Grid.Row="3" Grid.Column="1"
+              Width="175" IsEnabled="true" VerticalAlignment="Center" HorizontalAlignment="Right"
+              HorizontalContentAlignment="Center" Content="Add to test steps" TabIndex="9"/>
+            <CheckBox Name="CheckBoxInlogIncluded" Content="Login included" VerticalContentAlignment="Center"/>
+            <Button Name="CheckTextAll" 
+                    Style="{DynamicResource MyButtonStyle}"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Right"
+                    HorizontalContentAlignment="Center" 
+                    Content="Select All Text"  
+                    Margin="5,24,5,25" 
+                    Width="110" 
+                    Height="32"
+                    IsEnabled="False"
+                    Click="CheckTextAll_Click" />
+        </StackPanel>
+        <TextBox Name="TextBoxElementen" Visibility="Hidden" Width="900" Height="600" Grid.RowSpan="5"
+             Grid.ColumnSpan="5"/>
+        <DataGrid LostFocus="DataGridElementsLostFocus" Width="1700" Name="DataGridElements" Grid.Row="2"
+                  Grid.ColumnSpan="2" AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}"
+                  Background="{DynamicResource DataGridAchtergrondAlternatief}" Visibility="Hidden"
+                  CanUserResizeColumns="true" CanUserResizeRows="true" AutoGenerateColumns="false"
+                  CanUserSortColumns="true" RowHeaderWidth="0" HorizontalScrollBarVisibility="Visible"
+                  IsSynchronizedWithCurrentItem="False" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Height="770" CellEditEnding="DataGridElements_CellEditEnding" CurrentCellChanged="DataGridElements_CurrentCellChanged"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" IsReadOnly="true" Binding="{Binding idSelenium_element}"/>
+                <DataGridCheckBoxColumn Header="Select" IsReadOnly="false"
+                                        Binding="{Binding elementCheck, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="url" IsReadOnly="true" Binding="{Binding elementLink}"/>
+                <DataGridTextColumn Header="Id" IsReadOnly="true" Binding="{Binding elementId}"/>
+                <DataGridTextColumn Header="Name" IsReadOnly="true" Binding="{Binding elementName}"/>
+                <DataGridTextColumn Header="XPath" IsReadOnly="true" Binding="{Binding elementXpath}"/>
+                <DataGridTextColumn Header="Tagname" IsReadOnly="true" Binding="{Binding elementTagname}"/>
+                <DataGridTextColumn Header="Text" IsReadOnly="true" Binding="{Binding elementText}"/>
+                <DataGridCheckBoxColumn Header="Check Text" IsReadOnly="false"
+                                        Binding="{Binding elementCheckText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Class" IsReadOnly="true" Binding="{Binding elementClass}"/>
+                <DataGridTextColumn Header="Href" IsReadOnly="true" Binding="{Binding elementHref}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

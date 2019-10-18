@@ -1,0 +1,201 @@
+﻿<Window x:Class="WPFTestResults.SettingsConfig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:help="clr-namespace:WPFTestResults"
+        xmlns:local="clr-namespace:WPFTestResults"
+        mc:Ignorable="d"
+        Title="Settings - Configuration"
+        Height="320"
+        Width="600"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded" WindowStyle="ToolWindow">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1"
+                                 MappingMode="RelativeToBoundingBox"
+                                 StartPoint="0.5,0">
+                <GradientStop Color="White"
+                              Offset="1" />
+                <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"
+                              Offset="0.01" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="36" />
+            <RowDefinition Height="36" />
+            <RowDefinition Height="36" />
+            <RowDefinition Height="36" />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Configuration Settings"
+               Grid.ColumnSpan="2"
+               FontSize="22"
+               FontWeight="Bold"
+               VerticalAlignment="Center"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center" />
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Content="Border Color:"
+               Margin="5,0"
+               VerticalAlignment="Center"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" />
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               Content="Border Thickness:"
+               Margin="5,0"
+               VerticalAlignment="Center"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" />
+        <Label Grid.Row="3"
+               Grid.Column="0"
+               Content="Duration (in milliseconds):"
+               Margin="5"
+               VerticalAlignment="Top"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" />
+        <Label Grid.Row="4"
+               Grid.Column="0"
+               Content="Extra checks by failure:"
+               Margin="5"
+               VerticalAlignment="Top"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" />
+        <ComboBox Name="ComboBoxBoderColor"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  Margin="5,0"
+                  Text="Transparant"
+                  Width="100"
+                  Height="24"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  help:HelpProvider.HelpTopic="Border Color"/>
+        <ComboBox Name="ComboBoxBorderWidth"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  Margin="5,4,0,5"
+                  Height="24"
+                  Width="50"
+                  VerticalAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  HorizontalContentAlignment="Center"
+                  HorizontalAlignment="Left">
+            <ComboBoxItem Content="1"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="2"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="3"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="4"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="5"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="6"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="7"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem HorizontalAlignment="Center" />
+
+        </ComboBox>
+        <ComboBox Name="ComboBoxDuration"
+                  Grid.Row="3"
+                  Grid.Column="1"
+                  Margin="5,5,0,0"
+                  Height="24"
+                  Width="75"
+                  VerticalAlignment="Top"
+                  VerticalContentAlignment="Center"
+                  HorizontalContentAlignment="Center"
+                  HorizontalAlignment="Left">
+            <ComboBoxItem Content="10"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="20"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="50"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="100"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="200"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="500"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="750"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="1000"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="1250"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="1500"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="2000"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="3000"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="5000"
+                          HorizontalAlignment="Center" />
+            <ComboBoxItem Content="10000"
+                          HorizontalAlignment="Center" />
+        </ComboBox>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" Margin="5" Height="28" Orientation="Horizontal">
+            <ComboBox Name="ComboBoxCheckTimes"
+                      Height="24"
+                      Width="35"
+                      VerticalAlignment="Top"
+                      VerticalContentAlignment="Center"
+                      HorizontalContentAlignment="Center"
+                      HorizontalAlignment="Left">
+                <ComboBoxItem Content="0"
+                              HorizontalAlignment="Center" />
+                <ComboBoxItem Content="1"
+                              HorizontalAlignment="Center" />
+                <ComboBoxItem Content="2"
+                              HorizontalAlignment="Center" />
+                <ComboBoxItem Content="3"
+                              HorizontalAlignment="Center" />
+                <ComboBoxItem Content="4"
+                              HorizontalAlignment="Center" />
+                <ComboBoxItem Content="5"
+                              HorizontalAlignment="Center" />
+            </ComboBox>
+            <Label Margin="50,0,5,0" Content="Show complete report:" />
+            <CheckBox Margin="5,0" Name="CheckBoxErrorDisplay" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Margin="5,0">
+            <Button x:Name="ButtonSaveConfig"
+                    Style="{DynamicResource MyButtonStyle}"
+                    Width="150"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Content="Save Configuration"
+                    Click="ButtonSaveConfig_Click" />
+        </StackPanel>
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                Grid.RowSpan="3"
+                BorderBrush="{Binding ElementName=ComboBoxBoderColor, Path=Text}"
+                BorderThickness="{Binding ElementName=ComboBoxBorderWidth, Path=Text}"
+                Margin="162,31,10,17" />
+        <TextBlock Text="Example:"
+                   FontWeight="Bold"
+                   Grid.Column="1"
+                   Margin="162,5,168,10"
+                   Grid.Row="1" />
+    </Grid>
+</Window>

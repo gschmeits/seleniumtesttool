@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<settings>
+  <start>
+    <url>http://80.112.90.194:5000</url>
+    <application>SCHMEITSNAS via browser</application>
+  </start>
+</settings>

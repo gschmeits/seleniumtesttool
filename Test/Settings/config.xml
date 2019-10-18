@@ -1,0 +1,9 @@
+﻿<settings>
+	<setting>
+		<bordercolor>Red</bordercolor>
+		<borderwidth>3</borderwidth>
+		<duration>500</duration>
+		<checks>0</checks>
+		<errors>0</errors>
+	</setting>
+</settings>

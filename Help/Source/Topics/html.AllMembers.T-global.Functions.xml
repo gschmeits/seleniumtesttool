@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Functions Members</title>
+  <keywords>
+    <keyword translate="true">Functions class<keyword translate="true">Functions Members</keyword><keyword translate="true">all members</keyword></keyword>
+    <keyword translate="true">global.Functions class<keyword translate="true">Functions Members</keyword></keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="title" style="font-family:&apos;Segoe UI&apos;; font-size:16pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Functions Members</text></para>
+    </header>
+    <para styleclass="Normal" style="line-height:1.00; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-global.Functions" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Functions</link><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true"> type exposes the following members.</text></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Methods</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><table rowcount="24" colcount="3" style="width:100%; cell-padding:1px; cell-spacing:0px; page-break-inside:auto; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#a0a0a0; border-style:solid; background-color:none; head-row-background-color:none; alt-row-background-color:none;">
+      <tr style="vertical-align:top">
+        <td style="width:75px; height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="methodTableSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><text styleclass="iconcolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">&#32;</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="namecolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Name</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="descriptioncolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.commonAppData" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">commonAppData</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.Database1" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Database1</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.GetTempPath" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">GetTempPath</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Gets the temporary path.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.LogMessageDatabase" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">LogMessageDatabase</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Logs the message to file.</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.MeldingGeenGegevens" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">MeldingGeenGegevens</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.MeldingVoltooid" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">MeldingVoltooid</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.Password1" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Password1</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.Provider" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Provider</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.PuntKomma" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">PuntKomma</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.ReadFactuurPrinter" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ReadFactuurPrinter</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.ReadLabelKantlijn" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ReadLabelKantlijn</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.ReadLabelKantlijnBoven" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ReadLabelKantlijnBoven</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.ReadLabelPrinter" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ReadLabelPrinter</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.ServerName" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ServerName</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.Strip" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Strip</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.Strip1" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Strip1</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.Strip2" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Strip2</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.Strip4" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Strip4</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.Strip5" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Strip5</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.Strip6" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Strip6</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.UserName1" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">UserName1</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.VerdelenRegels" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">VerdelenRegels</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text><image src="icons_static.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Static member</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-global.Functions.WritePrinters" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">WritePrinters</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">See Also</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_seealsostyle" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="seeAlsoSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-global.Functions" styleclass="Normal_seealsostyle" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Functions Class</link></para>
+    <para styleclass="Normal_seealsostyle" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.N-global" styleclass="Normal_seealsostyle" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">global Namespace</link></para>
+    <para styleclass="Normal_copyrightfooter" style="text-align:left; text-indent:0px; margin-top:5px; margin-right:13px; margin-bottom:0px; margin-left:13px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="copyrightfooter" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#bbbbbb; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Help File generated with GhostDoc</text></para>
+    <para styleclass="Normal" style="margin-top:4px; margin-right:13px; margin-bottom:4px; margin-left:13px; line-height:1.00; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text></para>
+  </body>
+</topic>

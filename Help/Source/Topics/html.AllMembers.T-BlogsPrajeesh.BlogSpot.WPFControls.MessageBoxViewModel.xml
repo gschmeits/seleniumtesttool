@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" lasteditedby="Ger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">MessageBoxViewModel Members</title>
+  <keywords>
+    <keyword translate="true">BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel class<keyword translate="true">MessageBoxViewModel Members</keyword></keyword>
+    <keyword translate="true">MessageBoxViewModel class<keyword translate="true">MessageBoxViewModel Members</keyword><keyword translate="true">all members</keyword></keyword>
+  </keywords>
+  <body>
+    <header>
+      <para styleclass="Heading1_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="title" style="font-family:&apos;Segoe UI&apos;; font-size:16pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">MessageBoxViewModel Members</text></para>
+    </header>
+    <para styleclass="Normal" style="line-height:1.00; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">The </text><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">MessageBoxViewModel</link><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true"> type exposes the following members.</text></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Constructors</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><table rowcount="2" colcount="3" style="width:100%; cell-padding:1px; cell-spacing:0px; page-break-inside:auto; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#a0a0a0; border-style:solid; background-color:none; head-row-background-color:none; alt-row-background-color:none;">
+      <tr style="vertical-align:top">
+        <td style="width:75px; height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="constructorTableSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><text styleclass="iconcolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">&#32;</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="namecolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Name</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="descriptioncolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.-ctor" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">MessageBoxViewModel</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Methods</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><table rowcount="10" colcount="3" style="width:100%; cell-padding:1px; cell-spacing:0px; page-break-inside:auto; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#a0a0a0; border-style:solid; background-color:none; head-row-background-color:none; alt-row-background-color:none;">
+      <tr style="vertical-align:top">
+        <td style="width:75px; height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="methodTableSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><text styleclass="iconcolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">&#32;</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="namecolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Name</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="descriptioncolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/bsc2ak47.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Equals(System.Object)</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Determines whether the specified object is equal to the current object.</text></para>
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">(Inherited from </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Object</link><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">.)</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_protmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Protected method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.finalize.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Finalize</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.</text></para>
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">(Inherited from </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Object</link><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">.)</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.gethashcode.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">GetHashCode</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Serves as the default hash function.</text></para>
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">(Inherited from </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Object</link><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">.)</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.gettype.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">GetType</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Gets the </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.type.aspx" target="_blank" styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Type</link><text styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true"> of the current instance.</text></para>
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">(Inherited from </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Object</link><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">.)</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_protmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Protected method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.memberwiseclone.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">MemberwiseClone</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Creates a shallow copy of the current </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.aspx" target="_blank" styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Object</link><text styleclass="Normal_summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">.</text></para>
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">(Inherited from </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Object</link><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">.)</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.NotifyPropertyChange" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">NotifyPropertyChange</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.SetButtonVisibility" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">SetButtonVisibility</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.M-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.SetImageSource" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">SetImageSource</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubmethod.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public method</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.tostring.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ToString</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="Normal_summary" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.38; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="summary" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Returns a string that represents the current object.</text></para>
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">(Inherited from </text><link displaytype="text" defaultstyle="true" type="weblink" href="http://msdn.microsoft.com/en-us/library/system.object.aspx" target="_blank" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Object</link><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">.)</text></para>
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Fields</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><table rowcount="16" colcount="3" style="width:100%; cell-padding:1px; cell-spacing:0px; page-break-inside:auto; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#a0a0a0; border-style:solid; background-color:none; head-row-background-color:none; alt-row-background-color:none;">
+      <tr style="vertical-align:top">
+        <td style="width:75px; height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="fieldTableSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><text styleclass="iconcolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">&#32;</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="namecolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Name</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="descriptioncolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___CancelCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___CancelCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___CancelVisibility" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___CancelVisibility</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___CloseCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___CloseCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___CloseVisibility" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___CloseVisibility</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___InnerMessageDetails" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___InnerMessageDetails</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___Message" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___Message</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___MessageImageSource" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___MessageImageSource</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___NoCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___NoCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___OKCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___OKCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___OKVisibility" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___OKVisibility</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___ShowDetails" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___ShowDetails</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___Title" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___Title</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___View" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___View</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___YesCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___YesCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_privfield.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Private field</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.F-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.___YesNoVisibility" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">___YesNoVisibility</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Properties</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><table rowcount="15" colcount="3" style="width:100%; cell-padding:1px; cell-spacing:0px; page-break-inside:auto; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#a0a0a0; border-style:solid; background-color:none; head-row-background-color:none; alt-row-background-color:none;">
+      <tr style="vertical-align:top">
+        <td style="width:75px; height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="propertyTableSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><text styleclass="iconcolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">&#32;</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="namecolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Name</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="descriptioncolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.CancelCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">CancelCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.CancelVisibility" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">CancelVisibility</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.CloseCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">CloseCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.CloseVisibility" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">CloseVisibility</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.InnerMessageDetails" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">InnerMessageDetails</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.Message" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Message</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.MessageImageSource" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">MessageImageSource</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.NoCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">NoCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.OkCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">OkCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.OkVisibility" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">OkVisibility</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.ShowDetails" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">ShowDetails</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.Title" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">Title</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.YesCommand" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">YesCommand</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubproperty.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public property</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.P-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.YesNoVisibility" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">YesNoVisibility</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Events</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_members" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><table rowcount="2" colcount="3" style="width:100%; cell-padding:1px; cell-spacing:0px; page-break-inside:auto; border-width:0px; border-spacing:0px; border-collapse:collapse; cell-border-width:1px; border-color:#a0a0a0; border-style:solid; background-color:none; head-row-background-color:none; alt-row-background-color:none;">
+      <tr style="vertical-align:top">
+        <td style="width:75px; height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="eventTableSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><text styleclass="iconcolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">&#32;</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="namecolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Name</text></para>
+        </td>
+        <td style="height:21px; background-color:#e5e5e5;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="descriptioncolumn" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Description</text></para>
+        </td>
+      </tr>
+      <tr style="vertical-align:top">
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><image src="icons_pubevent.gif" scale="100.00%" styleclass="Image Caption"><title translate="true">Public event</title></image></para>
+        </td>
+        <td style="background-color:#ffffff;">
+          <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.E-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel.PropertyChanged" styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; text-decoration:none; vertical-align:baseline;" translate="true">PropertyChanged</link></para>
+        </td>
+        <td style="background-color:#ffffff;">
+        </td>
+      </tr>
+    </table></para>
+    <para styleclass="Heading2_lw_collapsiblearea_title" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="lw_collapsiblearea_title" style="font-family:&apos;Segoe UI&apos;; font-size:14pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">See Also</text></para>
+    <para styleclass="" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><line style="height:2px; color:#e5e5e5;" /></para>
+    <para styleclass="Normal_seealsostyle" style="text-align:left; text-indent:0px; margin-top:19px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><anchor id="seeAlsoSection" styleclass="Normal text" style="font-family:&apos;Arial Unicode MS&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#000000; background-color:transparent; letter-spacing:normal; letter-scaling:100%;"></anchor><link displaytype="text" defaultstyle="true" type="topiclink" href="html.T-BlogsPrajeesh.BlogSpot.WPFControls.MessageBoxViewModel" styleclass="Normal_seealsostyle" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">MessageBoxViewModel Class</link></para>
+    <para styleclass="Normal_seealsostyle" style="text-align:left; text-indent:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><link displaytype="text" defaultstyle="true" type="topiclink" href="html.N-BlogsPrajeesh.BlogSpot.WPFControls" styleclass="Normal_seealsostyle" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:normal; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#3f529c; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">BlogsPrajeesh.BlogSpot.WPFControls Namespace</link></para>
+    <para styleclass="Normal_copyrightfooter" style="text-align:left; text-indent:0px; margin-top:5px; margin-right:13px; margin-bottom:0px; margin-left:13px; line-height:1.00; background-color:transparent; white-space:normal; page-break-inside:auto; page-break-after:auto; border:none; tabstops:none;"><text styleclass="copyrightfooter" style="font-family:&apos;Segoe UI&apos;; font-size:10pt; font-weight:bold; font-style:normal; text-decoration:none; text-transform:none; vertical-align:baseline; color:#bbbbbb; background-color:transparent; letter-spacing:normal; letter-scaling:100%;" translate="true">Help File generated with GhostDoc</text></para>
+    <para styleclass="Normal" style="margin-top:4px; margin-right:13px; margin-bottom:4px; margin-left:13px; line-height:1.00; tabstops:none;"><text styleclass="Normal" style="font-family:&apos;Segoe UI&apos;; font-size:11pt; text-decoration:none; vertical-align:baseline;" translate="true">&#32;</text></para>
+  </body>
+</topic>

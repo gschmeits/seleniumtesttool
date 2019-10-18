@@ -1,0 +1,632 @@
+﻿<Window x:Class="WPFTestResults.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:help="clr-namespace:WPFTestResults"
+        mc:Ignorable="d"
+        Title="Test Results Selenium Tests"
+        Height="909"
+        Width="1596"
+        WindowStartupLocation="CenterScreen"
+        Loaded="WindowLoaded"
+        Icon="images/if_chemistry_45373.ico"
+        Activated="WindowActivated" GotFocus="Window_GotFocus">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1"
+                                 MappingMode="RelativeToBoundingBox"
+                                 StartPoint="0.5,0">
+                <GradientStop Color="White"
+                              Offset="1" />
+                <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"
+                              Offset="0.01" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="522*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <Menu 
+              FontWeight="Bold">
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                     MappingMode="RelativeToBoundingBox"
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="White"
+                                  Offset="1" />
+                    <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"
+                                  Offset="0.01" />
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem Name="ExecuteTestsSql"
+                      Header="Execute Tests"
+                      Click="ExecuteTestsSqlClick" />
+            <MenuItem Name="Adding" 
+                      Header="Testscripts" >
+                <MenuItem Name="AddingTests" 
+                    Header="Edit Test Steps"
+                    Click="AddingTestsClick">
+                </MenuItem>
+                <MenuItem Name="AddingTestsTree" 
+                          Header="Edit Test Scripts"
+                          Click="EditTestsScriptsClick">
+                </MenuItem>
+
+            </MenuItem>
+            <MenuItem Name="MenuItemBulkChanges"
+                      Header="Bulk Changes" Click="MenuItemBulkChanges_Click">
+                <MenuItem Name="MenuItemGetBulk"
+                          Header="Import elements"
+                          Click="MenuItemGetBulk_Click" />
+                <MenuItem Name="MenuItemCopyElements"
+                          Header="Copy Elements"
+                          Click="MenuItemCopyElementsClick" />
+                <MenuItem Name="MenuItemDeleteItems"
+                          Header="Delete Items"
+                          Click="MenuItemDeleteItemsClick" />
+            </MenuItem>
+            <MenuItem Name="MenuItemSettings"
+                      Header="Settings" Click="MenuItemSettings_Click">
+                <MenuItem Name="MenuItemSettingsTestSet"
+                          Header="TestSet"
+                          Click="MenuItemSettingsTestSet_Click" />
+                <MenuItem Name="MenuItemSettingsConfig"
+                          Header="Config"
+                          Click="MenuItemSettingsConfig_Click" />
+
+                <MenuItem Name="MenuItemSettingsDatabaseConnection"
+                          Header="Database Connection"
+                          Click="MenuItemSettingsDatabaseConnection_Click" />
+                <MenuItem Name="MenuItemSettingsOverall"
+                          Header="Overall Settings"
+                          Click="MenuItemSettingsOverall_OnClick"/>
+            </MenuItem>
+            <MenuItem Name="MenuItemExtras"
+                      Header="Extras" Click="MenuItemExtras_Click">
+                <MenuItem Name="MenuItemExtrasFindElements"
+                          Header="Elements URL" 
+                          Click="MenuItemExtrasFindElementsClick" />
+                <MenuItem Name="MenuItemExtrasGetElements"
+                          Header="Elements Database"
+                          Click="MenuItemExtrasGetElements_OnClick"/>
+                <!--
+                <Separator />
+                <MenuItem Name="MenuItemCheckKey"
+                          Header="License Key" Click="MenuItemCheckKey_Click"
+                          ></MenuItem>-->
+            </MenuItem>
+            <MenuItem Name="MenuItemHelp" 
+                      Header="Help">
+                <MenuItem Name="MenuItemHelpContent"
+                          Header="Content" Click="MenuItemHelpContent_Click" />
+                <MenuItem Name="MenuItemHelpIndex"
+                          Header="Index" Click="MenuItemHelpIndex_Click" />
+                <!--
+                <MenuItem Name="MenuItemHelpSearch"
+                          Header="Search" Click="MenuItemHelpSearch_Click" />
+                -->
+                <Separator />
+                <MenuItem Name="MenuItemHelpLicense"
+                          Header="License"
+                          Click="MenuItemCheckKey_Click" />
+                <Separator />
+                <MenuItem Name="MenuItemHelpAbout"
+                          Header="About" Click="MenuItemHelpAbout_Click" />
+
+            </MenuItem>
+            <MenuItem Name="Sluiten"
+                      Header="Exit"
+                      Click="SluitenClick" />
+        </Menu>
+        <StackPanel Orientation="Horizontal"
+                    Margin="15,15,15,0" VerticalAlignment="Center">
+            <Label Content="From Test Run:" VerticalContentAlignment="Center"
+                   FontWeight="Bold" />
+            <ComboBox Name="ComboTestFrom"
+                      Width="180"
+                      VerticalContentAlignment="Center"
+                      Height="24"
+                      Margin="10,0,10,0"
+                      DropDownClosed="ComboTestFrom_DropDownClosed"
+                      SelectionChanged="ComboTestFrom_SelectionChanged" />
+            <Button Name="ButtonRefreshRuns" 
+                    Content="Refresh" 
+                    Style="{DynamicResource MyButtonStyle}" Click="ButtonRefreshRuns_Click" />
+            <Label Content="Until Test Run:"
+                   Margin="15,0,10,0"
+                   FontWeight="Bold"
+                   Visibility="Hidden"/>
+            <ComboBox Name="ComboTestTill"
+                      Width="180"
+                      Margin="10,0,10,0"
+                      Visibility="Hidden"
+                      DropDownClosed="ComboTestTill_DropDownClosed" />
+            <Label FontSize="14"
+                   Name="LabelAppliction"
+                   FontWeight="Bold"
+                   Content="Application: "
+                   Margin="15,0,0,-6.4"
+                   Visibility="Hidden" />
+            <Label FontSize="14"
+                   Name="LabelApplicationData"
+                   Content=""
+                   Foreground="Black"
+                   FontWeight="Bold"
+                   Visibility="Visible"
+                   Margin="0,0,0,-8.4"  />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Bottom">
+        <Label Name="LabelPreconditions" Content="Preconditions" 
+               HorizontalAlignment="Center"
+               FontWeight="Bold" 
+               FontSize="24"
+               HorizontalContentAlignment="Center" 
+               Visibility="Visible"/>
+        <DataGrid HorizontalAlignment="Center" 
+                  Height="276" 
+                  GridLinesVisibility="None"
+                  Margin="0,0,0,50"
+                  HorizontalContentAlignment="Center"
+                  Width="772" AllowDrop="True" ColumnWidth="Auto"
+                  AutoGenerateColumns="False"
+                  EnableColumnVirtualization="True"
+                  AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}" 
+                  Background="{DynamicResource DataGridAchtergrond}"
+                  Name="DataGridPre" RowHeaderWidth="0" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" IsReadOnly="True" HeadersVisibility="None" 
+                  Visibility="Visible" HorizontalScrollBarVisibility="Hidden"  AreRowDetailsFrozen="True" VerticalScrollBarVisibility="Hidden" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding id}"
+                                Width="40"
+                                Header="ID"
+                                    Visibility="Hidden">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding number}"
+                                Width="60"
+                                Header="Number"
+                                Visibility="Visible">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding description}"
+                                Width="710"
+                                Header="Precondition" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                Value="Left" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Name="GridBrowserLoad"
+              Width="400"
+              Height="280"
+              Visibility="Hidden"
+              Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="5"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    Margin="0,0,0,-9" />
+            <Label Margin="15"
+                   FontWeight="Bold"
+                   Content="Import data"
+                   FontSize="14"
+                   HorizontalContentAlignment="Center" />
+            <StackPanel Orientation="Horizontal"
+                        Height="48"
+                        Grid.Row="1">
+                <Label Content="Testname:"
+                       Margin="5,0,0,0"
+                       Height="24"
+                       HorizontalContentAlignment="Right"
+                       Width="100"
+                       VerticalAlignment="Center" />
+                <TextBox Name="TextBoxTestNameImport"
+                         Margin="5,12,0,12"
+                         Width="220"
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Left"
+                         Height="24"
+                         KeyDown="TextBoxTestNameImport_KeyDown" />
+                <Button Name="ButtonSelectXML"
+                        Style="{DynamicResource MyButtonStyle}"
+                        Content="Select"
+                        Height="28"
+                        Margin="5,0,0,0"
+                        Width="50"
+                        Click="ButtonSelectXML_Click" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Height="48"
+                        Grid.Row="2">
+                <Label Content="Testcase:"
+                       Margin="5,0,0,0"
+                       Height="24"
+                       HorizontalContentAlignment="Right"
+                       Width="100"
+                       VerticalAlignment="Center" />
+                <TextBox Margin="5,12,0,12"
+                         Width="220"
+                         Name="TextBoxTestcaseImport"
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Left"
+                         Height="24"
+                         KeyDown="TextBoxTestcaseImport_KeyDown" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Height="48"
+                        Grid.Row="3">
+                <Label Content="Start Testnumber:"
+                       Margin="5,0,0,0"
+                       Height="24"
+                       VerticalAlignment="Center" />
+                <TextBox Margin="5,0,0,0"
+                         Width="50"
+                         Name="TextBoxTestnrImport"
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         Height="24"
+                         KeyDown="TextBoxTestnrImport_KeyDown" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Grid.Row="4">
+                <Button Style="{DynamicResource MyButtonStyle}"
+                        Margin="15,20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Width="120"
+                        IsEnabled="False"
+                        Name="ButtonExecuteLoad"
+                        Content="Import Teststeps"
+                        FontSize="14"
+                        Click="ButtonExecuteLoadClick" />
+                <Button Style="{DynamicResource MyButtonStyle}"
+                        Margin="15,20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Width="120"
+                        IsEnabled="True"
+                        Name="ButtonCancelLoad"
+                        Content="Cancel"
+                        FontSize="14"
+                        Click="ButtonCancelLoadClick" />
+            </StackPanel>
+        </Grid>
+        <ScrollViewer Name="ScrollViewerHtml" 
+                      Grid.Row="1"
+                      HorizontalScrollBarVisibility="Auto" 
+                      VerticalScrollBarVisibility="Auto"
+                      Visibility="Hidden" Margin="0,0,0,94">
+            <WebBrowser Name="WebBrowser"  />
+        </ScrollViewer>
+        <DataGrid Name="DataGridGer"
+                  AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}" 
+                  Background="{DynamicResource DataGridAchtergrond}"
+                  Grid.Row="1"
+                  Margin="5,10,5,65"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False"
+                  EnableColumnVirtualization="True"
+                  IsReadOnly="True"
+                  RowDetailsVisibilityMode="Collapsed"
+                  RowHeaderWidth="0"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="True"
+                  CanUserResizeRows="False"
+                  CanUserSortColumns="False"
+                  Visibility="Hidden" ColumnWidth="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding testrun}"
+                                    Width="50"
+                                    Header="Testrun">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding application}"
+                                    Width="250"
+                                    Header="Application"
+                                    Visibility="Hidden">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding testnr}"
+                                    Width="40"
+                                    Header="Test">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding testname}"
+                                    Width="500"
+                                    Header="Testcase">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                            <Setter Property="TextBlock.Margin"
+                                    Value="5, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding elementname}"
+                                    Width="500"
+                                    Header="Logical Name">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                            <Setter Property="TextBlock.Margin"
+                                    Value="5, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding attribute}"
+                                    Width="80"
+                                    Header="Attribute"
+                                    Visibility="Hidden">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                            <Setter Property="TextBlock.Margin"
+                                    Value="5, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Header="Result"
+                                        Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding result}"
+                                       FontWeight="Bold">
+                                <TextBlock.Style>
+                                    <Style>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding result}"
+                                                         Value="OK">
+                                                <Setter Property="TextElement.Foreground"
+                                                        Value="Green" />
+                                                <Setter Property="TextBlock.TextAlignment"
+                                                        Value="Center" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding result}"
+                                                         Value="NOK">
+                                                <Setter Property="TextElement.Foreground"
+                                                        Value="Red" />
+                                                <Setter Property="TextBlock.TextAlignment"
+                                                        Value="Center" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding comment}"
+                                    Width="300"
+                                    Header="Description">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                            <Setter Property="TextBlock.Margin"
+                                    Value="5, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    Margin="10,0,10,0"
+                    Name="Stack"
+                    VerticalAlignment="Bottom"
+                    Visibility="Visible" Height="60">
+            <Label Content="Passed:"
+                   Foreground="Black"
+                   Margin="5,5" />
+            <TextBlock Name="Passed"
+                       Foreground="Black"
+                       Margin="0,10"
+                       FontWeight="Bold" />
+            <Label Content="Failed:"
+                   Foreground="Black"
+                   Margin="10,5,5,5" />
+            <TextBlock Name="Failed"
+                       Foreground="Black"
+                       FontWeight="Bold"
+                       Margin="0,10" />
+            <Label Content="Total Tests:"
+                   Foreground="Black"
+                   Margin="35,5,5,5" />
+            <TextBlock Name="Total"
+                       Foreground="Black"
+                       FontWeight="Bold"
+                       Margin="0,10" />
+            <Label Content="Duration:"
+                   Foreground="Black"
+                   Margin="35,5,5,5" />
+            <TextBlock Name="TextBlockDateTime"
+                       Text="00:00:00"
+                       Margin="0,10" />
+            <Label Content="Version:"
+                   Name="LabelVersion"
+                   Foreground="Black"
+                   Margin="35,5,5,5"/>
+            <TextBlock Name="Version"
+                       Foreground="Black"
+                       FontWeight="Bold"
+                       Margin="5,10" Text="" />
+        </StackPanel>
+        <Button Name="ButtonHtml"
+                Style="{DynamicResource MyButtonStyle}"
+                Grid.Row="1"
+                Visibility="Hidden"
+                Height="39"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Margin="0,466,25,0"
+                Content="Create HTML Page"
+                Click="ButtonHtmlClick" />
+        <Button Name="ButtonHtmlShow"
+                Style="{DynamicResource MyButtonStyle}"
+                Grid.Row="2"
+                Width="125"
+                Visibility="Visible"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Height="39"
+                Content="Show HTML Page"
+                Click="ButtonHtmlShowClick" />
+        <Grid Grid.Row="1"
+              Name="GridBrowser"
+              Visibility="Visible"
+              Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" 
+              HorizontalAlignment="Center" Width="300" Height="371" Margin="644,45,644,332">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height=".5*" />
+                <RowDefinition Height=".5*" />
+                <RowDefinition Height="1.5*" />
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="5"
+                    BorderThickness="1"
+                    BorderBrush="Black" Grid.ColumnSpan="2" />
+            <TextBlock Margin="15"
+                       FontWeight="Bold"
+                       Text="Select the browser:"
+                       FontSize="14" Grid.ColumnSpan="2" />
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Height="190"
+                        Width="153" Grid.ColumnSpan="2" Margin="87,0.462,60,25" Grid.RowSpan="2" Grid.Row="1">
+                <RadioButton Content="Chrome"
+                             Margin="0,10"
+                             IsChecked="True"
+                             FontSize="14"
+                             GroupName="RadioBrowser"
+                             Checked="RadioButtonChecked2" />
+                <RadioButton Content="FireFox"
+                             Margin="0,10"
+                             FontSize="14"
+                             GroupName="RadioBrowser"
+                             Checked="RadioButton_Checked" />
+                <RadioButton Content="Internet Explorer"
+                             Margin="0,10,-64,10"
+                             FontSize="14"
+                             GroupName="RadioBrowser"
+                             Checked="RadioButtonChecked1" />
+                <RadioButton Content="Edge"
+                             Name="RadioButtonEdge"
+                             Margin="0,10,-64,10"
+                             FontSize="14"
+                             Visibility="Visible"
+                             GroupName="RadioBrowser"
+                             Click="RadioButtonClick" Checked="RadioButton_Checked_1" />
+                <RadioButton Content="PhantomJS"
+                             Margin="0,10,-64,10"
+                             FontSize="14"
+                             Visibility="Hidden"
+                             GroupName="RadioBrowser"
+                             Click="RadioButtonClick"
+                             Checked="RadioButtonChecked3"
+                             />
+            </StackPanel>
+            <StackPanel Margin="25,1,25,0" Orientation="Horizontal" Height="30" Grid.Row="2" Grid.ColumnSpan="2">
+                <TextBlock FontWeight="Bold" Text="     URL part:" VerticalAlignment="Center" />
+                <TextBox Name="TextBoxExtra" Margin="5,3,0,3" Width="154" Height="24" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+            </StackPanel>
+            <StackPanel Margin="25,0,25,1" Orientation="Horizontal" Height="30" Grid.Row="3" Grid.ColumnSpan="2">
+                <TextBlock FontWeight="Bold" Text="Version:" VerticalAlignment="Center" />
+                <TextBox Name="TextBoxVersion" Margin="5,0,0,0" Width="180" Height="24" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
+                <Button
+                    Style="{DynamicResource MyButtonStyle}"
+                    Margin="0,0,0,0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Name="ButtonExecute"
+                    Content="Execute Tests"
+                    FontSize="14"
+                    Click="ButtonExecuteClick" ClickMode="Press" IsDefault="True" />
+                <Button 
+                Style="{DynamicResource MyButtonStyle}"
+                Margin="20,0,0,0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Width="100"
+                Name="ButtonCancelExecute"
+                Content="Cancel"
+                FontSize="14" Click="ButtonCancelExecute_Click" IsCancel="True" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+	<connection>
+		<host>SCHMEITSNAS.SYNOLOGY.ME</host>
+		<database>autotest</database>
+		<port>3306</port>
+		<username>autotest</username>
+		<password>EJ71MfiAFS4VzffL</password>
+	</connection>
+</settings>

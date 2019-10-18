@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>DataSelect</name>
+  </assembly>
+  <members>
+    <member name="" />
+    <member name="N:global" />
+    <member name="M:global.Functions.errorBerichtSql(SqlException)" />
+  </members>
+</doc>

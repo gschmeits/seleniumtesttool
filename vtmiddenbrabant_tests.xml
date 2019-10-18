@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<Tests>
+	<Test>
+		<testid>1</testid>
+		<testcase>Login</testcase>
+		<element>loginname</element>
+		<attribute>name</attribute>
+		<action>sendkeys</action>
+		<text>Admin</text>
+	</Test>
+	<Test>
+		<testid>2</testid>
+		<testcase>Login</testcase>
+		<element>password</element>
+		<attribute>name</attribute>
+		<action>sendkeys</action>
+	<text>rlespoustouph2Et</text>
+	</Test>
+	<Test>
+		<testid>3</testid>
+		<testcase>Login</testcase>
+		<element>login-logo</element>
+		<attribute>class</attribute>
+	</Test>
+	<Test>
+		<testid>4</testid>
+		<testcase>Login</testcase>
+	<element>btn_Login</element>
+	<attribute>name</attribute>
+	<action>click</action>
+	</Test>
+	<Test>
+		<testid>5</testid>
+		<testcase>Hoofdpagina</testcase>
+		<url>acceptatie.cvsonline.nl</url>
+		<switch>yes</switch>
+		<element>//*[@id='ctl00_NavBarMenu']/div/div/div/ul/li[2]/a</element>
+		<attribute>xpath</attribute>
+		<action>click</action>
+	</Test>
+	<Test>
+		<testid>6</testid>
+		<testcase>Hoofdpagina</testcase>
+		<element>//*[@id='ctl00_NavBarMenu']/div/div/div/ul/li[2]/ul/li[2]/a</element>
+		<attribute>xpath</attribute>
+	</Test>
+	<Test>
+		<testid>7</testid>
+		<testcase>Hoofdpagina</testcase>
+		<element>//*[@id='ctl00_NavBarMenu']/div/div/div/ul/li[2]/ul/li[3]/a</element>
+		<attribute>xpath</attribute>
+	</Test>
+	<Test>
+		<testid>8</testid>
+		<testcase>Hoofdpagina</testcase>
+		<element>//*[@id='ctl00_NavBarMenu']/div/div/div/ul/li[2]/ul/li[1]/a</element>
+		<attribute>xpath</attribute>
+		<action>click</action>
+	</Test>
+	<Test>
+		<testid>9</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R517_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>10</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R109_R0</element>
+		<attribute>id</attribute>
+		<action>sendkeys</action>
+		<text>000000000</text>
+	</Test>
+	<Test>
+		<testid>11</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R111_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>12</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R113_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>13</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R114_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>14</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R105_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>15</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>tdItem1231R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>16</testid>
+		<testcase>Nieuwe cient</testcase>
+		<element>ctl00_phContent_R117_R0_dateInput</element>
+		<attribute>id</attribute>
+		<action>sendkeys</action>
+		<text>03-11-1960</text>
+	</Test>
+	<Test>
+		<testid>17</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00$phContent$R118_R0</element>
+		<attribute>name</attribute>
+	</Test>
+	<Test>
+		<testid>18</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00$phContent$R119_R0</element>
+		<attribute>name</attribute>
+	</Test>
+	<Test>
+		<testid>19</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00$phContent$R120_R0</element>
+		<attribute>name</attribute>
+		<action>sendkeys</action>
+		<text>man</text>
+	</Test>
+	<Test>
+		<testid>20</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R660_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>21</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R519_R0_Input</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>22</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R661_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>23</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R121_R0_dateInput</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>24</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R416_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>25</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R417_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>26</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R418_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>27</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R532_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>28</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R548_R0_dateInput</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>29</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R549_R0_dateInput</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>30</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R447_R0_Input</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>31</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R669_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>32</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R780_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>33</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R774_R0_Input</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>34</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R775_R0_Input</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>35</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R776_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>36</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R779_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>37</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R778_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>38</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R777_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>39</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_R1037_R0</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>40</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_BtnCancel</element>
+		<attribute>id</attribute>
+	</Test>
+	<Test>
+		<testid>41</testid>
+		<testcase>Nieuwe client</testcase>
+		<element>ctl00_phContent_BtnSave</element>
+		<attribute>id</attribute>
+		<action>click</action>
+	</Test>
+</Tests>

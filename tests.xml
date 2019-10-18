@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<Tests>
+ <Test>
+    <testid>1</testid>
+    <testcase>Login</testcase>
+	<element>loginname</element>
+	<attribute>name</attribute>
+	<action>sendkeys</action>
+	<text>Admin</text>
+ </Test>
+ <Test>
+    <testid>2</testid>
+    <testcase>Login</testcase>
+	<element>password</element>
+	<attribute>name</attribute>
+	<action>sendkeys</action>
+	<text>rlespoustouph2Et</text>
+ </Test>
+<Test>
+    <testid>3</testid>
+    <testcase>Login</testcase>
+	<element>login-logo</element>
+	<attribute>class</attribute>
+ </Test>
+    <Test>
+    <testid>4</testid>
+    <testcase>Login</testcase>
+	<element>btn_Login</element>
+	<attribute>name</attribute>
+ </Test>
+ <Test>
+    <testid>5</testid>
+    <testcase>Hoofdpagina</testcase>
+    <url>acceptatie.cvsonline.nl</url>
+	<switch>yes</switch>
+	<element>//*[@id='ctl00_NavBarMenu']/div/div/div/ul/li[2]/a</element>
+	<attribute>xpath</attribute>
+	<action>click</action>
+ </Test>
+ <Test>
+    <testid>6</testid>
+    <testcase>Hoofdpagina</testcase>
+	<element>//*[@id='ctl00_NavBarMenu']/div/div/div/ul/li[2]/ul/li[2]/a</element>
+	<attribute>xpath</attribute>
+ </Test>
+ <Test>
+    <testid>7</testid>
+    <testcase>Hoofdpagina</testcase>
+	<element>//*[@id='ctl00_NavBarMenu']/div/div/div/ul/li[2]/ul/li[3]/a</element>
+	<attribute>xpath</attribute>
+</Test>
+<Test>
+	<testid>8</testid>
+    <testcase>Hoofdpagina</testcase>
+	<element>//*[@id='ctl00_NavBarMenu']/div/div/div/ul/li[2]/ul/li[1]/a</element>
+	<attribute>xpath</attribute>
+	<action>click</action>
+ </Test>
+</Tests> 

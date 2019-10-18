@@ -1,0 +1,44 @@
+﻿<Window x:Class="LicentieWPF.LicenseKey.LicentieCode"
+		  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		  Title="License Code SeleniumTestTool" Height="217" Width="517" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow"
+        Icon="Images/error.png">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1"
+                                 MappingMode="RelativeToBoundingBox"
+                                 StartPoint="0.5,0">
+                <GradientStop Color="White"
+                              Offset="1" />
+                <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"
+                              Offset="0.01" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1.5*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Welcome to SeleniumTestTool" HorizontalAlignment="Center" FontSize="32" FontWeight="Bold" FontFamily="Franklin Gothic Medium" Margin="35,0,35,0" Width="434"></TextBlock>
+
+        <TextBlock Grid.Row="1"  TextWrapping="WrapWithOverflow" Margin="35,0" HorizontalAlignment="Center" ><Run Text="A licence key is needed for working with the SeleniumTestTool" /><Run Text="." /></TextBlock>
+        <StackPanel Margin="30,0" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="License Key:" VerticalAlignment="Center" FontWeight="Bold"></Label>
+            <TextBox Name="t1" Margin="5,0" Width="60"  Text="" Height="20" VerticalAlignment="Center" HorizontalContentAlignment="Center" LostFocus="t1_LostFocus" TabIndex="1" MaxLength="5" MinWidth="5" Drop="t1_Drop" KeyDown="t1_KeyDown" TextChanged="t1_TextChanged"></TextBox>
+            <Label Content=" - " VerticalAlignment="Center"></Label>
+            <TextBox Name="t2" Margin="5,0" Width="60" Text="" Height="20" VerticalAlignment="Center" HorizontalContentAlignment="Center" LostFocus="t2_LostFocus" TabIndex="2" MaxLength="5" MinWidth="5" KeyDown="t2_KeyDown" Drop="t2_Drop" TextChanged="t2_TextChanged"></TextBox>
+            <Label Content=" - " VerticalAlignment="Center"></Label>
+            <TextBox Name="t3" Margin="5,0" Width="60"  Text="" Height="20" VerticalAlignment="Center" HorizontalContentAlignment="Center" LostFocus="t3_LostFocus" TabIndex="3" MaxLength="5" MinWidth="5" Drop="t3_Drop" KeyDown="t3_KeyDown" TextChanged="t3_TextChanged"></TextBox>
+            <Label Content=" - " VerticalAlignment="Center"></Label>
+            <TextBox Name="t4" Margin="5,0" Width="60"  Text="" Height="20" VerticalAlignment="Center" HorizontalContentAlignment="Center" LostFocus="t4_LostFocus" TabIndex="4" MaxLength="5" MinWidth="5" KeyDown="t4_KeyDown" Drop="t4_Drop" TextChanged="t4_TextChanged"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="320,0,5,0">
+            <Button Margin="5,0" Name="btnLiOK"  Content="OK" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="75" Height="24" Click="btnLiOK_Click"  IsEnabled="False" IsDefault="True" TabIndex="5" />
+            <Button Margin="5,0" Name="btnLiAn" Content="Cancel" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="75" Height="24" Click="btnLiAn_Click" IsCancel="True" TabIndex="6" />
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" Grid.Row="3" Margin="5,0,0,0">
+            <TextBlock Name="machineCode" Text="Your machine code is: " />
+        </StackPanel>
+    </Grid>
+</Window>
