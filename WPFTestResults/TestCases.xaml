@@ -49,7 +49,7 @@
                    VerticalAlignment="Center"
                    Width="Auto"
                    VerticalContentAlignment="Center" />
-            <Label Content="URL: "
+            <Label Content="Start URL: "
                    VerticalAlignment="Center"
                    FontWeight="Bold"
                    Margin="5,0,0,0" />
@@ -126,7 +126,8 @@
                    VerticalAlignment="Center"
                    HorizontalContentAlignment="Right"
                    Margin="2,5"
-                   FontWeight="Bold" />
+                   FontWeight="Bold" 
+                   Name="elementname"/>
             <Label Content="Logical Name:"
                    Grid.Row="4"
                    VerticalContentAlignment="Center"
@@ -330,11 +331,12 @@
                 <ListBoxItem Content="checkbox" />
                 <ListBoxItem Content="move_to" />
                 <ListBoxItem Content="upload" />
-                <ListBoxItem Content="switch_to" />
+                <ListBoxItem Content="switch to iFrame" />
                 <ListBoxItem Content="set_value" />
                 <ListBoxItem Content="get_value" />
                 <ListBoxItem Content="wait" />
                 <ListBoxItem Content="scroll" />
+                <ListBoxItem Content="switch to url" />
             </ComboBox>
             <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Content="Description:" FontWeight="Bold"
                    VerticalAlignment="Center" />
@@ -435,7 +437,7 @@
                      VerticalAlignment="Center"
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Left"
-                     HorizontalContentAlignment="Left" TabIndex="9" IsEnabled="False" />
+                     HorizontalContentAlignment="Left" TabIndex="9"  />
             <ComboBox Name="ComboBoxSwitch"
                       Grid.Row="1"
                       Grid.Column="5"
@@ -531,14 +533,14 @@
                         Margin="5,0"
                         Content="New Teststep"
                         Width="150"
-                        Visibility="Hidden"
+                        Visibility="Visible"
                         Style="{DynamicResource MyButtonStyle}"
                         Click="ButtonAdd_Click" />
                 <Button Name="ButtonEdit"
                         Margin="5,0"
                         Content="Save Teststep"
                         Width="150"
-                        Visibility="Hidden"
+                        Visibility="Visible"
                         Style="{DynamicResource MyButtonStyle}"
                         Click="ButtonEdit_Click" />
                 <Button Name="ButtonDelete"
@@ -546,7 +548,7 @@
                         Content="Delete Teststep"
                         Width="150"
                         IsEnabled="False"
-                        Visibility="Hidden"
+                        Visibility="Visible"
                         Style="{DynamicResource MyButtonStyle}"
                         Click="ButtonDelete_Click" />
             </StackPanel>

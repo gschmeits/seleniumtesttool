@@ -10,8 +10,7 @@
         Width="1596"
         WindowStartupLocation="CenterScreen"
         Loaded="WindowLoaded"
-        Icon="images/if_chemistry_45373.ico"
-        Activated="WindowActivated" GotFocus="Window_GotFocus">
+        Icon="images/if_chemistry_45373.ico" GotFocus="Window_GotFocus" Activated="WindowActivated">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1"
@@ -157,7 +156,6 @@
                    Visibility="Visible"
                    Margin="0,0,0,-8.4"  />
         </StackPanel>
-
         <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Bottom">
         <Label Name="LabelPreconditions" Content="Preconditions" 
                HorizontalAlignment="Center"
@@ -219,6 +217,7 @@
             </DataGrid.Columns>
         </DataGrid>
         </StackPanel>
+
         <Grid Grid.Row="1"
               Name="GridBrowserLoad"
               Width="400"
@@ -336,7 +335,8 @@
                   AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}" 
                   Background="{DynamicResource DataGridAchtergrond}"
                   Grid.Row="1"
-                  Margin="5,10,5,65"
+                  Margin="100,10"
+                  Width="auto"
                   CanUserAddRows="False"
                   AutoGenerateColumns="False"
                   EnableColumnVirtualization="True"
@@ -347,10 +347,9 @@
                   CanUserResizeColumns="True"
                   CanUserResizeRows="False"
                   CanUserSortColumns="False"
-                  Visibility="Hidden" ColumnWidth="Auto">
+                  Visibility="Visible" ColumnWidth="Auto" MouseDoubleClick="DataGridGer_MouseDoubleClick" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding testrun}"
-                                    Width="50"
                                     Header="Testrun">
                     <DataGridTextColumn.ElementStyle>
                         <Style>
@@ -362,7 +361,6 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding application}"
-                                    Width="250"
                                     Header="Application"
                                     Visibility="Hidden">
                     <DataGridTextColumn.ElementStyle>
@@ -375,7 +373,6 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding testnr}"
-                                    Width="40"
                                     Header="Test">
                     <DataGridTextColumn.ElementStyle>
                         <Style>
@@ -387,7 +384,6 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding testname}"
-                                    Width="500"
                                     Header="Testcase">
                     <DataGridTextColumn.ElementStyle>
                         <Style>
@@ -401,7 +397,6 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding elementname}"
-                                    Width="500"
                                     Header="Logical Name">
                     <DataGridTextColumn.ElementStyle>
                         <Style>
@@ -416,7 +411,6 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Binding="{Binding attribute}"
-                                    Width="80"
                                     Header="Attribute"
                                     Visibility="Hidden">
                     <DataGridTextColumn.ElementStyle>
@@ -430,8 +424,7 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTemplateColumn Header="Result"
-                                        Width="50">
+                <DataGridTemplateColumn Header="Result">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding result}"
@@ -461,8 +454,46 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding comment}"
-                                    Width="300"
                                     Header="Description">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                            <Setter Property="TextBlock.Margin"
+                                    Value="5, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding element}"
+                                    Header="Element">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                            <Setter Property="TextBlock.Margin"
+                                    Value="5, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding attribute}"
+                                    Header="Attribute">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                            <Setter Property="TextBlock.Margin"
+                                    Value="5, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding action1}"
+                                    Header="Action">
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping"
@@ -588,23 +619,17 @@
                              FontSize="14"
                              Visibility="Visible"
                              GroupName="RadioBrowser"
-                             Click="RadioButtonClick" Checked="RadioButton_Checked_1" />
-                <RadioButton Content="PhantomJS"
-                             Margin="0,10,-64,10"
-                             FontSize="14"
-                             Visibility="Hidden"
-                             GroupName="RadioBrowser"
-                             Click="RadioButtonClick"
-                             Checked="RadioButtonChecked3"
-                             />
+                             Checked="RadioButton_Checked_1" />
             </StackPanel>
             <StackPanel Margin="25,1,25,0" Orientation="Horizontal" Height="30" Grid.Row="2" Grid.ColumnSpan="2">
                 <TextBlock FontWeight="Bold" Text="     URL part:" VerticalAlignment="Center" />
-                <TextBox Name="TextBoxExtra" Margin="5,3,0,3" Width="154" Height="24" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                <TextBox Name="TextBoxExtra" Margin="5,3,0,3" Width="154" Height="24" 
+                         VerticalAlignment="Center" VerticalContentAlignment="Center" />
             </StackPanel>
             <StackPanel Margin="25,0,25,1" Orientation="Horizontal" Height="30" Grid.Row="3" Grid.ColumnSpan="2">
                 <TextBlock FontWeight="Bold" Text="Version:" VerticalAlignment="Center" />
-                <TextBox Name="TextBoxVersion" Margin="5,0,0,0" Width="180" Height="24" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                <TextBox Name="TextBoxVersion" Margin="5,0,0,0" Width="180" 
+                         Height="24" VerticalAlignment="Center" VerticalContentAlignment="Center" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <Button
@@ -616,7 +641,7 @@
                     Name="ButtonExecute"
                     Content="Execute Tests"
                     FontSize="14"
-                    Click="ButtonExecuteClick" ClickMode="Press" IsDefault="True" />
+                    Click="ButtonExecuteClick" />
                 <Button 
                 Style="{DynamicResource MyButtonStyle}"
                 Margin="20,0,0,0"
@@ -625,7 +650,7 @@
                 Width="100"
                 Name="ButtonCancelExecute"
                 Content="Cancel"
-                FontSize="14" Click="ButtonCancelExecute_Click" IsCancel="True" />
+                FontSize="14" Click="ButtonCancelExecute_Click" />
             </StackPanel>
         </Grid>
     </Grid>

@@ -151,19 +151,7 @@ namespace DataStorage
         public static DataTable GetLaatsteTestCase(string testname)
         {
             var commandText = "SELECT testnr, testcase FROM testcases_selenium WHERE testname = '" + testname + "' ORDER BY testnr DESC LIMIT 1;";
-            using (var objConn = new MySqlConnection(MySqlConnectionString()))
-            {
-                var command = objConn.CreateCommand();
-                command.CommandText = commandText;
-                objConn.Open();
-                var reader = command.ExecuteReader();
-                DataTable table;
-                using (table = new DataTable())
-                {
-                    table.Load(reader);
-                    return table;
-                }
-            }
+            return ExecuteQueryCommandReturnTable(commandText);
         }
 
         /// <summary>
@@ -176,19 +164,7 @@ namespace DataStorage
         public static DataTable GetTestrun(string testname)
         {
             var commandText = "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, testaction, testtext, testurl, testswitch, testdescription, testexecution, testext_check, testinverse, test_comment, test_password FROM testcases_selenium WHERE testname = '" + testname + "' AND testexecution = 'yes' ORDER BY testnr";
-            using (var objConn = new MySqlConnection(MySqlConnectionString()))
-            {
-                var command = objConn.CreateCommand();
-                command.CommandText = commandText;
-                objConn.Open();
-                var reader = command.ExecuteReader();
-                DataTable table;
-                using (table = new DataTable())
-                {
-                    table.Load(reader);
-                    return table;
-                }
-            }
+            return ExecuteQueryCommandReturnTable(commandText);
         }
 
         /// <summary>
@@ -202,19 +178,7 @@ namespace DataStorage
         {
             //var commandText = "SET @rowno = 0;";
             var commandText = "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, testaction, testtext, testurl, testswitch, testdescription, testexecution, testext_check, testinverse, test_comment, test_password FROM testcases_selenium WHERE id = '" + id + "';";
-            using (var objConn = new MySqlConnection(MySqlConnectionString()))
-            {
-                var command = objConn.CreateCommand();
-                command.CommandText = commandText;
-                objConn.Open();
-                var reader = command.ExecuteReader();
-                DataTable table;
-                using (table = new DataTable())
-                {
-                    table.Load(reader);
-                    return table;
-                }
-            }
+            return ExecuteQueryCommandReturnTable(commandText);
         }
 
         /// <summary>

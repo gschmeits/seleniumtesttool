@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:WPFTestResults"
         mc:Ignorable="d"
         Title="Scripts Selenium Tests"
-        Height="600"
-        Width="960" WindowStartupLocation="CenterScreen">
+        Height="936"
+        Width="1824" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1"
@@ -28,19 +28,203 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        <TreeView Grid.RowSpan="8"             
-                  HorizontalAlignment="Left"
-                  Margin="10,10,0,0"
+        <StackPanel Grid.Row="1" Name="selectie" Visibility="Visible" Grid.ColumnSpan="3" Grid.RowSpan="12">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Available test scripts"
+               FontSize="16"
+               FontWeight="Bold"
+               VerticalContentAlignment="Bottom"
+               HorizontalAlignment="Center" Grid.Row="1"/>
+                <Label Content="Selected test scripts"
+               Grid.Column="2"
+               Grid.Row="1"
+               FontSize="16"
+               FontWeight="Bold"
+               VerticalContentAlignment="Bottom"
+               HorizontalAlignment="Center"/>
+                <TreeView Grid.RowSpan="6"
+                  HorizontalAlignment="Center"
                   VerticalAlignment="Top"
-                  Width="300"
+                  Name="TreeView1"
+                  Width="500"
+                  Height="454"
+                  HorizontalContentAlignment="Left"
                   Loaded="TreeView_Loaded"
                   SelectedItemChanged="TreeView_SelectedItemChanged"
-                  Background="AliceBlue" Height="549">
-        </TreeView>
+                  Background="AliceBlue" Grid.Row="2" >
+                </TreeView>
+                <TreeView Grid.RowSpan="6"
+                  Grid.Column="2"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Name="TreeView2"
+                  Width="500"
+                  Height="453"
+                  HorizontalContentAlignment="Left"
+                  SelectedItemChanged="TreeView_SelectedItemChanged2"
+                  Background="AliceBlue" Grid.Row="2" >
+                </TreeView>
+                <StackPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="8">
+                    <Button Name="ButtonAllTo" Margin="0,10" Content=">>" FontWeight="Bold" FontSize="16" Height="50" Width="75" Click="ButtonAllTo_Click"></Button>
+                    <Button Name="ButtonOneTo" Margin="0,10" Content=">" FontWeight="Bold" FontSize="16" Height="50" Width="75" Click="ButtonOneTo_Click"></Button>
+                    <Button Name="ButtonOneBack" Margin="0,100,0,10"    Content="&#60;" FontWeight="Bold" FontSize="16" Height="50" Width="75" Click="ButtonOneBack_Click"></Button>
+                    <Button Name="ButtonAllBack" Margin="0,10" VerticalAlignment="Bottom" Content="&#60;&#60;" FontWeight="Bold" FontSize="16" Height="50" Width="75" Click="ButtonAllBack_Click"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="8" HorizontalAlignment="Center" Grid.ColumnSpan="3" >
+                    <Button Name="ButtonExecute" Content="Execute Test Scripts" Width="120" Style="{DynamicResource MyButtonStyle}"  IsEnabled="False" Click="ButtonExecute_Click" ></Button>
+                </StackPanel>
+            </Grid>
+
+        </StackPanel>
+        <Grid Name="GridBrowser" Grid.RowSpan="12" Grid.ColumnSpan="3"
+              Visibility="Hidden"
+              Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" 
+              VerticalAlignment="Top"
+              Margin="0,50,0,0"
+              HorizontalAlignment="Center" Width="350" Height="371" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height=".5*" />
+                <RowDefinition Height=".5*" />
+                <RowDefinition Height="1.5*" />
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="5"
+                    BorderThickness="1"
+                    BorderBrush="Black" Grid.ColumnSpan="2" />
+            <TextBlock Margin="15"
+                       FontWeight="Bold"
+                       Text="Select the browser:"
+                       FontSize="14" Grid.ColumnSpan="2" />
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Height="190"
+                        Width="153" Grid.ColumnSpan="2" Margin="87,0.462,60,25" Grid.RowSpan="2" Grid.Row="1">
+                <RadioButton Content="Chrome"
+                             Margin="0,10"
+                             IsChecked="True"
+                             FontSize="14"
+                             GroupName="RadioBrowser"
+                             Checked="RadioButtonChecked2" />
+                <RadioButton Content="FireFox"
+                             Margin="0,10"
+                             FontSize="14"
+                             GroupName="RadioBrowser"
+                             Checked="RadioButton_Checked" />
+                <RadioButton Content="Internet Explorer"
+                             Margin="0,10,-64,10"
+                             FontSize="14"
+                             GroupName="RadioBrowser"
+                             Checked="RadioButtonChecked1" />
+                <RadioButton Content="Edge"
+                             Name="RadioButtonEdge"
+                             Margin="0,10,-64,10"
+                             FontSize="14"
+                             Visibility="Visible"
+                             GroupName="RadioBrowser"
+                             Click="RadioButtonClick" Checked="RadioButton_Checked_1" />
+                <RadioButton Content="PhantomJS"
+                             Margin="0,10,-64,10"
+                             FontSize="14"
+                             Visibility="Hidden"
+                             GroupName="RadioBrowser"
+                             Click="RadioButtonClick"
+                             Checked="RadioButtonChecked3"
+                             />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
+                <Button
+                    Style="{DynamicResource MyButtonStyle}"
+                    Margin="0,0,0,0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Name="ButtonExecute1"
+                    Content="Execute Tests"
+                    FontSize="14"
+                    ClickMode="Press" IsDefault="True" Click="ButtonExecute1_Click" />
+                <Button 
+                Style="{DynamicResource MyButtonStyle}"
+                Margin="20,0,0,0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Width="100"
+                Name="ButtonCancelExecute"
+                Content="Cancel"
+                FontSize="14"  IsCancel="True" Click="ButtonCancelExecute_Click" />
+            </StackPanel>
+        </Grid>
+        <StackPanel Name="StackPanelSave" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="10">
+            <Label VerticalAlignment="Center" Content="Save as:"/>
+            <TextBox Name="TextBoxSaveAs" 
+                     VerticalContentAlignment="Center" 
+                     VerticalAlignment="Center" 
+                     Height="32"  
+                     IsEnabled="False"
+                     Width="350" 
+                      LostFocus="TextBoxSaveAs_LostFocus"/>
+            <Button Name="ButtonSaveAs" 
+                    IsEnabled="False"
+                    Content="Save" 
+                    Style="{DynamicResource MyButtonStyle}" Click="ButtonSaveAs_Click" />
+        </StackPanel>
+        <StackPanel Name="StackPanelLoad" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0" Grid.Row="10" Grid.Column="2">
+            <Label VerticalAlignment="Center" Content="Load Scripts:"/>
+            <ComboBox Name="ComboBoxLoadScripts" 
+                      VerticalContentAlignment="Center" 
+                      VerticalAlignment="Center" 
+                      
+                      IsEnabled="False"
+                      Height="32"  
+                      Width="350" DropDownClosed="ComboBoxLoadScripts_DropDownClosed" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="10" 
+                    Grid.ColumnSpan="3" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+            <Label Name="LabelDone" 
+               FontWeight="Bold"
+               VerticalContentAlignment="Center" 
+               HorizontalContentAlignment="Center"/>
+            <Label Name="LabelDone1" 
+               FontWeight="Bold"
+               VerticalContentAlignment="Center" 
+               HorizontalContentAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Window>

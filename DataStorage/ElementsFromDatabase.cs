@@ -48,8 +48,34 @@ namespace DataStorage
             }
             var query = "UPDATE selenium_elements ";
             query += "SET " + element + " = " + selecteren;
-            query += " WHERE url = '" + url + "' ORDER BY idselenium_elements;";
+            query += " WHERE url = '" + url + "';";
             General.ExecuteQueryCommand(query);
+        }
+
+        public static void UpdateAllCheckbox8(string id, Boolean wel, string element)
+        {
+            var selecteren = 0;
+            if (wel == true)
+            {
+                selecteren = 1;
+            }
+            var query = "UPDATE selenium_elements ";
+            query += "SET " + element + " = " + selecteren;
+            query += " WHERE idselenium_elements = '" + id + "';";
+            General.ExecuteQueryCommand(query);
+        }
+
+        public static void UpdateCheckBox8(string id, Boolean wel)
+        {
+            var selecteren = 0;
+            if (wel == true)
+            {
+                selecteren = 1;
+            }
+            var query = "UPDATE selenium_elements ";
+            query += "SET checktext = '" + selecteren + "' WHERE idselenium_elements = " + id + ";";
+            General.ExecuteQueryCommand(query);
+
         }
 
         public static void UpdateCheckBox(string id, Boolean wel)

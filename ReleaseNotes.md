@@ -167,3 +167,96 @@ Bij de elementen ervoor gezorgd dat de waarden van een input veld ook getoond wo
 
 # Release 2.0.4.0
 Bij het ophalen van de elementen zijn nu vele mogelijkheden ingebouwd om naar de juiste pagina te gaan, inclusief het drukken van knoppen, selecteren van waarden etc.
+
+# Release 2.0.4.5
+Query voor het inserten van een login optie aangepast:
+
+    var queryU = "INSERT INTO `autotest`.`login_code` " + "(`login_url`, " + "`login_attribute_username`, ";
+    queryU += "`login_attribute_password`, " + "`login_attribute_button`, " + "`login_tagname_user`, ";
+    queryU += "`login_tagname_password`, " + "`login_tagname_button`, " + "`login_user_value`, ";
+    queryU += "`login_attribute_extra1`, `login_attribute_extra2`, `login_attribute_extra3`, ";
+    queryU += " `login_tagname_extra1`, `login_tagname_extra2`, `login_tagname_extra3`,";
+    queryU += "`login_description_extra1`, `login_description_extra2`, `login_description_extra3`, ";
+    queryU += "`login_password_value`, ";
+    queryU += "`login_action1`, `login_action2`, `login_action3`, `login_action4`, `login_action5`, `login_action6`, ";
+    queryU += "`login_order1`, `login_order2`, `login_order3`, `login_order4`, `login_order5`, `login_order6`) ";
+    queryU += " VALUES ('";
+    queryU += MySqlHelper.EscapeString(TextBoxURLSave.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(UserAttribute.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(PasswordAtrribute.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(ButtonAttribute.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(UserTag.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(PasswordTag.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(ButtonTag.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(UserText.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(ButtonAttributeExtra1.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(ButtonAttributeExtra2.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(ButtonAttributeExtra3.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(ButtonTagnameExtra1.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(ButtonTagnameExtra2.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(ButtonTagnameExtra3.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(DescriptionExtra1.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(DescriptionExtra2.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(DescriptionExtra3.Text) + "', " + "'";
+    queryU += MySqlHelper.EscapeString(PasswordText.Password) + "', '";
+    queryU += MySqlHelper.EscapeString(ComboBoxAction1.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(ComboBoxAction2.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(ComboBoxAction3.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(ComboBoxAction4.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(ComboBoxAction5.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(ComboBoxAction6.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(Order1.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(Order2.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(Order3.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(Order4.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(Order5.Text) + "', '";
+    queryU += MySqlHelper.EscapeString(Order6.Text) + "');";
+
+De velden die beschikbaar zijn voor het inloggen niet meer zichtbaar gemaakt wanneer er geen gebruik gemaakt wordt van het inloggen.
+
+# Release 2.0.4.6
+Aanpassingen gedaan om eerst in te loggen en dan naar de juiste pagina te gaan bij het ophalen van de elementen.
+
+# Release 2.0.4.7
+Voor het selecteren van de tekst bij de gevonden elementen zijn de volgende extra regels toegevoegd. Nu worden de checkboxen voor het controleren van de tekst niet meer leeggemaakt wanneer er op check all geklikt wordt. 
+
+	if (kolom.DisplayIndex == 8 || kolom.DisplayIndex == 1)
+	{
+	    var isChecked = cellContent1.IsChecked;
+	    var flag = true;
+	    var check1 = "checktext";
+	    if (kolom.DisplayIndex == 1)
+	    {
+	        check1 = " selenium_check";
+	    }
+	    var wel = !((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue);
+	    ElementsFromDatabase.UpdateAllCheckbox8(cellContent.Text, wel, check1);
+	}
+DataGridElements_CurrentCellChanged in ElementsGetSet.xaml.cs regel 2094.
+
+# Release 2.0.4.8
+Elementen zoeken aangepast zodat er geen foutmeldingen meer komen voor het zoeken naar de waarden van een input veld
+Switch naar andere url ingebouwd
+Verplicht van het vullen van de element naam wanneer dat niet nodig is.
+
+# Release 2.0.4.9
+Geen error melding meer wanneer een element of een attribute leeggelaten worden.
+Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgevoerd worden. Deze zijn
+
+- click
+- sendkeys
+- select
+- value
+- checkbox
+- move_to
+- scroll
+
+# Release 2.0.4.10
+- De datagrid met de test resultaten aangepast om meer gegevens te tonen.
+- Het machinenummer toegevoegd aan teststappen.
+- Verwerking van de elementen rechtstreeks via de database laten doen, waardoor het veel sneller is.
+- Wanneer er naar een andere url gesprongen dient te worden wordt automatisch de juiste stap uitgevoerd.
+- Het verwerken van het al of niet selecteren van een element om te controleren of tekst volledig gerefactored. 
+
+# Release 2.0.5.5
+- Naar andere pagina kunnen gaan bij het ophalen van de elementen

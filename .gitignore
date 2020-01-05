@@ -261,6 +261,7 @@ paket-files/
 __pycache__/
 *.pyc
 
+<<<<<<< HEAD
 /old
 /Documentation
 /Help
@@ -275,3 +276,20 @@ vtmiddenbra*.*
 
 
 Dump*.sql
+=======
+**/Documentation/
+**/old/*
+**/Documentation/*
+**/Help/*
+**/Data/*
+*.exe
+vtmiddenbra*.*
+**/Console*.*/*
+**/screenshots/*.png
+**/Data/*
+**/UnitTestProject/*
+**/TestResults/*
+**/WindowsFormsApp1/*
+**/hulpmiddelen/*
+**/packages/*
+>>>>>>> cc0bc5e4e29b7d7fc5d6fdf94011832814e980ec

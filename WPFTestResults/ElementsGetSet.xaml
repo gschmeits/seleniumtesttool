@@ -96,7 +96,7 @@
                     <ListBoxItem Content="wait" />
                     <ListBoxItem Content="scroll" />
                 </ComboBox>
-                <TextBox Margin="5,0,0,0" Name="Order1" Width="25" Text="1" VerticalContentAlignment="Center" Height="26"  HorizontalContentAlignment="Center" TabIndex="5"/>
+                <TextBox Margin="5,0,0,0" x:Name="Order1" Width="25" VerticalContentAlignment="Center" Height="26"  HorizontalContentAlignment="Center" TabIndex="5"/>
             </StackPanel>
 
             <StackPanel Name="Extra" Margin="0,5,0,5" Orientation="Horizontal" >
@@ -133,7 +133,7 @@
                     <ListBoxItem Content="wait" />
                     <ListBoxItem Content="scroll" />
                 </ComboBox>
-                <TextBox Margin="5,0,0,0" Name="Order6" Width="25" Text="6" VerticalContentAlignment="Center" Height="26" HorizontalContentAlignment="Center" TabIndex="9"/>
+                <TextBox Margin="5,0,0,0" Name="Order6" Width="25" VerticalContentAlignment="Center" Height="26" HorizontalContentAlignment="Center" TabIndex="9"/>
             </StackPanel>
 
             <StackPanel Name="passwordname" Margin="0,5" Orientation="Horizontal">
@@ -170,7 +170,7 @@
                     <ListBoxItem Content="wait" />
                     <ListBoxItem Content="scroll" />
                 </ComboBox>
-                <TextBox Margin="5,0,0,0" Name="Order2" Width="25" Text="2" Height="26" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="11"/>
+                <TextBox Margin="5,0,0,0" Name="Order2" Width="25" Height="26" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="11"/>
             </StackPanel>
             <StackPanel Name="buttonName" Margin="0,5" Orientation="Horizontal" >
                 <Label VerticalContentAlignment="Center">Atribute:</Label>
@@ -204,7 +204,7 @@
                     <ListBoxItem Content="wait" />
                     <ListBoxItem Content="scroll" />
                 </ComboBox>
-                <TextBox Margin="10,0,0,0" Name="Order3" Width="25" Height="26" Text="3" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="16"/>
+                <TextBox Margin="10,0,0,0" Name="Order3" Width="25" Height="26" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="16"/>
             </StackPanel>
            
             <StackPanel Orientation="Horizontal" Grid.Row="3">
@@ -245,7 +245,7 @@
                     <ListBoxItem Content="wait" />
                     <ListBoxItem Content="scroll" />
                 </ComboBox>
-                <TextBox Margin="5,0,0,0" Name="Order4" Width="25" Text="4" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="20"/>
+                <TextBox Margin="5,0,0,0" Name="Order4" Width="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="20"/>
             </StackPanel>
             <StackPanel Name="ButtonAttributeExtra2s" Margin="0,5" Orientation="Horizontal" Height="26">
                 <Label VerticalContentAlignment="Center">Atribute:</Label>
@@ -260,7 +260,7 @@
                 <Label HorizontalContentAlignment="Right" Width="120">Tagname button:</Label>
                 <TextBox Name="ButtonTagnameExtra2" Height="26" Width="150" TabIndex="22" VerticalContentAlignment="Center"/>
                 <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Width="80">Description:</Label>
-                <TextBox Name="DescriptionExtra2" Width="150" Height="26" TabIndex="23" VerticalContentAlignment="Center"/>
+                <TextBox Name="DescriptionExtra2" Width="150" Height="26" TabIndex="23" VerticalContentAlignment="Center" />
                 <ComboBox Name="ComboBoxAction6"
                           Margin="5,0"
                           Width="100"
@@ -281,7 +281,7 @@
                     <ListBoxItem Content="wait" />
                     <ListBoxItem Content="scroll" />
                 </ComboBox>
-                <TextBox Margin="5,0,0,0" Name="Order5" Width="25" Text="5" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="22"/>
+                <TextBox Margin="5,0,0,0" Name="Order5" Width="25" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="22"/>
             </StackPanel>
             <StackPanel Name="StackPanelSave" Orientation="Horizontal" Margin="5,10,0,0">
                 <Label Content="URL to Save:" VerticalContentAlignment="Center"/>
@@ -344,6 +344,15 @@
         <Border Name="BorderSelect" Margin="350,488,400,118" Grid.Row="2" BorderThickness="1"
             BorderBrush="#FF0D21EA" Grid.Column="1"/>
 
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,705,918,14" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Hidden">
+            <Label Content="URL to get elements:" Margin="0,3,5,4" VerticalAlignment="Center" VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Right" HorizontalAlignment="Right" Height="26"/>
+            <TextBox Name="TextBoxURL1" Margin="5,18" Height="24" Width="400" Text="" VerticalAlignment="Center"
+                     VerticalContentAlignment="Center" TextWrapping="Wrap"/>
+        </StackPanel>
+
+
         <StackPanel Orientation="Horizontal" Grid.Row="3">
             <Label Name="LabelFoundElements" Content="Found Elements:" VerticalContentAlignment="Center"
              FontWeight="Bold"/>
@@ -393,7 +402,7 @@
                   CanUserResizeColumns="true" CanUserResizeRows="true" AutoGenerateColumns="false"
                   CanUserSortColumns="true" RowHeaderWidth="0" HorizontalScrollBarVisibility="Visible"
                   IsSynchronizedWithCurrentItem="False" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" 
-                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Height="770" CellEditEnding="DataGridElements_CellEditEnding" CurrentCellChanged="DataGridElements_CurrentCellChanged"  >
+                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Height="770" CurrentCellChanged="DataGridElements_CurrentCellChanged"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" IsReadOnly="true" Binding="{Binding idSelenium_element}"/>
                 <DataGridCheckBoxColumn Header="Select" IsReadOnly="false"

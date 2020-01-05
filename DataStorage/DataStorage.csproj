@@ -171,6 +171,9 @@
     <Compile Include="PreconditionsFactory.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts.cs" />
+    <Compile Include="ScriptsDataFactory.cs" />
+    <Compile Include="ScriptDetails.cs" />
     <Compile Include="SerialKeyXML.cs" />
     <Compile Include="TestCases.cs" />
     <Compile Include="TestResults.cs" />

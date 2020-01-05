@@ -76,10 +76,15 @@ namespace WPFTestResults
             buttonCloseWindow.IsEnabled = false;
             ButtonPreConditions.IsEnabled = false;
             AddDataGrid.Visibility = Visibility.Hidden;
+            ButtonAdd.Visibility = Visibility.Hidden;
+            ButtonEdit.Visibility = Visibility.Hidden;
+            ButtonDelete.Visibility = Visibility.Hidden;
         }
 
         private static string bestandsnaamgeopend { get; set; }
         private static int intRow { get; set; }
+
+        private static Boolean verplicht { get; set; }
 
         private static string machinestatic { get; set; }
 
@@ -207,14 +212,14 @@ namespace WPFTestResults
             var idNumber = test.ToString().Split(':')[1];
 
             LabelTestRecord.Content = intRow + 1;
-            
+
             if (intRow == -1) return;
             var teller = 0;
             var idNummer = string.Empty;
             foreach (var testcase in testCases)
             {
                 if (teller == intRow) idNummer = testcase.id;
-            
+
                 teller++;
             }
 
@@ -236,6 +241,7 @@ namespace WPFTestResults
             ComboBoxInverse.Text = warder.Rows[0]["testinverse"].ToString();
             PasswordTestText.Password = warder.Rows[0]["test_password"].ToString();
 
+            VerplichtElement();
 
             if (PasswordTestText.Password != string.Empty)
             {
@@ -504,6 +510,7 @@ namespace WPFTestResults
             }
         }
 
+
         /// <summary>
         ///     Handles the Click event of the ButtonNoExecution control.
         /// </summary>
@@ -562,10 +569,10 @@ namespace WPFTestResults
             {
                 if (TextBoxTestElement.Text == string.Empty)
                 {
-                    if (ComboBoxAction.Text == "wait" && Convert.ToInt32(TextBoxTestText.Text) > 0)
-                        ButtonEdit.IsEnabled = true;
-                    else
+                    if (elementname.Content == "*Element:" && Convert.ToInt32(TextBoxTestNr.Text) > 0)
                         ButtonEdit.IsEnabled = false;
+                    else
+                        ButtonEdit.IsEnabled = true;
                 }
             }
 
@@ -574,7 +581,63 @@ namespace WPFTestResults
 
         private void ComboBoxAction_DropDownClosed(object sender, EventArgs e)
         {
+            VerplichtElement();
             ShowCheckbox();
+        }
+
+        private void VerplichtElement()
+        {
+            switch (ComboBoxAction.Text)
+            {
+                case "click":
+                    verplicht = true;
+                    break;
+                case "sendkeys":
+                    verplicht = true;
+                    break;
+                case "select":
+                    verplicht = true;
+                    break;
+                case "value":
+                    verplicht = true;
+                    break;
+                case "checkbox":
+                    verplicht = true;
+                    break;
+                case "move_to":
+                    verplicht = true;
+                    break;
+                case "upload":
+                    verplicht = false;
+                    break;
+                case "switch to iFrame":
+                    verplicht = false;
+                    break;
+                case "set_value":
+                    verplicht = false;
+                    break;
+                case "get_value":
+                    verplicht = false;
+                    break;
+                case "wait":
+                    verplicht = false;
+                    break;
+                case "scroll":
+                    verplicht = true;
+                    break;
+                case "switch to url":
+                    verplicht = false;
+                    break;
+            }
+
+            if (verplicht == true)
+            {
+                elementname.Content = "*Element:";
+            }
+            else
+            {
+                elementname.Content = "Element:";
+            }
         }
 
         /// <summary>
@@ -737,10 +800,7 @@ namespace WPFTestResults
                 case "checkbox":
                     LabelCheckBox.Visibility = Visibility.Visible;
                     ComboBoxTestText.Visibility = Visibility.Visible;
-                    if (ComboBoxTestText.Text == String.Empty)
-                    {
-                        ComboBoxTestText.SelectedIndex = 2; // 'false'
-                    }
+                    if (ComboBoxTestText.Text == string.Empty) ComboBoxTestText.SelectedIndex = 2; // 'false'
                     break;
                 case "switch_to":
                     LabelSwitchTo.Visibility = Visibility.Visible;
@@ -773,7 +833,7 @@ namespace WPFTestResults
             else
             {
                 CheckBoxPassword.IsEnabled = false;
-                TextBoxTestUrl.IsEnabled = false;
+                //TextBoxTestUrl.IsEnabled = false;
             }
         }
 
@@ -912,13 +972,9 @@ namespace WPFTestResults
         private void TextInsertRow_KeyDown(object sender, KeyEventArgs e)
         {
             if (TextInsertRow.Text != string.Empty)
-            {
                 ButtonInsertRow.IsEnabled = true;
-            }
             else
-            {
                 ButtonInsertRow.IsEnabled = false;
-            }
         }
     }
 }
