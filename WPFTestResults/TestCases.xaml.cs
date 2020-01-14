@@ -205,8 +205,8 @@ namespace WPFTestResults
         private void AddDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //intRow = AddDataGrid.SelectedIndex;
+            var intRow = AddDataGrid.Items.IndexOf(AddDataGrid.CurrentItem);
 
-            intRow = AddDataGrid.Items.IndexOf(AddDataGrid.CurrentItem);
             var test = GetCell(intRow, 0);
 
             var idNumber = test.ToString().Split(':')[1];
@@ -222,8 +222,25 @@ namespace WPFTestResults
 
                 teller++;
             }
+            HaalGegevensInEdit(idNumber);
+        }
 
+
+        private void HaalGegevensInEdit(string idNumber, Boolean datagrid = true)
+        {
             var warder = General.GetTestCase(idNumber);
+
+            if (datagrid == true)
+            {
+                warder = General.GetTestCase(idNumber);
+                ComboboxSelectNr.Text = warder.Rows[0]["testnr"].ToString();
+
+            }
+            else
+            {
+                warder = General.GetTestCaseTestnr(ComboboxSelectNr.Text, TextBoxTestName.Text);
+            }
+
             TextBoxTestId.Text = warder.Rows[0]["id"].ToString();
             TextBoxTestName.Text = warder.Rows[0]["testname"].ToString();
             TextBoxTestNr.Text = warder.Rows[0]["testnr"].ToString();
@@ -306,6 +323,10 @@ namespace WPFTestResults
             checkSaveble();
         }
 
+
+
+
+
         /// <summary>
         ///     Handles the Click event of the Button control.
         /// </summary>
@@ -343,6 +364,7 @@ namespace WPFTestResults
 
             buttonCloseWindow.IsEnabled = true;
         }
+
 
         /// <summary>
         ///     Handles the Click event of the ButtonAdd control.
@@ -917,6 +939,18 @@ namespace WPFTestResults
             if (AddDataGrid.Items.Count == 0) TextBoxTestNr.Text = "1";
 
             PanelNamen.Visibility = Visibility.Visible;
+
+            VulTestNr(testCases);
+
+        }
+
+        private void VulTestNr(List<TestResultsFactory.TestCases> testCases)
+        {
+            ComboboxSelectNr.Items.Clear();
+            for (int x = 0; x < testCases.Count; x++)
+            {
+                ComboboxSelectNr.Items.Add(testCases[x].testnr);
+            }
         }
 
         /// <summary>
@@ -975,6 +1009,17 @@ namespace WPFTestResults
                 ButtonInsertRow.IsEnabled = true;
             else
                 ButtonInsertRow.IsEnabled = false;
+        }
+
+        private void ComboboxSelectNr_DropDownClosed(object sender, EventArgs e)
+        {
+            if (ComboboxSelectNr.Text != string.Empty)
+            {
+                HaalGegevensInEdit(ComboboxSelectNr.Text, false);
+                AddDataGrid.SelectedValuePath = "id";
+                AddDataGrid.SelectedValue = TextBoxTestId.Text;
+                intRow = AddDataGrid.SelectedIndex;
+            }
         }
     }
 }

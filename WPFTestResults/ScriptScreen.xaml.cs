@@ -20,6 +20,10 @@ using TreeView = System.Windows.Controls.TreeView;
 
 namespace WPFTestResults
 {
+    using System.Xml;
+
+    using GeneralFunctionality;
+
     /// <summary>
     ///     Interaction logic for ScriptScreen.xaml
     /// </summary>
@@ -118,6 +122,8 @@ namespace WPFTestResults
         private void GetBestanden()
         {
             var dirs = Directory.GetFiles(GeneralFunctionality.Functions.GetCurrentDir(1), "*.xml");
+
+            TreeView1.Items.Clear();
             foreach (var dir1 in dirs)
             {
                 var bestandsnaam = GeneralFunctionality.Functions.SplitBestand(dir1);
@@ -536,9 +542,29 @@ namespace WPFTestResults
                         item.Header = testScriptsDetail.bestandsnaam;
 
                         item.ItemsSource = new[]
-                            {testScriptsDetail.bestandsnaam, testScriptsDetail.application, testScriptsDetail.url};
+                            {testScriptsDetail.bestandsnaam, testScriptsDetail.application, testScriptsDetail.url, testScriptsDetail.page};
 
                         TreeView2.Items.Add(item);
+                        var dirs = Directory.GetFiles(GeneralFunctionality.Functions.GetCurrentDir(1), "*.xml");
+                        var gevonden = 0;
+                        foreach (var dir1 in dirs)
+                        {
+
+                            var bestandsnaam = GeneralFunctionality.Functions.SplitBestand(dir1);
+                            if (bestandsnaam == testScriptsDetail.bestandsnaam)
+                            {
+                                gevonden = 1;
+                            }
+                        }
+                        if (gevonden == 0)
+                        {
+                            CheckSettingsDir(
+                                testScriptsDetail.bestandsnaam,
+                                testScriptsDetail.application,
+                                testScriptsDetail.url,
+                                testScriptsDetail.page);
+                            GetBestanden();
+                        }
                     }
 
                     ButtonAllBack.IsEnabled = true;
@@ -547,6 +573,28 @@ namespace WPFTestResults
 
                     ComboBoxLoadScripts.SelectedIndex = -1;
                 }
+            }
+        }
+
+        private void CheckSettingsDir(string bestandsnaamstr, string applicationstr, string urlstr, string pagestr)
+        {
+            var settingsXML = new XmlWriterSettings();
+            settingsXML.Indent = true;
+            settingsXML.OmitXmlDeclaration = true;
+            settingsXML.IndentChars = "\t";
+
+            using (XmlWriter writer =
+                XmlWriter.Create(Functions.GetCurrentDir(1) + bestandsnaamstr + ".xml", settingsXML))
+            {
+                writer.WriteStartDocument();
+                writer.WriteStartElement("settings");
+                writer.WriteStartElement("start");
+                writer.WriteElementString("url",urlstr);
+                writer.WriteElementString("application", applicationstr);
+                writer.WriteElementString("page", pagestr);
+                writer.WriteEndElement();
+                writer.WriteEndElement();
+                writer.WriteEndDocument();
             }
         }
 
@@ -600,5 +648,6 @@ namespace WPFTestResults
                 GenericDataRead.INUPDEL(query);
             }
         }
+
     }
 }

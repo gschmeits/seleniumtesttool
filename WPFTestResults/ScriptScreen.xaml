@@ -210,7 +210,7 @@
                       
                       IsEnabled="False"
                       Height="32"  
-                      Width="350" DropDownClosed="ComboBoxLoadScripts_DropDownClosed" />
+                      Width="350" DropDownClosed="ComboBoxLoadScripts_DropDownClosed"  />
         </StackPanel>
         <StackPanel Orientation="Vertical"
                     Grid.Row="10" 

@@ -81,6 +81,7 @@ namespace DataStorage
                         LoginAction4 = row["login_action4"].ToString(),
                         LoginAction5 = row["login_action5"].ToString(),
                         LoginAction6 = row["login_action6"].ToString(),
+                        LoginName = row["login_name"].ToString()
                     }).ToList();
             }
             catch (Exception e)
@@ -200,6 +201,8 @@ namespace DataStorage
             public string LoginAction4 { get; set; }
             public string LoginAction5 { get; set; }
             public string LoginAction6 { get; set; }
+
+            public string LoginName { get; set; }
         }
     }
 }

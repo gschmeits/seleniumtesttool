@@ -1134,8 +1134,8 @@ namespace WPFTestResults
                         break;
                 }
 
-                ComboTestFrom.Items.Add(tekst + " " + gu.date);
-                ComboTestTill.Items.Add(tekst + " " + gu.date);
+                ComboTestFrom.Items.Add(tekst + " " + gu.testscenario_name + " " + gu.date);
+                ComboTestTill.Items.Add(tekst + " " + gu.testscenario_name + " " + gu.date);
             }
 
             if (ComboTestFrom.Items.Count == 0) ComboTestFrom.IsEnabled = false;

@@ -12,42 +12,50 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Web;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using DataStorage;
-using GeneralFunctionality;
-using HtmlAgilityPack;
-using LicentieWPF.LicenseKey;
-using MySql.Data.MySqlClient;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
-using UrlFactory;
-using CheckBox = System.Windows.Controls.CheckBox;
-using DataGrid = System.Windows.Controls.DataGrid;
-using DataGridCell = System.Windows.Controls.DataGridCell;
-using HtmlDocument = HtmlAgilityPack.HtmlDocument;
-using KeyEventArgs = System.Windows.Input.KeyEventArgs;
-using MessageBox = System.Windows.MessageBox;
-
 namespace WPFTestResults
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Threading;
+    using System.Web;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Controls.Primitives;
+    using System.Windows.Forms;
+    using System.Windows.Input;
+    using System.Windows.Media;
+
+    using DataStorage;
+
+    using GeneralFunctionality;
+
+    using HtmlAgilityPack;
+
+    using LicentieWPF.LicenseKey;
+
+    using MySql.Data.MySqlClient;
+
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Interactions;
+    using OpenQA.Selenium.Support.UI;
+
+    using UrlFactory;
+
+    using CheckBox = System.Windows.Controls.CheckBox;
+    using DataGrid = System.Windows.Controls.DataGrid;
+    using DataGridCell = System.Windows.Controls.DataGridCell;
+    using HtmlDocument = HtmlAgilityPack.HtmlDocument;
+    using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+    using MessageBox = System.Windows.MessageBox;
+
     /// <summary>
     ///     Class ElementsGetSet.
     ///     Implements the <see cref="System.Windows.Window" />
@@ -102,63 +110,63 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for #ctor
         public ElementsGetSet(string GetSet)
         {
-            InitializeComponent();
-            Width = Screen.PrimaryScreen.Bounds.Width * 0.95;
-            Height = Screen.PrimaryScreen.Bounds.Height * 0.9;
-            ElementSetting = GetSet;
-            ButtonGetElements.IsEnabled = false;
-            LabelID.Content = string.Empty;
-            SetButtonContext();
-            ButtonSave.IsEnabled = false;
-            LabelFoundElements.Visibility = Visibility.Hidden;
-            ButtonSetToTest.IsEnabled = false;
-            LabelTestCase.Visibility = Visibility.Hidden;
-            TextBoxTestCase.Visibility = Visibility.Hidden;
-            LabelTestPage.Visibility = Visibility.Hidden;
-            TextBoxTestCasePage.Visibility = Visibility.Hidden;
-            UserAttribute.Text = "Name";
-            PasswordAtrribute.Text = "Name";
-            ButtonAttribute.Text = "Name";
-            href_link = string.Empty;
-            CheckBoxInlogIncluded.Visibility = Visibility.Hidden;
-            if (ElementSetting == "SET")
+            this.InitializeComponent();
+            this.Width = Screen.PrimaryScreen.Bounds.Width * 0.95;
+            this.Height = Screen.PrimaryScreen.Bounds.Height * 0.9;
+            this.ElementSetting = GetSet;
+            this.ButtonGetElements.IsEnabled = false;
+            this.LabelID.Content = string.Empty;
+            this.SetButtonContext();
+            this.ButtonSave.IsEnabled = false;
+            this.LabelFoundElements.Visibility = Visibility.Hidden;
+            this.ButtonSetToTest.IsEnabled = false;
+            this.LabelTestCase.Visibility = Visibility.Hidden;
+            this.TextBoxTestCase.Visibility = Visibility.Hidden;
+            this.LabelTestPage.Visibility = Visibility.Hidden;
+            this.TextBoxTestCasePage.Visibility = Visibility.Hidden;
+            this.UserAttribute.Text = "Name";
+            this.PasswordAtrribute.Text = "Name";
+            this.ButtonAttribute.Text = "Name";
+            this.href_link = string.Empty;
+            this.CheckBoxInlogIncluded.Visibility = Visibility.Hidden;
+            if (this.ElementSetting == "SET")
             {
-                Inlog.Visibility = Visibility.Hidden;
-                BorderInlog.Visibility = Visibility.Hidden;
-                StackPanelLoad.Visibility = Visibility.Hidden;
-                StackPanelSave.Visibility = Visibility.Hidden;
-                TextBoxURL.Visibility = Visibility.Collapsed;
-                ComboBoxURL.Visibility = Visibility.Visible;
-                ButtonGetElements.Visibility = Visibility.Hidden;
-                CheckBoxWholeWebsite.Visibility = Visibility.Hidden;
-                CheckBoxObjectVisibility.Visibility = Visibility.Hidden;
-                HaalGegevensComboBox();
-                BorderSelect.Visibility = Visibility.Hidden;
-                GridSelectTags.Visibility = Visibility.Hidden;
+                this.Inlog.Visibility = Visibility.Hidden;
+                this.BorderInlog.Visibility = Visibility.Hidden;
+                this.StackPanelLoad.Visibility = Visibility.Hidden;
+                this.StackPanelSave.Visibility = Visibility.Hidden;
+                this.TextBoxURL.Visibility = Visibility.Collapsed;
+                this.ComboBoxURL.Visibility = Visibility.Visible;
+                this.ButtonGetElements.Visibility = Visibility.Hidden;
+                this.CheckBoxWholeWebsite.Visibility = Visibility.Hidden;
+                this.CheckBoxObjectVisibility.Visibility = Visibility.Hidden;
+                this.HaalGegevensComboBox();
+                this.BorderSelect.Visibility = Visibility.Hidden;
+                this.GridSelectTags.Visibility = Visibility.Hidden;
             }
             else
             {
-                Inlog.Visibility = Visibility.Visible;
-                BorderInlog.Visibility = Visibility.Visible;
-                StackPanelLoad.Visibility = Visibility.Visible;
-                StackPanelSave.Visibility = Visibility.Visible;
-                BorderSelect.Visibility = Visibility.Visible;
-                GridSelectTags.Visibility = Visibility.Visible;
-                TextBoxURL.Visibility = Visibility.Visible;
-                ComboBoxURL.Visibility = Visibility.Collapsed;
-                CheckBoxObjectVisibility.Visibility = Visibility.Hidden;
-                CheckBoxStart();
-                ToonInloggegevens();
+                this.Inlog.Visibility = Visibility.Visible;
+                this.BorderInlog.Visibility = Visibility.Visible;
+                this.StackPanelLoad.Visibility = Visibility.Visible;
+                this.StackPanelSave.Visibility = Visibility.Visible;
+                this.BorderSelect.Visibility = Visibility.Visible;
+                this.GridSelectTags.Visibility = Visibility.Visible;
+                this.TextBoxURL.Visibility = Visibility.Visible;
+                this.ComboBoxURL.Visibility = Visibility.Collapsed;
+                this.CheckBoxObjectVisibility.Visibility = Visibility.Hidden;
+                this.CheckBoxStart();
+                this.ToonInloggegevens();
 
-                VulInlogData();
+                this.VulInlogData();
             }
 
-            var borderInlogMargin = BorderInlog.Margin;
+            var borderInlogMargin = this.BorderInlog.Margin;
             borderInlogMargin.Bottom = 307.0;
-            DataGridElements.Visibility = Visibility.Visible;
-            DataGridElements.Height = Height - 250;
-            DataGridElements.Width = Width - 80.0;
-            DataGridElements.Visibility = Visibility.Hidden;
+            this.DataGridElements.Visibility = Visibility.Visible;
+            this.DataGridElements.Height = this.Height - 250;
+            this.DataGridElements.Width = this.Width - 80.0;
+            this.DataGridElements.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
@@ -200,7 +208,7 @@ namespace WPFTestResults
             var childrenCount = VisualTreeHelper.GetChildrenCount(parent);
             for (var childIndex = 0; childIndex < childrenCount; ++childIndex)
             {
-                var child = (Visual) VisualTreeHelper.GetChild(parent, childIndex);
+                var child = (Visual)VisualTreeHelper.GetChild(parent, childIndex);
                 obj = child as T;
                 if (obj == null)
                     obj = GetVisualChild<T>(child);
@@ -224,7 +232,7 @@ namespace WPFTestResults
 
             style = style.Replace(" ", string.Empty).ToLowerInvariant();
 
-            var settings = style.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+            var settings = style.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var s in settings)
             {
@@ -254,6 +262,22 @@ namespace WPFTestResults
             return output.Trim();
         }
 
+        // this will search for the element until a timeout is reached
+        public static IWebElement WaitUntilElementExists(ChromeDriver driver, By elementLocator, int timeout = 10)
+        {
+            try
+            {
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
+                return wait.Until(ExpectedConditions.ElementExists(elementLocator));
+            }
+            catch (NoSuchElementException)
+            {
+                Console.WriteLine(
+                    "Element with locator: '" + elementLocator + "' was not found in current context page.");
+                throw;
+            }
+        }
+
         /// <summary>
         ///     Gets the cell.
         /// </summary>
@@ -264,17 +288,17 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for GetCell
         public DataGridCell GetCell(int row, int column)
         {
-            var row1 = GetRow(row);
+            var row1 = this.GetRow(row);
             if (row1 != null)
             {
                 var visualChild = GetVisualChild<DataGridCellsPresenter>(row1);
                 if (visualChild != null)
                 {
-                    var dataGridCell = (DataGridCell) visualChild.ItemContainerGenerator.ContainerFromIndex(column);
+                    var dataGridCell = (DataGridCell)visualChild.ItemContainerGenerator.ContainerFromIndex(column);
                     if (dataGridCell == null)
                     {
-                        DataGridElements.ScrollIntoView(row1, DataGridElements.Columns[column]);
-                        dataGridCell = (DataGridCell) visualChild.ItemContainerGenerator.ContainerFromIndex(column);
+                        this.DataGridElements.ScrollIntoView(row1, this.DataGridElements.Columns[column]);
+                        dataGridCell = (DataGridCell)visualChild.ItemContainerGenerator.ContainerFromIndex(column);
                     }
 
                     return dataGridCell;
@@ -310,12 +334,12 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for GetRow
         public DataGridRow GetRow(int index)
         {
-            var dataGridRow = (DataGridRow) DataGridElements.ItemContainerGenerator.ContainerFromIndex(index);
+            var dataGridRow = (DataGridRow)this.DataGridElements.ItemContainerGenerator.ContainerFromIndex(index);
             if (dataGridRow == null)
             {
-                DataGridElements.UpdateLayout();
-                DataGridElements.ScrollIntoView(DataGridElements.Items[index]);
-                dataGridRow = (DataGridRow) DataGridElements.ItemContainerGenerator.ContainerFromIndex(index);
+                this.DataGridElements.UpdateLayout();
+                this.DataGridElements.ScrollIntoView(this.DataGridElements.Items[index]);
+                dataGridRow = (DataGridRow)this.DataGridElements.ItemContainerGenerator.ContainerFromIndex(index);
             }
 
             return dataGridRow;
@@ -369,1286 +393,6 @@ namespace WPFTestResults
                 return IsNodeVisible(node.ParentNode);
 
             return thisVisible;
-        }
-
-        /// <summary>
-        ///     Handles the Click event of the ButtonCheckboxCheckAll control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ButtonCheckboxCheckAll_Click
-        private void ButtonCheckboxCheckAll_Click(object sender, RoutedEventArgs e)
-        {
-            CheckBoxBasis(true);
-        }
-
-        /// <summary>
-        ///     Handles the Click event of the ButtonCheckboxCheckNone control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ButtonCheckboxCheckNone_Click
-        private void ButtonCheckboxCheckNone_Click(object sender, RoutedEventArgs e)
-        {
-            CheckBoxBasis(false);
-        }
-
-        /// <summary>
-        ///     Handles the Click event of the ButtonGetElements control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ButtonGetElements_Click
-        private void ButtonGetElements_Click(object sender, RoutedEventArgs e)
-        {
-            HaalGegevensEnToon();
-        }
-
-        /// <summary>
-        ///     Handles the Click event of the ButtonNieuw control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ButtonNieuw_Click
-        private void ButtonNieuw_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonGetElements.IsEnabled = false;
-            LabelID.Content = string.Empty;
-            SetButtonContext();
-            ButtonSave.IsEnabled = false;
-            LabelFoundElements.Visibility = Visibility.Hidden;
-            CheckBoxInlogIncluded.IsChecked = false;
-            InlogLeeg(true);
-            ButtonSetToTest.IsEnabled = false;
-            LabelTestCase.Visibility = Visibility.Hidden;
-            TextBoxTestCase.Visibility = Visibility.Hidden;
-            LabelTestPage.Visibility = Visibility.Hidden;
-            TextBoxTestCasePage.Visibility = Visibility.Hidden;
-            ComboBoxURL.SelectedIndex = -1;
-            CheckBoxObjectVisibility.IsChecked = false;
-            loginCheck.IsChecked = true;
-            CheckBoxStart();
-            ToonInloggegevens();
-            UserAttribute.Text = "Name";
-            PasswordAtrribute.Text = "Name";
-            ButtonAttribute.Text = "Name";
-            UserTag.Text = string.Empty;
-            UserText.Text = string.Empty;
-            PasswordTag.Text = string.Empty;
-            PasswordText.Password = string.Empty;
-            ButtonTag.Text = string.Empty;
-            TextBoxURLSave.Text = string.Empty;
-            ButtonTagnameExtra3.Text = string.Empty;
-            ButtonTagnameExtra1.Text = string.Empty;
-            ButtonTagnameExtra2.Text = string.Empty;
-            DescriptionExtra1.Text = string.Empty;
-            DescriptionExtra2.Text = string.Empty;
-            DescriptionExtra3.Text = string.Empty;
-            LeegMaken();
-
-            if (ElementSetting == "SET")
-            {
-                Inlog.Visibility = Visibility.Hidden;
-                BorderInlog.Visibility = Visibility.Hidden;
-                StackPanelLoad.Visibility = Visibility.Hidden;
-                StackPanelSave.Visibility = Visibility.Hidden;
-                BorderSelect.Visibility = Visibility.Hidden;
-                GridSelectTags.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                Inlog.Visibility = Visibility.Visible;
-                loginCheck.IsChecked = false;
-                BorderInlog.Visibility = Visibility.Visible;
-                StackPanelLoad.Visibility = Visibility.Visible;
-                StackPanelSave.Visibility = Visibility.Visible;
-                BorderSelect.Visibility = Visibility.Visible;
-                GridSelectTags.Visibility = Visibility.Visible;
-                var inlogDataRecordsList1 = new List<InlogData.InlogDataRecords>();
-                var inlogDataRecordsList2 = InlogData.LoginDataGet();
-                ComboBoxLoginData.Items.Clear();
-                foreach (var inlogDataRecords in inlogDataRecordsList2)
-                    ComboBoxLoginData.Items.Add(inlogDataRecords.LoginURL);
-            }
-
-            var borderInlogMargin = BorderInlog.Margin;
-            borderInlogMargin.Bottom = 307.0;
-            InlogLeeg(true);
-            DataGridElements.Visibility = Visibility.Hidden;
-            DataGridElements.ItemsSource = null;
-            TextBoxURL.Text = string.Empty;
-            href_link = string.Empty;
-            loginCheck.IsChecked = true;
-            ToonInloggegevens();
-        }
-
-        /// <summary>
-        ///     Handles the Click event of the ButtonSave control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ButtonSave_Click
-        private void ButtonSave_Click(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxURLSave.Text == string.Empty)
-                return;
-
-            var queryI = "UPDATE `autotest`.`login_code` " + "SET ";
-            queryI += "`login_url` ='" + MySqlHelper.EscapeString(TextBoxURLSave.Text) + "', ";
-            queryI += "`login_attribute_username` = '" + MySqlHelper.EscapeString(UserAttribute.Text) + "', ";
-            queryI += "`login_attribute_password` = '" + MySqlHelper.EscapeString(PasswordAtrribute.Text) + "', ";
-            queryI += "`login_attribute_button` = '" + MySqlHelper.EscapeString(ButtonAttribute.Text) + "', ";
-            queryI += "`login_tagname_user` = '" + MySqlHelper.EscapeString(UserTag.Text) + "',";
-            queryI += "`login_tagname_password` = '" + MySqlHelper.EscapeString(PasswordTag.Text) + "', ";
-            queryI += "`login_tagname_button` = '" + MySqlHelper.EscapeString(ButtonTag.Text) + "', ";
-            queryI += "`login_user_value` = '" + MySqlHelper.EscapeString(UserText.Text) + "', ";
-            queryI += "`login_password_value` = '" + MySqlHelper.EscapeString(PasswordText.Password) + "', ";
-            queryI += "`login_attribute_extra1` = '" + MySqlHelper.EscapeString(ButtonAttributeExtra1.Text)
-                                                     + "', ";
-            queryI += "`login_attribute_extra2` = '" + MySqlHelper.EscapeString(ButtonAttributeExtra2.Text)
-                                                     + "', ";
-            queryI += "`login_attribute_extra3` = '" + MySqlHelper.EscapeString(ButtonAttributeExtra3.Text)
-                                                     + "', ";
-            queryI += "`login_tagname_extra1` = '" + MySqlHelper.EscapeString(ButtonTagnameExtra1.Text) + "', ";
-            queryI += "`login_tagname_extra2` = '" + MySqlHelper.EscapeString(ButtonTagnameExtra2.Text) + "', ";
-            queryI += "`login_tagname_extra3` = '" + MySqlHelper.EscapeString(ButtonTagnameExtra3.Text) + "', ";
-            queryI += "`login_description_extra1` = '" + MySqlHelper.EscapeString(DescriptionExtra1.Text) + "', ";
-            queryI += "`login_description_extra2` = '" + MySqlHelper.EscapeString(DescriptionExtra2.Text) + "', ";
-            queryI += "`login_description_extra3` = '" + MySqlHelper.EscapeString(DescriptionExtra3.Text) + "', ";
-            queryI += "`login_action1` = '" + MySqlHelper.EscapeString(ComboBoxAction1.Text) + "', ";
-            queryI += "`login_action2` = '" + MySqlHelper.EscapeString(ComboBoxAction2.Text) + "', ";
-            queryI += "`login_action3` = '" + MySqlHelper.EscapeString(ComboBoxAction3.Text) + "', ";
-            queryI += "`login_action4` = '" + MySqlHelper.EscapeString(ComboBoxAction4.Text) + "', ";
-            queryI += "`login_action5` = '" + MySqlHelper.EscapeString(ComboBoxAction5.Text) + "', ";
-            queryI += "`login_action6` = '" + MySqlHelper.EscapeString(ComboBoxAction6.Text) + "', ";
-            queryI += "`login_order1` = '" + MySqlHelper.EscapeString(Order1.Text) + "', ";
-            queryI += "`login_order2` = '" + MySqlHelper.EscapeString(Order2.Text) + "', ";
-            queryI += "`login_order3` = '" + MySqlHelper.EscapeString(Order3.Text) + "', ";
-            queryI += "`login_order4` = '" + MySqlHelper.EscapeString(Order4.Text) + "', ";
-            queryI += "`login_order5` = '" + MySqlHelper.EscapeString(Order5.Text) + "', ";
-            queryI += "`login_order6` = '" + MySqlHelper.EscapeString(Order6.Text) + "' ";
-            queryI += "WHERE `idlogin_code` = '" + MySqlHelper.EscapeString(LabelID.Content.ToString()) + "';";
-
-            var queryU = "INSERT INTO `autotest`.`login_code` " + "(`login_url`, " + "`login_attribute_username`, ";
-            queryU += "`login_attribute_password`, " + "`login_attribute_button`, " + "`login_tagname_user`, ";
-            queryU += "`login_tagname_password`, " + "`login_tagname_button`, " + "`login_user_value`, ";
-            queryU += "`login_attribute_extra1`, `login_attribute_extra2`, `login_attribute_extra3`, ";
-            queryU += " `login_tagname_extra1`, `login_tagname_extra2`, `login_tagname_extra3`,";
-            queryU += "`login_description_extra1`, `login_description_extra2`, `login_description_extra3`, ";
-            queryU += "`login_password_value`, ";
-            queryU +=
-                "`login_action1`, `login_action2`, `login_action3`, `login_action4`, `login_action5`, `login_action6`, ";
-            queryU +=
-                "`login_order1`, `login_order2`, `login_order3`, `login_order4`, `login_order5`, `login_order6`) ";
-            queryU += " VALUES ('";
-            queryU += MySqlHelper.EscapeString(TextBoxURLSave.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(UserAttribute.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(PasswordAtrribute.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(ButtonAttribute.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(UserTag.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(PasswordTag.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(ButtonTag.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(UserText.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(ButtonAttributeExtra1.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(ButtonAttributeExtra2.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(ButtonAttributeExtra3.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(ButtonTagnameExtra1.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(ButtonTagnameExtra2.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(ButtonTagnameExtra3.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(DescriptionExtra1.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(DescriptionExtra2.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(DescriptionExtra3.Text) + "', " + "'";
-            queryU += MySqlHelper.EscapeString(PasswordText.Password) + "', '";
-            queryU += MySqlHelper.EscapeString(ComboBoxAction1.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(ComboBoxAction2.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(ComboBoxAction3.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(ComboBoxAction4.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(ComboBoxAction5.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(ComboBoxAction6.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(Order1.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(Order2.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(Order3.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(Order4.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(Order5.Text) + "', '";
-            queryU += MySqlHelper.EscapeString(Order6.Text) + "');";
-
-            General.ExecuteQueryCommand(LabelID.Content != (object) string.Empty ? queryI : queryU);
-
-            VulInlogData();
-        }
-
-        /// <summary>
-        ///     Handles the Click event of the ButtonSelectAll control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ButtonSelectAll_Click
-        private void ButtonSelectAllClick(object sender, RoutedEventArgs e)
-        {
-            //Opslaan();
-
-            var wel = true;
-            foreach (var dataGridRow in GetDataGridRows(DataGridElements))
-            {
-                var isChecked = (DataGridElements.Columns[1].GetCellContent(dataGridRow) as CheckBox).IsChecked;
-                var flag = true;
-                wel = !((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue);
-            }
-
-            url = ElementSetting != "SET" ? TextBoxURL.Text : ComboBoxURL.Text;
-            ElementsFromDatabase.UpdateAllCheckboxes(url, wel, "selenium_check");
-            DataGridElements.ItemsSource = null;
-            DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(url);
-            ButtonSetToTest.IsEnabled = wel;
-            if (wel)
-            {
-                LabelTestCase.Visibility = Visibility.Visible;
-                TextBoxTestCase.Visibility = Visibility.Visible;
-                LabelTestPage.Visibility = Visibility.Visible;
-                TextBoxTestCasePage.Visibility = Visibility.Visible;
-                ButtonSelectAll.Content = "Unselect All";
-                TextBoxTestCase.Focusable = true;
-                TextBoxTestCase.Focus();
-            }
-            else
-            {
-                LabelTestCase.Visibility = Visibility.Hidden;
-                TextBoxTestCase.Visibility = Visibility.Hidden;
-                LabelTestPage.Visibility = Visibility.Hidden;
-                TextBoxTestCasePage.Visibility = Visibility.Hidden;
-                ButtonSelectAll.Content = "Select All";
-            }
-        }
-
-        private void Opslaan()
-        {
-            foreach (var dataGridRow in GetDataGridRows(DataGridElements))
-            {
-                var isChecked1 = (DataGridElements.Columns[1].GetCellContent(dataGridRow) as CheckBox).IsChecked;
-                url = (DataGridElements.Columns[0].GetCellContent(dataGridRow) as TextBlock).Text;
-                ElementsFromDatabase.UpdateAllCheckbox8(url, isChecked1.Value, "selenium_check");
-            }
-
-            foreach (var dataGridRow in GetDataGridRows(DataGridElements))
-            {
-                var isChecked8 = (DataGridElements.Columns[8].GetCellContent(dataGridRow) as CheckBox).IsChecked;
-                url = (DataGridElements.Columns[0].GetCellContent(dataGridRow) as TextBlock).Text;
-                ElementsFromDatabase.UpdateAllCheckbox8(url, isChecked8.Value, "checktext");
-
-                if (((CheckBox) DataGridElements.Columns[1].GetCellContent(dataGridRow)).IsChecked.Value)
-                {
-                    ButtonSetToTest.IsEnabled = true;
-                    CheckTextAll.IsEnabled = true;
-                    LabelTestCase.Visibility = Visibility.Visible;
-                    TextBoxTestCase.Visibility = Visibility.Visible;
-                    LabelTestPage.Visibility = Visibility.Visible;
-                    TextBoxTestCasePage.Visibility = Visibility.Visible;
-                }
-            }
-        }
-
-        /// <summary>
-        ///     Handles the Click event of the ButtonSetToTest control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ButtonSetToTest_Click
-        private void ButtonSetToTest_Click(object sender, RoutedEventArgs e)
-        {
-            //Opslaan();
-            var machineNumber = Convert.ToString(LicentieMachineCode.getMachineCode());
-            if (TextBoxTestCase.Text != string.Empty)
-            {
-                General.LogMessageDatabase("test", 1);
-                VersionClass.OpenBestand();
-                var bestandsnaam = VersionClass.Bestandsnaam;
-                if (bestandsnaam != null)
-                {
-                    using (new PleaseWait())
-                    {
-                        var num6 = 1;
-                        var laatsteTestCase = General.GetLaatsteTestCase(bestandsnaam);
-                        var num1 = 1;
-                        if (laatsteTestCase.Rows.Count > 0)
-                            num1 = Convert.ToInt32(laatsteTestCase.Rows[0]["testnr"].ToString()) + 101;
-                        Topmost = false;
-                        var isChecked = CheckBoxInlogIncluded.IsChecked;
-                        var flag = true;
-                        if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        {
-                            if (UserAttribute.SelectedIndex != 0 && UserTag.Text != string.Empty
-                                                                 && UserText.Text != string.Empty)
-                                DataStorage.TestCases.AddTestCase(
-                                    bestandsnaam,
-                                    Order1.Text,
-                                    "Login Name",
-                                    UserTag.Text,
-                                    UserTag.Text,
-                                    UserAttribute.Text.ToLower(),
-                                    ComboBoxAction1.Text,
-                                    UserText.Text,
-                                    string.Empty,
-                                    "yes",
-                                    string.Empty,
-                                    "no",
-                                    string.Empty,
-                                    "Fill in the username",
-                                    machineNumber,
-                                    "input",
-                                    string.Empty);
-
-                            var num2 = num1 + 1;
-                            if (PasswordAtrribute.SelectedIndex != 0 && PasswordTag.Text != string.Empty
-                                                                     && PasswordText.Password != string.Empty)
-                                DataStorage.TestCases.AddTestCase(
-                                    bestandsnaam,
-                                    Order2.Text,
-                                    "Login Password",
-                                    PasswordTag.Text,
-                                    PasswordTag.Text,
-                                    PasswordAtrribute.Text.ToLower(),
-                                    ComboBoxAction3.Text,
-                                    string.Empty,
-                                    string.Empty,
-                                    "yes",
-                                    string.Empty,
-                                    "no",
-                                    string.Empty,
-                                    "Fill in the password",
-                                    machineNumber,
-                                    "input",
-                                    string.Empty,
-                                    PasswordText.Password);
-
-                            var num3 = num2 + 1;
-                            if (ButtonAttribute.SelectedIndex != 0 && ButtonTag.Text != string.Empty)
-                                DataStorage.TestCases.AddTestCase(
-                                    bestandsnaam,
-                                    Order3.Text,
-                                    "Login Button",
-                                    "LoginButton",
-                                    ButtonTag.Text,
-                                    ButtonAttribute.Text.ToLower(),
-                                    ComboBoxAction4.Text,
-                                    string.Empty,
-                                    string.Empty,
-                                    "yes",
-                                    string.Empty,
-                                    "no",
-                                    string.Empty,
-                                    "Push the login button",
-                                    machineNumber,
-                                    "button",
-                                    string.Empty);
-
-                            var num4 = num3 + 1;
-
-                            if (ButtonAttributeExtra1.Text != string.Empty
-                                && ButtonTagnameExtra1.Text != string.Empty && ComboBoxAction5.SelectedIndex != 0)
-                                DataStorage.TestCases.AddTestCase(
-                                    bestandsnaam,
-                                    Order4.Text,
-                                    DescriptionExtra1.Text,
-                                    DescriptionExtra1.Text,
-                                    ButtonTagnameExtra1.Text,
-                                    ButtonAttributeExtra1.Text.ToLower(),
-                                    "click",
-                                    string.Empty,
-                                    string.Empty,
-                                    "yes",
-                                    string.Empty,
-                                    "no",
-                                    string.Empty,
-                                    DescriptionExtra1.Text,
-                                    machineNumber,
-                                    ComboBoxAction5.Text,
-                                    string.Empty);
-
-                            var num5 = num4 + 1;
-                            if (ButtonAttributeExtra2.Text != string.Empty
-                                && ButtonTagnameExtra2.Text != string.Empty && ComboBoxAction6.SelectedIndex != 0)
-                                DataStorage.TestCases.AddTestCase(
-                                    bestandsnaam,
-                                    Order5.Text,
-                                    DescriptionExtra2.Text,
-                                    DescriptionExtra2.Text,
-                                    ButtonTagnameExtra2.Text,
-                                    ButtonAttributeExtra2.Text.ToLower(),
-                                    ComboBoxAction6.Text,
-                                    string.Empty,
-                                    string.Empty,
-                                    "yes",
-                                    string.Empty,
-                                    "no",
-                                    string.Empty,
-                                    DescriptionExtra2.Text,
-                                    machineNumber,
-                                    ComboBoxAction6.Text,
-                                    string.Empty);
-
-                            num6 = num5 + 1;
-
-                            if (ButtonAttributeExtra3.Text != string.Empty
-                                && ButtonTagnameExtra3.Text != string.Empty && ComboBoxAction2.SelectedIndex != 0)
-                            {
-                                var testtext = string.Empty;
-                                if ((ComboBoxAction2.Text == "select") | (ComboBoxAction2.Text == "value"))
-                                    testtext = DescriptionExtra3.Text;
-
-
-                                DataStorage.TestCases.AddTestCase(
-                                    bestandsnaam,
-                                    Order6.Text,
-                                    ButtonTagnameExtra3.Text,
-                                    ButtonTagnameExtra3.Text,
-                                    ButtonTagnameExtra3.Text,
-                                    ButtonAttributeExtra3.Text.ToLower(),
-                                    ComboBoxAction2.Text,
-                                    testtext,
-                                    string.Empty,
-                                    "yes",
-                                    string.Empty,
-                                    "no",
-                                    string.Empty,
-                                    DescriptionExtra3.Text,
-                                    machineNumber,
-                                    ComboBoxAction2.Text,
-                                    string.Empty);
-                            }
-
-                            num1 = num6 + 11;
-                        }
-
-                        if (TextBoxURL.Text != TextBoxURLSave.Text)
-                        {
-                            var testtext = string.Empty;
-
-                            var ger6 = num6 + 1;
-                            DataStorage.TestCases.AddTestCase(
-                                bestandsnaam,
-                                ger6.ToString(),
-                                TextBoxTestCase.Text,
-                                string.Empty,
-                                string.Empty,
-                                string.Empty,
-                                "switch to url",
-                                testtext,
-                                TextBoxURL.Text,
-                                "yes",
-                                string.Empty,
-                                "no",
-                                "Go to the wanted url: '" + TextBoxURL.Text + "'.",
-                                "Switch to url",
-                                machineNumber,
-                                string.Empty,
-                                string.Empty);
-                        }
-
-                        var num7 = num1 + 1;
-
-                        // ------------------------------------------------------------- //
-                        // Zorg dat de elementen in de juiste volgorde gesorteerd worden //
-                        // ------------------------------------------------------------- //
-                        //var column = DataGridElements.Columns[0];
-                        // var sortDirection = ListSortDirection.Ascending;
-                        // DataGridElements.Items.SortDescriptions.Clear();
-                        //DataGridElements.Items.SortDescriptions.Add(
-                        //   new SortDescription(column.SortMemberPath, sortDirection));
-                        //DataGridElements.Items.Refresh();
-
-
-                        var query = "SELECT * FROM autotest.selenium_elements ";
-                        query += "WHERE url = '" + TextBoxURL.Text + "' ";
-                        query += "AND selenium_check = '1' ";
-                        query += "ORDER BY idselenium_elements";
-
-                        var dt = GenericDataRead.GetData(query);
-
-
-                        for (var row = 0; row < dt.Rows.Count; ++row)
-                        {
-                            var checktekst = string.Empty;
-                            string testattribute;
-                            string text;
-
-                            if (dt.Rows[row][15].ToString() == "1") checktekst = dt.Rows[row][6].ToString();
-
-                            if (dt.Rows[row][7].ToString().Length > 0)
-                            {
-                                text = dt.Rows[row][7].ToString();
-                                testattribute = "id";
-                            }
-                            else if (dt.Rows[row][8].ToString().Length > 0)
-                            {
-                                text = dt.Rows[row][8].ToString();
-                                testattribute = "name";
-                            }
-                            else
-                            {
-                                text = dt.Rows[row][4].ToString();
-                                testattribute = "xpath";
-                            }
-
-                            DataStorage.TestCases.AddTestCase(
-                                bestandsnaam,
-                                num7.ToString(),
-                                TextBoxTestCase.Text,
-                                dt.Rows[row][6].ToString(),
-                                text,
-                                testattribute,
-                                string.Empty,
-                                checktekst,
-                                string.Empty,
-                                "yes",
-                                string.Empty,
-                                "no",
-                                string.Empty,
-                                string.Empty,
-                                machineNumber,
-                                dt.Rows[row][5].ToString(),
-                                checktekst);
-                            ++num7;
-                        }
-
-                        // ------------------------------------------------------------- //
-//                        for (var row = 0; row < DataGridElements.Items.Count; ++row)
-//                            if (GetCell(row, 1) != null)
-//                            {
-//                                var content1 = GetCell(row, 1).Content as CheckBox;     // Geselecteerd
-//                                var content2 = GetCell(row, 3).Content as TextBlock;    // id
-//                                var content3 = GetCell(row, 5).Content as TextBlock;    // xpath
-//                                var content4 = GetCell(row, 6).Content as TextBlock;    // tagname
-//                                var content5 = GetCell(row, 7).Content as TextBlock;    // text
-//                                var content6 = GetCell(row, 4).Content as TextBlock;    // name
-//                                var content7 = GetCell(row, 8).Content as CheckBox;     // Text controle
-//                                var empty1 = string.Empty;
-//                                var empty2 = string.Empty;
-//                                string text;
-//
-//                                if (content7.IsChecked.Value == false)
-//                                {
-//                                    content5.Text = string.Empty;
-//                                }
-//
-//                                string testattribute;
-//                                if (content2.Text.Length > 0)
-//                                {
-//                                    text = content2.Text;
-//                                    testattribute = "id";
-//                                }
-//                                else if (content6.Text.Length > 0)
-//                                {
-//                                    text = content6.Text;
-//                                    testattribute = "name";
-//                                }
-//                                else
-//                                {
-//                                    text = content3.Text;
-//                                    testattribute = "xpath";
-//                                }
-//
-//                                isChecked = content1.IsChecked;
-//                                if (isChecked.Value)
-//                                {
-//                                    DataStorage.TestCases.AddTestCase(
-//                                        bestandsnaam,
-//                                        num7.ToString(),
-//                                        TextBoxTestCase.Text,
-//                                        content5.Text,
-//                                        text,
-//                                        testattribute,
-//                                        string.Empty,
-//                                        content5.Text,
-//                                        string.Empty,
-//                                        "yes",
-//                                        string.Empty,
-//                                        "no",
-//                                        string.Empty,
-//                                        string.Empty,
-//                                        string.Empty,
-//                                        content4.Text,
-//                                        content5.Text);
-//                                    ++num7;
-//                                }
-//                            }
-
-                        General.LogMessageDatabase(
-                            "Data added to the testscenario",
-                            3,
-                            string.Empty,
-                            0,
-                            string.Empty,
-                            string.Empty);
-                    }
-
-                    var num8 = (int) MessageBox.Show("Data added to test scenario.");
-                    MaakLoginLeeg();
-                }
-                else
-                {
-                    MessageBox.Show("No file selected! Please try again");
-                }
-            }
-            else
-            {
-                General.LogMessageDatabase(
-                    "Test Case is still empty!!! Please fill in the Test Case name.",
-                    4,
-                    string.Empty,
-                    0,
-                    string.Empty,
-                    string.Empty);
-                var num = (int) MessageBox.Show(
-                    "Test Case is still empty!!!\r\nPlease fill in the Test Case name.",
-                    "Error",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Hand);
-                TextBoxTestCase.Focusable = true;
-                TextBoxTestCase.Focus();
-            }
-        }
-
-        /// <summary>
-        ///     Handles the IsEnabledChanged event of the ButtonSetToTest control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ButtonSetToTest_IsEnabledChanged
-        private void ButtonSetToTest_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (ButtonSetToTest.IsEnabled && ElementSetting == "GET")
-                CheckBoxInlogIncluded.Visibility = Visibility.Visible;
-            else CheckBoxInlogIncluded.Visibility = Visibility.Hidden;
-        }
-
-        /// <summary>
-        ///     Handles the Click event of the ButtonTest control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ButtonTest_Click
-        private void ButtonTest_Click(object sender, RoutedEventArgs e)
-        {
-            Parsing("http://google.com");
-        }
-
-        /// <summary>
-        ///     CheckBoxes the basis.
-        /// </summary>
-        /// <param name="keuze">if set to <c>true</c> [keuze].</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for CheckBoxBasis
-        private void CheckBoxBasis(bool keuze)
-        {
-            CheckBoxA.IsChecked = keuze;
-            CheckBoxDiv.IsChecked = keuze;
-            CheckBoxIframe.IsChecked = keuze;
-            CheckBoxImg.IsChecked = keuze;
-            CheckBoxInput.IsChecked = keuze;
-            CheckBoxLi.IsChecked = keuze;
-            CheckBoxOption.IsChecked = keuze;
-            CheckBoxSpan.IsChecked = keuze;
-            CheckBoxTable.IsChecked = keuze;
-            CheckBoxTh.IsChecked = keuze;
-            CheckBoxTr.IsChecked = keuze;
-            CheckBoxTd.IsChecked = keuze;
-        }
-
-        /// <summary>
-        ///     CheckBoxes the start.
-        /// </summary>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for CheckBoxStart
-        private void CheckBoxStart()
-        {
-            CheckBoxA.IsChecked = true;
-            CheckBoxDiv.IsChecked = true;
-            CheckBoxIframe.IsChecked = true;
-            CheckBoxImg.IsChecked = false;
-            CheckBoxInput.IsChecked = true;
-            CheckBoxLi.IsChecked = false;
-            CheckBoxOption.IsChecked = false;
-            CheckBoxSpan.IsChecked = false;
-            CheckBoxTable.IsChecked = true;
-            CheckBoxTh.IsChecked = false;
-            CheckBoxTr.IsChecked = false;
-            CheckBoxTd.IsChecked = false;
-        }
-
-        /// <summary>
-        ///     Checks the data URL in database.
-        /// </summary>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for CheckDataUrlInDatabase
-        private void CheckDataUrlInDatabase()
-        {
-            if (!(ElementSetting == "GET") || ElementsFromDatabase.GetDataTable(url).Count <= 0
-                                           || MessageBox.Show(
-                                               "Do you want to delete earlier added elements for url '" + url
-                                                                                                        + "'?",
-                                               "Question",
-                                               MessageBoxButton.YesNo) != MessageBoxResult.Yes)
-                return;
-            ElementsFromDatabase.DeleteDataFromDatabase(url);
-            var num = (int) MessageBox.Show("Elements are deleted!", "Deleting elements", MessageBoxButton.OK);
-        }
-
-        private void CheckTextAll_Click(object sender, RoutedEventArgs e)
-        {
-            var wel = true;
-            foreach (var dataGridRow in GetDataGridRows(DataGridElements))
-            {
-                var isChecked = (DataGridElements.Columns[8].GetCellContent(dataGridRow) as CheckBox).IsChecked;
-                var flag = true;
-                wel = !((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue);
-            }
-
-            url = ElementSetting != "SET" ? TextBoxURL.Text : ComboBoxURL.Text;
-            ElementsFromDatabase.UpdateAllCheckboxes(url, wel, "checktext");
-            DataGridElements.ItemsSource = null;
-            DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(url);
-
-            if (wel) CheckTextAll.Content = "Unselect All Text";
-            else CheckTextAll.Content = "Select All Text";
-        }
-
-        /// <summary>
-        ///     Handles the DropDownClosed event of the ComboBoxLoginData control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ComboBoxLoginData_DropDownClosed
-        private void ComboBoxLoginData_DropDownClosed(object sender, EventArgs e)
-        {
-            foreach (var inlogDataRecords in InlogData.LoginDataGet())
-                if (inlogDataRecords.LoginURL == ComboBoxLoginData.Text)
-                {
-                    UserAttribute.Text = inlogDataRecords.LoginAttributeUsername;
-                    PasswordAtrribute.Text = inlogDataRecords.LoginAttributePassword;
-                    ButtonAttribute.Text = inlogDataRecords.LoginAttributeButton;
-                    UserTag.Text = inlogDataRecords.LoginTagUsername;
-                    PasswordTag.Text = inlogDataRecords.LoginTagPassword;
-                    ButtonTag.Text = inlogDataRecords.LoginTagButton;
-                    UserText.Text = inlogDataRecords.LoginValueUsername;
-                    PasswordText.Password = inlogDataRecords.LoginValuePassword;
-                    LabelID.Content = inlogDataRecords.IdLoginCode;
-                    TextBoxURLSave.Text = inlogDataRecords.LoginURL;
-                    ButtonAttributeExtra1.Text = inlogDataRecords.LoginAttributeExtra1;
-                    ButtonAttributeExtra2.Text = inlogDataRecords.LoginAttributeExtra2;
-                    ButtonAttributeExtra3.Text = inlogDataRecords.LoginAttributeExtra3;
-                    ButtonTagnameExtra1.Text = inlogDataRecords.LoginTagnameExtra1;
-                    ButtonTagnameExtra2.Text = inlogDataRecords.LoginTagnameExtra2;
-                    ButtonTagnameExtra3.Text = inlogDataRecords.LoginTagnameExtra3;
-                    DescriptionExtra1.Text = inlogDataRecords.LoginDescriptionExtra1;
-                    DescriptionExtra2.Text = inlogDataRecords.LoginDescriptionExtra2;
-                    DescriptionExtra3.Text = inlogDataRecords.LoginDescriptionExtra3;
-                    ComboBoxAction1.Text = inlogDataRecords.LoginAction1;
-                    ComboBoxAction2.Text = inlogDataRecords.LoginAction2;
-                    ComboBoxAction3.Text = inlogDataRecords.LoginAction3;
-                    ComboBoxAction4.Text = inlogDataRecords.LoginAction4;
-                    ComboBoxAction5.Text = inlogDataRecords.LoginAction5;
-                    ComboBoxAction6.Text = inlogDataRecords.LoginAction6;
-                    Order1.Text = inlogDataRecords.LoginOrder1;
-                    Order2.Text = inlogDataRecords.LoginOrder2;
-                    Order3.Text = inlogDataRecords.LoginOrder3;
-                    Order4.Text = inlogDataRecords.LoginOrder4;
-                    Order5.Text = inlogDataRecords.LoginOrder5;
-                    Order6.Text = inlogDataRecords.LoginOrder6;
-                    if (TextBoxURLSave.Text == string.Empty)
-                        break;
-                    ButtonSave.IsEnabled = true;
-                    break;
-                }
-        }
-
-        /// <summary>
-        ///     Handles the DropDownClosed event of the ComboBoxURL control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ComboBoxURL_DropDownClosed
-        private void ComboBoxUrlDropDownClosed(object sender, EventArgs e)
-        {
-            if (ComboBoxURL.SelectedIndex == -1)
-                return;
-            HaalGegevensEnToon();
-        }
-
-        private void DataGridElements_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            var dataGridRow = DataGridElements.Items.IndexOf(DataGridElements.CurrentItem);
-            var dataGridColumn = DataGridElements.CurrentColumn;
-
-            if (dataGridColumn != null)
-            {
-                if (dataGridColumn.DisplayIndex.ToString() == "1")
-                {
-                    var isChecked1 = (DataGridElements.Columns[1].GetCellContent(dataGridRow) as CheckBox).IsChecked;
-                    var flag = true;
-                    var wel = !((isChecked1.GetValueOrDefault() == flag) & isChecked1.HasValue);
-                    url = (DataGridElements.Columns[0].GetCellContent(dataGridRow) as TextBlock).Text;
-                    ElementsFromDatabase.UpdateAllCheckbox8(url, wel, "selenium_check");
-                }
-
-                if (dataGridColumn.DisplayIndex.ToString() == "8")
-                {
-                    var isChecked8 = (DataGridElements.Columns[8].GetCellContent(dataGridRow) as CheckBox).IsChecked;
-                    var flag = true;
-                    var wel = !((isChecked8.GetValueOrDefault() == flag) & isChecked8.HasValue);
-                    url = (DataGridElements.Columns[0].GetCellContent(dataGridRow) as TextBlock).Text;
-                    ElementsFromDatabase.UpdateAllCheckbox8(url, wel, "checktext");
-                }
-
-                DataGridElements.ItemsSource = null;
-                DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(url);
-            }
-        }
-
-        /// <summary>
-        ///     Handles the LostFocus event of the DataGridElements control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for DataGridElements_LostFocus
-        private void DataGridElementsLostFocus(object sender, RoutedEventArgs e)
-        {
-            // Opslaan();
-        }
-
-        /// <summary>
-        ///     Examines the node.
-        /// </summary>
-        /// <param name="node">The node.</param>
-        /// <param name="driver2WebDriver">The driver2 web driver.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for ExamineNode
-        private void ExamineNode(HtmlNode node, IWebDriver driver2WebDriver)
-        {
-            try
-            {
-                var showBorderColor = OverallSettings.ShowBorderColor;
-                var showBorderWidth = OverallSettings.ShowBorderWidth;
-                var showDuration = OverallSettings.ShowDuration;
-                var sleepTime = 10;
-                if (node is HtmlTextNode)
-                    return;
-                var empty1 = string.Empty;
-                if (node.Attributes["href"] != null)
-                    empty1 = node.Attributes["href"].Value;
-                var empty2 = string.Empty;
-                var empty3 = string.Empty;
-                var empty4 = string.Empty;
-                var str1 = string.Empty;
-                var empty5 = string.Empty;
-                var empty6 = string.Empty;
-                if (node.Attributes["class"] != null)
-                    empty2 = node.Attributes["class"].Value;
-                if (node.Attributes["name"] != null)
-                    empty3 = node.Attributes["name"].Value;
-                if (node.Attributes["title"] != null)
-                    empty4 = node.Attributes["title"].Value;
-                if (node.Attributes["value"] != null)
-                    str1 = node.Attributes["value"].Value;
-                if (node.Attributes["id"] != null)
-                    str1 = node.Attributes["id"].Value;
-                if (str1.Length > byte.MaxValue)
-                    str1 = str1.Substring(0, 254);
-                bool? isChecked;
-                if (node.Name == "a")
-                {
-                    isChecked = CheckBoxA.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "input")
-                {
-                    isChecked = CheckBoxInput.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "iframe")
-                {
-                    isChecked = CheckBoxIframe.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "img")
-                {
-                    isChecked = CheckBoxImg.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "div")
-                {
-                    isChecked = CheckBoxDiv.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "li")
-                {
-                    isChecked = CheckBoxLi.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "table")
-                {
-                    isChecked = CheckBoxTable.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "td")
-                {
-                    isChecked = CheckBoxTd.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "th")
-                {
-                    isChecked = CheckBoxTh.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "tr")
-                {
-                    isChecked = CheckBoxTr.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "option")
-                {
-                    isChecked = CheckBoxOption.IsChecked;
-                    var flag = true;
-                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                        goto label_39;
-                }
-
-                if (node.Name == "span")
-                {
-                    isChecked = CheckBoxSpan.IsChecked;
-                    var flag = true;
-                    if (!((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue))
-                        goto label_45;
-                }
-                else
-                {
-                    goto label_45;
-                }
-
-                label_39:
-                var str2 = empty4.Replace("'", "\\'");
-                isChecked = CheckBoxObjectVisibility.IsChecked;
-                var flag1 = true;
-                if ((isChecked.GetValueOrDefault() == flag1) & isChecked.HasValue && node.XPath != null)
-                    if (driver2WebDriver.FindElement(By.XPath(node.XPath)) != null)
-                        try
-                        {
-                            var element = driver2WebDriver.FindElement(By.XPath(node.XPath));
-                            GeneralFunctionality.Functions.HighlightAndScreenshot(
-                                driver2WebDriver,
-                                element,
-                                sleepTime,
-                                showBorderColor,
-                                showBorderWidth);
-                        }
-                        catch (Exception ex)
-                        {
-                            var num = (int) MessageBox.Show(ex.Message);
-                        }
-
-                // if (StripHTML(HttpUtility.HtmlDecode(node.InnerHtml.Trim())).Length < byte.MaxValue)
-                var innertekst = string.Empty;
-                if (IsNodeVisible(node)) innertekst = StripHTML(HttpUtility.HtmlDecode(node.InnerText.Trim()));
-
-                //if (node.Name == "input" && node.Attributes["type"].Value != "search" && node.Attributes["type"].Value != "checkbox")
-                //{
-                //    if (node.Attributes["value"].Value != null)
-                //    {
-                //        innertekst = node.Attributes["value"].Value;
-                //    }
-                // }
-
-                // var te = Encoding.GetEncoding(node.InnerText).ToString();
-                if (StripHTML(HttpUtility.HtmlDecode(node.InnerText.Trim())).Length < byte.MaxValue)
-                    General.ExecuteQueryCommand(
-                        "INSERT INTO `autotest`.`selenium_elements` " + "(`url`, " + "gebruikte_link, " + "`xpath`, "
-                        + "`tagname`, " + "`text`, " + "`id`, " + "`name`, " + "`class`, " + "`href`, " + "`title`, "
-                        + "`value`, `checktext`) " + "VALUES " + "('" + MySqlHelper.EscapeString(TextBoxURL.Text)
-                        + "', " + "'" + MySqlHelper.EscapeString(href_link) + "', " + "'"
-                        + MySqlHelper.EscapeString(node.XPath) + "', " + "'" + MySqlHelper.EscapeString(node.Name) +
-                        "', "
-                        + "'" + MySqlHelper.EscapeString(innertekst) + "', " + "'" + MySqlHelper.EscapeString(node.Id)
-                        + "', " + "'" + MySqlHelper.EscapeString(empty3) + "', " + "'" +
-                        MySqlHelper.EscapeString(empty2)
-                        + "', " + "'" + MySqlHelper.EscapeString(empty1) + "', " + "'" + MySqlHelper.EscapeString(str2)
-                        + "', " + "'" + MySqlHelper.EscapeString(str1) + "', '0'); ");
-                label_45:
-                foreach (var childNode in node.ChildNodes) ExamineNode(childNode, driver2WebDriver);
-            }
-            catch (Exception ex)
-            {
-                General.LogMessageDatabase(
-                    ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
-                    4,
-                    string.Empty,
-                    0,
-                    string.Empty,
-                    InloggerData.MachineCode);
-            }
-        }
-
-        /// <summary>
-        ///     Finds the test applications.
-        /// </summary>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for FindTestApplications
-        private void FindTestApplications()
-        {
-            foreach (var file in new DirectoryInfo(GeneralFunctionality.Functions.GetCurrentDir(1)).GetFiles("*.xml"))
-                ComboBoxApplications.Items.Add(
-                    new List<string>
-                    {
-                        GeneralFunctionality.Functions
-                            .GetSettingsXmlStrings(file.Name.Substring(0, file.Name.Length - 4), 1).ToList()[1]
-                    }.Distinct().ToList()[0]);
-        }
-
-        /// <summary>
-        ///     Haals the gegevens ComboBox.
-        /// </summary>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for HaalGegevensComboBox
-        private void HaalGegevensComboBox()
-        {
-            var urlOverviewList = new List<UrlOverview>();
-            var urLs = UrlOverview.GetUrLs();
-            ComboBoxURL.Items.Clear();
-            foreach (var urlOverview in urLs) ComboBoxURL.Items.Add(urlOverview.urlstring);
-        }
-
-        /// <summary>
-        ///     Haals the gegevens en toon.
-        /// </summary>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for HaalGegevensEnToon
-        private void HaalGegevensEnToon()
-        {
-            url = !(ElementSetting == "GET") ? ComboBoxURL.Text : TextBoxURL.Text;
-            General.LogMessageDatabase(
-                "URL: '" + url + "'.",
-                3,
-                string.Empty,
-                0,
-                string.Empty,
-                InloggerData.MachineCode);
-            CheckDataUrlInDatabase();
-            if (!url.StartsWith("http://") && !url.StartsWith("https://"))
-            {
-                var num = (int) MessageBox.Show(
-                    "The url has to start with 'http://' or 'https://'\r\nPlease try again!!!",
-                    "Message",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Exclamation);
-            }
-            else
-            {
-                ButtonSetToTest.IsEnabled = false;
-                LabelTestCase.Visibility = Visibility.Hidden;
-                TextBoxTestCase.Visibility = Visibility.Hidden;
-                if (ElementSetting == "GET")
-                    try
-                    {
-                        using (new PleaseWait())
-                        {
-                            var _driver = new ChromeDriver(GeneralFunctionality.Functions.GetCurrentDir(0));
-                            _driver.Navigate().GoToUrl(TextBoxURLSave.Text);
-                            _driver.Manage().Window.Maximize();
-                            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
-                            IWebElement content = null;
-
-                            for (var i = 1; i < 7; i++)
-                            {
-                                // UserName
-                                if (Order1.Text == i.ToString())
-                                    if (ComboBoxAction1.Text != string.Empty
-                                        && UserText.Text != string.Empty
-                                        && UserTag.Text != string.Empty
-                                        && UserAttribute.Text != string.Empty)
-                                    {
-                                        content = FindElement(
-                                            UserAttribute.Text.ToLower(),
-                                            UserTag.Text.ToLower(),
-                                            _driver);
-                                        ActieUitvoeren(
-                                            content,
-                                            ComboBoxAction1.Text,
-                                            UserText.Text,
-                                            _driver,
-                                            UserAttribute.Text);
-                                    }
-
-
-                                // Password
-                                if (Order2.Text == i.ToString())
-                                    if (ComboBoxAction3.Text != string.Empty
-                                        && PasswordText.Password != string.Empty
-                                        && PasswordTag.Text != string.Empty
-                                        && PasswordAtrribute.Text != string.Empty)
-                                    {
-                                        content = FindElement(
-                                            PasswordAtrribute.Text.ToLower(),
-                                            PasswordTag.Text.ToLower(),
-                                            _driver);
-                                        ActieUitvoeren(
-                                            content,
-                                            ComboBoxAction3.Text,
-                                            PasswordText.Password,
-                                            _driver,
-                                            PasswordAtrribute.Text);
-                                    }
-
-                                // Login button
-                                if (Order3.Text == i.ToString())
-                                    if (ComboBoxAction4.Text != string.Empty
-                                        && ButtonTag.Text != string.Empty
-                                        && ButtonAttribute.Text != string.Empty)
-                                    {
-                                        content = FindElement(
-                                            ButtonAttribute.Text.ToLower(),
-                                            ButtonTag.Text.ToLower(),
-                                            _driver);
-                                        ActieUitvoeren(
-                                            content,
-                                            ComboBoxAction4.Text,
-                                            "",
-                                            _driver,
-                                            ButtonAttribute.Text);
-                                    }
-
-
-                                if (Order6.Text == i.ToString())
-                                    if (ComboBoxAction2.Text != string.Empty)
-                                    {
-                                        if (ComboBoxAction2.Text == "sendkeys" ||
-                                            ComboBoxAction2.Text == "select" ||
-                                            ComboBoxAction2.Text == "set_value")
-                                        {
-                                            if (DescriptionExtra3.Text != string.Empty)
-                                            {
-                                                content = FindElement(
-                                                    ButtonAttributeExtra3.Text.ToLower(),
-                                                    ButtonTagnameExtra3.Text.ToLower(),
-                                                    _driver);
-                                                ActieUitvoeren(
-                                                    content,
-                                                    ComboBoxAction2.Text,
-                                                    DescriptionExtra3.Text,
-                                                    _driver,
-                                                    ButtonAttributeExtra3.Text);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            content = FindElement(
-                                                ButtonAttributeExtra3.Text.ToLower(),
-                                                ButtonTagnameExtra3.Text.ToLower(),
-                                                _driver);
-                                            ActieUitvoeren(
-                                                content,
-                                                ComboBoxAction2.Text,
-                                                DescriptionExtra3.Text,
-                                                _driver,
-                                                ButtonAttributeExtra3.Text);
-                                        }
-                                    }
-                            }
-
-                            yy = new HashSet<string>();
-
-                            HaalGegevensSite(_driver, TextBoxURL.Text);
-                            foreach (var urlstring in yy.ToList()) HaalGegevensSite(_driver, urlstring);
-                            var isChecked = CheckBoxWholeWebsite.IsChecked;
-                            var flag = true;
-                            if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
-                            {
-                                Thread.Sleep(5000);
-
-                                var Webget = new HtmlWeb();
-                                var doc = new HtmlDocument();
-                                Webget.AutoDetectEncoding = false;
-                                Webget.OverrideEncoding = Encoding.UTF8;
-
-                                doc = Webget.Load(_driver.Url);
-                                var htmlDocument = new HtmlWeb().Load(_driver.Url);
-
-                                // General.LogMessageDatabase(htmlDocument.Text, 0, "", 0, "", "");
-                                foreach (var childNode in doc.DocumentNode.SelectSingleNode("*").ChildNodes) ;
-                            }
-
-                            _driver.Quit();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        General.LogMessageDatabase(
-                            ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
-                            4,
-                            string.Empty,
-                            0,
-                            string.Empty,
-                            InloggerData.MachineCode);
-                        _driver.Quit();
-                    }
-
-                DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(url);
-                if (DataGridElements.Items.Count > 0)
-                {
-                    DataGridElements.Visibility = Visibility.Visible;
-                    ButtonSelectAll.IsEnabled = true;
-                    CheckTextAll.IsEnabled = true;
-                }
-                else
-                {
-                    DataGridElements.Visibility = Visibility.Hidden;
-                    ButtonSelectAll.IsEnabled = false;
-                    CheckTextAll.IsEnabled = false;
-                }
-
-                LabelFoundElements.Content = "Found Elements: " + DataGridElements.Items.Count;
-                LabelFoundElements.Visibility = Visibility.Visible;
-            }
         }
 
         private void ActieUitvoeren(
@@ -1710,6 +454,1082 @@ namespace WPFTestResults
             }
         }
 
+        /// <summary>
+        ///     Handles the Click event of the ButtonCheckboxCheckAll control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ButtonCheckboxCheckAll_Click
+        private void ButtonCheckboxCheckAll_Click(object sender, RoutedEventArgs e)
+        {
+            this.CheckBoxBasis(true);
+        }
+
+        /// <summary>
+        ///     Handles the Click event of the ButtonCheckboxCheckNone control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ButtonCheckboxCheckNone_Click
+        private void ButtonCheckboxCheckNone_Click(object sender, RoutedEventArgs e)
+        {
+            this.CheckBoxBasis(false);
+        }
+
+        /// <summary>
+        ///     Handles the Click event of the ButtonGetElements control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ButtonGetElements_Click
+        private void ButtonGetElements_Click(object sender, RoutedEventArgs e)
+        {
+            this.HaalGegevensEnToon();
+        }
+
+        /// <summary>
+        ///     Handles the Click event of the ButtonNieuw control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ButtonNieuw_Click
+        private void ButtonNieuw_Click(object sender, RoutedEventArgs e)
+        {
+            this.ButtonGetElements.IsEnabled = false;
+            this.LabelID.Content = string.Empty;
+            this.SetButtonContext();
+            this.ButtonSave.IsEnabled = false;
+            this.LabelFoundElements.Visibility = Visibility.Hidden;
+            this.CheckBoxInlogIncluded.IsChecked = false;
+            this.InlogLeeg(true);
+            this.ButtonSetToTest.IsEnabled = false;
+            this.LabelTestCase.Visibility = Visibility.Hidden;
+            this.TextBoxTestCase.Visibility = Visibility.Hidden;
+            this.LabelTestPage.Visibility = Visibility.Hidden;
+            this.TextBoxTestCasePage.Visibility = Visibility.Hidden;
+            this.ComboBoxURL.SelectedIndex = -1;
+            this.CheckBoxObjectVisibility.IsChecked = false;
+            this.loginCheck.IsChecked = true;
+            this.CheckBoxStart();
+            this.ToonInloggegevens();
+            this.UserAttribute.Text = "Name";
+            this.PasswordAtrribute.Text = "Name";
+            this.ButtonAttribute.Text = "Name";
+            this.UserTag.Text = string.Empty;
+            this.UserText.Text = string.Empty;
+            this.PasswordTag.Text = string.Empty;
+            this.PasswordText.Password = string.Empty;
+            this.ButtonTag.Text = string.Empty;
+            this.TextBoxURLSave.Text = string.Empty;
+            this.ButtonTagnameExtra3.Text = string.Empty;
+            this.ButtonTagnameExtra1.Text = string.Empty;
+            this.ButtonTagnameExtra2.Text = string.Empty;
+            this.DescriptionExtra1.Text = string.Empty;
+            this.DescriptionExtra2.Text = string.Empty;
+            this.DescriptionExtra3.Text = string.Empty;
+            this.LeegMaken();
+
+            if (this.ElementSetting == "SET")
+            {
+                this.Inlog.Visibility = Visibility.Hidden;
+                this.BorderInlog.Visibility = Visibility.Hidden;
+                this.StackPanelLoad.Visibility = Visibility.Hidden;
+                this.StackPanelSave.Visibility = Visibility.Hidden;
+                this.BorderSelect.Visibility = Visibility.Hidden;
+                this.GridSelectTags.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                this.Inlog.Visibility = Visibility.Visible;
+                this.loginCheck.IsChecked = false;
+                this.BorderInlog.Visibility = Visibility.Visible;
+                this.StackPanelLoad.Visibility = Visibility.Visible;
+                this.StackPanelSave.Visibility = Visibility.Visible;
+                this.BorderSelect.Visibility = Visibility.Visible;
+                this.GridSelectTags.Visibility = Visibility.Visible;
+                var inlogDataRecordsList1 = new List<InlogData.InlogDataRecords>();
+                var inlogDataRecordsList2 = InlogData.LoginDataGet();
+                this.ComboBoxLoginData.Items.Clear();
+                foreach (var inlogDataRecords in inlogDataRecordsList2)
+                    this.ComboBoxLoginData.Items.Add(inlogDataRecords.LoginURL);
+            }
+
+            var borderInlogMargin = this.BorderInlog.Margin;
+            borderInlogMargin.Bottom = 307.0;
+            this.InlogLeeg(true);
+            this.DataGridElements.Visibility = Visibility.Hidden;
+            this.DataGridElements.ItemsSource = null;
+            this.TextBoxURL.Text = string.Empty;
+            this.href_link = string.Empty;
+            this.loginCheck.IsChecked = true;
+            this.ToonInloggegevens();
+        }
+
+        /// <summary>
+        ///     Handles the Click event of the ButtonSave control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ButtonSave_Click
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.TextBoxURLSave.Text == string.Empty || this.TextBoxNameSave.Text == string.Empty)
+                return;
+
+            var queryI = "UPDATE `autotest`.`login_code` " + "SET ";
+            queryI += "`login_url` ='" + MySqlHelper.EscapeString(this.TextBoxURLSave.Text) + "', ";
+            queryI += "`login_attribute_username` = '" + MySqlHelper.EscapeString(this.UserAttribute.Text) + "', ";
+            queryI += "`login_attribute_password` = '" + MySqlHelper.EscapeString(this.PasswordAtrribute.Text) + "', ";
+            queryI += "`login_attribute_button` = '" + MySqlHelper.EscapeString(this.ButtonAttribute.Text) + "', ";
+            queryI += "`login_tagname_user` = '" + MySqlHelper.EscapeString(this.UserTag.Text) + "',";
+            queryI += "`login_tagname_password` = '" + MySqlHelper.EscapeString(this.PasswordTag.Text) + "', ";
+            queryI += "`login_tagname_button` = '" + MySqlHelper.EscapeString(this.ButtonTag.Text) + "', ";
+            queryI += "`login_user_value` = '" + MySqlHelper.EscapeString(this.UserText.Text) + "', ";
+            queryI += "`login_password_value` = '" + MySqlHelper.EscapeString(this.PasswordText.Password) + "', ";
+            queryI += "`login_attribute_extra1` = '" + MySqlHelper.EscapeString(this.ButtonAttributeExtra1.Text)
+                                                     + "', ";
+            queryI += "`login_attribute_extra2` = '" + MySqlHelper.EscapeString(this.ButtonAttributeExtra2.Text)
+                                                     + "', ";
+            queryI += "`login_attribute_extra3` = '" + MySqlHelper.EscapeString(this.ButtonAttributeExtra3.Text)
+                                                     + "', ";
+            queryI += "`login_tagname_extra1` = '" + MySqlHelper.EscapeString(this.ButtonTagnameExtra1.Text) + "', ";
+            queryI += "`login_tagname_extra2` = '" + MySqlHelper.EscapeString(this.ButtonTagnameExtra2.Text) + "', ";
+            queryI += "`login_tagname_extra3` = '" + MySqlHelper.EscapeString(this.ButtonTagnameExtra3.Text) + "', ";
+            queryI += "`login_description_extra1` = '" + MySqlHelper.EscapeString(this.DescriptionExtra1.Text) + "', ";
+            queryI += "`login_description_extra2` = '" + MySqlHelper.EscapeString(this.DescriptionExtra2.Text) + "', ";
+            queryI += "`login_description_extra3` = '" + MySqlHelper.EscapeString(this.DescriptionExtra3.Text) + "', ";
+            queryI += "`login_action1` = '" + MySqlHelper.EscapeString(this.ComboBoxAction1.Text) + "', ";
+            queryI += "`login_action2` = '" + MySqlHelper.EscapeString(this.ComboBoxAction2.Text) + "', ";
+            queryI += "`login_action3` = '" + MySqlHelper.EscapeString(this.ComboBoxAction3.Text) + "', ";
+            queryI += "`login_action4` = '" + MySqlHelper.EscapeString(this.ComboBoxAction4.Text) + "', ";
+            queryI += "`login_action5` = '" + MySqlHelper.EscapeString(this.ComboBoxAction5.Text) + "', ";
+            queryI += "`login_action6` = '" + MySqlHelper.EscapeString(this.ComboBoxAction6.Text) + "', ";
+            queryI += "`login_order1` = '" + MySqlHelper.EscapeString(this.Order1.Text) + "', ";
+            queryI += "`login_order2` = '" + MySqlHelper.EscapeString(this.Order2.Text) + "', ";
+            queryI += "`login_order3` = '" + MySqlHelper.EscapeString(this.Order3.Text) + "', ";
+            queryI += "`login_order4` = '" + MySqlHelper.EscapeString(this.Order4.Text) + "', ";
+            queryI += "`login_order5` = '" + MySqlHelper.EscapeString(this.Order5.Text) + "', ";
+            queryI += "`login_order6` = '" + MySqlHelper.EscapeString(this.Order6.Text) + "', ";
+            queryI += "login_name = '" + MySqlHelper.EscapeString(this.TextBoxNameSave.Text) + "' ";
+            queryI += "WHERE `idlogin_code` = '" + MySqlHelper.EscapeString(this.LabelID.Content.ToString()) + "';";
+
+            var queryU = "INSERT INTO `autotest`.`login_code` " + "(`login_url`, " + "`login_attribute_username`, ";
+            queryU += "`login_attribute_password`, " + "`login_attribute_button`, " + "`login_tagname_user`, ";
+            queryU += "`login_tagname_password`, " + "`login_tagname_button`, " + "`login_user_value`, ";
+            queryU += "`login_attribute_extra1`, `login_attribute_extra2`, `login_attribute_extra3`, ";
+            queryU += " `login_tagname_extra1`, `login_tagname_extra2`, `login_tagname_extra3`,";
+            queryU += "`login_description_extra1`, `login_description_extra2`, `login_description_extra3`, ";
+            queryU += "`login_password_value`, ";
+            queryU +=
+                "`login_action1`, `login_action2`, `login_action3`, `login_action4`, `login_action5`, `login_action6`, ";
+            queryU +=
+                "`login_order1`, `login_order2`, `login_order3`, `login_order4`, `login_order5`, `login_order6`, `login_name`) ";
+            queryU += " VALUES ('";
+            queryU += MySqlHelper.EscapeString(this.TextBoxURLSave.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.UserAttribute.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.PasswordAtrribute.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.ButtonAttribute.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.UserTag.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.PasswordTag.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.ButtonTag.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.UserText.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.ButtonAttributeExtra1.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.ButtonAttributeExtra2.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.ButtonAttributeExtra3.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.ButtonTagnameExtra1.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.ButtonTagnameExtra2.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.ButtonTagnameExtra3.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.DescriptionExtra1.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.DescriptionExtra2.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.DescriptionExtra3.Text) + "', " + "'";
+            queryU += MySqlHelper.EscapeString(this.PasswordText.Password) + "', '";
+            queryU += MySqlHelper.EscapeString(this.ComboBoxAction1.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.ComboBoxAction2.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.ComboBoxAction3.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.ComboBoxAction4.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.ComboBoxAction5.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.ComboBoxAction6.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.Order1.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.Order2.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.Order3.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.Order4.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.Order5.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.Order6.Text) + "', '";
+            queryU += MySqlHelper.EscapeString(this.TextBoxNameSave.Text) + "');";
+
+            General.ExecuteQueryCommand(this.LabelID.Content != (object)string.Empty ? queryI : queryU);
+
+            this.VulInlogData();
+        }
+
+        /// <summary>
+        ///     Handles the Click event of the ButtonSelectAll control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ButtonSelectAll_Click
+        private void ButtonSelectAllClick(object sender, RoutedEventArgs e)
+        {
+            // Opslaan();
+            var wel = true;
+            foreach (var dataGridRow in this.GetDataGridRows(this.DataGridElements))
+            {
+                var isChecked = (this.DataGridElements.Columns[1].GetCellContent(dataGridRow) as CheckBox).IsChecked;
+                var flag = true;
+                wel = !((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue);
+            }
+
+            this.url = this.ElementSetting != "SET" ? this.TextBoxURL.Text : this.ComboBoxURL.Text;
+            ElementsFromDatabase.UpdateAllCheckboxes(this.url, wel, "selenium_check");
+            this.DataGridElements.ItemsSource = null;
+            this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
+            this.ButtonSetToTest.IsEnabled = wel;
+            if (wel)
+            {
+                this.LabelTestCase.Visibility = Visibility.Visible;
+                this.TextBoxTestCase.Visibility = Visibility.Visible;
+                this.LabelTestPage.Visibility = Visibility.Visible;
+                this.TextBoxTestCasePage.Visibility = Visibility.Visible;
+                this.ButtonSelectAll.Content = "Unselect All";
+                this.TextBoxTestCase.Focusable = true;
+                this.TextBoxTestCase.Focus();
+            }
+            else
+            {
+                this.LabelTestCase.Visibility = Visibility.Hidden;
+                this.TextBoxTestCase.Visibility = Visibility.Hidden;
+                this.LabelTestPage.Visibility = Visibility.Hidden;
+                this.TextBoxTestCasePage.Visibility = Visibility.Hidden;
+                this.ButtonSelectAll.Content = "Select All";
+            }
+        }
+
+        /// <summary>
+        ///     Handles the Click event of the ButtonSetToTest control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ButtonSetToTest_Click
+        private void ButtonSetToTest_Click(object sender, RoutedEventArgs e)
+        {
+            // Opslaan();
+            var machineNumber = Convert.ToString(LicentieMachineCode.getMachineCode());
+            if (this.TextBoxTestCase.Text != string.Empty)
+            {
+                General.LogMessageDatabase("test", 1);
+                VersionClass.OpenBestand();
+                var bestandsnaam = VersionClass.Bestandsnaam;
+                if (bestandsnaam != null)
+                {
+                    using (new PleaseWait())
+                    {
+                        var num6 = 1;
+                        var laatsteTestCase = General.GetLaatsteTestCase(bestandsnaam);
+                        var num1 = 1;
+                        if (laatsteTestCase.Rows.Count > 0)
+                            num1 = Convert.ToInt32(laatsteTestCase.Rows[0]["testnr"].ToString()) + 101;
+                        this.Topmost = false;
+                        var isChecked = this.CheckBoxInlogIncluded.IsChecked;
+                        var flag = true;
+                        if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        {
+                            if (this.UserAttribute.SelectedIndex != 0 && this.UserTag.Text != string.Empty
+                                                                      && this.UserText.Text != string.Empty)
+                                DataStorage.TestCases.AddTestCase(
+                                    bestandsnaam,
+                                    this.Order1.Text,
+                                    "Login Name",
+                                    this.UserTag.Text,
+                                    this.UserTag.Text,
+                                    this.UserAttribute.Text.ToLower(),
+                                    this.ComboBoxAction1.Text,
+                                    this.UserText.Text,
+                                    string.Empty,
+                                    "yes",
+                                    string.Empty,
+                                    "no",
+                                    string.Empty,
+                                    "Fill in the username",
+                                    machineNumber,
+                                    "input",
+                                    string.Empty);
+
+                            var num2 = num1 + 1;
+                            if (this.PasswordAtrribute.SelectedIndex != 0 && this.PasswordTag.Text != string.Empty
+                                                                          && this.PasswordText.Password != string.Empty)
+                                DataStorage.TestCases.AddTestCase(
+                                    bestandsnaam,
+                                    this.Order2.Text,
+                                    "Login Password",
+                                    this.PasswordTag.Text,
+                                    this.PasswordTag.Text,
+                                    this.PasswordAtrribute.Text.ToLower(),
+                                    this.ComboBoxAction3.Text,
+                                    string.Empty,
+                                    string.Empty,
+                                    "yes",
+                                    string.Empty,
+                                    "no",
+                                    string.Empty,
+                                    "Fill in the password",
+                                    machineNumber,
+                                    "input",
+                                    string.Empty,
+                                    this.PasswordText.Password);
+
+                            var num3 = num2 + 1;
+                            if (this.ButtonAttribute.SelectedIndex != 0 && this.ButtonTag.Text != string.Empty)
+                                DataStorage.TestCases.AddTestCase(
+                                    bestandsnaam,
+                                    this.Order3.Text,
+                                    "Login Button",
+                                    "LoginButton",
+                                    this.ButtonTag.Text,
+                                    this.ButtonAttribute.Text.ToLower(),
+                                    this.ComboBoxAction4.Text,
+                                    string.Empty,
+                                    string.Empty,
+                                    "yes",
+                                    string.Empty,
+                                    "no",
+                                    string.Empty,
+                                    "Push the login button",
+                                    machineNumber,
+                                    "button",
+                                    string.Empty);
+
+                            var num4 = num3 + 1;
+
+                            if (this.ButtonAttributeExtra1.Text != string.Empty
+                                && this.ButtonTagnameExtra1.Text != string.Empty
+                                && this.ComboBoxAction5.SelectedIndex != 0 && Order4.Text != "0" && Order4.Text != string.Empty)
+                                DataStorage.TestCases.AddTestCase(
+                                    bestandsnaam,
+                                    this.Order4.Text,
+                                    this.DescriptionExtra1.Text,
+                                    this.DescriptionExtra1.Text,
+                                    this.ButtonTagnameExtra1.Text,
+                                    this.ButtonAttributeExtra1.Text.ToLower(),
+                                    "click",
+                                    string.Empty,
+                                    string.Empty,
+                                    "yes",
+                                    string.Empty,
+                                    "no",
+                                    string.Empty,
+                                    this.DescriptionExtra1.Text,
+                                    machineNumber,
+                                    this.ComboBoxAction5.Text,
+                                    string.Empty);
+
+                            var num5 = num4 + 1;
+                            if (this.ButtonAttributeExtra2.Text != string.Empty
+                                && this.ButtonTagnameExtra2.Text != string.Empty
+                                && this.ComboBoxAction6.SelectedIndex != 0 && Order5.Text != "0" && Order5.Text != string.Empty)
+                                DataStorage.TestCases.AddTestCase(
+                                    bestandsnaam,
+                                    this.Order5.Text,
+                                    this.DescriptionExtra2.Text,
+                                    this.DescriptionExtra2.Text,
+                                    this.ButtonTagnameExtra2.Text,
+                                    this.ButtonAttributeExtra2.Text.ToLower(),
+                                    this.ComboBoxAction6.Text,
+                                    string.Empty,
+                                    string.Empty,
+                                    "yes",
+                                    string.Empty,
+                                    "no",
+                                    string.Empty,
+                                    this.DescriptionExtra2.Text,
+                                    machineNumber,
+                                    this.ComboBoxAction6.Text,
+                                    string.Empty);
+
+                            num6 = num5 + 1;
+
+                            if (this.ButtonAttributeExtra3.Text != string.Empty
+                                && this.ButtonTagnameExtra3.Text != string.Empty
+                                && this.ComboBoxAction2.SelectedIndex != 0)
+                            {
+                                var testtext = string.Empty;
+                                if ((this.ComboBoxAction2.Text == "select") | (this.ComboBoxAction2.Text == "value"))
+                                    testtext = this.DescriptionExtra3.Text;
+
+                                DataStorage.TestCases.AddTestCase(
+                                    bestandsnaam,
+                                    this.Order6.Text,
+                                    this.ButtonTagnameExtra3.Text,
+                                    this.ButtonTagnameExtra3.Text,
+                                    this.ButtonTagnameExtra3.Text,
+                                    this.ButtonAttributeExtra3.Text.ToLower(),
+                                    this.ComboBoxAction2.Text,
+                                    testtext,
+                                    string.Empty,
+                                    "yes",
+                                    string.Empty,
+                                    "no",
+                                    string.Empty,
+                                    this.DescriptionExtra3.Text,
+                                    machineNumber,
+                                    this.ComboBoxAction2.Text,
+                                    string.Empty);
+                            }
+
+                            num1 = num6 + 11;
+                        }
+
+                        if (this.TextBoxURL.Text != this.TextBoxURLSave.Text
+                            && this.CheckBoxInlogIncluded.IsChecked == true)
+                        {
+                            var testtext = string.Empty;
+
+                            var ger6 = num6 + 1;
+                            DataStorage.TestCases.AddTestCase(
+                                bestandsnaam,
+                                ger6.ToString(),
+                                this.TextBoxTestCase.Text,
+                                string.Empty,
+                                string.Empty,
+                                string.Empty,
+                                "switch to url",
+                                testtext,
+                                this.TextBoxURL.Text,
+                                "yes",
+                                string.Empty,
+                                "no",
+                                "Go to the wanted url: '" + this.TextBoxURL.Text + "'.",
+                                "Switch to url",
+                                machineNumber,
+                                string.Empty,
+                                string.Empty);
+                        }
+
+                        var num7 = num1 + 1;
+
+                        // ------------------------------------------------------------- //
+                        // Zorg dat de elementen in de juiste volgorde gesorteerd worden //
+                        // ------------------------------------------------------------- //
+                        // var column = DataGridElements.Columns[0];
+                        // var sortDirection = ListSortDirection.Ascending;
+                        // DataGridElements.Items.SortDescriptions.Clear();
+                        // DataGridElements.Items.SortDescriptions.Add(
+                        // new SortDescription(column.SortMemberPath, sortDirection));
+                        // DataGridElements.Items.Refresh();
+                        var query = "SELECT * FROM autotest.selenium_elements ";
+                        query += "WHERE url = '" + this.TextBoxURL.Text + "' ";
+                        query += "AND selenium_check = '1' ";
+                        query += "ORDER BY idselenium_elements";
+
+                        var dt = GenericDataRead.GetData(query);
+
+                        for (var row = 0; row < dt.Rows.Count; ++row)
+                        {
+                            var checktekst = string.Empty;
+                            string testattribute;
+                            string text;
+
+                            if (dt.Rows[row][15].ToString() == "1") checktekst = dt.Rows[row][6].ToString();
+
+                            if (dt.Rows[row][7].ToString().Length > 0)
+                            {
+                                text = dt.Rows[row][7].ToString();
+                                testattribute = "id";
+                            }
+                            else if (dt.Rows[row][8].ToString().Length > 0)
+                            {
+                                text = dt.Rows[row][8].ToString();
+                                testattribute = "name";
+                            }
+                            else
+                            {
+                                text = dt.Rows[row][4].ToString();
+                                testattribute = "xpath";
+                            }
+
+                            DataStorage.TestCases.AddTestCase(
+                                bestandsnaam,
+                                num7.ToString(),
+                                this.TextBoxTestCase.Text,
+                                dt.Rows[row][6].ToString(),
+                                text,
+                                testattribute,
+                                string.Empty,
+                                checktekst,
+                                string.Empty,
+                                "yes",
+                                string.Empty,
+                                "no",
+                                string.Empty,
+                                string.Empty,
+                                machineNumber,
+                                dt.Rows[row][5].ToString(),
+                                checktekst);
+                            ++num7;
+                        }
+
+                        // ------------------------------------------------------------- //
+                        // for (var row = 0; row < DataGridElements.Items.Count; ++row)
+                        // if (GetCell(row, 1) != null)
+                        // {
+                        // var content1 = GetCell(row, 1).Content as CheckBox;     // Geselecteerd
+                        // var content2 = GetCell(row, 3).Content as TextBlock;    // id
+                        // var content3 = GetCell(row, 5).Content as TextBlock;    // xpath
+                        // var content4 = GetCell(row, 6).Content as TextBlock;    // tagname
+                        // var content5 = GetCell(row, 7).Content as TextBlock;    // text
+                        // var content6 = GetCell(row, 4).Content as TextBlock;    // name
+                        // var content7 = GetCell(row, 8).Content as CheckBox;     // Text controle
+                        // var empty1 = string.Empty;
+                        // var empty2 = string.Empty;
+                        // string text;
+                        // if (content7.IsChecked.Value == false)
+                        // {
+                        // content5.Text = string.Empty;
+                        // }
+                        // string testattribute;
+                        // if (content2.Text.Length > 0)
+                        // {
+                        // text = content2.Text;
+                        // testattribute = "id";
+                        // }
+                        // else if (content6.Text.Length > 0)
+                        // {
+                        // text = content6.Text;
+                        // testattribute = "name";
+                        // }
+                        // else
+                        // {
+                        // text = content3.Text;
+                        // testattribute = "xpath";
+                        // }
+                        // isChecked = content1.IsChecked;
+                        // if (isChecked.Value)
+                        // {
+                        // DataStorage.TestCases.AddTestCase(
+                        // bestandsnaam,
+                        // num7.ToString(),
+                        // TextBoxTestCase.Text,
+                        // content5.Text,
+                        // text,
+                        // testattribute,
+                        // string.Empty,
+                        // content5.Text,
+                        // string.Empty,
+                        // "yes",
+                        // string.Empty,
+                        // "no",
+                        // string.Empty,
+                        // string.Empty,
+                        // string.Empty,
+                        // content4.Text,
+                        // content5.Text);
+                        // ++num7;
+                        // }
+                        // }
+                        General.LogMessageDatabase(
+                            "Data added to the testscenario",
+                            3,
+                            string.Empty,
+                            0,
+                            string.Empty,
+                            string.Empty);
+                    }
+
+                    var num8 = (int)MessageBox.Show("Data added to test scenario.");
+                    this.MaakLoginLeeg();
+                }
+                else
+                {
+                    MessageBox.Show("No file selected! Please try again");
+                }
+            }
+            else
+            {
+                General.LogMessageDatabase(
+                    "Test Case is still empty!!! Please fill in the Test Case name.",
+                    4,
+                    string.Empty,
+                    0,
+                    string.Empty,
+                    string.Empty);
+                var num = (int)MessageBox.Show(
+                    "Test Case is still empty!!!\r\nPlease fill in the Test Case name.",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Hand);
+                this.TextBoxTestCase.Focusable = true;
+                this.TextBoxTestCase.Focus();
+            }
+        }
+
+        /// <summary>
+        ///     Handles the IsEnabledChanged event of the ButtonSetToTest control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ButtonSetToTest_IsEnabledChanged
+        private void ButtonSetToTest_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.ButtonSetToTest.IsEnabled && this.ElementSetting == "GET")
+                this.CheckBoxInlogIncluded.Visibility = Visibility.Visible;
+            else this.CheckBoxInlogIncluded.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        ///     Handles the Click event of the ButtonTest control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ButtonTest_Click
+        private void ButtonTest_Click(object sender, RoutedEventArgs e)
+        {
+            this.Parsing("http://google.com");
+        }
+
+        /// <summary>
+        ///     CheckBoxes the basis.
+        /// </summary>
+        /// <param name="keuze">if set to <c>true</c> [keuze].</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for CheckBoxBasis
+        private void CheckBoxBasis(bool keuze)
+        {
+            this.CheckBoxA.IsChecked = keuze;
+            this.CheckBoxDiv.IsChecked = keuze;
+            this.CheckBoxIframe.IsChecked = keuze;
+            this.CheckBoxImg.IsChecked = keuze;
+            this.CheckBoxInput.IsChecked = keuze;
+            this.CheckBoxLi.IsChecked = keuze;
+            this.CheckBoxOption.IsChecked = keuze;
+            this.CheckBoxSpan.IsChecked = keuze;
+            this.CheckBoxTable.IsChecked = keuze;
+            this.CheckBoxTh.IsChecked = keuze;
+            this.CheckBoxTr.IsChecked = keuze;
+            this.CheckBoxTd.IsChecked = keuze;
+        }
+
+        /// <summary>
+        ///     CheckBoxes the start.
+        /// </summary>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for CheckBoxStart
+        private void CheckBoxStart()
+        {
+            this.CheckBoxA.IsChecked = true;
+            this.CheckBoxDiv.IsChecked = true;
+            this.CheckBoxIframe.IsChecked = true;
+            this.CheckBoxImg.IsChecked = false;
+            this.CheckBoxInput.IsChecked = true;
+            this.CheckBoxLi.IsChecked = false;
+            this.CheckBoxOption.IsChecked = false;
+            this.CheckBoxSpan.IsChecked = false;
+            this.CheckBoxTable.IsChecked = true;
+            this.CheckBoxTh.IsChecked = false;
+            this.CheckBoxTr.IsChecked = false;
+            this.CheckBoxTd.IsChecked = false;
+        }
+
+        /// <summary>
+        ///     Checks the data URL in database.
+        /// </summary>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for CheckDataUrlInDatabase
+        private void CheckDataUrlInDatabase()
+        {
+            if (!(this.ElementSetting == "GET") || ElementsFromDatabase.GetDataTable(this.url).Count <= 0
+                                                || MessageBox.Show(
+                                                    "Do you want to delete earlier added elements for url '" + this.url
+                                                                                                             + "'?",
+                                                    "Question",
+                                                    MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                return;
+            ElementsFromDatabase.DeleteDataFromDatabase(this.url);
+            var num = (int)MessageBox.Show("Elements are deleted!", "Deleting elements", MessageBoxButton.OK);
+        }
+
+        private void CheckTextAll_Click(object sender, RoutedEventArgs e)
+        {
+            var wel = true;
+            foreach (var dataGridRow in this.GetDataGridRows(this.DataGridElements))
+            {
+                var isChecked = (this.DataGridElements.Columns[8].GetCellContent(dataGridRow) as CheckBox).IsChecked;
+                var flag = true;
+                wel = !((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue);
+            }
+
+            this.url = this.ElementSetting != "SET" ? this.TextBoxURL.Text : this.ComboBoxURL.Text;
+            ElementsFromDatabase.UpdateAllCheckboxes(this.url, wel, "checktext");
+            this.DataGridElements.ItemsSource = null;
+            this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
+
+            if (wel) this.CheckTextAll.Content = "Unselect All Text";
+            else this.CheckTextAll.Content = "Select All Text";
+        }
+
+        /// <summary>
+        ///     Handles the DropDownClosed event of the ComboBoxLoginData control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ComboBoxLoginData_DropDownClosed
+        private void ComboBoxLoginData_DropDownClosed(object sender, EventArgs e)
+        {
+            foreach (var inlogDataRecords in InlogData.LoginDataGet())
+                if (inlogDataRecords.LoginURL == this.ComboBoxLoginData.Text)
+                {
+                    this.VulLoginDataGer(inlogDataRecords);
+                    this.ComboBoxLoginName.Text = inlogDataRecords.LoginName;
+                    if (this.TextBoxURLSave.Text == string.Empty)
+                        break;
+                    this.ButtonSave.IsEnabled = true;
+                    break;
+                }
+        }
+
+        private void ComboBoxLoginName_DropDownClosed(object sender, EventArgs e)
+        {
+            foreach (var inlogDataRecords in InlogData.LoginDataGet())
+                if (inlogDataRecords.LoginName == this.ComboBoxLoginName.Text)
+                {
+                    this.VulLoginDataGer(inlogDataRecords);
+                    this.ComboBoxLoginData.Text = inlogDataRecords.LoginURL;
+                    if (this.TextBoxURLSave.Text == string.Empty)
+                        break;
+                    this.ButtonSave.IsEnabled = true;
+                    break;
+                }
+        }
+
+        /// <summary>
+        ///     Handles the DropDownClosed event of the ComboBoxURL control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ComboBoxURL_DropDownClosed
+        private void ComboBoxUrlDropDownClosed(object sender, EventArgs e)
+        {
+            if (this.ComboBoxURL.SelectedIndex == -1)
+                return;
+            this.HaalGegevensEnToon();
+        }
+
+        private void DataGridElements_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            var dataGridRow = this.DataGridElements.Items.IndexOf(this.DataGridElements.CurrentItem);
+            var dataGridColumn = this.DataGridElements.CurrentColumn;
+
+            if (dataGridColumn != null)
+            {
+                if (dataGridColumn.DisplayIndex.ToString() == "1")
+                {
+                    var isChecked1 = (this.DataGridElements.Columns[1].GetCellContent(dataGridRow) as CheckBox)
+                        .IsChecked;
+                    var flag = true;
+                    var wel = !((isChecked1.GetValueOrDefault() == flag) & isChecked1.HasValue);
+                    this.url = (this.DataGridElements.Columns[0].GetCellContent(dataGridRow) as TextBlock).Text;
+                    ElementsFromDatabase.UpdateAllCheckbox8(this.url, wel, "selenium_check");
+                }
+
+                if (dataGridColumn.DisplayIndex.ToString() == "8")
+                {
+                    var isChecked8 = (this.DataGridElements.Columns[8].GetCellContent(dataGridRow) as CheckBox)
+                        .IsChecked;
+                    var flag = true;
+                    var wel = !((isChecked8.GetValueOrDefault() == flag) & isChecked8.HasValue);
+                    this.url = (this.DataGridElements.Columns[0].GetCellContent(dataGridRow) as TextBlock).Text;
+                    ElementsFromDatabase.UpdateAllCheckbox8(this.url, wel, "checktext");
+                }
+
+                this.DataGridElements.ItemsSource = null;
+                this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
+            }
+        }
+
+        private void DataGridElements_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this.DataGridElements.Items.IndexOf(this.DataGridElements.CurrentItem) != -1)
+            {
+                var dataGridRow = this.DataGridElements.Items.IndexOf(this.DataGridElements.CurrentItem);
+                var kolom = this.DataGridElements.CurrentColumn;
+
+                var checkedGer = false;
+                var checkedGer0 = false;
+                var row = (DataGridRow)this.DataGridElements.ItemContainerGenerator.ContainerFromIndex(dataGridRow);
+                var cellContent = this.DataGridElements.Columns[0].GetCellContent(row) as TextBlock;
+                var cellContentText = this.DataGridElements.Columns[5].GetCellContent(row) as TextBlock;
+                var cellContent1 = this.DataGridElements.Columns[8].GetCellContent(row) as CheckBox;
+                var cellContent0 = this.DataGridElements.Columns[1].GetCellContent(row) as CheckBox;
+
+                this.url = this.ElementSetting != "SET" ? this.TextBoxURL.Text : this.ComboBoxURL.Text;
+
+                if (kolom.DisplayIndex == 0)
+                {
+                    if (cellContent0.IsChecked == false)
+                        checkedGer0 = true;
+                    else
+                        checkedGer0 = false;
+
+                    ElementsFromDatabase.UpdateCheckBox(cellContent.Text, checkedGer0);
+                }
+
+                if (kolom.DisplayIndex == 8)
+                {
+                    if (cellContent1.IsChecked == false)
+                        checkedGer = true;
+                    else
+                        checkedGer = false;
+
+                    ElementsFromDatabase.UpdateCheckBox8(cellContent.Text, checkedGer);
+
+                    if (checkedGer)
+                        ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, cellContentText.Text);
+                    else
+                        ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, string.Empty);
+                }
+
+                if (kolom.DisplayIndex == 8 || kolom.DisplayIndex == 1)
+                {
+                    this.DataGridElements.ItemsSource = null;
+                    this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
+                }
+
+                /*                if (kolom.DisplayIndex == 8 || kolom.DisplayIndex == 1)
+                                {
+                                    var isChecked = cellContent1.IsChecked;
+                                    var flag = true;
+                                    var check1 = "checktext";
+                                    if (kolom.DisplayIndex == 1)
+                                    {
+                                        check1 = " selenium_check";
+                                    }
+                                    var wel = !((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue);
+                                    ElementsFromDatabase.UpdateAllCheckbox8(cellContent.Text, wel, check1);
+                                }*/
+            }
+        }
+
+        /// <summary>
+        ///     Handles the LostFocus event of the DataGridElements control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for DataGridElements_LostFocus
+        private void DataGridElementsLostFocus(object sender, RoutedEventArgs e)
+        {
+            // Opslaan();
+        }
+
+        /// <summary>
+        ///     Examines the node.
+        /// </summary>
+        /// <param name="node">The node.</param>
+        /// <param name="driver2WebDriver">The driver2 web driver.</param>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for ExamineNode
+        private void ExamineNode(HtmlNode node, IWebDriver driver2WebDriver)
+        {
+            try
+            {
+                var showBorderColor = OverallSettings.ShowBorderColor;
+                var showBorderWidth = OverallSettings.ShowBorderWidth;
+                var showDuration = OverallSettings.ShowDuration;
+                var sleepTime = 10;
+                if (node is HtmlTextNode)
+                    return;
+                var empty1 = string.Empty;
+                if (node.Attributes["href"] != null)
+                    empty1 = node.Attributes["href"].Value;
+                var empty2 = string.Empty;
+                var empty3 = string.Empty;
+                var empty4 = string.Empty;
+                var str1 = string.Empty;
+                var empty5 = string.Empty;
+                var empty6 = string.Empty;
+                if (node.Attributes["class"] != null)
+                    empty2 = node.Attributes["class"].Value;
+                if (node.Attributes["name"] != null)
+                    empty3 = node.Attributes["name"].Value;
+                if (node.Attributes["title"] != null)
+                    empty4 = node.Attributes["title"].Value;
+                if (node.Attributes["value"] != null)
+                    str1 = node.Attributes["value"].Value;
+                if (node.Attributes["id"] != null)
+                    str1 = node.Attributes["id"].Value;
+                if (str1.Length > byte.MaxValue)
+                    str1 = str1.Substring(0, 254);
+                bool? isChecked;
+                if (node.Name == "a")
+                {
+                    isChecked = this.CheckBoxA.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "input")
+                {
+                    isChecked = this.CheckBoxInput.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "iframe")
+                {
+                    isChecked = this.CheckBoxIframe.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "img")
+                {
+                    isChecked = this.CheckBoxImg.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "div")
+                {
+                    isChecked = this.CheckBoxDiv.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "li")
+                {
+                    isChecked = this.CheckBoxLi.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "table")
+                {
+                    isChecked = this.CheckBoxTable.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "td")
+                {
+                    isChecked = this.CheckBoxTd.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "th")
+                {
+                    isChecked = this.CheckBoxTh.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "tr")
+                {
+                    isChecked = this.CheckBoxTr.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "option")
+                {
+                    isChecked = this.CheckBoxOption.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "span")
+                {
+                    isChecked = this.CheckBoxSpan.IsChecked;
+                    var flag = true;
+                    if (!((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue))
+                        goto label_45;
+                }
+                else
+                {
+                    goto label_45;
+                }
+
+                label_39:
+                var str2 = empty4.Replace("'", "\\'");
+                isChecked = this.CheckBoxObjectVisibility.IsChecked;
+                var flag1 = true;
+                if ((isChecked.GetValueOrDefault() == flag1) & isChecked.HasValue && node.XPath != null)
+                    if (driver2WebDriver.FindElement(By.XPath(node.XPath)) != null)
+                        try
+                        {
+                            var element = driver2WebDriver.FindElement(By.XPath(node.XPath));
+                            GeneralFunctionality.Functions.HighlightAndScreenshot(
+                                driver2WebDriver,
+                                element,
+                                sleepTime,
+                                showBorderColor,
+                                showBorderWidth);
+                        }
+                        catch (Exception ex)
+                        {
+                            var num = (int)MessageBox.Show(ex.Message);
+                        }
+
+                // if (StripHTML(HttpUtility.HtmlDecode(node.InnerHtml.Trim())).Length < byte.MaxValue)
+                var innertekst = string.Empty;
+                if (IsNodeVisible(node)) innertekst = StripHTML(HttpUtility.HtmlDecode(node.InnerText.Trim()));
+
+                // if (node.Name == "input" && node.Attributes["type"].Value != "search" && node.Attributes["type"].Value != "checkbox")
+                // {
+                // if (node.Attributes["value"].Value != null)
+                // {
+                // innertekst = node.Attributes["value"].Value;
+                // }
+                // }
+
+                // var te = Encoding.GetEncoding(node.InnerText).ToString();
+                if (StripHTML(HttpUtility.HtmlDecode(node.InnerText.Trim())).Length < byte.MaxValue)
+                    General.ExecuteQueryCommand(
+                        "INSERT INTO `autotest`.`selenium_elements` " + "(`url`, " + "gebruikte_link, " + "`xpath`, "
+                        + "`tagname`, " + "`text`, " + "`id`, " + "`name`, " + "`class`, " + "`href`, " + "`title`, "
+                        + "`value`, `checktext`) " + "VALUES " + "('" + MySqlHelper.EscapeString(this.TextBoxURL.Text)
+                        + "', " + "'" + MySqlHelper.EscapeString(this.href_link) + "', " + "'"
+                        + MySqlHelper.EscapeString(node.XPath) + "', " + "'" + MySqlHelper.EscapeString(node.Name)
+                        + "', " + "'" + MySqlHelper.EscapeString(innertekst) + "', " + "'"
+                        + MySqlHelper.EscapeString(node.Id) + "', " + "'" + MySqlHelper.EscapeString(empty3) + "', "
+                        + "'" + MySqlHelper.EscapeString(empty2) + "', " + "'" + MySqlHelper.EscapeString(empty1)
+                        + "', " + "'" + MySqlHelper.EscapeString(str2) + "', " + "'" + MySqlHelper.EscapeString(str1)
+                        + "', '0'); ");
+                label_45:
+                foreach (var childNode in node.ChildNodes) this.ExamineNode(childNode, driver2WebDriver);
+            }
+            catch (Exception ex)
+            {
+                General.LogMessageDatabase(
+                    ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
+                    4,
+                    string.Empty,
+                    0,
+                    string.Empty,
+                    InloggerData.MachineCode);
+            }
+        }
+
         private IWebElement FindElement(string AttributeText, string TagText, ChromeDriver driver1, uint timeout = 5)
         {
             IWebElement content = null;
@@ -1745,19 +1565,225 @@ namespace WPFTestResults
             return content;
         }
 
-        //this will search for the element until a timeout is reached
-        public static IWebElement WaitUntilElementExists(ChromeDriver driver, By elementLocator, int timeout = 10)
+        /// <summary>
+        ///     Finds the test applications.
+        /// </summary>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for FindTestApplications
+        private void FindTestApplications()
         {
-            try
+            foreach (var file in new DirectoryInfo(GeneralFunctionality.Functions.GetCurrentDir(1)).GetFiles("*.xml"))
+                this.ComboBoxApplications.Items.Add(
+                    new List<string>
+                        {
+                            GeneralFunctionality.Functions.GetSettingsXmlStrings(
+                                file.Name.Substring(0, file.Name.Length - 4),
+                                1).ToList()[1]
+                        }.Distinct().ToList()[0]);
+        }
+
+        /// <summary>
+        ///     Haals the gegevens ComboBox.
+        /// </summary>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for HaalGegevensComboBox
+        private void HaalGegevensComboBox()
+        {
+            var urlOverviewList = new List<UrlOverview>();
+            var urLs = UrlOverview.GetUrLs();
+            this.ComboBoxURL.Items.Clear();
+            foreach (var urlOverview in urLs) this.ComboBoxURL.Items.Add(urlOverview.urlstring);
+        }
+
+        /// <summary>
+        ///     Haals the gegevens en toon.
+        /// </summary>
+        /// <autogeneratedoc />
+        /// TODO Edit XML Comment Template for HaalGegevensEnToon
+        private void HaalGegevensEnToon()
+        {
+            this.url = !(this.ElementSetting == "GET") ? this.ComboBoxURL.Text : this.TextBoxURL.Text;
+            General.LogMessageDatabase(
+                "URL: '" + this.url + "'.",
+                3,
+                string.Empty,
+                0,
+                string.Empty,
+                InloggerData.MachineCode);
+            this.CheckDataUrlInDatabase();
+            if (!this.url.StartsWith("http://") && !this.url.StartsWith("https://"))
             {
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
-                return wait.Until(ExpectedConditions.ElementExists(elementLocator));
+                var num = (int)MessageBox.Show(
+                    "The url has to start with 'http://' or 'https://'\r\nPlease try again!!!",
+                    "Message",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Exclamation);
             }
-            catch (NoSuchElementException)
+            else
             {
-                Console.WriteLine("Element with locator: '" + elementLocator +
-                                  "' was not found in current context page.");
-                throw;
+                this.ButtonSetToTest.IsEnabled = false;
+                this.LabelTestCase.Visibility = Visibility.Hidden;
+                this.TextBoxTestCase.Visibility = Visibility.Hidden;
+                if (this.ElementSetting == "GET")
+                    try
+                    {
+                        using (new PleaseWait())
+                        {
+                            var _driver = new ChromeDriver(GeneralFunctionality.Functions.GetCurrentDir(0));
+                            _driver.Navigate().GoToUrl(this.TextBoxURLSave.Text);
+                            _driver.Manage().Window.Maximize();
+                            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+                            IWebElement content = null;
+
+                            for (var i = 1; i < 7; i++)
+                            {
+                                // UserName
+                                if (this.Order1.Text == i.ToString())
+                                    if (this.ComboBoxAction1.Text != string.Empty && this.UserText.Text != string.Empty
+                                                                                  && this.UserTag.Text != string.Empty
+                                                                                  && this.UserAttribute.Text
+                                                                                  != string.Empty)
+                                    {
+                                        content = this.FindElement(
+                                            this.UserAttribute.Text.ToLower(),
+                                            this.UserTag.Text.ToLower(),
+                                            _driver);
+                                        this.ActieUitvoeren(
+                                            content,
+                                            this.ComboBoxAction1.Text,
+                                            this.UserText.Text,
+                                            _driver,
+                                            this.UserAttribute.Text);
+                                    }
+
+                                // Password
+                                if (this.Order2.Text == i.ToString())
+                                    if (this.ComboBoxAction3.Text != string.Empty
+                                        && this.PasswordText.Password != string.Empty
+                                        && this.PasswordTag.Text != string.Empty
+                                        && this.PasswordAtrribute.Text != string.Empty)
+                                    {
+                                        content = this.FindElement(
+                                            this.PasswordAtrribute.Text.ToLower(),
+                                            this.PasswordTag.Text.ToLower(),
+                                            _driver);
+                                        this.ActieUitvoeren(
+                                            content,
+                                            this.ComboBoxAction3.Text,
+                                            this.PasswordText.Password,
+                                            _driver,
+                                            this.PasswordAtrribute.Text);
+                                    }
+
+                                // Login button
+                                if (this.Order3.Text == i.ToString())
+                                    if (this.ComboBoxAction4.Text != string.Empty && this.ButtonTag.Text != string.Empty
+                                                                                  && this.ButtonAttribute.Text
+                                                                                  != string.Empty)
+                                    {
+                                        content = this.FindElement(
+                                            this.ButtonAttribute.Text.ToLower(),
+                                            this.ButtonTag.Text.ToLower(),
+                                            _driver);
+                                        this.ActieUitvoeren(
+                                            content,
+                                            this.ComboBoxAction4.Text,
+                                            string.Empty,
+                                            _driver,
+                                            this.ButtonAttribute.Text);
+                                    }
+
+                                if (this.Order6.Text == i.ToString())
+                                    if (this.ComboBoxAction2.Text != string.Empty)
+                                    {
+                                        if (this.ComboBoxAction2.Text == "sendkeys"
+                                            || this.ComboBoxAction2.Text == "select"
+                                            || this.ComboBoxAction2.Text == "set_value")
+                                        {
+                                            if (this.DescriptionExtra3.Text != string.Empty)
+                                            {
+                                                content = this.FindElement(
+                                                    this.ButtonAttributeExtra3.Text.ToLower(),
+                                                    this.ButtonTagnameExtra3.Text.ToLower(),
+                                                    _driver);
+                                                this.ActieUitvoeren(
+                                                    content,
+                                                    this.ComboBoxAction2.Text,
+                                                    this.DescriptionExtra3.Text,
+                                                    _driver,
+                                                    this.ButtonAttributeExtra3.Text);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            content = this.FindElement(
+                                                this.ButtonAttributeExtra3.Text.ToLower(),
+                                                this.ButtonTagnameExtra3.Text.ToLower(),
+                                                _driver);
+                                            this.ActieUitvoeren(
+                                                content,
+                                                this.ComboBoxAction2.Text,
+                                                this.DescriptionExtra3.Text,
+                                                _driver,
+                                                this.ButtonAttributeExtra3.Text);
+                                        }
+                                    }
+                            }
+
+                            yy = new HashSet<string>();
+
+                            this.HaalGegevensSite(_driver, this.TextBoxURL.Text);
+                            foreach (var urlstring in yy.ToList()) this.HaalGegevensSite(_driver, urlstring);
+                            var isChecked = this.CheckBoxWholeWebsite.IsChecked;
+                            var flag = true;
+                            if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
+                            {
+                                Thread.Sleep(5000);
+
+                                var Webget = new HtmlWeb();
+                                var doc = new HtmlDocument();
+                                Webget.AutoDetectEncoding = false;
+                                Webget.OverrideEncoding = Encoding.UTF8;
+
+                                doc = Webget.Load(_driver.Url);
+                                var htmlDocument = new HtmlWeb().Load(_driver.Url);
+
+                                // General.LogMessageDatabase(htmlDocument.Text, 0, "", 0, "", "");
+                                foreach (var childNode in doc.DocumentNode.SelectSingleNode("*").ChildNodes) ;
+                            }
+
+                            _driver.Quit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        General.LogMessageDatabase(
+                            ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
+                            4,
+                            string.Empty,
+                            0,
+                            string.Empty,
+                            InloggerData.MachineCode);
+                        _driver.Quit();
+                    }
+
+                this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
+                if (this.DataGridElements.Items.Count > 0)
+                {
+                    this.DataGridElements.Visibility = Visibility.Visible;
+                    this.ButtonSelectAll.IsEnabled = true;
+                    this.CheckTextAll.IsEnabled = true;
+                }
+                else
+                {
+                    this.DataGridElements.Visibility = Visibility.Hidden;
+                    this.ButtonSelectAll.IsEnabled = false;
+                    this.CheckTextAll.IsEnabled = false;
+                }
+
+                this.LabelFoundElements.Content = "Found Elements: " + this.DataGridElements.Items.Count;
+                this.LabelFoundElements.Visibility = Visibility.Visible;
             }
         }
 
@@ -1773,76 +1799,78 @@ namespace WPFTestResults
             IWebElement content = null;
             _driver1.Navigate().GoToUrl(urlstring);
 
-
-            if (Order4.Text != string.Empty && Order4.Text != "0")
-                if (ComboBoxAction5.Text != string.Empty)
+            if (this.Order4.Text != string.Empty && this.Order4.Text != "0")
+            {
+                if (this.ComboBoxAction5.Text != string.Empty)
                 {
-                    if (ComboBoxAction5.Text == "sendkeys" ||
-                        ComboBoxAction5.Text == "select" ||
-                        ComboBoxAction5.Text == "set_value")
+                    if (this.ComboBoxAction5.Text == "sendkeys" || this.ComboBoxAction5.Text == "select"
+                                                                || this.ComboBoxAction5.Text == "set_value")
                     {
-                        if (DescriptionExtra1.Text != string.Empty)
+                        if (this.DescriptionExtra1.Text != string.Empty)
                         {
-                            content = FindElement(
-                                ButtonAttributeExtra1.Text.ToLower(),
-                                ButtonTagnameExtra1.Text.ToLower(),
+                            content = this.FindElement(
+                                this.ButtonAttributeExtra1.Text.ToLower(),
+                                this.ButtonTagnameExtra1.Text.ToLower(),
                                 _driver1);
-                            ActieUitvoeren(
+                            this.ActieUitvoeren(
                                 content,
-                                ComboBoxAction5.Text,
-                                DescriptionExtra1.Text,
+                                this.ComboBoxAction5.Text,
+                                this.DescriptionExtra1.Text,
                                 _driver1,
-                                ButtonAttributeExtra1.Text);
+                                this.ButtonAttributeExtra1.Text);
                         }
                     }
                     else
                     {
-                        content = FindElement(
-                            ButtonAttributeExtra1.Text.ToLower(),
-                            ButtonTagnameExtra1.Text.ToLower(),
-                            _driver1, 15);
-                        ActieUitvoeren(
-                            content,
-                            ComboBoxAction5.Text,
-                            DescriptionExtra1.Text,
+                        content = this.FindElement(
+                            this.ButtonAttributeExtra1.Text.ToLower(),
+                            this.ButtonTagnameExtra1.Text.ToLower(),
                             _driver1,
-                            ButtonAttributeExtra1.Text);
+                            15);
+                        this.ActieUitvoeren(
+                            content,
+                            this.ComboBoxAction5.Text,
+                            this.DescriptionExtra1.Text,
+                            _driver1,
+                            this.ButtonAttributeExtra1.Text);
                     }
                 }
+            }
 
-            if (Order5.Text != string.Empty && Order5.Text != "0")
-                if (ComboBoxAction6.Text != string.Empty)
-                    if (ComboBoxAction6.Text == "sendkeys" ||
-                        ComboBoxAction6.Text == "select" ||
-                        ComboBoxAction6.Text == "set_value")
+            if (this.Order5.Text != string.Empty && this.Order5.Text != "0")
+            {
+                if (this.ComboBoxAction6.Text != string.Empty)
+                    if (this.ComboBoxAction6.Text == "sendkeys" || this.ComboBoxAction6.Text == "select"
+                                                                || this.ComboBoxAction6.Text == "set_value")
                     {
-                        if (DescriptionExtra1.Text != string.Empty)
+                        if (this.DescriptionExtra2.Text != string.Empty)
                         {
-                            content = FindElement(
-                                ButtonAttributeExtra2.Text.ToLower(),
-                                ButtonTagnameExtra2.Text.ToLower(),
+                            content = this.FindElement(
+                                this.ButtonAttributeExtra2.Text.ToLower(),
+                                this.ButtonTagnameExtra2.Text.ToLower(),
                                 _driver1);
-                            ActieUitvoeren(
+                            this.ActieUitvoeren(
                                 content,
-                                ComboBoxAction6.Text,
-                                DescriptionExtra2.Text,
+                                this.ComboBoxAction6.Text,
+                                this.DescriptionExtra2.Text,
                                 _driver1,
-                                ButtonAttributeExtra2.Text);
-                        }
-                        else
-                        {
-                            content = FindElement(
-                                ButtonAttributeExtra2.Text.ToLower(),
-                                ButtonTagnameExtra2.Text.ToLower(),
-                                _driver1);
-                            ActieUitvoeren(
-                                content,
-                                ComboBoxAction6.Text,
-                                DescriptionExtra2.Text,
-                                _driver1,
-                                ButtonAttributeExtra2.Text);
+                                this.ButtonAttributeExtra2.Text);
                         }
                     }
+                    else
+                    {
+                        content = this.FindElement(
+                            this.ButtonAttributeExtra2.Text.ToLower(),
+                            this.ButtonTagnameExtra2.Text.ToLower(),
+                            _driver1);
+                        this.ActieUitvoeren(
+                            content,
+                            this.ComboBoxAction6.Text,
+                            this.DescriptionExtra2.Text,
+                            _driver1,
+                            this.ButtonAttributeExtra2.Text);
+                    }
+            }
 
             try
             {
@@ -1864,11 +1892,11 @@ namespace WPFTestResults
 
                 // var htmlDocument = new HtmlWeb().Load(_driver.Url);
                 // htmlDocument.LoadHtml(doc);
-                number = 0;
+                this.number = 0;
                 foreach (var selectNode in doc.DocumentNode.SelectNodes("*"))
                 {
-                    ExamineNode(selectNode, _driver1);
-                    ++number;
+                    this.ExamineNode(selectNode, _driver1);
+                    ++this.number;
                 }
             }
             catch (Exception ex)
@@ -1894,32 +1922,32 @@ namespace WPFTestResults
             var visibility = Visibility.Hidden;
             if (zien)
                 visibility = Visibility.Visible;
-            username.Visibility = visibility;
-            passwordname.Visibility = visibility;
-            buttonName.Visibility = visibility;
-            StackPanelLoad.Visibility = visibility;
-            StackPanelSave.Visibility = visibility;
-            LabelFoundElements1.Visibility = visibility;
-            buttonExtaName.Visibility = visibility;
-            ButtonAttributeExtra2s.Visibility = visibility;
-            Extra.Visibility = visibility;
+            this.username.Visibility = visibility;
+            this.passwordname.Visibility = visibility;
+            this.buttonName.Visibility = visibility;
+            this.StackPanelLoad.Visibility = visibility;
+            this.StackPanelSave.Visibility = visibility;
+            this.LabelFoundElements1.Visibility = visibility;
+            this.buttonExtaName.Visibility = visibility;
+            this.ButtonAttributeExtra2s.Visibility = visibility;
+            this.Extra.Visibility = visibility;
         }
 
         private void LeegMaken()
         {
-            ComboBoxAction1.SelectedIndex = 2;
-            ComboBoxAction2.SelectedIndex = 0;
-            ComboBoxAction3.SelectedIndex = 2;
-            ComboBoxAction4.SelectedIndex = 1;
-            ComboBoxAction5.SelectedIndex = 1;
-            ComboBoxAction6.SelectedIndex = 1;
+            this.ComboBoxAction1.SelectedIndex = 2;
+            this.ComboBoxAction2.SelectedIndex = 0;
+            this.ComboBoxAction3.SelectedIndex = 2;
+            this.ComboBoxAction4.SelectedIndex = 1;
+            this.ComboBoxAction5.SelectedIndex = 1;
+            this.ComboBoxAction6.SelectedIndex = 1;
 
-            UserAttribute.SelectedIndex = 2;
-            PasswordAtrribute.SelectedIndex = 2;
-            ButtonAttribute.SelectedIndex = 2;
-            ButtonAttributeExtra1.SelectedIndex = 2;
-            ButtonAttributeExtra2.SelectedIndex = 2;
-            ButtonAttributeExtra3.SelectedIndex = 2;
+            this.UserAttribute.SelectedIndex = 2;
+            this.PasswordAtrribute.SelectedIndex = 2;
+            this.ButtonAttribute.SelectedIndex = 2;
+            this.ButtonAttributeExtra1.SelectedIndex = 2;
+            this.ButtonAttributeExtra2.SelectedIndex = 2;
+            this.ButtonAttributeExtra3.SelectedIndex = 2;
         }
 
         /// <summary>
@@ -1931,7 +1959,7 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for loginCheck_Click
         private void loginCheck_Click(object sender, RoutedEventArgs e)
         {
-            ToonInloggegevens();
+            this.ToonInloggegevens();
         }
 
         /// <summary>
@@ -1941,17 +1969,44 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for MaakLoginLeeg
         private void MaakLoginLeeg()
         {
-            UserAttribute.Text = string.Empty;
-            PasswordAtrribute.Text = string.Empty;
-            ButtonAttribute.Text = string.Empty;
-            UserTag.Text = string.Empty;
-            PasswordTag.Text = string.Empty;
-            ButtonTag.Text = string.Empty;
-            UserText.Text = string.Empty;
-            PasswordText.Password = string.Empty;
-            LabelID.Content = string.Empty;
-            TextBoxURLSave.Text = string.Empty;
-            LeegMaken();
+            this.UserAttribute.Text = string.Empty;
+            this.PasswordAtrribute.Text = string.Empty;
+            this.ButtonAttribute.Text = string.Empty;
+            this.UserTag.Text = string.Empty;
+            this.PasswordTag.Text = string.Empty;
+            this.ButtonTag.Text = string.Empty;
+            this.UserText.Text = string.Empty;
+            this.PasswordText.Password = string.Empty;
+            this.LabelID.Content = string.Empty;
+            this.TextBoxURLSave.Text = string.Empty;
+            this.LeegMaken();
+        }
+
+        private void Opslaan()
+        {
+            foreach (var dataGridRow in this.GetDataGridRows(this.DataGridElements))
+            {
+                var isChecked1 = (this.DataGridElements.Columns[1].GetCellContent(dataGridRow) as CheckBox).IsChecked;
+                this.url = (this.DataGridElements.Columns[0].GetCellContent(dataGridRow) as TextBlock).Text;
+                ElementsFromDatabase.UpdateAllCheckbox8(this.url, isChecked1.Value, "selenium_check");
+            }
+
+            foreach (var dataGridRow in this.GetDataGridRows(this.DataGridElements))
+            {
+                var isChecked8 = (this.DataGridElements.Columns[8].GetCellContent(dataGridRow) as CheckBox).IsChecked;
+                this.url = (this.DataGridElements.Columns[0].GetCellContent(dataGridRow) as TextBlock).Text;
+                ElementsFromDatabase.UpdateAllCheckbox8(this.url, isChecked8.Value, "checktext");
+
+                if (((CheckBox)this.DataGridElements.Columns[1].GetCellContent(dataGridRow)).IsChecked.Value)
+                {
+                    this.ButtonSetToTest.IsEnabled = true;
+                    this.CheckTextAll.IsEnabled = true;
+                    this.LabelTestCase.Visibility = Visibility.Visible;
+                    this.TextBoxTestCase.Visibility = Visibility.Visible;
+                    this.LabelTestPage.Visibility = Visibility.Visible;
+                    this.TextBoxTestCasePage.Visibility = Visibility.Visible;
+                }
+            }
         }
 
         /// <summary>
@@ -1967,16 +2022,15 @@ namespace WPFTestResults
                 Encoding.GetEncoding("utf-8").GetString(byteArrayAsync, 0, byteArrayAsync.Length - 1));
             var htmlDocument = new HtmlDocument();
             htmlDocument.LoadHtml(str);
-            var num = (int) MessageBox.Show(str);
+            var num = (int)MessageBox.Show(str);
             foreach (var htmlNode in htmlDocument.DocumentNode.Descendants().ToList())
             {
-                var textBoxElementen = TextBoxElementen;
-                textBoxElementen.Text = textBoxElementen.Text + htmlNode.XPath + ";" + htmlNode.Id + ";" +
-                                        htmlNode.Name
+                var textBoxElementen = this.TextBoxElementen;
+                textBoxElementen.Text = textBoxElementen.Text + htmlNode.XPath + ";" + htmlNode.Id + ";" + htmlNode.Name
                                         + "\r\n";
             }
 
-            TextBoxElementen.Visibility = Visibility.Visible;
+            this.TextBoxElementen.Visibility = Visibility.Visible;
         }
 
         /// <summary>
@@ -1986,17 +2040,17 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for SetButtonContext
         private void SetButtonContext()
         {
-            Title = "Extras - Find Elements - Get elements from ";
-            var elementSetting = ElementSetting;
+            this.Title = "Extras - Find Elements - Get elements from ";
+            var elementSetting = this.ElementSetting;
             if (!(elementSetting == "GET"))
             {
                 if (!(elementSetting == "SET"))
                     return;
-                Title += "database";
+                this.Title += "database";
             }
             else
             {
-                Title += "url";
+                this.Title += "url";
             }
         }
 
@@ -2009,8 +2063,8 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for TextBoxURL_KeyDown
         private void TextBoxURL_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return || e.Key == Key.Return) HaalGegevensEnToon();
-            VullenTextBox();
+            if (e.Key == Key.Return || e.Key == Key.Return) this.HaalGegevensEnToon();
+            this.VullenTextBox();
         }
 
         /// <summary>
@@ -2022,7 +2076,7 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for TextBoxURL_LostFocus
         private void TextBoxURL_LostFocus(object sender, RoutedEventArgs e)
         {
-            VullenTextBox();
+            this.VullenTextBox();
         }
 
         /// <summary>
@@ -2034,55 +2088,55 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for TextBoxURL_TextChanged
         private void TextBoxURL_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!(TextBoxURL.Text != string.Empty))
+            if (!(this.TextBoxURL.Text != string.Empty))
                 return;
-            var isChecked1 = CheckBoxInput.IsChecked;
+            var isChecked1 = this.CheckBoxInput.IsChecked;
             var flag1 = true;
             if (!((isChecked1.GetValueOrDefault() == flag1) & isChecked1.HasValue))
             {
-                var isChecked2 = CheckBoxImg.IsChecked;
+                var isChecked2 = this.CheckBoxImg.IsChecked;
                 var flag2 = true;
                 if (!((isChecked2.GetValueOrDefault() == flag2) & isChecked2.HasValue))
                 {
-                    var isChecked3 = CheckBoxLi.IsChecked;
+                    var isChecked3 = this.CheckBoxLi.IsChecked;
                     var flag3 = true;
                     if (!((isChecked3.GetValueOrDefault() == flag3) & isChecked3.HasValue))
                     {
-                        var isChecked4 = CheckBoxTd.IsChecked;
+                        var isChecked4 = this.CheckBoxTd.IsChecked;
                         var flag4 = true;
                         if (!((isChecked4.GetValueOrDefault() == flag4) & isChecked4.HasValue))
                         {
-                            var isChecked5 = CheckBoxTr.IsChecked;
+                            var isChecked5 = this.CheckBoxTr.IsChecked;
                             var flag5 = true;
                             if (!((isChecked5.GetValueOrDefault() == flag5) & isChecked5.HasValue))
                             {
-                                var isChecked6 = CheckBoxTable.IsChecked;
+                                var isChecked6 = this.CheckBoxTable.IsChecked;
                                 var flag6 = true;
                                 if (!((isChecked6.GetValueOrDefault() == flag6) & isChecked6.HasValue))
                                 {
-                                    var isChecked7 = CheckBoxSpan.IsChecked;
+                                    var isChecked7 = this.CheckBoxSpan.IsChecked;
                                     var flag7 = true;
                                     if (!((isChecked7.GetValueOrDefault() == flag7) & isChecked7.HasValue))
                                     {
-                                        var isChecked8 = CheckBoxIframe.IsChecked;
+                                        var isChecked8 = this.CheckBoxIframe.IsChecked;
                                         var flag8 = true;
                                         if (!((isChecked8.GetValueOrDefault() == flag8) & isChecked8.HasValue))
                                         {
-                                            var isChecked9 = CheckBoxOption.IsChecked;
+                                            var isChecked9 = this.CheckBoxOption.IsChecked;
                                             var flag9 = true;
                                             if (!((isChecked9.GetValueOrDefault() == flag9) & isChecked9.HasValue))
                                             {
-                                                var isChecked10 = CheckBoxDiv.IsChecked;
+                                                var isChecked10 = this.CheckBoxDiv.IsChecked;
                                                 var flag10 = true;
                                                 if (!((isChecked10.GetValueOrDefault() == flag10)
                                                       & isChecked10.HasValue))
                                                 {
-                                                    var isChecked11 = CheckBoxTh.IsChecked;
+                                                    var isChecked11 = this.CheckBoxTh.IsChecked;
                                                     var flag11 = true;
                                                     if (!((isChecked11.GetValueOrDefault() == flag11)
                                                           & isChecked11.HasValue))
                                                     {
-                                                        var isChecked12 = CheckBoxA.IsChecked;
+                                                        var isChecked12 = this.CheckBoxA.IsChecked;
                                                         var flag12 = true;
                                                         if (!((isChecked12.GetValueOrDefault() == flag12)
                                                               & isChecked12.HasValue))
@@ -2099,8 +2153,8 @@ namespace WPFTestResults
                 }
             }
 
-            ButtonGetElements.IsEnabled = true;
-            CheckTextAll.IsEnabled = true;
+            this.ButtonGetElements.IsEnabled = true;
+            this.CheckTextAll.IsEnabled = true;
         }
 
         /// <summary>
@@ -2112,14 +2166,14 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for TextBoxURLSave_LostFocus
         private void TextBoxURLSave_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxURLSave.Text == string.Empty)
+            if (this.TextBoxURLSave.Text == string.Empty)
             {
-                LabelID.Content = string.Empty;
-                ButtonSave.IsEnabled = false;
+                this.LabelID.Content = string.Empty;
+                this.ButtonSave.IsEnabled = false;
             }
             else
             {
-                ButtonSave.IsEnabled = true;
+                this.ButtonSave.IsEnabled = true;
             }
         }
 
@@ -2130,18 +2184,18 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for ToonInloggegevens
         private void ToonInloggegevens()
         {
-            var margin = BorderInlog.Margin;
-            var isChecked = loginCheck.IsChecked;
+            var margin = this.BorderInlog.Margin;
+            var isChecked = this.loginCheck.IsChecked;
             var flag = false;
             if ((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue)
             {
                 margin.Bottom = 307.0;
-                InlogLeeg(false);
+                this.InlogLeeg(false);
             }
             else
             {
                 margin.Bottom = 157.0;
-                InlogLeeg(true);
+                this.InlogLeeg(true);
             }
         }
 
@@ -2153,9 +2207,14 @@ namespace WPFTestResults
         private void VulInlogData()
         {
             var inlogDataRecordsList2 = InlogData.LoginDataGet();
-            ComboBoxLoginData.Items.Clear();
+            this.ComboBoxLoginData.Items.Clear();
+            this.ComboBoxLoginName.Items.Clear();
+
             foreach (var inlogDataRecords in inlogDataRecordsList2)
-                ComboBoxLoginData.Items.Add(inlogDataRecords.LoginURL);
+            {
+                this.ComboBoxLoginData.Items.Add(inlogDataRecords.LoginURL);
+                this.ComboBoxLoginName.Items.Add(inlogDataRecords.LoginName);
+            }
         }
 
         /// <summary>
@@ -2165,17 +2224,55 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for VullenTextBox
         private void VullenTextBox()
         {
-            if (TextBoxURL.Text.Length > 4)
+            if (this.TextBoxURL.Text.Length > 4)
             {
-                ButtonGetElements.IsEnabled = true;
-                TextBoxURLSave.Text = TextBoxURL.Text;
-                href_link = TextBoxURL.Text;
+                this.ButtonGetElements.IsEnabled = true;
+
+                // TextBoxURLSave.Text = TextBoxURL.Text;
+                this.href_link = this.TextBoxURL.Text;
             }
             else
             {
-                ButtonGetElements.IsEnabled = false;
-                TextBoxURLSave.Text = string.Empty;
+                this.ButtonGetElements.IsEnabled = false;
+
+                // TextBoxURLSave.Text = string.Empty;
             }
+        }
+
+        private void VulLoginDataGer(InlogData.InlogDataRecords inlogDataRecords)
+        {
+            this.UserAttribute.Text = inlogDataRecords.LoginAttributeUsername;
+            this.PasswordAtrribute.Text = inlogDataRecords.LoginAttributePassword;
+            this.ButtonAttribute.Text = inlogDataRecords.LoginAttributeButton;
+            this.UserTag.Text = inlogDataRecords.LoginTagUsername;
+            this.PasswordTag.Text = inlogDataRecords.LoginTagPassword;
+            this.ButtonTag.Text = inlogDataRecords.LoginTagButton;
+            this.UserText.Text = inlogDataRecords.LoginValueUsername;
+            this.PasswordText.Password = inlogDataRecords.LoginValuePassword;
+            this.LabelID.Content = inlogDataRecords.IdLoginCode;
+            this.TextBoxURLSave.Text = inlogDataRecords.LoginURL;
+            this.TextBoxNameSave.Text = inlogDataRecords.LoginName;
+            this.ButtonAttributeExtra1.Text = inlogDataRecords.LoginAttributeExtra1;
+            this.ButtonAttributeExtra2.Text = inlogDataRecords.LoginAttributeExtra2;
+            this.ButtonAttributeExtra3.Text = inlogDataRecords.LoginAttributeExtra3;
+            this.ButtonTagnameExtra1.Text = inlogDataRecords.LoginTagnameExtra1;
+            this.ButtonTagnameExtra2.Text = inlogDataRecords.LoginTagnameExtra2;
+            this.ButtonTagnameExtra3.Text = inlogDataRecords.LoginTagnameExtra3;
+            this.DescriptionExtra1.Text = inlogDataRecords.LoginDescriptionExtra1;
+            this.DescriptionExtra2.Text = inlogDataRecords.LoginDescriptionExtra2;
+            this.DescriptionExtra3.Text = inlogDataRecords.LoginDescriptionExtra3;
+            this.ComboBoxAction1.Text = inlogDataRecords.LoginAction1;
+            this.ComboBoxAction2.Text = inlogDataRecords.LoginAction2;
+            this.ComboBoxAction3.Text = inlogDataRecords.LoginAction3;
+            this.ComboBoxAction4.Text = inlogDataRecords.LoginAction4;
+            this.ComboBoxAction5.Text = inlogDataRecords.LoginAction5;
+            this.ComboBoxAction6.Text = inlogDataRecords.LoginAction6;
+            this.Order1.Text = inlogDataRecords.LoginOrder1;
+            this.Order2.Text = inlogDataRecords.LoginOrder2;
+            this.Order3.Text = inlogDataRecords.LoginOrder3;
+            this.Order4.Text = inlogDataRecords.LoginOrder4;
+            this.Order5.Text = inlogDataRecords.LoginOrder5;
+            this.Order6.Text = inlogDataRecords.LoginOrder6;
         }
 
         /// <summary>
@@ -2187,8 +2284,8 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for Window_Closing
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            ElementsFromDatabase.UpdateAllCheckboxes(TextBoxURL.Text, false, "selenium_check");
-            ElementsFromDatabase.UpdateAllCheckboxes(TextBoxURL.Text, false, "checktext");
+            ElementsFromDatabase.UpdateAllCheckboxes(this.TextBoxURL.Text, false, "selenium_check");
+            ElementsFromDatabase.UpdateAllCheckboxes(this.TextBoxURL.Text, false, "checktext");
         }
 
         /// <summary>
@@ -2201,73 +2298,9 @@ namespace WPFTestResults
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GeneralFunctionality.Functions.InitializeDatabaseConnection(false);
-            FindTestApplications();
+            this.FindTestApplications();
 
-            LeegMaken();
-        }
-
-        private void DataGridElements_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (DataGridElements.Items.IndexOf(DataGridElements.CurrentItem) != -1)
-            {
-                var dataGridRow = DataGridElements.Items.IndexOf(DataGridElements.CurrentItem);
-                var kolom = DataGridElements.CurrentColumn;
-
-                var checkedGer = false;
-                var checkedGer0 = false;
-                var row = (DataGridRow) DataGridElements.ItemContainerGenerator.ContainerFromIndex(dataGridRow);
-                var cellContent = DataGridElements.Columns[0].GetCellContent(row) as TextBlock;
-                var cellContentText = DataGridElements.Columns[5].GetCellContent(row) as TextBlock;
-                var cellContent1 = DataGridElements.Columns[8].GetCellContent(row) as CheckBox;
-                var cellContent0 = DataGridElements.Columns[1].GetCellContent(row) as CheckBox;
-
-                url = ElementSetting != "SET" ? TextBoxURL.Text : ComboBoxURL.Text;
-
-                if (kolom.DisplayIndex == 0)
-                {
-                    if (cellContent0.IsChecked == false)
-                        checkedGer0 = true;
-                    else
-                        checkedGer0 = false;
-
-                    ElementsFromDatabase.UpdateCheckBox(cellContent.Text, checkedGer0);
-                }
-
-                if (kolom.DisplayIndex == 8)
-                {
-                    if (cellContent1.IsChecked == false)
-                        checkedGer = true;
-                    else
-                        checkedGer = false;
-
-                    ElementsFromDatabase.UpdateCheckBox8(cellContent.Text, checkedGer);
-
-                    if (checkedGer)
-                        ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, cellContentText.Text);
-                    else
-                        ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, string.Empty);
-                }
-
-                if (kolom.DisplayIndex == 8 || kolom.DisplayIndex == 1)
-                {
-                    DataGridElements.ItemsSource = null;
-                    DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(url);
-                }
-
-
-                /*                if (kolom.DisplayIndex == 8 || kolom.DisplayIndex == 1)
-                                {
-                                    var isChecked = cellContent1.IsChecked;
-                                    var flag = true;
-                                    var check1 = "checktext";
-                                    if (kolom.DisplayIndex == 1)
-                                    {
-                                        check1 = " selenium_check";
-                                    }
-                                    var wel = !((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue);
-                                    ElementsFromDatabase.UpdateAllCheckbox8(cellContent.Text, wel, check1);
-                                }*/
-            }
+            this.LeegMaken();
         }
     }
 
@@ -2283,8 +2316,7 @@ namespace WPFTestResults
         /// </summary>
         /// <autogeneratedoc />
         /// TODO Edit XML Comment Template for DivEndings
-        private static readonly Regex DivEndings =
-            new Regex("</div>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex DivEndings = new Regex("</div>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         /// <summary>
         ///     The line breaks

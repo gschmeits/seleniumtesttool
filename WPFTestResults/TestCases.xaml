@@ -521,6 +521,8 @@
                         HorizontalContentAlignment="Right"
                         Style="{DynamicResource MyButtonStyle}" Click="ButtonInsertRow_Click" />
 
+                <Label Content="TestNr.:" VerticalContentAlignment="Center" />
+                <ComboBox Name="ComboboxSelectNr" Width="50" Height="28" VerticalContentAlignment="Center" DropDownClosed="ComboboxSelectNr_DropDownClosed" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"

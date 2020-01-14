@@ -181,6 +181,17 @@ namespace DataStorage
             return ExecuteQueryCommandReturnTable(commandText);
         }
 
+        public static DataTable GetTestCaseTestnr(string testnr, string testname)
+        {
+            //var commandText = "SET @rowno = 0;";
+            var commandText = "SELECT id, testname, testnr, testcase, testlogicalobjectname, ";
+            commandText += "testelement, testattribute, testaction, testtext, testurl, testswitch, ";
+            commandText += "testdescription, testexecution, testext_check, testinverse, test_comment, ";
+            commandText += "test_password FROM testcases_selenium WHERE testname = '" + testname + "' AND ";
+            commandText += "testnr = " + testnr + ";"; 
+            return ExecuteQueryCommandReturnTable(commandText);
+        }
+
         /// <summary>
         /// Mies the SQL connection string.
         /// </summary>

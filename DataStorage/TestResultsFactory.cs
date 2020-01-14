@@ -376,7 +376,7 @@ namespace DataStorage
             try
             {
                 var sqlConn =
-                    "SELECT testrun, DATE_FORMAT(datetime_created, '%Y-%m %d %T') as Date FROM testresultsselenium GROUP BY testrun ORDER BY testID DESC";
+                    "SELECT testrun, DATE_FORMAT(datetime_created, '%Y-%m %d %T') as Date, testscenario_name FROM testresultsselenium GROUP BY testrun ORDER BY testID DESC";
                 var objConn = new MySqlConnection(General.MySqlConnectionString());
                 using (var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn))
                 {
@@ -389,7 +389,8 @@ namespace DataStorage
                                 {
                                     testrun = Convert.ToInt64(
                                         objDataset.Tables[0].Rows[i][0].ToString()),
-                                    date = objDataset.Tables[0].Rows[i][1].ToString()
+                                    date = objDataset.Tables[0].Rows[i][1].ToString(),
+                                    testscenario_name = objDataset.Tables[0].Rows[i][2].ToString()
                                 });
                     objConn.Close();
                 }
@@ -622,6 +623,8 @@ namespace DataStorage
             /// </summary>
             /// <value>The testrun.</value>
             public long testrun { get; set; }
+
+            public string testscenario_name { get; set; }
         }
 
         /// <summary>

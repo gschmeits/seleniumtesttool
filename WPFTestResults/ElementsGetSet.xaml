@@ -47,25 +47,36 @@
         <CheckBox Name="CheckBoxWholeWebsite" Content="Get elements from the whole website" Grid.Row="2"
               Margin="15,0,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="14"
               Visibility="Hidden" FontWeight="Bold"/>
-        <Border Name="BorderInlog" Margin="75,83,75,118" Grid.Row="2" BorderThickness="1" BorderBrush="#FF0D21EA"
+        <Border Name="BorderInlog" Margin="75,53,75,118" Grid.Row="2" BorderThickness="1" BorderBrush="#FF0D21EA"
             Grid.ColumnSpan="2"/>
-        <StackPanel Name="Inlog" Margin="0,83,0,40" HorizontalAlignment="Center" Orientation="Vertical"
-                Grid.Row="2" Width="760" Grid.Column="1">
+        <StackPanel Name="Inlog" Margin="0,53,0,40" HorizontalAlignment="Center" Orientation="Vertical"
+                Grid.Row="2" Width="900" Grid.ColumnSpan="2">
             <CheckBox Click="loginCheck_Click" Name="loginCheck" Margin="0,15,0,0" HorizontalAlignment="Center"
                 TabIndex="2" IsChecked="True">
                 Do you need to login?
             </CheckBox>
-            <StackPanel Name="StackPanelLoad" Orientation="Horizontal" Margin="0,5,0,10" HorizontalAlignment="Center">
-                <Label Content="Select URL to load:" VerticalContentAlignment="Center"/>
-                <ComboBox DropDownClosed="ComboBoxLoginData_DropDownClosed" Name="ComboBoxLoginData" Width="440" Height="24"
+
+            <StackPanel Name="StackPanelLoad" Orientation="Horizontal" Margin="0,15,0,10" HorizontalAlignment="Left">
+                <Label Content="Select URL to load:" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                <ComboBox DropDownClosed="ComboBoxLoginData_DropDownClosed" x:Name="ComboBoxLoginData" Width="250" Height="24"
                   HorizontalAlignment="Center" />
-                <Label Margin="90,0,0,0" Content="Action" />
+                <Label Content="Select Name to load:" VerticalContentAlignment="Center"/>
+                <ComboBox  x:Name="ComboBoxLoginName" Width="200" Height="24"
+                          HorizontalAlignment="Center" DropDownClosed="ComboBoxLoginName_DropDownClosed" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" >
+                <Label Margin="650,0,0,0" Content="Action" />
                 <Label Margin="30,0,0,0" Content="Order" />
             </StackPanel>
-            <StackPanel Name="username" Margin="0,5,0,5" Orientation="Horizontal">
+
+
+
+            <StackPanel Name="username" Margin="0,0,0,5" Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center">Atribute:</Label>
                 <ComboBox Name="UserAttribute" Width="60" TabIndex="2" Height="26">
-                    <ListBoxItem> </ListBoxItem>
+                    <ListBoxItem></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
                     <ListBoxItem>XPath</ListBoxItem>
@@ -139,7 +150,7 @@
             <StackPanel Name="passwordname" Margin="0,5" Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center">Atribute:</Label>
                 <ComboBox Name="PasswordAtrribute" Width="60" Height="26" TabIndex="10">
-                    <ListBoxItem> </ListBoxItem>
+                    <ListBoxItem></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
                     <ListBoxItem>XPath</ListBoxItem>
@@ -174,7 +185,7 @@
             </StackPanel>
             <StackPanel Name="buttonName" Margin="0,5" Orientation="Horizontal" >
                 <Label VerticalContentAlignment="Center">Atribute:</Label>
-                <ComboBox Name="ButtonAttribute" Width="60" TabIndex="14" Height="26"> 
+                <ComboBox Name="ButtonAttribute" Width="60" TabIndex="14" Height="26">
                     <ListBoxItem></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
@@ -206,7 +217,7 @@
                 </ComboBox>
                 <TextBox Margin="10,0,0,0" Name="Order3" Width="25" Height="26" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" TabIndex="16"/>
             </StackPanel>
-           
+
             <StackPanel Orientation="Horizontal" Grid.Row="3">
                 <Label Name="LabelFoundElements1" Content="Extra buttons to click:" VerticalContentAlignment="Center"
                        FontWeight="Bold"/>
@@ -285,14 +296,17 @@
             </StackPanel>
             <StackPanel Name="StackPanelSave" Orientation="Horizontal" Margin="5,10,0,0">
                 <Label Content="URL to Save:" VerticalContentAlignment="Center"/>
-                <TextBox LostFocus="TextBoxURLSave_LostFocus" Name="TextBoxURLSave" Width="400" Height="24"
+                <TextBox LostFocus="TextBoxURLSave_LostFocus" Name="TextBoxURLSave" Width="300" Height="24"
                          HorizontalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TabIndex="2147483641"/>
+                <Label Content="Name to Save:" VerticalContentAlignment="Center"/>
+                <TextBox Name="TextBoxNameSave" Margin="5,0" VerticalContentAlignment="Center" Height="24" Width="250" />
                 <Button Click="ButtonSave_Click" Name="ButtonSave" Content="Save Login Data" Margin="35,0,5,0" Width="100" 
                         Style="{DynamicResource MyButtonStyle}" HorizontalContentAlignment="Center"
                         HorizontalAlignment="Right" IsManipulationEnabled="true"/>
             </StackPanel>
         </StackPanel>
-        <Grid Name="GridSelectTags" Margin="0, 500, 0, 118" HorizontalAlignment="Center" Row="2" Column="1">
+
+        <Grid Name="GridSelectTags" Margin="0, 500, 0, 118" HorizontalAlignment="Center" Row="2" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="110"/>
                 <ColumnDefinition Width="110"/>
@@ -341,8 +355,8 @@
                 Style="{DynamicResource MyButtonStyle}" Content="None Checked"/>
             </StackPanel>
         </Grid>
-        <Border Name="BorderSelect" Margin="350,488,400,118" Grid.Row="2" BorderThickness="1"
-            BorderBrush="#FF0D21EA" Grid.Column="1"/>
+        <Border Name="BorderSelect" Margin="380,488,400,118" Grid.Row="2" BorderThickness="1"
+            BorderBrush="#FF0D21EA" Grid.ColumnSpan="2"/>
 
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,705,918,14" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Hidden">

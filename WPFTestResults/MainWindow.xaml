@@ -124,7 +124,7 @@
             <Label Content="From Test Run:" VerticalContentAlignment="Center"
                    FontWeight="Bold" />
             <ComboBox Name="ComboTestFrom"
-                      Width="180"
+                      Width="280"
                       VerticalContentAlignment="Center"
                       Height="24"
                       Margin="10,0,10,0"

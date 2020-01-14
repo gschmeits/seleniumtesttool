@@ -260,3 +260,28 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 
 # Release 2.0.5.5
 - Naar andere pagina kunnen gaan bij het ophalen van de elementen
+
+# Release 2.0.5.6
+- Bij het aanpassen van de Test Scripts kan nu een testnr. geselecteerd worden, zodat de gegevens van het geselecteerde testnr getoond worden.
+
+# Release 2.0.5.7
+- Login gedeelte voor het zoeken naar elementen aangepast zodat er ook om naam gezocht en opgeslagen kan worden.
+- Wanneer de URL aangepast wordt, dan wordt nu de TextBoxURLSave tekst niet meer aangepast.
+
+# Release 2.0.5.8
+- Indien testscenario niet bestaan in directory, dan wordt het aangemaakt wanneer het in de database staat.
+
+# Release 2.0.5.9
+- Etra buttons alleen toevoegen wanneer inclusief Login Included geselecteerd is.
+
+# Release 2.0.5.10
+- Juiste pagians bij het laden van de elementen.
+
+# Release 2.0.5.11
+- Extra opties niet in scenario zetten als order = "0"
+
+# Release 2.0.5.12
+- Extra opties niet in scenario zetten als order = ""
+
+# Release 2.0.5.13
+- Test resultaten aangevuld met de testscenario naam
