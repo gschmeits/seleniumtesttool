@@ -305,3 +305,6 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 
 # Release 2.0.5.19
 - Geen gegevens meer opslaan wanneer er geen bestandsnaam aanwezig is.
+
+# Release 2.0.5.20
+- Elementen beter opslaan bij wijzigen.

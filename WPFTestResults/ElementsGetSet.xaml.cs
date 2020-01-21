@@ -915,15 +915,6 @@ namespace WPFTestResults
 
                         var num7 = num1 + 1;
 
-                        // ------------------------------------------------------------- //
-                        // Zorg dat de elementen in de juiste volgorde gesorteerd worden //
-                        // ------------------------------------------------------------- //
-                        // var column = DataGridElements.Columns[0];
-                        // var sortDirection = ListSortDirection.Ascending;
-                        // DataGridElements.Items.SortDescriptions.Clear();
-                        // DataGridElements.Items.SortDescriptions.Add(
-                        // new SortDescription(column.SortMemberPath, sortDirection));
-                        // DataGridElements.Items.Refresh();
                         var query = "SELECT * FROM autotest.selenium_elements ";
                         query += "WHERE url = '" + this.TextBoxURL.Text + "' ";
                         query += "AND selenium_check = '1' ";
@@ -976,64 +967,6 @@ namespace WPFTestResults
                             ++num7;
                         }
 
-                        // ------------------------------------------------------------- //
-                        // for (var row = 0; row < DataGridElements.Items.Count; ++row)
-                        // if (GetCell(row, 1) != null)
-                        // {
-                        // var content1 = GetCell(row, 1).Content as CheckBox;     // Geselecteerd
-                        // var content2 = GetCell(row, 3).Content as TextBlock;    // id
-                        // var content3 = GetCell(row, 5).Content as TextBlock;    // xpath
-                        // var content4 = GetCell(row, 6).Content as TextBlock;    // tagname
-                        // var content5 = GetCell(row, 7).Content as TextBlock;    // text
-                        // var content6 = GetCell(row, 4).Content as TextBlock;    // name
-                        // var content7 = GetCell(row, 8).Content as CheckBox;     // Text controle
-                        // var empty1 = string.Empty;
-                        // var empty2 = string.Empty;
-                        // string text;
-                        // if (content7.IsChecked.Value == false)
-                        // {
-                        // content5.Text = string.Empty;
-                        // }
-                        // string testattribute;
-                        // if (content2.Text.Length > 0)
-                        // {
-                        // text = content2.Text;
-                        // testattribute = "id";
-                        // }
-                        // else if (content6.Text.Length > 0)
-                        // {
-                        // text = content6.Text;
-                        // testattribute = "name";
-                        // }
-                        // else
-                        // {
-                        // text = content3.Text;
-                        // testattribute = "xpath";
-                        // }
-                        // isChecked = content1.IsChecked;
-                        // if (isChecked.Value)
-                        // {
-                        // DataStorage.TestCases.AddTestCase(
-                        // bestandsnaam,
-                        // num7.ToString(),
-                        // TextBoxTestCase.Text,
-                        // content5.Text,
-                        // text,
-                        // testattribute,
-                        // string.Empty,
-                        // content5.Text,
-                        // string.Empty,
-                        // "yes",
-                        // string.Empty,
-                        // "no",
-                        // string.Empty,
-                        // string.Empty,
-                        // string.Empty,
-                        // content4.Text,
-                        // content5.Text);
-                        // ++num7;
-                        // }
-                        // }
                         General.LogMessageDatabase(
                             "Data added to the testscenario",
                             3,
@@ -1246,7 +1179,8 @@ namespace WPFTestResults
 
             if (dataGridColumn != null)
             {
-                if (dataGridColumn.DisplayIndex.ToString() == "1")
+                //if (dataGridColumn.DisplayIndex.ToString() == "1")
+                if (dataGridColumn.Header.Equals("Select"))
                 {
                     var isChecked1 = (this.DataGridElements.Columns[1].GetCellContent(dataGridRow) as CheckBox)
                         .IsChecked;
@@ -1256,7 +1190,8 @@ namespace WPFTestResults
                     ElementsFromDatabase.UpdateAllCheckbox8(this.url, wel, "selenium_check");
                 }
 
-                if (dataGridColumn.DisplayIndex.ToString() == "8")
+                //if (dataGridColumn.DisplayIndex.ToString() == "8")
+                if (dataGridColumn.Header.Equals("Check Text"))
                 {
                     var isChecked8 = (this.DataGridElements.Columns[8].GetCellContent(dataGridRow) as CheckBox)
                         .IsChecked;
@@ -1282,13 +1217,13 @@ namespace WPFTestResults
                 var checkedGer0 = false;
                 var row = (DataGridRow)this.DataGridElements.ItemContainerGenerator.ContainerFromIndex(dataGridRow);
                 var cellContent = this.DataGridElements.Columns[0].GetCellContent(row) as TextBlock;
-                var cellContentText = this.DataGridElements.Columns[5].GetCellContent(row) as TextBlock;
+                var cellContentText = this.DataGridElements.Columns[7].GetCellContent(row) as TextBlock;
                 var cellContent1 = this.DataGridElements.Columns[8].GetCellContent(row) as CheckBox;
                 var cellContent0 = this.DataGridElements.Columns[1].GetCellContent(row) as CheckBox;
 
                 this.url = this.ElementSetting != "SET" ? this.TextBoxURL.Text : this.ComboBoxURL.Text;
-
-                if (kolom.DisplayIndex == 1)
+                // if (kolom.DisplayIndex == 1)
+                if (kolom.Header.Equals("Select"))
                 {
                     if (cellContent0.IsChecked == false)
                     {
@@ -1303,8 +1238,8 @@ namespace WPFTestResults
 
                     ElementsFromDatabase.UpdateCheckBox(cellContent.Text, checkedGer0);
                 }
-
-                if (kolom.DisplayIndex == 8)
+                // if (kolom.DisplayIndex == 8)
+                if (kolom.Header.Equals("Check Text"))
                 {
                     if (cellContent1.IsChecked == false)
                     {
@@ -1322,13 +1257,13 @@ namespace WPFTestResults
                     else
                         ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, string.Empty);
                 }
-
-                if (kolom.DisplayIndex == 8)
+                //if (kolom.DisplayIndex == 8)
+                    if (kolom.Header.Equals("Check Text"))
                 {
                     var isChecked = cellContent1.IsChecked;
                     var flag = true;
                     var check1 = "checktext";
-                    if (kolom.DisplayIndex == 1)
+                    if (kolom.Header.Equals("Select"))
                     {
                         check1 = " selenium_check";
                     }
@@ -1337,7 +1272,7 @@ namespace WPFTestResults
                     ElementsFromDatabase.UpdateAllCheckbox8(cellContent.Text, wel, check1);
                 }
 
-                if (kolom.DisplayIndex == 8 || kolom.DisplayIndex == 1)
+                if (kolom.Header.Equals("Check Text") || kolom.Header.Equals("Select"))
                 {
                     this.DataGridElements.ItemsSource = null;
                     this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
