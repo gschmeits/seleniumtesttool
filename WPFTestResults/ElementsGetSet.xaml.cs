@@ -726,7 +726,7 @@ namespace WPFTestResults
                 General.LogMessageDatabase("test", 1);
                 VersionClass.OpenBestand();
                 var bestandsnaam = VersionClass.Bestandsnaam;
-                if (bestandsnaam != null)
+                if (bestandsnaam != null && bestandsnaam != string.Empty)
                 {
                     using (new PleaseWait())
                     {
@@ -1080,8 +1080,21 @@ namespace WPFTestResults
         private void ButtonSetToTest_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (this.ButtonSetToTest.IsEnabled && this.ElementSetting == "GET")
+            {
                 this.CheckBoxInlogIncluded.Visibility = Visibility.Visible;
-            else this.CheckBoxInlogIncluded.Visibility = Visibility.Hidden;
+                LabelTestCase.Visibility = Visibility.Visible;
+                LabelTestPage.Visibility = Visibility.Visible;
+                TextBoxTestCase.Visibility = Visibility.Visible;
+                TextBoxTestCasePage.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                this.CheckBoxInlogIncluded.Visibility = Visibility.Hidden;
+                LabelTestCase.Visibility = Visibility.Hidden;
+                LabelTestPage.Visibility = Visibility.Hidden;
+                TextBoxTestCase.Visibility = Visibility.Hidden;
+                TextBoxTestCasePage.Visibility = Visibility.Hidden;
+            }
         }
 
         /// <summary>

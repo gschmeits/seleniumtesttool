@@ -392,7 +392,7 @@
               Width="105" Content="Select All" IsEnabled="false" VerticalAlignment="Center"
               HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="15,0,25,0"/>
             <Button Click="ButtonSetToTest_Click" IsEnabledChanged="ButtonSetToTest_IsEnabledChanged"
-              Name="ButtonSetToTest" Style="{DynamicResource MyButtonStyle}" Grid.Row="3" Grid.Column="1"
+              Name="ButtonSetToTest" Style="{DynamicResource MyButtonStyle}"
               Width="175" IsEnabled="true" VerticalAlignment="Center" HorizontalAlignment="Right"
               HorizontalContentAlignment="Center" Content="Add to test steps" TabIndex="9"/>
             <CheckBox Name="CheckBoxInlogIncluded" Content="Login included" VerticalContentAlignment="Center"/>

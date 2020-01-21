@@ -72,6 +72,9 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for OpenBestand
         public static void OpenBestand()
         {
+            Bestand = string.Empty;
+            Bestandsnaam = string.Empty;
+
             var openFileDialog = new OpenFileDialog
                                      {
                                          InitialDirectory = Functions.GetCurrentDir(1),
