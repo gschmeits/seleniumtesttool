@@ -106,7 +106,7 @@
 
         </StackPanel>
         <Grid Name="GridBrowser" Grid.RowSpan="12" Grid.ColumnSpan="3"
-              Visibility="Hidden"
+              Visibility="Visible"
               Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" 
               VerticalAlignment="Top"
               Margin="0,50,0,0"

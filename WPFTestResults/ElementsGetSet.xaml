@@ -416,7 +416,7 @@
                   CanUserResizeColumns="true" CanUserResizeRows="true" AutoGenerateColumns="false"
                   CanUserSortColumns="true" RowHeaderWidth="0" HorizontalScrollBarVisibility="Visible"
                   IsSynchronizedWithCurrentItem="False" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" 
-                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Height="770" CurrentCellChanged="DataGridElements_CurrentCellChanged"  >
+                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Height="700" CurrentCellChanged="DataGridElements_CurrentCellChanged"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" IsReadOnly="true" Binding="{Binding idSelenium_element}"/>
                 <DataGridCheckBoxColumn Header="Select" IsReadOnly="false"

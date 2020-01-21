@@ -131,7 +131,7 @@ namespace WPFTestResults
                 item.Header = bestandsnaam;
 
                 var credits = GeneralFunctionality.Functions.GetCredentials(bestandsnaam);
-                item.ItemsSource = new[] {bestandsnaam, credits.Application, credits.Url, credits.Page};
+                item.ItemsSource = new[] {bestandsnaam, credits.Url, credits.Application, credits.Page};
 
                 TreeView1.Items.Add(item);
             }
@@ -507,7 +507,43 @@ namespace WPFTestResults
 
         private void Melding(Int32 passed, Int32 failed, DateTime beDateTime, DateTime enDateTime)
         {
-            
+            var query = string.Empty;
+            var script_id = "";
+            if (ComboBoxLoadScripts.Text != String.Empty)
+            {
+                query = "SELECT * FROM testscripts WHERE ";
+                query += "name ='" + ComboBoxLoadScripts.Text + "';";
+                var dt = GenericDataRead.GetData(query);
+                if (dt.Rows.Count > 0)
+                {
+                    script_id = dt.Rows[0][0].ToString();
+                }
+            }
+
+            if (ComboBoxLoadScripts.Text != string.Empty)
+            {
+                query = "INSERT INTO testscriptstotal ";
+                query += "(script_id, script_name, passed, failed, begin_time, ";
+                query += "end_time, duration) ";
+                query += "VALUES (";
+                query += script_id + ", '" + ComboBoxLoadScripts.Text + "', ";
+                query += passed + ", " + failed + ", '" + beDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                query += "', '" + enDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                query += "', '" + Convert.ToString(enDateTime - beDateTime) + "');";
+            }
+            else
+            {
+                query = "INSERT INTO testscriptstotal ";
+                query += "(passed, failed, begin_time, ";
+                query += "end_time, duration) ";
+                query += "VALUES (";
+                query += passed + ", " + failed + ", '" + beDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                query += "', '" + enDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                query += "', '" + Convert.ToString(enDateTime - beDateTime) + "');";
+            }
+
+            GenericDataRead.INUPDEL(query);
+
             LabelDone.Content = String.Format("Begin Time: {0} - End Time: {1} --- Duration: {2:T}", beDateTime, enDateTime, enDateTime-beDateTime);
             LabelDone1.Content = String.Format("Test Steps Passed: {0} - Test Steps Failed: {1} --- Total Test Steps: {2}", passed, failed, passed + failed);  
         }
@@ -571,7 +607,7 @@ namespace WPFTestResults
                     ButtonOneBack.IsEnabled = true;
                     ButtonExecute.IsEnabled = true;
 
-                    ComboBoxLoadScripts.SelectedIndex = -1;
+                    //ComboBoxLoadScripts.SelectedIndex = -1;
                 }
             }
         }
@@ -647,6 +683,9 @@ namespace WPFTestResults
                 query += ");";
                 GenericDataRead.INUPDEL(query);
             }
+
+            TextBoxSaveAs.Text = string.Empty;
+            ButtonSaveAs.IsEnabled = false;
         }
 
     }

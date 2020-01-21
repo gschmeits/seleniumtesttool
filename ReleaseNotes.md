@@ -259,10 +259,11 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 - Het verwerken van het al of niet selecteren van een element om te controleren of tekst volledig gerefactored. 
 
 # Release 2.0.5.5
-- Naar andere pagina kunnen gaan bij het ophalen van de elementen
+- Naar andere pagina kunnen gaan bij het ophalen van de elementen.
 
 # Release 2.0.5.6
-- Bij het aanpassen van de Test Scripts kan nu een testnr. geselecteerd worden, zodat de gegevens van het geselecteerde testnr getoond worden.
+- Bij het aanpassen van de Test Scripts kan nu een testnr. geselecteerd worden, 
+  zodat de gegevens van het geselecteerde testnr getoond worden.
 
 # Release 2.0.5.7
 - Login gedeelte voor het zoeken naar elementen aangepast zodat er ook om naam gezocht en opgeslagen kan worden.
@@ -278,10 +279,23 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 - Juiste pagians bij het laden van de elementen.
 
 # Release 2.0.5.11
-- Extra opties niet in scenario zetten als order = "0"
+- Extra opties niet in scenario zetten als order = "0".
 
 # Release 2.0.5.12
-- Extra opties niet in scenario zetten als order = ""
+- Extra opties niet in scenario zetten als order = "".
 
 # Release 2.0.5.13
-- Test resultaten aangevuld met de testscenario naam
+- Test resultaten aangevuld met de testscenario naam.
+
+# Release 2.0.5.14
+- Na scripts run worden de totaal data opgeslagen in de tabel testscriptstotal, inclusief testscript id en name.
+- De geselecteerde test scripts worden nu op de juiste manier in de tabel testscript_detail geplaatst.
+
+# Release 2.0.5.15
+- Individuele selectie van de elementen voor zowel de selectie alsook voor de controle van de tekst aangepast.
+
+# Release 2.0.5.16
+- Wanneer de elementen vanuit de database worden geladen, kan men deze nu ook in een test script zetten.
+
+# Release 2.0.5.17
+- Add to test steps wordt nu actief of niet bij het selecteren van een element.

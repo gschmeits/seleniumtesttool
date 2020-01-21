@@ -86,7 +86,7 @@ namespace DataStorage
                 selecteren = 1;
             }
             var query = "UPDATE selenium_elements ";
-            query += "SET selenium_check = '" + selecteren + "' WHERE id = " + id + ";";
+            query += "SET selenium_check = '" + selecteren + "' WHERE idselenium_elements = " + id + ";";
             General.ExecuteQueryCommand(query);
 
         }
@@ -94,7 +94,7 @@ namespace DataStorage
         public static void UpdateCheckBoxText(string id, string tekst)
         {
             var query = "UPDATE selenium_elements ";
-            query += "SET text = '" + tekst + "' WHERE id = " + id + ";";
+            query += "SET text = '" + tekst + "' WHERE idselenium_elements = " + id + ";";
             General.ExecuteQueryCommand(query);
         }
 

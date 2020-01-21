@@ -164,8 +164,8 @@ namespace WPFTestResults
             var borderInlogMargin = this.BorderInlog.Margin;
             borderInlogMargin.Bottom = 307.0;
             this.DataGridElements.Visibility = Visibility.Visible;
-            this.DataGridElements.Height = this.Height - 250;
-            this.DataGridElements.Width = this.Width - 80.0;
+            this.DataGridElements.Height = this.Height - 350;
+            this.DataGridElements.Width = this.Width - 80;
             this.DataGridElements.Visibility = Visibility.Hidden;
         }
 
@@ -809,7 +809,8 @@ namespace WPFTestResults
 
                             if (this.ButtonAttributeExtra1.Text != string.Empty
                                 && this.ButtonTagnameExtra1.Text != string.Empty
-                                && this.ComboBoxAction5.SelectedIndex != 0 && Order4.Text != "0" && Order4.Text != string.Empty)
+                                && this.ComboBoxAction5.SelectedIndex != 0 && this.Order4.Text != "0"
+                                && this.Order4.Text != string.Empty)
                                 DataStorage.TestCases.AddTestCase(
                                     bestandsnaam,
                                     this.Order4.Text,
@@ -832,7 +833,8 @@ namespace WPFTestResults
                             var num5 = num4 + 1;
                             if (this.ButtonAttributeExtra2.Text != string.Empty
                                 && this.ButtonTagnameExtra2.Text != string.Empty
-                                && this.ComboBoxAction6.SelectedIndex != 0 && Order5.Text != "0" && Order5.Text != string.Empty)
+                                && this.ComboBoxAction6.SelectedIndex != 0 && this.Order5.Text != "0"
+                                && this.Order5.Text != string.Empty)
                                 DataStorage.TestCases.AddTestCase(
                                     bestandsnaam,
                                     this.Order5.Text,
@@ -1220,6 +1222,7 @@ namespace WPFTestResults
         {
             if (this.ComboBoxURL.SelectedIndex == -1)
                 return;
+            TextBoxURL.Text = ComboBoxURL.Text;
             this.HaalGegevensEnToon();
         }
 
@@ -1272,12 +1275,18 @@ namespace WPFTestResults
 
                 this.url = this.ElementSetting != "SET" ? this.TextBoxURL.Text : this.ComboBoxURL.Text;
 
-                if (kolom.DisplayIndex == 0)
+                if (kolom.DisplayIndex == 1)
                 {
                     if (cellContent0.IsChecked == false)
+                    {
                         checkedGer0 = true;
+                        cellContent0.IsChecked = true;
+                    }
                     else
+                    {
                         checkedGer0 = false;
+                        cellContent0.IsChecked = false;
+                    }
 
                     ElementsFromDatabase.UpdateCheckBox(cellContent.Text, checkedGer0);
                 }
@@ -1285,9 +1294,13 @@ namespace WPFTestResults
                 if (kolom.DisplayIndex == 8)
                 {
                     if (cellContent1.IsChecked == false)
+                    {
                         checkedGer = true;
+                    }
                     else
+                    {
                         checkedGer = false;
+                    }
 
                     ElementsFromDatabase.UpdateCheckBox8(cellContent.Text, checkedGer);
 
@@ -1297,24 +1310,34 @@ namespace WPFTestResults
                         ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, string.Empty);
                 }
 
+                if (kolom.DisplayIndex == 8)
+                {
+                    var isChecked = cellContent1.IsChecked;
+                    var flag = true;
+                    var check1 = "checktext";
+                    if (kolom.DisplayIndex == 1)
+                    {
+                        check1 = " selenium_check";
+                    }
+
+                    var wel = !((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue);
+                    ElementsFromDatabase.UpdateAllCheckbox8(cellContent.Text, wel, check1);
+                }
+
                 if (kolom.DisplayIndex == 8 || kolom.DisplayIndex == 1)
                 {
                     this.DataGridElements.ItemsSource = null;
                     this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
+                    ButtonSetToTest.IsEnabled = false;
+                    foreach (var itemG in ElementsFromDatabase.GetDataTable(url))
+                    {
+                        if (itemG.elementCheck == true)
+                        {
+                            ButtonSetToTest.IsEnabled = true;
+                            break;
+                        }
+                    }
                 }
-
-                /*                if (kolom.DisplayIndex == 8 || kolom.DisplayIndex == 1)
-                                {
-                                    var isChecked = cellContent1.IsChecked;
-                                    var flag = true;
-                                    var check1 = "checktext";
-                                    if (kolom.DisplayIndex == 1)
-                                    {
-                                        check1 = " selenium_check";
-                                    }
-                                    var wel = !((isChecked.GetValueOrDefault() == flag) & isChecked.HasValue);
-                                    ElementsFromDatabase.UpdateAllCheckbox8(cellContent.Text, wel, check1);
-                                }*/
             }
         }
 
@@ -1478,7 +1501,7 @@ namespace WPFTestResults
                         try
                         {
                             var element = driver2WebDriver.FindElement(By.XPath(node.XPath));
-                            GeneralFunctionality.Functions.HighlightAndScreenshot(
+                            Functions.HighlightAndScreenshot(
                                 driver2WebDriver,
                                 element,
                                 sleepTime,
@@ -1572,13 +1595,11 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for FindTestApplications
         private void FindTestApplications()
         {
-            foreach (var file in new DirectoryInfo(GeneralFunctionality.Functions.GetCurrentDir(1)).GetFiles("*.xml"))
+            foreach (var file in new DirectoryInfo(Functions.GetCurrentDir(1)).GetFiles("*.xml"))
                 this.ComboBoxApplications.Items.Add(
                     new List<string>
                         {
-                            GeneralFunctionality.Functions.GetSettingsXmlStrings(
-                                file.Name.Substring(0, file.Name.Length - 4),
-                                1).ToList()[1]
+                            Functions.GetSettingsXmlStrings(file.Name.Substring(0, file.Name.Length - 4), 1).ToList()[1]
                         }.Distinct().ToList()[0]);
         }
 
@@ -1629,7 +1650,7 @@ namespace WPFTestResults
                     {
                         using (new PleaseWait())
                         {
-                            var _driver = new ChromeDriver(GeneralFunctionality.Functions.GetCurrentDir(0));
+                            var _driver = new ChromeDriver(Functions.GetCurrentDir(0));
                             _driver.Navigate().GoToUrl(this.TextBoxURLSave.Text);
                             _driver.Manage().Window.Maximize();
                             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
@@ -1771,6 +1792,14 @@ namespace WPFTestResults
                 this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
                 if (this.DataGridElements.Items.Count > 0)
                 {
+                    foreach (var itemG in ElementsFromDatabase.GetDataTable(url))
+                    {
+                        if (itemG.elementCheck == true)
+                        {
+                            ButtonSetToTest.IsEnabled = true;
+                            break;
+                        }
+                    }
                     this.DataGridElements.Visibility = Visibility.Visible;
                     this.ButtonSelectAll.IsEnabled = true;
                     this.CheckTextAll.IsEnabled = true;
@@ -2297,7 +2326,7 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for Window_Loaded
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GeneralFunctionality.Functions.InitializeDatabaseConnection(false);
+            Functions.InitializeDatabaseConnection(false);
             this.FindTestApplications();
 
             this.LeegMaken();
