@@ -299,3 +299,6 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 
 # Release 2.0.5.17
 - Add to test steps wordt nu actief of niet bij het selecteren van een element.
+
+# Release 2.0.5.18
+- Save testresults even if there is no Load Scripts selected.
