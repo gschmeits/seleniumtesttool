@@ -308,3 +308,7 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 
 # Release 2.0.5.20
 - Elementen beter opslaan bij wijzigen.
+
+# Release 2.0.5.21
+- Update van de text in de elementen weggehaald; heeft geen zin.
+- TestCase en TestPage blijft getoond wanneer checktext aangevinkt wordt.

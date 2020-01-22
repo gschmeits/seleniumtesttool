@@ -1252,10 +1252,10 @@ namespace WPFTestResults
 
                     ElementsFromDatabase.UpdateCheckBox8(cellContent.Text, checkedGer);
 
-                    if (checkedGer)
-                        ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, cellContentText.Text);
-                    else
-                        ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, string.Empty);
+                    //if (checkedGer)
+                    //    ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, cellContentText.Text);
+                    //else
+                    //    ElementsFromDatabase.UpdateCheckBoxText(cellContent.Text, string.Empty);
                 }
                 //if (kolom.DisplayIndex == 8)
                     if (kolom.Header.Equals("Check Text"))
@@ -1276,13 +1276,17 @@ namespace WPFTestResults
                 {
                     this.DataGridElements.ItemsSource = null;
                     this.DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(this.url);
-                    ButtonSetToTest.IsEnabled = false;
+                    
                     foreach (var itemG in ElementsFromDatabase.GetDataTable(url))
                     {
                         if (itemG.elementCheck == true)
                         {
                             ButtonSetToTest.IsEnabled = true;
                             break;
+                        }
+                        else
+                        {
+                            ButtonSetToTest.IsEnabled = false;
                         }
                     }
                 }
