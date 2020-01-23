@@ -589,7 +589,7 @@ namespace WPFTestResults
             }
             else
             {
-                if (TextBoxTestElement.Text == string.Empty)
+                if (TextBoxTestElement.Text == string.Empty && TextBoxTestNr.Text != string.Empty)
                 {
                     if (elementname.Content == "*Element:" && Convert.ToInt32(TextBoxTestNr.Text) > 0)
                         ButtonEdit.IsEnabled = false;

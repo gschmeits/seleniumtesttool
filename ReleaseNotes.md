@@ -312,3 +312,7 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 # Release 2.0.5.21
 - Update van de text in de elementen weggehaald; heeft geen zin.
 - TestCase en TestPage blijft getoond wanneer checktext aangevinkt wordt.
+
+# Release 2.0.5.22
+- Gegevens elementen maar 1x ophalen.
+- Verwijderen testscript regels geeft geen foutmelding meer.

@@ -1575,6 +1575,8 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for HaalGegevensEnToon
         private void HaalGegevensEnToon()
         {
+
+            ButtonGetElements.IsEnabled = false;
             this.url = !(this.ElementSetting == "GET") ? this.ComboBoxURL.Text : this.TextBoxURL.Text;
             General.LogMessageDatabase(
                 "URL: '" + this.url + "'.",
