@@ -322,3 +322,6 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 
 # Release 2.0.6.01
 - Precondities toegevoegd aan testscripts. 
+
+# Release 2.0.6.02
+- Ophalen elementen bij New alles leegmaken. 

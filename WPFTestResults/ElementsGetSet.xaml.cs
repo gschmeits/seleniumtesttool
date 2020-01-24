@@ -1931,6 +1931,11 @@ namespace WPFTestResults
             this.ButtonAttributeExtra1.SelectedIndex = 2;
             this.ButtonAttributeExtra2.SelectedIndex = 2;
             this.ButtonAttributeExtra3.SelectedIndex = 2;
+
+            TextBoxTestCase.Text = string.Empty;
+            TextBoxTestCasePage.Text = string.Empty;
+            ButtonSelectAll.Content = "Select All";
+            ButtonSelectAll.IsEnabled = false;
         }
 
         /// <summary>
