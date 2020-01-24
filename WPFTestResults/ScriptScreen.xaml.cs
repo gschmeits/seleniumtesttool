@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 using DataStorage;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -24,6 +25,18 @@ namespace WPFTestResults
 
     using GeneralFunctionality;
 
+
+    public static class ExtensionMethods
+    {
+        private static Action EmptyDelegate = delegate () { };
+
+
+        public static void Refresh(this UIElement uiElement)
+
+        {
+            uiElement.Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
+        }
+    }
     /// <summary>
     ///     Interaction logic for ScriptScreen.xaml
     /// </summary>
@@ -64,7 +77,7 @@ namespace WPFTestResults
         }
 
         private static string melding { get; set; }
-
+        private static List<PreconditionsFactory.Preconditions> Preconditionses { get; set; }
         private static List<Scripts1> TestScripts { get; set; }
         private static List<ScriptDetails> TestScriptsDetails { get; set; }
 
@@ -231,11 +244,13 @@ namespace WPFTestResults
             {
                 TextBoxSaveAs.IsEnabled = true;
                 ButtonSaveAs.IsEnabled = true;
+                ButtonPreConditions.Visibility = Visibility.Visible;
             }
             else
             {
-                TextBoxSaveAs.IsEnabled = true;
-                ButtonSaveAs.IsEnabled = true;
+                TextBoxSaveAs.IsEnabled = false;
+                ButtonSaveAs.IsEnabled = false;
+                ButtonPreConditions.Visibility = Visibility.Hidden;
             }
         }
 
@@ -283,6 +298,7 @@ namespace WPFTestResults
             ButtonAllBack.IsEnabled = false;
             ButtonExecute.IsEnabled = false;
             TextBoxSaveAs.IsEnabled = false;
+            ButtonPreConditions.Visibility = Visibility.Hidden;
             CheckItems();
         }
 
@@ -374,6 +390,8 @@ namespace WPFTestResults
 
             var passedGer = 0;
             var failedGer = 0;
+
+
             DateTime totalBeginDateTime = DateTime.Now;
 
             using (new PleaseWait())
@@ -500,9 +518,28 @@ namespace WPFTestResults
             Close();
         }
 
+
         private void ButtonExecute1_Click(object sender, RoutedEventArgs e)
         {
-            uitvoer();
+            Preconditionses = PreconditionsFactory.GetPreconditions(ComboBoxLoadScripts.Text);
+
+            DataGridPre.ItemsSource = null;
+            DataGridPre.Height = Preconditionses.Count * 18;
+            DataGridPre.ItemsSource = Preconditionses;
+            
+            if (Preconditionses.Count > 0)
+            {
+                GridBrowser.Visibility = Visibility.Hidden;
+                StackPanelPre.Visibility = Visibility.Visible;
+                DataGridPre.Visibility = Visibility.Visible;
+                LabelPreconditions.Visibility = Visibility.Visible;
+                StackPanelPre.Refresh();
+            }
+            else
+            {
+                uitvoer();
+            }
+
         }
 
         private void Melding(Int32 passed, Int32 failed, DateTime beDateTime, DateTime enDateTime)
@@ -562,6 +599,7 @@ namespace WPFTestResults
             GridBrowser.Visibility = Visibility.Visible;
             StackPanelSave.Visibility = Visibility.Hidden;
             StackPanelLoad.Visibility = Visibility.Hidden;
+            ButtonPreConditions.Visibility = Visibility.Hidden;
         }
 
         private void ComboBoxLoadScripts_DropDownClosed(object sender, EventArgs e)
@@ -607,6 +645,11 @@ namespace WPFTestResults
                     ButtonExecute.IsEnabled = true;
 
                     //ComboBoxLoadScripts.SelectedIndex = -1;
+                    ButtonPreConditions.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    ButtonPreConditions.Visibility = Visibility.Hidden;
                 }
             }
         }
@@ -684,8 +727,19 @@ namespace WPFTestResults
             }
 
             TextBoxSaveAs.Text = string.Empty;
-            ButtonSaveAs.IsEnabled = false;
             GetScripts();
+        }
+
+        private void ButtonPreConditions_Click(object sender, RoutedEventArgs e)
+        {
+            OverallSettings.applicationName = (string)ComboBoxLoadScripts.Text;
+            var preConditions = new PreConditions();
+            preConditions.Show();
+        }
+
+        private void ButtonPreExecute_Click(object sender, RoutedEventArgs e)
+        {
+            uitvoer();
         }
     }
 }

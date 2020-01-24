@@ -59,6 +59,7 @@
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
+
                 <Label Content="Available test scripts"
                FontSize="16"
                FontWeight="Bold"
@@ -105,6 +106,73 @@
             </Grid>
 
         </StackPanel>
+
+        <StackPanel Name="StackPanelPre" Visibility="Hidden" Orientation="Vertical"
+                    Grid.RowSpan="12" Grid.ColumnSpan="3"
+                    Grid.Row="2">
+            <Label Name="LabelPreconditions" Content="Preconditions" 
+               HorizontalAlignment="Center"
+               FontWeight="Bold" 
+               FontSize="24"
+               HorizontalContentAlignment="Center" 
+               Visibility="Visible"/>
+            <DataGrid HorizontalAlignment="Center" 
+                  Height="276" 
+                  GridLinesVisibility="None"
+                  Margin="0,0,0,50"
+                  HorizontalContentAlignment="Center"
+                  Width="772" AllowDrop="True" ColumnWidth="Auto"
+                  AutoGenerateColumns="False"
+                  EnableColumnVirtualization="True"
+                  AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}" 
+                  Background="{DynamicResource DataGridAchtergrond}"
+                  Name="DataGridPre" RowHeaderWidth="0" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" IsReadOnly="True" HeadersVisibility="None" 
+                  Visibility="Visible" HorizontalScrollBarVisibility="Hidden"  AreRowDetailsFrozen="True" VerticalScrollBarVisibility="Hidden" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding id}"
+                                Width="40"
+                                Header="ID"
+                                    Visibility="Hidden">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping"
+                                Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment"
+                                Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding number}"
+                                Width="60"
+                                Header="Number"
+                                Visibility="Visible">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping"
+                                Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment"
+                                Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding description}"
+                                Width="710"
+                                Header="Precondition" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping"
+                                Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment"
+                                Value="Left" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Name="ButtonPreExecute" Content="OK" Width="50" Style="{DynamicResource MyButtonStyle}" Click="ButtonPreExecute_Click"></Button>
+        </StackPanel>
+
+
         <Grid Name="GridBrowser" Grid.RowSpan="12" Grid.ColumnSpan="3"
               Visibility="Visible"
               Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" 
@@ -226,5 +294,15 @@
                VerticalContentAlignment="Center" 
                HorizontalContentAlignment="Center"/>
         </StackPanel>
+        <Button Content="Preconditions"
+                Name="ButtonPreConditions"
+                Width="150"
+                HorizontalAlignment="Center"
+                Style="{DynamicResource MyButtonStyle}" 
+                Click="ButtonPreConditions_Click" 
+                Grid.Row="10" 
+                Grid.ColumnSpan="3" Visibility="Hidden" />
+
+ 
     </Grid>
 </Window>

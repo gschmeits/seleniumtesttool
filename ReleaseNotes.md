@@ -319,3 +319,6 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 
 # Release 2.0.5.23
 - Bij het opslaan van een testscenario, wordt ComboBoxLoadScripts opnieuw geladen. 
+
+# Release 2.0.6.01
+- Precondities toegevoegd aan testscripts. 
