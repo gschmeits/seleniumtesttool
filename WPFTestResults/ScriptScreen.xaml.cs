@@ -567,8 +567,7 @@ namespace WPFTestResults
         private void ComboBoxLoadScripts_DropDownClosed(object sender, EventArgs e)
         {
             TreeView2.Items.Clear();
-            if (ComboBoxLoadScripts.SelectedIndex != -1)
-            {
+            if (ComboBoxLoadScripts.SelectedIndex != -1){
                 TestScriptsDetails = ScriptsDataFactory.GetScriptsDetails(ComboBoxLoadScripts.SelectedValue.ToString());
                 if (TestScriptsDetails.Count > 0)
                 {
@@ -686,7 +685,7 @@ namespace WPFTestResults
 
             TextBoxSaveAs.Text = string.Empty;
             ButtonSaveAs.IsEnabled = false;
+            GetScripts();
         }
-
     }
 }

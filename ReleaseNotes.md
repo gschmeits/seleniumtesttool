@@ -316,3 +316,6 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 # Release 2.0.5.22
 - Gegevens elementen maar 1x ophalen.
 - Verwijderen testscript regels geeft geen foutmelding meer.
+
+# Release 2.0.5.23
+- Bij het opslaan van een testscenario, wordt ComboBoxLoadScripts opnieuw geladen. 
