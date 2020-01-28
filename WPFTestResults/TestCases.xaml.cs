@@ -635,6 +635,11 @@ namespace WPFTestResults
                 case "switch to iFrame":
                     verplicht = false;
                     break;
+
+                case "switch to default":
+                    verplicht = false;
+                    break;
+
                 case "set_value":
                     verplicht = false;
                     break;

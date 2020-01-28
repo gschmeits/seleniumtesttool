@@ -325,3 +325,7 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 
 # Release 2.0.6.02
 - Ophalen elementen bij New alles leegmaken. 
+
+# Release 2.0.6.03
+- switch to iFrame aangepast   
+- switch to default toegevoegd

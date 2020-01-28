@@ -151,7 +151,9 @@
                                 <Setter Property="TextBlock.TextWrapping"
                                 Value="Wrap" />
                                 <Setter Property="TextBlock.TextAlignment"
-                                Value="Center" />
+                                Value="Right" />
+                                <Setter Property="TextBlock.Margin"
+                                        Value="0,0,10,0" />
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>

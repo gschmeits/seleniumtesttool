@@ -1459,16 +1459,11 @@ namespace GeneralFunctionality
                                         break;
                                     case "switch to iFrame":
                                         var tekstFrame = table.Rows[intx]["testtext"].ToString().Trim();
-
-                                        if (tekstFrame.ToUpper() == "IFRAME")
-                                        {
                                             IWebElement detailFrame = content;
                                             driver.SwitchTo().Frame(detailFrame);
-                                        } else
-                                        {
-                                            driver.SwitchTo().DefaultContent();
-                                        }
-
+                                        break;
+                                    case "switch to default":
+                                        driver.SwitchTo().DefaultContent();
                                         break;
                                     case "set_value":
                                         /*

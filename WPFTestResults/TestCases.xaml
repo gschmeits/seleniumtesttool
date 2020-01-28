@@ -332,6 +332,7 @@
                 <ListBoxItem Content="move_to" />
                 <ListBoxItem Content="upload" />
                 <ListBoxItem Content="switch to iFrame" />
+                <ListBoxItem Content="switch to default" />
                 <ListBoxItem Content="set_value" />
                 <ListBoxItem Content="get_value" />
                 <ListBoxItem Content="wait" />
