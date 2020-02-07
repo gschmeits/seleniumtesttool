@@ -176,7 +176,7 @@
                    Visibility="Hidden"
                    FontWeight="Bold" />
             <Label Name="LabelNameSetValue"
-                   Content="Set Value:"
+                   Content="Set Value for:"
                    Grid.Row="2"
                    Grid.Column="2"
                    VerticalAlignment="Center"
@@ -185,7 +185,7 @@
                    Visibility="Hidden"
                    FontWeight="Bold" />
             <Label Name="LabelNameGetValue"
-                   Content="Name:"
+                   Content="Get Value from:"
                    Grid.Row="2"
                    Grid.Column="2"
                    VerticalAlignment="Center"
@@ -278,7 +278,7 @@
                      HorizontalAlignment="Left"
                      HorizontalContentAlignment="Left"
                      TabIndex="2"
-                     TextChanged="TextBoxTestCase_TextChanged" Width="495" Height="24" />
+                     TextChanged="TextBoxTestCase_TextChanged" Width="436" Height="24" />
             <TextBox Name="TextBoxTestElement"
                      Grid.Row="3"
                      Grid.Column="1"

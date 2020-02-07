@@ -329,3 +329,7 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 # Release 2.0.6.03
 - switch to iFrame aangepast   
 - switch to default toegevoegd
+
+# Release 2.0.6.04
+- set_value op de juiste wijze aangepast
+- Name in testcase aangepast wanneer set_value wordt gebruikt

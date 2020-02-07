@@ -1484,12 +1484,11 @@ namespace GeneralFunctionality
                                         if (dt.Rows.Count > 0)
                                         {
                                             // Indien variable voor testscript bestaat, update deze uit tabel 'saved_values'
+                                            var save_id = dt.Rows[0][0].ToString();
                                             query = "UPDATE saved_values SET saved_values_value = '";
                                             query += content.Text.Trim().Replace("\r\n", string.Empty) + "' ";
                                             query += "WHERE ";
-                                            query += "saved_values_testname = '" + bestandsnaamArgument + "' AND ";
-                                            query += "saved_values_name = '" +
-                                                     table.Rows[intx]["testtext"].ToString().Trim() + "';";
+                                            query += "saved_values_id = " + save_id + ";";
                                         }
                                         else
                                         {
