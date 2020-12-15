@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <settings>
-	<setting>
-		<host>localhost</host>
-		<database>autotest</database>
-		<port>3306</port>
-		<user>autotest</user>
-		<pw>NiFSi1fZjbJ4zXE8</pw>
-	</setting>
+    <connection>
+        <host>localhost</host>
+        <database>autotest</database>
+        <port>3306</port>
+        <username>autotest</username>
+        <password></password>
+    </connection>
 </settings>

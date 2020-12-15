@@ -121,7 +121,7 @@ namespace GeneralFunctionality
             }
             catch (Exception ex)
             {
-                General.LogMessageDatabase(ex.Message + "\r\n" + ex.StackTrace, 4, string.Empty, 0, string.Empty,
+                General.LogMessage(ex.Message + "\r\n" + ex.StackTrace, 4, string.Empty, 0, string.Empty,
                     machinestatic);
             }
         }
@@ -144,7 +144,7 @@ namespace GeneralFunctionality
             }
             catch (Exception ex)
             {
-                General.LogMessageDatabase(ex.Message + "\r\n" + ex.StackTrace, 4, string.Empty, 0, string.Empty,
+                General.LogMessage(ex.Message + "\r\n" + ex.StackTrace, 4, string.Empty, 0, string.Empty,
                     machinestatic);
             }
         }

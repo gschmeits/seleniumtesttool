@@ -84,7 +84,7 @@ namespace GeneralFunctionality
                     catch (Exception e)
                     {
                         Console.WriteLine(e);
-                        General.LogMessageDatabase("\r\n" + e.Message + "\r\n" + e.StackTrace + "\r\n" + e.Source, 4);
+                        General.LogMessage("\r\n" + e.Message + "\r\n" + e.StackTrace + "\r\n" + e.Source, 4);
                     }
                 }
             }

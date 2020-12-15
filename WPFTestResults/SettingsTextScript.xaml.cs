@@ -53,7 +53,7 @@ namespace WPFTestResults
         private void ButtonGetTestSet_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Functions.GetCurrentDir(1);
+            openFileDialog.InitialDirectory = Functions.GetCurrentDir(1) + GeneralFunctionality.Functions._project;
             openFileDialog.Filter = "XML files(*.xml)|*.xml|All files(*.*)|*.*";
             openFileDialog.FilterIndex = 2;
             openFileDialog.RestoreDirectory = true;
@@ -64,7 +64,7 @@ namespace WPFTestResults
                 {
                     var bestand = openFileDialog.FileName;
                     var bestandsnaam = Functions.SplitBestand(bestand);
-                    var credits = Functions.GetCredentials(bestandsnaam);
+                    var credits = GeneralFunctionality.Functions.GetCredentials(GeneralFunctionality.Functions._project + @"\" + bestandsnaam);
                     this.TextBoxTestSetName.Text = bestandsnaam;
                     this.TextBoxURL.Text = credits.Url;
                     this.TextBoxApplication.Text = credits.Application;
@@ -74,10 +74,11 @@ namespace WPFTestResults
                     this.TextBoxURL.Focus();
 
                     this.ButtonSaveTestSet.IsEnabled = true;
+                    ButtonCopyTestSet.IsEnabled = true;
                 }
                 catch (Exception ex)
                 {
-                    General.LogMessageDatabase(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4);
+                    General.LogMessage(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4);
                 }
             }
         }
@@ -111,7 +112,7 @@ namespace WPFTestResults
                 settingsXML.IndentChars = "\t";
 
                 using (XmlWriter writer =
-                    XmlWriter.Create(Functions.GetCurrentDir(1) + this.TextBoxTestSetName.Text + ".xml", settingsXML))
+                    XmlWriter.Create(Functions.GetCurrentDir(1)+ GeneralFunctionality.Functions._project + @"\" + this.TextBoxTestSetName.Text + ".xml", settingsXML))
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement("settings");
@@ -131,10 +132,11 @@ namespace WPFTestResults
                     MessageBoxImage.Information);
 
                 EmptyFields();
+                ButtonCopyTestSet.IsEnabled = false;
             }
             catch (Exception exception)
             {
-                General.LogMessageDatabase(exception.Message + "\r\n" + exception.Source + "\r\n" + exception.StackTrace, 4);
+                General.LogMessage(exception.Message + "\r\n" + exception.Source + "\r\n" + exception.StackTrace, 4);
             }
         }
 
@@ -208,6 +210,26 @@ namespace WPFTestResults
             this.TextBoxTestSetName.Focusable = true;
             this.TextBoxTestSetName.Focus();
             this.ButtonCreateTestSet.IsEnabled = false;
+        }
+
+        private void ButtonCopyTestSet_Click(object sender, RoutedEventArgs e)
+        {
+            TextBoxTestSetName.IsEnabled = true;
+            TextBoxTestSetName.Text = TextBoxTestSetName.Text + "_copy";
+            TextBoxApplication.Text = TextBoxApplication.Text + "_copy";
+
+        }
+
+        private void TextBoxTestSetName_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (TextBoxTestSetName.Text != string.Empty)
+            {
+                ButtonCopyTestSet.IsEnabled = false;
+            }
+            else
+            {
+                ButtonCopyTestSet.IsEnabled = true;
+            }
         }
     }
 }

@@ -50,7 +50,7 @@ namespace UrlFactory
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
 
             return testurl;

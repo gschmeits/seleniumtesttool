@@ -20,7 +20,7 @@ namespace WPFTestResults
 
     using DataStorage;
 
-    using LicentieWPF.LicenseKey;
+
 
     using KeyEventArgs = System.Windows.Input.KeyEventArgs;
     using MessageBox = System.Windows.Forms.MessageBox;
@@ -69,7 +69,7 @@ namespace WPFTestResults
                                                                                    + "' AND " + this.TextBoxDeletion
                                                                                        .Text;
 
-            General.LogMessageDatabase(
+            General.LogMessage(
                 "Query for deletion: '" + deleteString + "'.",
                 3,
                 string.Empty,
@@ -85,7 +85,7 @@ namespace WPFTestResults
             }
             catch (Exception ex)
             {
-                General.LogMessageDatabase(
+                General.LogMessage(
                     ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
                     4,
                     string.Empty,
@@ -106,7 +106,7 @@ namespace WPFTestResults
                     "Message",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                General.LogMessageDatabase(
+                General.LogMessage(
                     "Selected TestSteps are deleted from the database",
                     3,
                     string.Empty,
@@ -135,7 +135,7 @@ namespace WPFTestResults
             var bestandsnaam = VersionClass.Bestandsnaam;
             this.LabelTestSET.Content = bestandsnaam;
 
-            General.LogMessageDatabase(
+            General.LogMessage(
                 "Selected TestCase: '" + bestandsnaam + "'.",
                 3,
                 string.Empty,

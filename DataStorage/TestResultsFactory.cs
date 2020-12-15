@@ -15,28 +15,28 @@
 /// <summary>
 /// The DataStorage namespace.
 /// </summary>
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows;
+using MySql.Data.MySqlClient;
+
 namespace DataStorage
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Windows;
-    using MySql.Data.MySqlClient;
-
     /// <summary>
-    /// Class TestResultsFactory.
+    ///     Class TestResultsFactory.
     /// </summary>
     public class TestResultsFactory
     {
         /// <summary>
-        /// Gets the count.
+        ///     Gets the count.
         /// </summary>
         /// <param name="testrunFrom">The testrun from.</param>
         /// <param name="testrunTill">The testrun till.</param>
         /// <returns>List&lt;ResultsCount&gt;.</returns>
         public static List<ResultsCount> GetCount(string testrunFrom, string testrunTill)
         {
-
             var testresults = new List<ResultsCount>();
             var sqlConn = "SELECT count(*) as Result  FROM autotest.testresultsselenium where testrun >= '"
                           + testrunFrom;
@@ -51,19 +51,19 @@ namespace DataStorage
                 objDataAdapter.Fill(objDataset, "call_calls124");
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                     testresults.Add(
-                        new ResultsCount { value1 = Convert.ToInt64(objDataset.Tables[0].Rows[i][0].ToString()) });
+                        new ResultsCount {value1 = Convert.ToInt64(objDataset.Tables[0].Rows[i][0].ToString())});
                 objConn.Close();
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
 
             return testresults;
         }
 
         /// <summary>
-        /// Ges the test results.
+        ///     Ges the test results.
         /// </summary>
         /// <param name="testrunFrom">The testrun from.</param>
         /// <param name="testrunTill">The testrun till.</param>
@@ -88,40 +88,43 @@ namespace DataStorage
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                     testresults.Add(
                         new TestResults
-                            {
-                                testrun = Convert.ToInt64(objDataset.Tables[0].Rows[i][0].ToString()),
-                                date = objDataset.Tables[0].Rows[i][1].ToString(),
-                                application = objDataset.Tables[0].Rows[i][2].ToString(),
-                                testnr = objDataset.Tables[0].Rows[i][3].ToString(),
-                                element = objDataset.Tables[0].Rows[i][4].ToString(),
-                                attribute = objDataset.Tables[0].Rows[i][5].ToString(),
-                                result = objDataset.Tables[0].Rows[i][6].ToString(),
-                                testname = objDataset.Tables[0].Rows[i][7].ToString(),
-                                browserID = objDataset.Tables[0].Rows[i][8].ToString(),
-                                comment = objDataset.Tables[0].Rows[i][9].ToString(),
-                                elementname = objDataset.Tables[0].Rows[i][10].ToString(),
-                                page = objDataset.Tables[0].Rows[i][11].ToString(),
-                                action1 = objDataset.Tables[0].Rows[i][12].ToString()
+                        {
+                            testrun = Convert.ToInt64(objDataset.Tables[0].Rows[i][0].ToString()),
+                            date = objDataset.Tables[0].Rows[i][1].ToString(),
+                            application = objDataset.Tables[0].Rows[i][2].ToString(),
+                            testnr = objDataset.Tables[0].Rows[i][3].ToString(),
+                            element = objDataset.Tables[0].Rows[i][4].ToString(),
+                            attribute = objDataset.Tables[0].Rows[i][5].ToString(),
+                            result = objDataset.Tables[0].Rows[i][6].ToString(),
+                            testname = objDataset.Tables[0].Rows[i][7].ToString(),
+                            browserID = objDataset.Tables[0].Rows[i][8].ToString(),
+                            comment = objDataset.Tables[0].Rows[i][9].ToString(),
+                            elementname = objDataset.Tables[0].Rows[i][10].ToString(),
+                            page = objDataset.Tables[0].Rows[i][11].ToString(),
+                            action1 = objDataset.Tables[0].Rows[i][12].ToString()
                         });
                 objConn.Close();
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
 
             return testresults;
         }
 
         /// <summary>
-        /// Gets the test cases.
+        ///     Gets the test cases.
         /// </summary>
         /// <param name="testname">The testname.</param>
         /// <returns>List&lt;TestCases&gt;.</returns>
         public static List<TestCases> GetTestCases(string testname)
         {
             var testcases = new List<TestCases>();
-            var sqlConn = "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, testaction, testtext, testurl, testswitch, testexecution, testext_check, testinverse,testtag, test_comment, testpage ";
+            var sqlConn =
+                "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, " +
+                "testaction, testtext, testurl, testswitch, testexecution, testext_check, testinverse,testtag, " +
+                "test_comment, testpage ";
             sqlConn += "FROM testcases_selenium WHERE testname = '" + testname + "' ";
             sqlConn += "ORDER BY testname, testnr";
             var objConn = new MySqlConnection(General.MySqlConnectionString());
@@ -154,7 +157,7 @@ namespace DataStorage
                             testcomment = objDataset.Tables[0].Rows[i]["test_comment"].ToString(),
                             testext_check = objDataset.Tables[0].Rows[i]["testext_check"].ToString(),
                             testpage = objDataset.Tables[0].Rows[i]["testpage"].ToString(),
-                            testtag = objDataset.Tables[0].Rows[i]["testtag"].ToString(),
+                            testtag = objDataset.Tables[0].Rows[i]["testtag"].ToString()
                         });
                     rownumber++;
                 }
@@ -163,20 +166,79 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
 
             return testcases;
         }
 
         /// <summary>
-        /// Gets the test cases count.
+        ///     Gets the test cases.
+        /// </summary>
+        /// <param name="testname">The testname.</param>
+        /// <returns>List&lt;TestCases&gt;.</returns>
+        public static List<TestBlocks> GetTestBlocks(string testblock)
+        {
+            var testblocks = new List<TestBlocks>();
+            var sqlConn =
+                "SELECT * ";
+            sqlConn += "FROM testblock WHERE testblock = '" + testblock + "' ";
+            sqlConn += "ORDER BY testblock, testnr";
+            var objConn = new MySqlConnection(General.MySqlConnectionString());
+            var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn);
+            var objDataset = new DataSet();
+            var rownumber = 1;
+            try
+            {
+                objConn.Open();
+                objDataAdapter.Fill(objDataset, "call_calls123");
+                for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
+                {
+                    testblocks.Add(
+                        new TestBlocks
+                        {
+                            rownr = rownumber,
+                            id = objDataset.Tables[0].Rows[i]["id"].ToString(),
+                            testblock = objDataset.Tables[0].Rows[i]["testblock"].ToString(),
+                            testnr = Convert.ToInt32(objDataset.Tables[0].Rows[i]["testnr"].ToString()),
+                            testcase = objDataset.Tables[0].Rows[i]["testcase"].ToString(),
+                            testelementname = objDataset.Tables[0].Rows[i]["testlogicalobjectname"].ToString(),
+                            testelement = objDataset.Tables[0].Rows[i]["testelement"].ToString(),
+                            testattribute = objDataset.Tables[0].Rows[i]["testattribute"].ToString(),
+                            testaction = objDataset.Tables[0].Rows[i]["testaction"].ToString(),
+                            testtag = objDataset.Tables[0].Rows[i]["testtag"].ToString(),
+                            testtext = objDataset.Tables[0].Rows[i]["testtext"].ToString(),
+                            testpassword = objDataset.Tables[0].Rows[i]["test_password"].ToString(),
+                            testurl = objDataset.Tables[0].Rows[i]["testurl"].ToString(),
+                            testswitch = objDataset.Tables[0].Rows[i]["testswitch"].ToString(),
+                            testdescription = objDataset.Tables[0].Rows[i]["testdescription"].ToString(),
+                            testexecution = objDataset.Tables[0].Rows[i]["testexecution"].ToString(),
+                            testext_check = objDataset.Tables[0].Rows[i]["testext_check"].ToString(),
+                            testinverse = objDataset.Tables[0].Rows[i]["testinverse"].ToString()
+                        });
+                    rownumber++;
+                }
+
+                objConn.Close();
+            }
+            catch (Exception e)
+            {
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+            }
+
+            return testblocks;
+        }
+
+
+        /// <summary>
+        ///     Gets the test cases count.
         /// </summary>
         /// <param name="testname">The testname.</param>
         /// <returns>Int64.</returns>
-        public static Int64 GetTestCasesCount(string testname)
+        public static long GetTestCasesCount(string testname)
         {
-            var sqlConn = "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, testaction, testtext, testurl, testswitch, testext_check, testpage ";
+            var sqlConn =
+                "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, testaction, testtext, testurl, testswitch, testext_check, testpage ";
             sqlConn += "FROM testcases_selenium WHERE testname = '" + testname + "' ";
             sqlConn += "ORDER BY testname, testnr";
             var objConn = new MySqlConnection(General.MySqlConnectionString());
@@ -193,14 +255,45 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
-            
+
             return teststepscount;
         }
 
         /// <summary>
-        /// Gets the scenarios.
+        ///     Gets the test cases count.
+        /// </summary>
+        /// <param name="testname">The testname.</param>
+        /// <returns>Int64.</returns>
+        public static long GetTestBlocksCount(string testblock)
+        {
+            var sqlConn =
+                "SELECT * ";
+            sqlConn += "FROM testblock WHERE testblock = '" + testblock + "' ";
+            sqlConn += "ORDER BY testblock, testnr";
+            var objConn = new MySqlConnection(General.MySqlConnectionString());
+            var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn);
+            var objDataset = new DataSet();
+            var teststepscount = 0;
+
+            try
+            {
+                objConn.Open();
+                objDataAdapter.Fill(objDataset, "call_calls123");
+                teststepscount = objDataset.Tables[0].Rows.Count;
+                objConn.Close();
+            }
+            catch (Exception e)
+            {
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+            }
+
+            return teststepscount;
+        }
+
+        /// <summary>
+        ///     Gets the scenarios.
         /// </summary>
         /// <returns>List&lt;Scenario&gt;.</returns>
         public static List<Scenario> GetScenarios()
@@ -220,23 +313,23 @@ namespace DataStorage
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                     scenarios.Add(
                         new Scenario
-                            {
-                                id = objDataset.Tables[0].Rows[i][0].ToString(),
-                                scenarionaam = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\"),
-                                description = objDataset.Tables[0].Rows[i][3].ToString().Replace("\\", "\\\\")
-                            });
+                        {
+                            id = objDataset.Tables[0].Rows[i][0].ToString(),
+                            scenarionaam = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\"),
+                            description = objDataset.Tables[0].Rows[i][3].ToString().Replace("\\", "\\\\")
+                        });
                 objConn.Close();
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
 
             return scenarios;
         }
 
         /// <summary>
-        /// Gets the selected scenarios.
+        ///     Gets the selected scenarios.
         /// </summary>
         /// <returns>List&lt;SelectedScenario&gt;.</returns>
         public static List<SelectedScenario> GetSelectedScenarios()
@@ -259,27 +352,27 @@ namespace DataStorage
                     tekst = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\");
                     selectedScenarios.Add(
                         new SelectedScenario
-                            {
-                                selectedScenario =
-                                    Convert.ToInt32(objDataset.Tables[0].Rows[i][0].ToString()),
-                                bestandsnaam =
-                                    objDataset.Tables[0].Rows[i][1].ToString().Replace("\\", "\\\\"),
-                                data = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\")
-                            });
+                        {
+                            selectedScenario =
+                                Convert.ToInt32(objDataset.Tables[0].Rows[i][0].ToString()),
+                            bestandsnaam =
+                                objDataset.Tables[0].Rows[i][1].ToString().Replace("\\", "\\\\"),
+                            data = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\")
+                        });
                 }
 
                 objConn.Close();
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
 
             return selectedScenarios;
         }
 
         /// <summary>
-        /// Gets the selected scenarios call.
+        ///     Gets the selected scenarios call.
         /// </summary>
         /// <returns>List&lt;SelectedScenarioCall&gt;.</returns>
         public static List<SelectedScenarioCall> GetSelectedScenariosCall()
@@ -302,29 +395,29 @@ namespace DataStorage
                     tekst = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\");
                     selectedScenariosCall.Add(
                         new SelectedScenarioCall
-                            {
-                                selectedScenario =
-                                    Convert.ToInt32(objDataset.Tables[0].Rows[i][0].ToString()),
-                                bestandsnaam = objDataset.Tables[0].Rows[i][1].ToString(),
-                                data =
-                                    objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\"),
-                                setting = objDataset.Tables[0].Rows[i][3].ToString()
-                                    .Replace("\\", "\\\\")
-                            });
+                        {
+                            selectedScenario =
+                                Convert.ToInt32(objDataset.Tables[0].Rows[i][0].ToString()),
+                            bestandsnaam = objDataset.Tables[0].Rows[i][1].ToString(),
+                            data =
+                                objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\"),
+                            setting = objDataset.Tables[0].Rows[i][3].ToString()
+                                .Replace("\\", "\\\\")
+                        });
                 }
 
                 objConn.Close();
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
 
             return selectedScenariosCall;
         }
 
         /// <summary>
-        /// Gets the test results.
+        ///     Gets the test results.
         /// </summary>
         /// <param name="testrun2">The testrun2.</param>
         /// <returns>List&lt;TestResultPie&gt;.</returns>
@@ -335,7 +428,7 @@ namespace DataStorage
                 + testrun2 + " GROUP BY result";
             var objConn = new MySqlConnection(General.MySqlConnectionString());
             var testresults = new List<TestResultPie>();
-             
+
             try
             {
                 using (var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn))
@@ -348,35 +441,38 @@ namespace DataStorage
                     for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                         testresults.Add(
                             new TestResultPie
-                                {
-                                    result = objDataset.Tables[0].Rows[i][0].ToString(),
-                                    count1 = Convert.ToInt64(objDataset.Tables[0].Rows[i][1].ToString()),
-                                    module = objDataset.Tables[0].Rows[i][2].ToString(),
-                                    function = objDataset.Tables[0].Rows[i][3].ToString()
-                                });
+                            {
+                                result = objDataset.Tables[0].Rows[i][0].ToString(),
+                                count1 = Convert.ToInt64(objDataset.Tables[0].Rows[i][1].ToString()),
+                                module = objDataset.Tables[0].Rows[i][2].ToString(),
+                                function = objDataset.Tables[0].Rows[i][3].ToString()
+                            });
 
                     objConn.Close();
                 }
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
 
             return testresults;
         }
 
         /// <summary>
-        /// Gets the test result selects.
+        ///     Gets the test result selects.
         /// </summary>
         /// <returns>List&lt;TestResultsSelect&gt;.</returns>
-        public static List<TestResultsSelect> GetTestResultSelects()
+        public static List<TestResultsSelect> GetTestResultSelects(int projectid)
         {
             var testresults = new List<TestResultsSelect>();
             try
             {
                 var sqlConn =
-                    "SELECT testrun, DATE_FORMAT(datetime_created, '%Y-%m %d %T') as Date, testscenario_name FROM testresultsselenium GROUP BY testrun ORDER BY testID DESC";
+                    "SELECT testrun, DATE_FORMAT(datetime_created, '%Y-%m %d %T') as Date, " +
+                    "testscenario_name FROM testresultsselenium WHERE project_id = " + projectid +
+                    " GROUP BY testrun ORDER BY testID DESC ";
+
                 var objConn = new MySqlConnection(General.MySqlConnectionString());
                 using (var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn))
                 {
@@ -386,12 +482,12 @@ namespace DataStorage
                     for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                         testresults.Add(
                             new TestResultsSelect
-                                {
-                                    testrun = Convert.ToInt64(
-                                        objDataset.Tables[0].Rows[i][0].ToString()),
-                                    date = objDataset.Tables[0].Rows[i][1].ToString(),
-                                    testscenario_name = objDataset.Tables[0].Rows[i][2].ToString()
-                                });
+                            {
+                                testrun = Convert.ToInt64(
+                                    objDataset.Tables[0].Rows[i][0].ToString()),
+                                date = objDataset.Tables[0].Rows[i][1].ToString(),
+                                testscenario_name = objDataset.Tables[0].Rows[i][2].ToString()
+                            });
                     objConn.Close();
                 }
             }
@@ -399,207 +495,211 @@ namespace DataStorage
             {
                 Console.WriteLine(e);
                 MessageBox.Show(e.Message);
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
-
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
+
             return testresults;
         }
 
         /// <summary>
-        /// Class ResultsCount.
+        ///     Class ResultsCount.
         /// </summary>
         public class ResultsCount
         {
             /// <summary>
-            /// Gets or sets the value1.
+            ///     Gets or sets the value1.
             /// </summary>
             /// <value>The value1.</value>
             public long value1 { get; set; }
         }
 
         /// <summary>
-        /// Class Scenario.
+        ///     Class Scenario.
         /// </summary>
         public class Scenario
         {
             /// <summary>
-            /// Gets or sets the description.
+            ///     Gets or sets the description.
             /// </summary>
             /// <value>The description.</value>
             public string description { get; set; }
 
             /// <summary>
-            /// Gets or sets the identifier.
+            ///     Gets or sets the identifier.
             /// </summary>
             /// <value>The identifier.</value>
             public string id { get; set; }
 
             /// <summary>
-            /// Gets or sets the scenarionaam.
+            ///     Gets or sets the scenarionaam.
             /// </summary>
             /// <value>The scenarionaam.</value>
             public string scenarionaam { get; set; }
         }
 
         /// <summary>
-        /// Class SelectedScenario.
+        ///     Class SelectedScenario.
         /// </summary>
         public class SelectedScenario
         {
             /// <summary>
-            /// Gets or sets the bestandsnaam.
+            ///     Gets or sets the bestandsnaam.
             /// </summary>
             /// <value>The bestandsnaam.</value>
             public string bestandsnaam { get; set; }
 
             /// <summary>
-            /// Gets or sets the data.
+            ///     Gets or sets the data.
             /// </summary>
             /// <value>The data.</value>
             public string data { get; set; }
 
             /// <summary>
-            /// Gets or sets the selected scenario.
+            ///     Gets or sets the selected scenario.
             /// </summary>
             /// <value>The selected scenario.</value>
             public int selectedScenario { get; set; }
         }
 
         /// <summary>
-        /// Class SelectedScenarioCall.
+        ///     Class SelectedScenarioCall.
         /// </summary>
         public class SelectedScenarioCall
         {
             /// <summary>
-            /// Gets or sets the bestandsnaam.
+            ///     Gets or sets the bestandsnaam.
             /// </summary>
             /// <value>The bestandsnaam.</value>
             public string bestandsnaam { get; set; }
 
             /// <summary>
-            /// Gets or sets the data.
+            ///     Gets or sets the data.
             /// </summary>
             /// <value>The data.</value>
             public string data { get; set; }
 
             /// <summary>
-            /// Gets or sets the selected scenario.
+            ///     Gets or sets the selected scenario.
             /// </summary>
             /// <value>The selected scenario.</value>
             public int selectedScenario { get; set; }
 
             /// <summary>
-            /// Gets or sets the setting.
+            ///     Gets or sets the setting.
             /// </summary>
             /// <value>The setting.</value>
             public string setting { get; set; }
         }
 
         /// <summary>
-        /// Class TestResultPie.
+        ///     Class TestResultPie.
         /// </summary>
         public class TestResultPie
         {
             /// <summary>
-            /// Gets or sets the count1.
+            ///     Gets or sets the count1.
             /// </summary>
             /// <value>The count1.</value>
             public long count1 { get; set; }
 
             /// <summary>
-            /// Gets or sets the function.
+            ///     Gets or sets the function.
             /// </summary>
             /// <value>The function.</value>
             public string function { get; set; }
 
             /// <summary>
-            /// Gets or sets the module.
+            ///     Gets or sets the module.
             /// </summary>
             /// <value>The module.</value>
             public string module { get; set; }
 
             /// <summary>
-            /// Gets or sets the result.
+            ///     Gets or sets the result.
             /// </summary>
             /// <value>The result.</value>
             public string result { get; set; }
         }
 
         /// <summary>
-        /// Class TestResults.
+        ///     Class TestResults.
         /// </summary>
         public class TestResults
         {
             /// <summary>
-            /// Gets or sets the application.
+            ///     Gets or sets the application.
             /// </summary>
             /// <value>The application.</value>
             public string application { get; set; }
 
             /// <summary>
-            /// Gets or sets the attribute.
+            ///     Gets or sets the attribute.
             /// </summary>
             /// <value>The attribute.</value>
             public string attribute { get; set; }
 
             /// <summary>
-            /// Gets or sets the date.
+            ///     Gets or sets the date.
             /// </summary>
             /// <value>The date.</value>
             public string date { get; set; }
 
             /// <summary>
-            /// Gets or sets the element.
+            ///     Gets or sets the element.
             /// </summary>
             /// <value>The element.</value>
             public string element { get; set; }
 
             /// <summary>
-            /// Gets or sets the result.
+            ///     Gets or sets the result.
             /// </summary>
             /// <value>The result.</value>
             public string result { get; set; }
 
             /// <summary>
-            /// Gets or sets the testrun.
+            ///     Gets or sets the testrun.
             /// </summary>
             /// <value>The testrun.</value>
             public long testrun { get; set; }
 
             /// <summary>
-            /// Gets or sets the testname.
+            ///     Gets or sets the testname.
             /// </summary>
             /// <value>The testname.</value>
-            public String testname { get; set; }
+            public string testname { get; set; }
+
             /// <summary>
-            /// Gets or sets the testnr.
+            ///     Gets or sets the testnr.
             /// </summary>
             /// <value>The testnr.</value>
             public string testnr { get; set; }
 
             /// <summary>
-            /// Gets or sets the browser identifier.
+            ///     Gets or sets the browser identifier.
             /// </summary>
             /// <value>The browser identifier.</value>
             public string browserID { get; set; }
 
             /// <summary>
-            /// Gets or sets the comment.
+            ///     Gets or sets the comment.
             /// </summary>
             /// <value>The comment.</value>
             public string comment { get; set; }
+
             /// <summary>
-            /// Gets or sets the elementname.
+            ///     Gets or sets the elementname.
             /// </summary>
             /// <value>The elementname.</value>
             public string elementname { get; set; }
+
             /// <summary>
-            /// Gets or sets the page.
+            ///     Gets or sets the page.
             /// </summary>
             /// <value>The page.</value>
             public string page { get; set; }
+
             /// <summary>
-            /// Gets or sets the action1.
+            ///     Gets or sets the action1.
             /// </summary>
             /// <value>The action1.</value>
             /// <autogeneratedoc />
@@ -608,18 +708,18 @@ namespace DataStorage
         }
 
         /// <summary>
-        /// Class TestResultsSelect.
+        ///     Class TestResultsSelect.
         /// </summary>
         public class TestResultsSelect
         {
             /// <summary>
-            /// Gets or sets the date.
+            ///     Gets or sets the date.
             /// </summary>
             /// <value>The date.</value>
             public string date { get; set; }
 
             /// <summary>
-            /// Gets or sets the testrun.
+            ///     Gets or sets the testrun.
             /// </summary>
             /// <value>The testrun.</value>
             public long testrun { get; set; }
@@ -628,98 +728,229 @@ namespace DataStorage
         }
 
         /// <summary>
-        /// Class TestCases.
+        ///     Class TestCases.
         /// </summary>
         public class TestCases
         {
             /// <summary>
-            /// Gets or sets the rownr.
+            ///     Gets or sets the rownr.
             /// </summary>
             /// <value>The rownr.</value>
             public int rownr { get; set; }
+
             /// <summary>
-            /// Gets or sets the identifier.
+            ///     Gets or sets the identifier.
             /// </summary>
             /// <value>The identifier.</value>
             public string id { get; set; }
+
             /// <summary>
-            /// Gets or sets the testname.
+            ///     Gets or sets the testname.
             /// </summary>
             /// <value>The testname.</value>
             public string testname { get; set; }
+
             /// <summary>
-            /// Gets or sets the testnr.
+            ///     Gets or sets the testnr.
             /// </summary>
             /// <value>The testnr.</value>
             public int testnr { get; set; }
+
             /// <summary>
-            /// Gets or sets the testcase.
+            ///     Gets or sets the testcase.
             /// </summary>
             /// <value>The testcase.</value>
             public string testcase { get; set; }
+
             /// <summary>
-            /// Gets or sets the testelementname.
+            ///     Gets or sets the testelementname.
             /// </summary>
             /// <value>The testelementname.</value>
             public string testelementname { get; set; }
+
             /// <summary>
-            /// Gets or sets the testelement.
+            ///     Gets or sets the testelement.
             /// </summary>
             /// <value>The testelement.</value>
             public string testelement { get; set; }
+
             /// <summary>
-            /// Gets or sets the testattribute.
+            ///     Gets or sets the testattribute.
             /// </summary>
             /// <value>The testattribute.</value>
             public string testattribute { get; set; }
+
             /// <summary>
-            /// Gets or sets the testaction.
+            ///     Gets or sets the testaction.
             /// </summary>
             /// <value>The testaction.</value>
             public string testaction { get; set; }
+
             /// <summary>
-            /// Gets or sets the testtext.
+            ///     Gets or sets the testtext.
             /// </summary>
             /// <value>The testtext.</value>
             public string testtext { get; set; }
+
             /// <summary>
-            /// Gets or sets the testurl.
+            ///     Gets or sets the testurl.
             /// </summary>
             /// <value>The testurl.</value>
             public string testurl { get; set; }
+
             /// <summary>
-            /// Gets or sets the testswitch.
+            ///     Gets or sets the testswitch.
             /// </summary>
             /// <value>The testswitch.</value>
             public string testswitch { get; set; }
+
             /// <summary>
-            /// Gets or sets the testext check.
+            ///     Gets or sets the testext check.
             /// </summary>
             /// <value>The testext check.</value>
             public string testext_check { get; set; }
+
             /// <summary>
-            /// Gets or sets the testexecution.
+            ///     Gets or sets the testexecution.
             /// </summary>
             /// <value>The testexecution.</value>
             public string testexecution { get; set; }
+
             /// <summary>
-            /// Gets or sets the testinverse.
+            ///     Gets or sets the testinverse.
             /// </summary>
             /// <value>The testinverse.</value>
             public string testinverse { get; set; }
+
             /// <summary>
-            /// Gets or sets the testcomment.
+            ///     Gets or sets the testcomment.
             /// </summary>
             /// <value>The testcomment.</value>
             public string testcomment { get; set; }
 
             /// <summary>
-            /// Gets or sets the testpage.
+            ///     Gets or sets the testpage.
             /// </summary>
             /// <value>The testpage.</value>
             public string testpage { get; set; }
+
             /// <summary>
-            /// Gets or sets the testtag.
+            ///     Gets or sets the testtag.
+            /// </summary>
+            /// <value>The testtag.</value>
+            public string testtag { get; set; }
+        }
+
+        public class TestBlocks
+        {
+            /// <summary>
+            ///     Gets or sets the rownr.
+            /// </summary>
+            /// <value>The rownr.</value>
+            public int rownr { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the identifier.
+            /// </summary>
+            /// <value>The identifier.</value>
+            public string id { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testname.
+            /// </summary>
+            /// <value>The testname.</value>
+            public string testblock { get; set; }
+
+            public string testdescription { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testnr.
+            /// </summary>
+            /// <value>The testnr.</value>
+            public int testnr { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testcase.
+            /// </summary>
+            /// <value>The testcase.</value>
+            public string testcase { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testelementname.
+            /// </summary>
+            /// <value>The testelementname.</value>
+            public string testpassword { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testelement.
+            /// </summary>
+            /// <value>The testelement.</value>
+            public string testelement { get; set; }
+
+            public string testelementname { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testattribute.
+            /// </summary>
+            /// <value>The testattribute.</value>
+            public string testattribute { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testaction.
+            /// </summary>
+            /// <value>The testaction.</value>
+            public string testaction { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testtext.
+            /// </summary>
+            /// <value>The testtext.</value>
+            public string testtext { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testurl.
+            /// </summary>
+            /// <value>The testurl.</value>
+            public string testurl { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testswitch.
+            /// </summary>
+            /// <value>The testswitch.</value>
+            public string testswitch { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testext check.
+            /// </summary>
+            /// <value>The testext check.</value>
+            public string testext_check { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testexecution.
+            /// </summary>
+            /// <value>The testexecution.</value>
+            public string testexecution { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testinverse.
+            /// </summary>
+            /// <value>The testinverse.</value>
+            public string testinverse { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testcomment.
+            /// </summary>
+            /// <value>The testcomment.</value>
+            public string testcomment { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testpage.
+            /// </summary>
+            /// <value>The testpage.</value>
+            public string testpage { get; set; }
+
+            /// <summary>
+            ///     Gets or sets the testtag.
             /// </summary>
             /// <value>The testtag.</value>
             public string testtag { get; set; }

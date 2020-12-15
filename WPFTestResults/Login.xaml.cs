@@ -29,8 +29,6 @@ namespace WPFTestResults
 
     using GeneralFunctionality;
 
-    using LicentieWPF;
-    using LicentieWPF.LicenseKey;
 
     using NUnit.Framework;
 
@@ -179,8 +177,8 @@ namespace WPFTestResults
 
             if (returnwaarde != 2)
             {
-                LicenceKey lk = new LicenceKey();
-                lk.Show();
+              // LicenceKey lk = new LicenceKey();
+               // lk.Show();
                 this.Close();
             }
             else
@@ -321,7 +319,7 @@ namespace WPFTestResults
             {
                 var chromePath = Functions.GetCurrentDir(0);
                 this.BeginDateTime = DateTime.Now;
-                InloggerData.MachineCode = Convert.ToString(LicentieMachineCode.getMachineCode());
+                InloggerData.MachineCode = "1234567";//Convert.ToString(LicentieMachineCode.getMachineCode());
                 machinestatic = InloggerData.MachineCode;
 
                 switch (browser_number)
@@ -356,25 +354,25 @@ namespace WPFTestResults
                         }
                         catch (Exception ex)
                         {
-                            General.LogMessageDatabase(ex.Message + "\r\n" + ex.StackTrace, 4, string.Empty, 0, string.Empty, InloggerData.MachineCode);
+                            General.LogMessage(ex.Message + "\r\n" + ex.StackTrace, 4, string.Empty, 0, string.Empty, InloggerData.MachineCode);
                         }
 
                         break;
                 }
 
                 driver.Manage().Window.Maximize();
-                Functions.Teststap(driver, machinestatic, browser_number.ToString(),"", bestandsnaam_argument);
+                Functions.Teststap(driver, machinestatic, browser_number.ToString(),"", bestandsnaam_argument, true);
             }
             catch (Exception ex)
             {
-                General.LogMessageDatabase(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4, string.Empty, 0, string.Empty, InloggerData.MachineCode);
+                General.LogMessage(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4, string.Empty, 0, string.Empty, InloggerData.MachineCode);
             }
             finally
             {
                 try
                 {
                     driver.Quit();
-                    var testresultsCount = TestResultsFactory.GetTestResultSelects();
+                    var testresultsCount = TestResultsFactory.GetTestResultSelects(1);
                     var indexT = testresultsCount.Count;
                     
                     var ttt = testresultsCount[indexT-1].ToString().Split(' ');
@@ -435,15 +433,15 @@ namespace WPFTestResults
                         string.Empty,
                         InloggerData.MachineCode,
                         credits.Url,
-                        bestandsnaam_argument
-
-);
+                        bestandsnaam_argument, 
+                        Convert.ToString(GeneralFunctionality.Functions.getProjectID())
+                    );
 
                     Functions.CreateHTML(indexT.ToString());
                 }
                 catch (Exception ex)
                 {
-                    General.LogMessageDatabase(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4, string.Empty, 0, string.Empty, InloggerData.MachineCode);
+                    General.LogMessage(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4, string.Empty, 0, string.Empty, InloggerData.MachineCode);
                     MessageBox.Show(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source);
                 }
             }
@@ -465,7 +463,7 @@ namespace WPFTestResults
             keyString += General._serialKeyXML.Key5;
             keyString += General._serialKeyXML.Key6;
 
-            string machineNumber = Convert.ToString(LicentieMachineCode.getMachineCode());
+            string machineNumber = "1234567"; //Convert.ToString(LicentieMachineCode.getMachineCode());
 
             var IDString = "FullVersion";
             var result = this.ValidateSerialKey(keyString + IDString);
@@ -502,8 +500,8 @@ namespace WPFTestResults
 
             if (result != 0)
             {
-                var frmLicentieControle = new LicentieControle();
-                frmLicentieControle.Show();
+                //var frmLicentieControle = new LicentieControle();
+                //frmLicentieControle.Show();
                 this.Close();
             }
         }
@@ -659,7 +657,7 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for SubAanmelden
         private void SubAanmelden()
         {
-            General.LogMessageDatabase("Subaanmelden gestart", 1, string.Empty, 0, string.Empty, InloggerData.MachineCode);
+            General.LogMessage("Subaanmelden gestart", 1, string.Empty, 0, string.Empty, InloggerData.MachineCode);
             var caption = "SeleniumTestTool";
             var message = string.Empty;
 
@@ -684,7 +682,7 @@ namespace WPFTestResults
 
             if(resultZoek == 0)
             {
-                General.LogMessageDatabase("Na inloggen is gebruiker niet gevonden", 1, string.Empty, 0, string.Empty, InloggerData.MachineCode);
+                General.LogMessage("Na inloggen is gebruiker niet gevonden", 1, string.Empty, 0, string.Empty, InloggerData.MachineCode);
                 message = "Gebruiker en/of wachtwoord zijn niet gevonden of niet correct!!!\r\nNogmaals proberen?";
                 WPFMessageBoxResult result;
                 result = WPFMessageBoxResult.Yes;
@@ -718,7 +716,7 @@ namespace WPFTestResults
                     InloggerData.Rol = gevonden[0].Rol;
                     InloggerData.Actief = gevonden[0].Actief;
                     InloggerData.Geblokkeerd = gevonden[0].Geblokkeerd;
-                    InloggerData.MachineCode = Convert.ToString(LicentieMachineCode.getMachineCode());
+                    InloggerData.MachineCode = "1234567"; //Convert.ToString(LicentieMachineCode.getMachineCode());
 
                     if (this.BijwerkenIngelogd())
                     {
@@ -732,7 +730,7 @@ namespace WPFTestResults
                 if (gevonden.Count == 0)
                 {
                     WPFMessageBox.Show("Login", "Access Denied", WPFMessageBoxButtons.OK, WPFMessageBoxImage.Alert);
-                    General.LogMessageDatabase("login access denied", 4, string.Empty, 0, string.Empty, InloggerData.MachineCode);
+                    General.LogMessage("login access denied", 4, string.Empty, 0, string.Empty, InloggerData.MachineCode);
                 }
             }
         }
@@ -790,11 +788,11 @@ namespace WPFTestResults
             if (gevonden == 0)
             {
                 result = 4;
-                General.LogMessageDatabase("Gezochte medewerker = '" + parMedewerkersCode + "' is NIET gevonden.", result, string.Empty, 0, string.Empty, InloggerData.MachineCode);
+                General.LogMessage("Gezochte medewerker = '" + parMedewerkersCode + "' is NIET gevonden.", result, string.Empty, 0, string.Empty, InloggerData.MachineCode);
             }
             else
             {
-                General.LogMessageDatabase("Gezochte medewerker = '" + parMedewerkersCode + "' is gevonden.", result, string.Empty, 0, string.Empty, InloggerData.MachineCode);
+                General.LogMessage("Gezochte medewerker = '" + parMedewerkersCode + "' is gevonden.", result, string.Empty, 0, string.Empty, InloggerData.MachineCode);
             }
 
             return gevonden;

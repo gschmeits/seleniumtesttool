@@ -14,7 +14,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -24,24 +25,18 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Xml;
 using System.Xml.Linq;
-
 using DataStorage;
-
 using GeneralFunctionality;
-
-using LicentieWPF;
-
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-
 using Application = System.Windows.Application;
-using DataGrid = System.Web.UI.WebControls.DataGrid;
 using DataGridCell = System.Windows.Controls.DataGridCell;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
@@ -49,14 +44,6 @@ using MessageBox = System.Windows.MessageBox;
 namespace WPFTestResults
 {
     // using OpenQA.Selenium.PhantomJS;
-    using System.Windows.Shapes;
-
-    using static ScreenSize;
-
-    using Point = System.Windows.Point;
-    using Rectangle = System.Drawing.Rectangle;
-    using Size = System.Windows.Size;
-
     /// <summary>
     ///     Class MainWindow.
     /// </summary>
@@ -66,10 +53,6 @@ namespace WPFTestResults
     /// TODO Edit XML Comment Template for MainWindow
     public partial class MainWindow : Window
     {
-        private static List<PreconditionsFactory.Preconditions> Preconditionses { get; set; }
-
-        private static string testCase { get; set; }
-
         /// <summary>
         ///     The driver
         /// </summary>
@@ -88,17 +71,25 @@ namespace WPFTestResults
             Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("en-US");
             InitializeComponent();
 
-            GeneralFunctionality.Functions.InitializeDatabaseConnection(false);
+            GeneralFunctionality.Functions.GetCurrentDir(1);
 
+            General.LogMessage("Inititalize", 1);
+            GeneralFunctionality.Functions.InitializeDatabaseConnection(false);
+            General.LogMessage("GeneralFunctionality.Functions.InitializeDatabaseConnection(false);", 1);
             machinestatic = InloggerData.MachineCode;
 
             HideComponents();
-            ScreenWidth = Screen.PrimaryScreen.Bounds.Width;
-            ScreenHeight = Screen.PrimaryScreen.Bounds.Height;
 
-            Rectangle screen = Screen.PrimaryScreen.WorkingArea;
-            var w = Width >= screen.Width ? screen.Width : screen.Width * 0.95;
-            var h = Height >= screen.Height ? screen.Height : screen.Height * 0.90;
+            var resHeight = Screen.PrimaryScreen.Bounds.Height; // 1080
+            var resWidth = Screen.PrimaryScreen.Bounds.Width; // 1920
+            var actualHeight = SystemParameters.PrimaryScreenHeight; // 1080
+            var actualWidth = SystemParameters.PrimaryScreenWidth; // 1920
+            var ratio = actualHeight / resHeight;
+            var dpi = resHeight / actualHeight; // 1.5 which is true because my settings says my scale is 150%
+            UserInterfaceCustomScale(dpi);
+
+            var w = actualWidth * 0.95;
+            var h = actualHeight * 0.90;
 
             Width = w;
             Height = h;
@@ -146,6 +137,12 @@ namespace WPFTestResults
                 }
             }
         }
+
+        private static List<PreconditionsFactory.Preconditions> Preconditionses { get; set; }
+
+        private static int projectid { get; set; }
+
+        private static string testCase { get; set; }
 
         /// <summary>
         ///     Gets or sets the bestandsnaam argument.
@@ -229,6 +226,22 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for RadioButton
         private int RadioButton { get; set; }
 
+        private bool opslaan { get; set; }
+
+        private void UserInterfaceCustomScale(double customScale)
+        {
+            // Change scale of window content 
+            LayoutTransform = new ScaleTransform(customScale, customScale, 0, 0);
+            Width *= customScale;
+            Height *= customScale;
+
+            // Bring window center screen
+            var screenHeight = SystemParameters.PrimaryScreenHeight;
+            var screenWidth = SystemParameters.PrimaryScreenWidth;
+            Top = (screenHeight - Height) / 2;
+            Left = (screenWidth - Width) / 2;
+        }
+
         /// <summary>
         ///     Determines whether [is window open] [the specified name].
         /// </summary>
@@ -241,8 +254,8 @@ namespace WPFTestResults
             where T : Window
         {
             return string.IsNullOrEmpty(name)
-                       ? Application.Current.Windows.OfType<T>().Any()
-                       : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
+                ? Application.Current.Windows.OfType<T>().Any()
+                : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
         }
 
         /// <summary>
@@ -297,28 +310,36 @@ namespace WPFTestResults
         private void ButtonExecuteClick(object sender, RoutedEventArgs e)
         {
             //GridBrowserLoad.Visibility = Visibility.Hidden;
-
-            var credits = GeneralFunctionality.Functions.GetCredentials(Bestandsnaam);
-            General.LogMessageDatabase("GetCredit: " + credits, 1);
+            var credits = GeneralFunctionality.Functions.GetCredentials(
+                GeneralFunctionality.Functions._project + @"\" + Bestandsnaam);
+            General.LogMessage("GetCredit: " + credits, 1);
             machinestatic = InloggerData.MachineCode;
             var applicatieNaam = credits.Application;
 
             var urlstring = credits.Url;
-            if (TextBoxExtra.Text != string.Empty)
-            {
-                urlstring = credits.Url + TextBoxExtra.Text;
-            }
-
+            if (TextBoxExtra.Text != string.Empty) urlstring = TextBoxExtra.Text;
+            var table = General.GetTestrun(Bestandsnaam);
             using (new PleaseWait())
             {
                 try
                 {
+                    if (table.Rows[0]["testaction"].ToString().Trim() == "cmd")
+                        using (var cmd = Process.Start(table.Rows[0]["testtext"].ToString().Trim()))
+                        {
+                            cmd.WaitForExit();
+                        }
+
+                    if (CheckBoxSaveResults.IsChecked == true)
+                        opslaan = true;
+                    else
+                        opslaan = false;
                     var chromePath = GeneralFunctionality.Functions.GetCurrentDir(0);
                     switch (RadioButton)
                     {
                         case 1:
                             driver = new ChromeDriver(chromePath) {Url = urlstring};
-                            General.LogMessageDatabase("Chrome gekozen als 'driver'", 0, string.Empty, 0, string.Empty,
+                            General.LogMessage("Chrome gekozen als 'driver'", 0, string.Empty, 0,
+                                string.Empty,
                                 machinestatic);
                             break;
                         case 2:
@@ -349,7 +370,7 @@ namespace WPFTestResults
                             }
                             catch (Exception ex)
                             {
-                                General.LogMessageDatabase(
+                                General.LogMessage(
                                     ex.Message + "\r\n" + ex.StackTrace,
                                     4,
                                     string.Empty,
@@ -362,19 +383,21 @@ namespace WPFTestResults
                     }
 
                     driver.Manage().Window.Maximize();
-                    var table = General.GetTestrun(Bestandsnaam);
                     bestandsnaam_argument = Bestandsnaam;
                     LabelApplicationData.Content = table.Rows[0]["testname"].ToString().Trim();
-                    GeneralFunctionality.Functions.Teststap(
-                        driver,
-                        machinestatic,
-                        RadioButton.ToString(),
-                        TextBoxVersion.Text.Trim(),
-                        bestandsnaam_argument);
+                    var drTitle = driver.Title;
+                    if (drTitle != null)
+                        GeneralFunctionality.Functions.Teststap(
+                            driver,
+                            machinestatic,
+                            RadioButton.ToString(),
+                            TextBoxVersion.Text.Trim(),
+                            bestandsnaam_argument,
+                            opslaan);
                 }
                 catch (Exception ex)
                 {
-                    General.LogMessageDatabase(
+                    General.LogMessage(
                         ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
                         4,
                         string.Empty,
@@ -384,50 +407,59 @@ namespace WPFTestResults
                 }
                 finally
                 {
-                    driver.Quit();
+                    if (driver != null)
+                    {
+                        driver.Quit();
+
+                        if (opslaan)
+                        {
+                            VulTestResults();
+                            CheckFromTill();
+                            var testresultsCount = TestResultsFactory.GetTestResultSelects(projectid);
+                            var indexT = testresultsCount.Count;
+                            ComboTestFrom.SelectedIndex = indexT;
+                            ComboTestFrom.Text = ComboTestFrom.Items[0].ToString();
+                            ComboTestTill.SelectedIndex = indexT;
+                            ComboTestTill.Text = ComboTestTill.Items[0].ToString();
+                            CheckFromTill();
+                            var ttt = ComboTestFrom.Text.Split(' ');
+                            LabelAppliction.Visibility = Visibility.Visible;
+                            LabelApplicationData.Visibility = Visibility.Visible;
+                            EinDateTime = DateTime.Now;
+                            TextBlockDateTime.Text = (EinDateTime - BeginDateTime).ToString();
+                            Version.Text = TextBoxVersion.Text;
+                            if (Version.Text.IsEmpty()) LabelVersion.Visibility = Visibility.Hidden;
+                            else LabelVersion.Visibility = Visibility.Visible;
+
+                            // MessageBox.Show(credits.Url);
+                            DataStorage.TestCases.AddTestResults(
+                                applicatieNaam,
+                                ttt[0],
+                                Passed.Text.Replace(",", string.Empty),
+                                Failed.Text.Replace(",", string.Empty),
+                                BeginDateTime,
+                                EinDateTime,
+                                TextBlockDateTime.Text,
+                                RadioButton.ToString(),
+                                TextBoxVersion.Text,
+                                machinestatic,
+                                credits.Url,
+                                bestandsnaam_argument,
+                                Convert.ToString(GeneralFunctionality.Functions.getProjectID()));
+                            ShowDataGrid(true);
+                            TextBoxExtra.Text = string.Empty;
+                        }
+                    }
+
                     GridBrowser.Visibility = Visibility.Hidden;
-                    VulTestResults();
-                    CheckFromTill();
-                    var testresultsCount = TestResultsFactory.GetTestResultSelects();
-                    var indexT = testresultsCount.Count;
-                    ComboTestFrom.SelectedIndex = indexT;
-                    ComboTestFrom.Text = ComboTestFrom.Items[0].ToString();
-                    ComboTestTill.SelectedIndex = indexT;
-                    ComboTestTill.Text = ComboTestTill.Items[0].ToString();
-                    CheckFromTill();
-                    var ttt = ComboTestFrom.Text.Split(' ');
-                    LabelAppliction.Visibility = Visibility.Visible;
-                    LabelApplicationData.Visibility = Visibility.Visible;
-                    EinDateTime = DateTime.Now;
-                    TextBlockDateTime.Text = (EinDateTime - BeginDateTime).ToString();
-                    Version.Text = TextBoxVersion.Text;
-                    if (Version.Text.IsEmpty()) LabelVersion.Visibility = Visibility.Hidden;
-                    else LabelVersion.Visibility = Visibility.Visible;
-
-                    // MessageBox.Show(credits.Url);
-                    DataStorage.TestCases.AddTestResults(
-                        applicatieNaam,
-                        ttt[0],
-                        Passed.Text.Replace(",", string.Empty),
-                        Failed.Text.Replace(",", string.Empty),
-                        BeginDateTime,
-                        EinDateTime,
-                        TextBlockDateTime.Text,
-                        RadioButton.ToString(),
-                        TextBoxVersion.Text,
-                        machinestatic,
-                        credits.Url,
-                        bestandsnaam_argument);
-
                     DataGridPre.Visibility = Visibility.Hidden;
                     LabelPreconditions.Visibility = Visibility.Hidden;
-                    ShowDataGrid(true);
-                    TextBoxExtra.Text = string.Empty;
 
                     // GeneralFunctionality.Functions.CreateHTML(ttt[0]);
                 }
             }
         }
+
 
         private void ButtonExecuteLoadClick(object sender, RoutedEventArgs e)
         {
@@ -455,52 +487,52 @@ namespace WPFTestResults
 
                         var xml = XDocument.Load(openFileDialog.FileName);
                         foreach (XmlNode node in xDoc.DocumentElement.ChildNodes)
-                            foreach (XmlNode locNode in node)
-                            {
-                                foreach (XmlNode nodeElement in locNode)
-                                    switch (nodeElement.Name)
-                                    {
-                                        case "element_xpath"
-                                            when nodeElement.InnerText != "null" && attribute == string.Empty:
-                                            element = nodeElement.InnerText;
-                                            attribute = "xpath";
-                                            break;
-                                        case "element_name"
-                                            when nodeElement.InnerText != "null" && attribute == string.Empty:
-                                            element = nodeElement.InnerText;
-                                            attribute = "name";
-                                            break;
-                                        case "element_id" when nodeElement.InnerText != "null" && attribute == string.Empty:
-                                            element = nodeElement.InnerText;
-                                            attribute = "id";
-                                            break;
-                                    }
-
-                                if (element.Length != 0 && attribute.Length != 0)
+                        foreach (XmlNode locNode in node)
+                        {
+                            foreach (XmlNode nodeElement in locNode)
+                                switch (nodeElement.Name)
                                 {
-                                    DataStorage.TestCases.AddTestCase(
-                                        TextBoxTestNameImport.Text,
-                                        intTeller.ToString(),
-                                        testCase,
-                                        string.Empty,
-                                        element,
-                                        attribute,
-                                        string.Empty,
-                                        string.Empty,
-                                        string.Empty,
-                                        "yes",
-                                        string.Empty,
-                                        "no",
-                                        string.Empty,
-                                        string.Empty,
-                                        machinestatic,
-                                        string.Empty,
-                                        string.Empty);
-                                    intTeller++;
-                                    element = string.Empty;
-                                    attribute = string.Empty;
+                                    case "element_xpath"
+                                        when nodeElement.InnerText != "null" && attribute == string.Empty:
+                                        element = nodeElement.InnerText;
+                                        attribute = "xpath";
+                                        break;
+                                    case "element_name"
+                                        when nodeElement.InnerText != "null" && attribute == string.Empty:
+                                        element = nodeElement.InnerText;
+                                        attribute = "name";
+                                        break;
+                                    case "element_id" when nodeElement.InnerText != "null" && attribute == string.Empty:
+                                        element = nodeElement.InnerText;
+                                        attribute = "id";
+                                        break;
                                 }
+
+                            if (element.Length != 0 && attribute.Length != 0)
+                            {
+                                DataStorage.TestCases.AddTestCase(
+                                    TextBoxTestNameImport.Text,
+                                    intTeller.ToString(),
+                                    testCase,
+                                    string.Empty,
+                                    element,
+                                    attribute,
+                                    string.Empty,
+                                    string.Empty,
+                                    string.Empty,
+                                    "yes",
+                                    string.Empty,
+                                    "no",
+                                    string.Empty,
+                                    string.Empty,
+                                    machinestatic,
+                                    string.Empty,
+                                    string.Empty);
+                                intTeller++;
+                                element = string.Empty;
+                                attribute = string.Empty;
                             }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -564,7 +596,8 @@ namespace WPFTestResults
         private void ButtonSelectXML_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = GeneralFunctionality.Functions.GetCurrentDir(1);
+            openFileDialog.InitialDirectory = GeneralFunctionality.Functions.GetCurrentDir(1) +
+                                              GeneralFunctionality.Functions._project;
             openFileDialog.Filter = "XML files(*.xml)|*.xml|All files(*.*)|*.*";
             openFileDialog.FilterIndex = 2;
             openFileDialog.RestoreDirectory = true;
@@ -578,7 +611,7 @@ namespace WPFTestResults
                 }
                 catch (Exception ex)
                 {
-                    General.LogMessageDatabase(ex.Message, 4, string.Empty, 0, string.Empty, machinestatic);
+                    General.LogMessage(ex.Message, 4, string.Empty, 0, string.Empty, machinestatic);
                 }
         }
 
@@ -627,7 +660,8 @@ namespace WPFTestResults
 
         private void CheckTestCases()
         {
-            var bestanden = Directory.GetFiles(GeneralFunctionality.Functions.GetCurrentDir(1));
+            var bestanden = Directory.GetFiles(GeneralFunctionality.Functions.GetCurrentDir(1) +
+                                               GeneralFunctionality.Functions._project);
             if (bestanden.Length == 0) ExecuteTestsSql.IsEnabled = false;
             else ExecuteTestsSql.IsEnabled = true;
         }
@@ -659,7 +693,7 @@ namespace WPFTestResults
                 switch (browser_number)
                 {
                     case 1:
-                        driver = new ChromeDriver(chromePath) { Url = credits.Url };
+                        driver = new ChromeDriver(chromePath) {Url = credits.Url};
                         break;
                     case 2:
                         driver = new FirefoxDriver();
@@ -689,7 +723,7 @@ namespace WPFTestResults
                         }
                         catch (Exception ex)
                         {
-                            General.LogMessageDatabase(
+                            General.LogMessage(
                                 ex.Message + "\r\n" + ex.StackTrace,
                                 4,
                                 string.Empty,
@@ -709,11 +743,12 @@ namespace WPFTestResults
                     machinestatic,
                     RadioButton.ToString(),
                     TextBoxVersion.Text,
-                    bestandsnaam_argument);
+                    bestandsnaam_argument,
+                    opslaan);
             }
             catch (Exception ex)
             {
-                General.LogMessageDatabase(
+                General.LogMessage(
                     ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
                     4,
                     string.Empty,
@@ -728,7 +763,7 @@ namespace WPFTestResults
                     driver.Quit();
                     VulTestResults();
                     CheckFromTill();
-                    var testresultsCount = TestResultsFactory.GetTestResultSelects();
+                    var testresultsCount = TestResultsFactory.GetTestResultSelects(projectid);
                     var indexT = testresultsCount.Count;
                     ComboTestFrom.SelectedIndex = indexT;
                     ComboTestFrom.Text = ComboTestFrom.Items[0].ToString();
@@ -757,7 +792,8 @@ namespace WPFTestResults
                         TextBoxVersion.Text,
                         machinestatic,
                         credits.Url,
-                        bestandsnaam_argument);
+                        bestandsnaam_argument,
+                        Convert.ToString(GeneralFunctionality.Functions.getProjectID()));
 
                     ShowDataGrid(true);
 
@@ -765,7 +801,7 @@ namespace WPFTestResults
                 }
                 catch (Exception ex)
                 {
-                    General.LogMessageDatabase(
+                    General.LogMessage(
                         ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
                         4,
                         string.Empty,
@@ -781,7 +817,7 @@ namespace WPFTestResults
         {
             HideElementsForm();
             ScrollViewerHtml.Visibility = Visibility.Hidden;
-            var testscriptsEdit = new ScriptScreen();
+            var testscriptsEdit = new ScriptScreen(GeneralFunctionality.Functions._project, projectid.ToString());
             AddingTests.IsEnabled = false;
             testscriptsEdit.Show();
         }
@@ -796,62 +832,73 @@ namespace WPFTestResults
             LabelAppliction.Visibility = Visibility.Hidden;
             LabelApplicationData.Visibility = Visibility.Hidden;
 
-            var openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = GeneralFunctionality.Functions.GetCurrentDir(1);
-            openFileDialog.Filter = "XML files(*.xml)|*.xml|All files(*.*)|*.*";
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
+            //VersionClass.OpenBestand();
+
+            //var openFileDialog = new OpenFileDialog();
+            //openFileDialog.InitialDirectory = GeneralFunctionality.Functions.GetCurrentDir(1) + GeneralFunctionality.Functions._project;
+
+
+            //openFileDialog.Filter = "XML files(*.xml)|*.xml|All files(*.*)|*.*";
+            //openFileDialog.FilterIndex = 2;
+            //openFileDialog.RestoreDirectory = true;
+
+
+            VersionClass.OpenBestand();
+            var bestandsnaam = VersionClass.Bestandsnaam;
+            Bestandsnaam = bestandsnaam;
 
             OverallSettings.ShowData();
+            try
+            {
+                Stack.Visibility = Visibility.Hidden;
+                ButtonHtml.Visibility = Visibility.Hidden;
+                ButtonHtmlShow.Visibility = Visibility.Hidden;
 
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                try
+                // Initialise
+                GeneralFunctionality.Functions.GetCurrentDir(0);
+                var credits =
+                    GeneralFunctionality.Functions.GetCredentials(
+                        GeneralFunctionality.Functions._project + @"\" + bestandsnaam);
+                GeneralFunctionality.Functions.GetCurrentDir(0);
+                GeneralFunctionality.Functions.setTestrunID(General.LastTestRun);
+                GeneralFunctionality.Functions.setClassName(GetType().Name);
+                GeneralFunctionality.Functions.setApplicationName(credits.Application);
+
+                // Vul de TextBoxExtra.Text met de juiste URL
+                TextBoxExtra.Text = credits.Url;
+
+                GeneralFunctionality.Functions.CheckScreenshotDir("TestReports");
+                GeneralFunctionality.Functions.CheckScreenshotDir();
+
+                ShowDataGrid(false);
+
+                CheckBoxSaveResults.IsChecked = true;
+                GridBrowser.Visibility = Visibility.Visible;
+
+                Preconditionses = PreconditionsFactory.GetPreconditions(Bestandsnaam);
+
+                DataGridPre.ItemsSource = null;
+                DataGridPre.Height = Preconditionses.Count * 18;
+                DataGridPre.ItemsSource = Preconditionses;
+                if (Preconditionses.Count > 0)
                 {
-                    Bestand = openFileDialog.FileName;
-                    Bestandsnaam = GeneralFunctionality.Functions.SplitBestand(Bestand);
-                    Stack.Visibility = Visibility.Hidden;
-                    ButtonHtml.Visibility = Visibility.Hidden;
-                    ButtonHtmlShow.Visibility = Visibility.Hidden;
-
-                    // Initialise
-                    GeneralFunctionality.Functions.GetCurrentDir(0);
-                    var credits = GeneralFunctionality.Functions.GetCredentials(Bestandsnaam);
-                    GeneralFunctionality.Functions.GetCurrentDir(0);
-                    GeneralFunctionality.Functions.setTestrunID(General.LastTestRun);
-                    GeneralFunctionality.Functions.setClassName(GetType().Name);
-                    GeneralFunctionality.Functions.setApplicationName(credits.Application);
-
-                    GeneralFunctionality.Functions.CheckScreenshotDir("TestReports");
-                    GeneralFunctionality.Functions.CheckScreenshotDir();
-
-                    ShowDataGrid(false);
-
-                    GridBrowser.Visibility = Visibility.Visible;
-
-                    Preconditionses = PreconditionsFactory.GetPreconditions(Bestandsnaam);
-
-                    DataGridPre.ItemsSource = null;
-                    DataGridPre.Height = Preconditionses.Count * 18;
-                    DataGridPre.ItemsSource = Preconditionses;
-                    if (Preconditionses.Count > 0)
-                    {
-                        DataGridPre.Visibility = Visibility.Visible;
-                        LabelPreconditions.Visibility = Visibility.Visible;
-                    }
-
-                    ButtonHtml.Visibility = Visibility.Hidden;
-                    ButtonHtmlShow.Visibility = Visibility.Hidden;
+                    DataGridPre.Visibility = Visibility.Visible;
+                    LabelPreconditions.Visibility = Visibility.Visible;
                 }
-                catch (Exception ex)
-                {
-                    General.LogMessageDatabase(
-                        ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
-                        4,
-                        string.Empty,
-                        0,
-                        string.Empty,
-                        machinestatic);
-                }
+
+                ButtonHtml.Visibility = Visibility.Hidden;
+                ButtonHtmlShow.Visibility = Visibility.Hidden;
+            }
+            catch (Exception ex)
+            {
+                General.LogMessage(
+                    ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source,
+                    4,
+                    string.Empty,
+                    0,
+                    string.Empty,
+                    machinestatic);
+            }
         }
 
         private void HideComponents()
@@ -882,8 +929,8 @@ namespace WPFTestResults
 
         private void MenuItemCheckKey_Click(object sender, RoutedEventArgs e)
         {
-            var LicenseKey = new LicenceKey();
-            LicenseKey.Show();
+            //var LicenseKey = new LicenceKey();
+            //LicenseKey.Show();
         }
 
         private void MenuItemCopyElementsClick(object sender, RoutedEventArgs e)
@@ -1026,7 +1073,8 @@ namespace WPFTestResults
         private void StartElementsForm(string getset)
         {
             HideElementsForm();
-            var elementsGetSet = new ElementsGetSet(getset);
+            var elementsGetSet =
+                new ElementsGetSet(getset, GeneralFunctionality.Functions._project, projectid.ToString());
             elementsGetSet.Show();
         }
 
@@ -1114,7 +1162,7 @@ namespace WPFTestResults
             ComboTestFrom.Items.Clear();
             ComboTestTill.Items.Clear();
 
-            TestresultsFact = TestResultsFactory.GetTestResultSelects();
+            TestresultsFact = TestResultsFactory.GetTestResultSelects(projectid);
             foreach (var gu in TestresultsFact)
             {
                 string tekst;
@@ -1147,9 +1195,8 @@ namespace WPFTestResults
 
         private void Window_GotFocus(object sender, RoutedEventArgs e)
         {
-
-            CheckTestCases();
-           // GridBrowser.Visibility = Visibility.Hidden;
+            //CheckTestCases();
+            // GridBrowser.Visibility = Visibility.Hidden;
         }
 
         private void WindowActivated(object sender, EventArgs e)
@@ -1162,15 +1209,15 @@ namespace WPFTestResults
                 AddingTests.IsEnabled = true;
             }
 
-            if (GeneralFunctionality.Functions.uitgevoerd == true)
-            {
-                VulTestResults();
-            }
+            if (GeneralFunctionality.Functions.uitgevoerd) VulTestResults();
         }
 
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
             VulTestResults();
+            GridProject.Visibility = Visibility.Visible;
+            GridProjectCreate.Visibility = Visibility.Hidden;
+            opslaan = true;
         }
 
         private void ButtonRefreshRuns_Click(object sender, RoutedEventArgs e)
@@ -1190,10 +1237,10 @@ namespace WPFTestResults
             settingsOverallSettings.Show();
         }
 
-        private void DataGridGer_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void DataGridGer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var index = DataGridGer.CurrentColumn.DisplayIndex;
-           //MessageBox.Show(DataGridGer.Columns[index].Width.ToString());
+            //MessageBox.Show(DataGridGer.Columns[index].Width.ToString());
         }
 
         public DataGridCell GetCell(int row, int column)
@@ -1204,11 +1251,11 @@ namespace WPFTestResults
                 var visualChild = GetVisualChild<DataGridCellsPresenter>(row1);
                 if (visualChild != null)
                 {
-                    var dataGridCell = (DataGridCell)visualChild.ItemContainerGenerator.ContainerFromIndex(column);
+                    var dataGridCell = (DataGridCell) visualChild.ItemContainerGenerator.ContainerFromIndex(column);
                     if (dataGridCell == null)
                     {
                         DataGridGer.ScrollIntoView(row1, DataGridGer.Columns[column]);
-                        dataGridCell = (DataGridCell)visualChild.ItemContainerGenerator.ContainerFromIndex(column);
+                        dataGridCell = (DataGridCell) visualChild.ItemContainerGenerator.ContainerFromIndex(column);
                     }
 
                     return dataGridCell;
@@ -1217,25 +1264,27 @@ namespace WPFTestResults
 
             return null;
         }
+
         public DataGridRow GetRow(int index)
         {
-            var dataGridRow = (DataGridRow)DataGridGer.ItemContainerGenerator.ContainerFromIndex(index);
+            var dataGridRow = (DataGridRow) DataGridGer.ItemContainerGenerator.ContainerFromIndex(index);
             if (dataGridRow == null)
             {
                 DataGridGer.UpdateLayout();
                 DataGridGer.ScrollIntoView(DataGridGer.Items[index]);
-                dataGridRow = (DataGridRow)DataGridGer.ItemContainerGenerator.ContainerFromIndex(index);
+                dataGridRow = (DataGridRow) DataGridGer.ItemContainerGenerator.ContainerFromIndex(index);
             }
 
             return dataGridRow;
         }
+
         public static T GetVisualChild<T>(Visual parent) where T : Visual
         {
             var obj = default(T);
             var childrenCount = VisualTreeHelper.GetChildrenCount(parent);
             for (var childIndex = 0; childIndex < childrenCount; ++childIndex)
             {
-                var child = (Visual)VisualTreeHelper.GetChild(parent, childIndex);
+                var child = (Visual) VisualTreeHelper.GetChild(parent, childIndex);
                 obj = child as T;
                 if (obj == null)
                     obj = GetVisualChild<T>(child);
@@ -1246,5 +1295,215 @@ namespace WPFTestResults
             return obj;
         }
 
+        private void MenuItemExtrasTestScript_OnClick(object sender, RoutedEventArgs e)
+        {
+            var dirs = Directory.GetFiles(GeneralFunctionality.Functions.GetCurrentDir(1) +
+                                          GeneralFunctionality.Functions._project + @"\", "*.xml");
+            var bestandsnaam = "";
+            var que = "";
+            var que1 = "";
+            var dataTable = new DataTable();
+
+
+            foreach (var dir1 in dirs)
+            {
+                bestandsnaam = GeneralFunctionality.Functions.SplitBestand(dir1);
+
+                var credits =
+                    GeneralFunctionality.Functions.GetCredentials(GeneralFunctionality.Functions._project + @"\" +
+                                                                  bestandsnaam);
+                //var credits = GeneralFunctionality.Functions.GetCredentials(
+                //GeneralFunctionality.Functions._project + @"\" + Bestandsnaam);
+
+                que = "SELECT application FROM testxml WHERE application = '" + credits.Application + "';";
+                dataTable = GenericDataRead.GetData(que);
+
+                if (dataTable.Rows.Count == 0)
+                {
+                    que1 = "INSERT INTO testxml (bestandsnaam, url, application, page, project_id) VALUES " +
+                           "('" + bestandsnaam + ".xml', '" + credits.Url + "', '" + credits.Application + "', "
+                           + credits.Page + ", " + projectid + ");";
+                    GenericDataRead.INUPDEL(que1);
+                }
+            }
+
+            MessageBox.Show("Testscripts up to date", "Upload TestScripts", MessageBoxButton.OK);
+        }
+
+        private void MenuItemExtraTestScriptDownload_OnClick(object sender, RoutedEventArgs e)
+        {
+            var que = "SELECT bestandsnaam, application, url, page FROM testxml WHERE project_id = '" + projectid +
+                      "';";
+            var dataTable = GenericDataRead.GetData(que);
+            var bestandsnaam = "";
+            var dirs = Directory.GetFiles(GeneralFunctionality.Functions.GetCurrentDir(1) +
+                                          GeneralFunctionality.Functions._project + @"\", "*.xml");
+            var waarde = 0;
+
+            if (dataTable.Rows.Count != 0)
+                for (var x = 0; x < dataTable.Rows.Count; x++)
+                {
+                    waarde = 0;
+                    bestandsnaam = GeneralFunctionality.Functions.GetCurrentDir(1) +
+                                   GeneralFunctionality.Functions._project + @"\" + dataTable.Rows[x][0];
+                    foreach (var dir1 in dirs)
+                        if (dir1 == bestandsnaam)
+                        {
+                            waarde = 1;
+                            break;
+                        }
+
+                    if (waarde == 0)
+                        try
+                        {
+                            var settingsXML = new XmlWriterSettings();
+                            settingsXML.Indent = true;
+                            settingsXML.OmitXmlDeclaration = true;
+                            settingsXML.IndentChars = "\t";
+
+                            using (var writer =
+                                XmlWriter.Create(bestandsnaam, settingsXML))
+                            {
+                                writer.WriteStartDocument();
+                                writer.WriteStartElement("settings");
+                                writer.WriteStartElement("start");
+                                writer.WriteElementString("url", dataTable.Rows[x][2].ToString());
+                                writer.WriteElementString("application", dataTable.Rows[x][1].ToString());
+                                writer.WriteElementString("page", dataTable.Rows[x][3].ToString());
+                                writer.WriteEndElement();
+                                writer.WriteEndElement();
+                                writer.WriteEndDocument();
+                            }
+                        }
+                        catch (Exception exception)
+                        {
+                            General.LogMessage(
+                                exception.Message + "\r\n" + exception.Source + "\r\n" + exception.StackTrace, 4);
+                        }
+                }
+
+            MessageBox.Show("Testscripts up to date", "Download TestScripts", MessageBoxButton.OK);
+        }
+
+        private void MenuItemCopyPreconditions_Click(object sender, RoutedEventArgs e)
+        {
+            var copyPreConditions = new CopyPrecondtions();
+            copyPreConditions.Show();
+        }
+
+        private void GridProject_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible) VulListBox();
+        }
+
+        private void VulListBox()
+        {
+            ListBoxDir.Items.Clear();
+
+            var dirs = Directory.GetDirectories(GeneralFunctionality.Functions.GetCurrentDir(1));
+            foreach (var dir in dirs)
+            {
+                var dir_info = new DirectoryInfo(dir);
+                var directory = dir_info.Name;
+                ListBoxDir.Items.Add(directory);
+            }
+
+            if (dirs.Length == 0)
+                ButtonProjectSelect.IsEnabled = false;
+            else
+                ButtonProjectSelect.IsEnabled = true;
+        }
+
+        private void MenuItemSettingsProject_Click(object sender, RoutedEventArgs e)
+        {
+            GridProject.Visibility = Visibility.Visible;
+        }
+
+        private void ButtonProjectSelect_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListBoxDir.Items.Count > 0 && GridProject.Visibility == Visibility.Visible)
+                try
+                {
+                    foreach (var itm in ListBoxDir.SelectedItems)
+                    {
+                        GeneralFunctionality.Functions.setProjectName(itm.ToString());
+
+                        projectid = GeneralFunctionality.Functions.getProjectID();
+                        VulTestResults();
+                        CheckTestCases();
+                        MessageBox.Show("The project '" + itm + "' is selected.", "Selected Project",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                        GridProject.Visibility = Visibility.Hidden;
+                        // MessageBox.Show(GeneralFunctionality.Functions._project);
+                    }
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                }
+        }
+
+        private void ButtonProjectCreate_Click(object sender, RoutedEventArgs e)
+        {
+            GridProjectCreate.Visibility = Visibility.Visible;
+        }
+
+        private void ButtonProjectCreateCancel_Click(object sender, RoutedEventArgs e)
+        {
+            GridProjectCreate.Visibility = Visibility.Hidden;
+        }
+
+        private void ButtonProjectCreateSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxNewProject.Text != string.Empty)
+            {
+                // Check if directory already exists
+                foreach (var itm in ListBoxDir.Items)
+                    if (itm.ToString().ToUpper() == TextBoxNewProject.Text.ToUpper())
+                    {
+                        MessageBox.Show(
+                            "Directory with the name of '" + itm + "' already exists.\r\nTake another name!!!",
+                            "Creating a New Project", MessageBoxButton.OK, MessageBoxImage.Stop);
+                        return;
+                    }
+                    else
+                    {
+                        var query = "SELECT UPPER(project_name) FROM projects WHERE UPPER(project_name) = '" +
+                                    TextBoxNewProject.Text.ToUpper() + "';";
+                        var ds = GenericDataRead.GetData(query);
+                        if (ds.Rows.Count == 0)
+                        {
+                            query = "INSERT INTO projects (project_name) VALUES ('" + TextBoxNewProject.Text + "')";
+                            GenericDataRead.INUPDEL(query);
+                        }
+                    }
+
+                Directory.CreateDirectory(GeneralFunctionality.Functions.GetCurrentDir(1) + "\\" +
+                                          TextBoxNewProject.Text);
+                MessageBox.Show("Project '" + TextBoxNewProject.Text + "' is created.", "Create Project",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                VulListBox();
+                GridProjectCreate.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void GridProjectCreate_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (GridProjectCreate.Visibility == Visibility.Visible) TextBoxNewProject.Focus();
+        }
+
+        private void ButtonSluitProject_Click(object sender, RoutedEventArgs e)
+        {
+            GridProject.Visibility = Visibility.Hidden;
+        }
+
+        private void MenuItemTestModule_OnClick(object sender, RoutedEventArgs e)
+        {
+            HideElementsForm();
+            ScrollViewerHtml.Visibility = Visibility.Hidden;
+            var testModules = new TestBlock(GeneralFunctionality.Functions._project, projectid.ToString());
+            AddingTests.IsEnabled = false;
+            testModules.Show();
+        }
     }
 }

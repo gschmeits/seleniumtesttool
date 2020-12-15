@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Threading;
@@ -54,15 +55,22 @@ namespace WPFTestResults
         private readonly List<TreeViewItem> selectedTreeViewItemList = new List<TreeViewItem>();
         private readonly List<TreeViewItem> selectedTreeViewItemList2 = new List<TreeViewItem>();
 
-        public ScriptScreen()
+
+        private string project;
+        private string project_id;
+
+        public ScriptScreen(string _project, string projectid)
         {
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
             Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("en-US");
 
-            var screen = Screen.PrimaryScreen.WorkingArea;
-            var w = Width >= screen.Width ? screen.Width : screen.Width * 0.65;
-            var h = Height >= screen.Height ? screen.Height : screen.Height * 0.60;
+            project = _project;
+            project_id = projectid;
+            
+            var w = 1920 * 0.65;
+            var h = 1080 * 0.60;
+
             Width = w;
             Height = h;
             TreeView1.Height = h * 0.6;
@@ -109,12 +117,13 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for TestresultsFact
         private static List<TestResultsFactory.TestResultsSelect> TestresultsFact { get; set; }
 
+
         // true only while left ctrl key is pressed
         private bool CtrlPressed => Keyboard.IsKeyDown(Key.LeftCtrl);
 
         private void GetScripts()
         {
-            ComboBoxLoadScripts.Items.Clear();
+            ComboBoxLoadScripts.ItemsSource = null;
             TestScripts = ScriptsDataFactory.GetScripts();
 
             ComboBoxLoadScripts.ItemsSource = TestScripts;
@@ -134,7 +143,7 @@ namespace WPFTestResults
 
         private void GetBestanden()
         {
-            var dirs = Directory.GetFiles(GeneralFunctionality.Functions.GetCurrentDir(1), "*.xml");
+            var dirs = Directory.GetFiles(GeneralFunctionality.Functions.GetCurrentDir(1) + GeneralFunctionality.Functions._project, "*.xml");
 
             TreeView1.Items.Clear();
             foreach (var dir1 in dirs)
@@ -143,7 +152,8 @@ namespace WPFTestResults
                 var item = new TreeViewItem();
                 item.Header = bestandsnaam;
 
-                var credits = GeneralFunctionality.Functions.GetCredentials(bestandsnaam);
+                //var credits = GeneralFunctionality.Functions.GetCredentials(bestandsnaam);
+                var credits = Functions.GetCredentials(Functions._project + @"\" + bestandsnaam);
                 item.ItemsSource = new[] {bestandsnaam, credits.Url, credits.Application, credits.Page};
 
                 TreeView1.Items.Add(item);
@@ -401,7 +411,7 @@ namespace WPFTestResults
                     GeneralFunctionality.Functions.setTestrunID(General.LastTestRun);
                     Bestandsnaam = node.Header.ToString();
                     BeginDateTime = DateTime.Now;
-                    var credits = GeneralFunctionality.Functions.GetCredentials(Bestandsnaam);
+                    var credits = GeneralFunctionality.Functions.GetCredentials(project + "\\" + Bestandsnaam);
                     machinestatic = InloggerData.MachineCode;
                     var applicatieNaam = credits.Application;
 
@@ -412,7 +422,7 @@ namespace WPFTestResults
                     {
                         case 1:
                             driver = new ChromeDriver(chromePath) { Url = urlstring };
-                            General.LogMessageDatabase("Chrome gekozen als 'driver'", 0, string.Empty, 0,
+                            General.LogMessage("Chrome gekozen als 'driver'", 0, string.Empty, 0,
                                 string.Empty,
                                 machinestatic);
                             break;
@@ -444,7 +454,7 @@ namespace WPFTestResults
                             }
                             catch (Exception ex)
                             {
-                                General.LogMessageDatabase(
+                                General.LogMessage(
                                     ex.Message + "\r\n" + ex.StackTrace,
                                     4,
                                     string.Empty,
@@ -464,7 +474,8 @@ namespace WPFTestResults
                         machinestatic,
                         RadioButton.ToString(),
                         "",
-                        bestandsnaam_argument);
+                        bestandsnaam_argument,
+                        true);
 
                     driver.Quit();
 
@@ -503,7 +514,8 @@ namespace WPFTestResults
                             "",
                             machinestatic,
                             credits.Url,
-                            bestandsnaam_argument);
+                            bestandsnaam_argument,
+                            Convert.ToString(GeneralFunctionality.Functions.getProjectID()));
                         passedGer += Convert.ToInt32(passed1);
                         failedGer += Convert.ToInt32(failed1);
                     }
@@ -605,7 +617,9 @@ namespace WPFTestResults
         private void ComboBoxLoadScripts_DropDownClosed(object sender, EventArgs e)
         {
             TreeView2.Items.Clear();
-            if (ComboBoxLoadScripts.SelectedIndex != -1){
+            if (ComboBoxLoadScripts.SelectedIndex != -1)
+            {
+                ButtonDeleteScript.IsEnabled = true;
                 TestScriptsDetails = ScriptsDataFactory.GetScriptsDetails(ComboBoxLoadScripts.SelectedValue.ToString());
                 if (TestScriptsDetails.Count > 0)
                 {
@@ -687,6 +701,7 @@ namespace WPFTestResults
         private void ButtonSaveAs_Click(object sender, RoutedEventArgs e)
         {
             var id = "0";
+            var testrun_run = "0";
             // Controleer of de naam reeds bestaat
             var query = "SELECT * FROM testscripts WHERE name='" + TextBoxSaveAs.Text + "';";
             var dt = GenericDataRead.GetData(query);
@@ -701,6 +716,11 @@ namespace WPFTestResults
                 var dt1 = GenericDataRead.GetData(query);
                 id = "0";
                 if (dt1.Rows.Count > 0) id = dt1.Rows[0][0].ToString();
+
+                // Haal testrun_run op van testruns_selenium
+                var query2 = "SELECT testrun_run FROM testruns_selenium ORDER BY idtestruns_selenium DESC LIMIT 1;";
+                var dt2 = GenericDataRead.GetData(query2);
+                if (dt1.Rows.Count > 0) testrun_run = dt2.Rows[0][0].ToString();
             }
             else
             {
@@ -740,6 +760,16 @@ namespace WPFTestResults
         private void ButtonPreExecute_Click(object sender, RoutedEventArgs e)
         {
             uitvoer();
+        }
+
+        private void ButtonDeleteScript_Click(object sender, RoutedEventArgs e)
+        {
+            var query = "DELETE FROM testscripts WHERE name='" + ComboBoxLoadScripts.Text + "';";
+            GenericDataRead.INUPDEL(query);
+
+            TreeView2.Items.Clear();
+            GetScripts();
+            ButtonDeleteScript.IsEnabled = false;
         }
     }
 }

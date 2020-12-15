@@ -77,7 +77,7 @@ namespace WPFTestResults
 
             var openFileDialog = new OpenFileDialog
                                      {
-                                         InitialDirectory = Functions.GetCurrentDir(1),
+                                         InitialDirectory = Functions.GetCurrentDir(1) + Functions._project,
                                          Filter = Properties.Resources
                                              .UpdateDataBulk_OpenBestand_XML_files___xml____xml_All_files_________,
                                          FilterIndex = 2,
@@ -92,7 +92,32 @@ namespace WPFTestResults
             }
             catch (Exception ex)
             {
-                General.LogMessageDatabase(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4);
+                General.LogMessage(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4);
+            }
+        }
+
+        public static void OpenBestandCSV()
+        {
+            Bestand = string.Empty;
+            Bestandsnaam = string.Empty;
+
+            var openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = Functions.GetCurrentDir(1) + Functions._project + @"\CSV\",
+                Filter = "CSV Files (*.csv)|*.csv",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
+
+            if (openFileDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+            try
+            {
+                Bestand = openFileDialog.FileName;
+                Bestandsnaam = Functions.SplitBestand(Bestand);
+            }
+            catch (Exception ex)
+            {
+                General.LogMessage(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4);
             }
         }
     }

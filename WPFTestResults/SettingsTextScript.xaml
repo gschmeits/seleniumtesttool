@@ -77,7 +77,7 @@
                  VerticalAlignment="Center"
                  VerticalContentAlignment="Center"
                  TextWrapping="Wrap"
-                 KeyDown="TextBoxTestSetName_KeyDown" />
+                 KeyDown="TextBoxTestSetName_KeyDown" TextChanged="TextBoxTestSetName_TextChanged" />
         <TextBox Name="TextBoxURL"
                  Grid.Row="2"
                  Grid.Column="1"
@@ -134,7 +134,17 @@
                     Content="Create New TestSet"
                     Click="ButtonCreateTestSet_Click" />
 
-
+            <Button Name="ButtonCopyTestSet"
+                    Style="{DynamicResource MyButtonStyle}"
+                    Grid.Row="4"
+                    Margin="5,45,5,15"
+                    Height="32"
+                    Width="150"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.ColumnSpan="2"
+                    Content="Copy TestSet" Click="ButtonCopyTestSet_Click" IsEnabled="False"
+                     />
         </StackPanel>
 
         <Button Name="ButtonGetTestSet"

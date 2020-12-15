@@ -18,6 +18,7 @@ namespace WPFTestResults
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Forms;
+    using System.Text.RegularExpressions;
 
     using DataStorage;
 
@@ -53,6 +54,7 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for ButtonCopyClick
         private void ButtonCopyClick(object sender, RoutedEventArgs e)
         {
+            /*
             if (this.LabelTestSource.Content.ToString().Trim().ToLower()
                 == this.LabelTestDestination.Content.ToString().Trim().ToLower())
             {
@@ -63,6 +65,19 @@ namespace WPFTestResults
                     MessageBoxImage.Information);
                 this.LabelTestSource.Content = string.Empty;
                 this.LabelTestDestination.Content = string.Empty;
+                StackPanelFromUpto.Visibility = Visibility.Hidden;
+            }
+            */
+
+            if (txtFrom.Text != String.Empty && txtUpto.Text != string.Empty && Convert.ToInt64(txtFrom.Text) > Convert.ToInt64(txtUpto.Text))
+            {
+                MessageBox.Show(
+                    "The from testnr. can not be higher as the up to testnr.!!!",
+                    "Message",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                txtFrom.Text = String.Empty;
+                txtUpto.Text = String.Empty;
             }
             else
             {
@@ -94,7 +109,18 @@ namespace WPFTestResults
                 que += " `test_comment` ";
                 que += "FROM testcases_selenium ";
                 que += "WHERE testname = '" + this.LabelTestSource.Content + "' ";
-                que += "ORDER BY testnr;";
+
+                if (txtFrom.Text != String.Empty)
+                {
+                    que += " AND testnr >= " + txtFrom.Text;
+                }
+
+                if (txtUpto.Text != string.Empty)
+                {
+                    que += " AND testnr <=" + txtUpto.Text;
+                }
+
+                que += " ORDER BY testnr;";
                 var dataTableSource = General.ExecuteQueryCommandReturnTable(que);
 
                 var ok = false;
@@ -138,7 +164,7 @@ namespace WPFTestResults
                             que += "'" + MySqlHelper.EscapeString(dataTableSource.Rows[i]["test_password"].ToString()) + "', ";
                             que += "'" + MySqlHelper.EscapeString(dataTableSource.Rows[i]["testext_check"].ToString()) + "');";
 
-                            General.LogMessageDatabase(que, 1);
+                            General.LogMessage(que, 1);
                             General.ExecuteQueryCommand(que);
                         }
                     }
@@ -147,7 +173,7 @@ namespace WPFTestResults
                 }
                 catch (Exception ex)
                 {
-                    General.LogMessageDatabase(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4);
+                    General.LogMessage(ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.Source, 4);
                     MessageBox.Show(
                         "Selected TestSteps are NOT copied to the selected TestCase!!!",
                         "Message",
@@ -230,8 +256,15 @@ namespace WPFTestResults
         private void CheckInhoudSourceDestination()
         {
             if (this.TextBoxSource.Text.Length > 0 && this.TextBoxDestination.Text.Length > 0)
+            {
                 this.ButtonCopy.IsEnabled = true;
-            else this.ButtonCopy.IsEnabled = false;
+                StackPanelFromUpto.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                this.ButtonCopy.IsEnabled = false;
+                StackPanelFromUpto.Visibility = Visibility.Hidden;
+            }
         }
 
         /// <summary>
@@ -256,6 +289,16 @@ namespace WPFTestResults
         private void TextBoxSourceTextChanged(object sender, TextChangedEventArgs e)
         {
             this.CheckInhoudSourceDestination();
+        }
+
+        private void TxtFrom_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtFrom.Text = Regex.Replace(txtFrom.Text, "[^0-9]+", "");
+        }
+
+        private void TxtUpto_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtUpto.Text = Regex.Replace(txtUpto.Text, "[^0-9]+", "");
         }
     }
 }

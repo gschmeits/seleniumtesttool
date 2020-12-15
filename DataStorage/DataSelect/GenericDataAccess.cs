@@ -158,7 +158,7 @@ namespace DataStorage
             // Execute the command, making sure the connection gets closed in the
             // end
             table = new DataTable();
-            Functions.LogMessageDatabase(command.CommandText, 1);
+
             try
             {
                 // Open the data connection
@@ -235,7 +235,6 @@ namespace DataStorage
         public static string strScalar(DbCommand command)
         {
             var strWaarde = "";
-            Functions.LogMessageDatabase(command.CommandText, 1);
             try
             {
                 // Open the data connection

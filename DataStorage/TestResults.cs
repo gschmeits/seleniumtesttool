@@ -86,7 +86,8 @@ namespace DataStorage
             string start_url,
             string texttext,
             string testpage, 
-            string testscenario_name)
+            string testscenario_name,
+            string project_id)
         {
             try
             {
@@ -113,10 +114,11 @@ namespace DataStorage
                 commandText += "testscenario_name = '" + MySqlHelper.EscapeString(testscenario_name) + "', ";
                 commandText += "start_url = '" + MySqlHelper.EscapeString(start_url) + "', ";
                 commandText += "testpage = '" + MySqlHelper.EscapeString(testpage) + "', ";
+                commandText += "project_id = " + project_id + ", ";
                 commandText += "machinenumber = '" + machinenumber + "';";
                 General.AddResultToDatabase(commandText);
 
-                General.LogMessageDatabase(
+                General.LogMessage(
                     commandText,
                     1,
                     MySqlHelper.EscapeString(classname),
@@ -127,7 +129,7 @@ namespace DataStorage
             catch (Exception e)
             {
                 Debug.Print(e.Message + "\r\n" + e.Source + "\r\n" + e.StackTrace);
-                General.LogMessageDatabase(
+                General.LogMessage(
                     e.Message + "\r\n" + e.Source + "\r\n" + e.StackTrace,
                     4,
                     MySqlHelper.EscapeString(classname),
@@ -195,7 +197,7 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(
+                General.LogMessage(
                     e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source,
                     4,
                     string.Empty,
@@ -240,7 +242,7 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(
+                General.LogMessage(
                     e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source,
                     4,
                     string.Empty,
@@ -305,7 +307,7 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(
+                General.LogMessage(
                     e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source,
                     4,
                     string.Empty,
@@ -367,7 +369,7 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessageDatabase(
+                General.LogMessage(
                     e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source,
                     4,
                     string.Empty,

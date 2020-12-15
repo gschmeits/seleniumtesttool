@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTestResults"
         mc:Ignorable="d"
+        Icon="images/if_chemistry_45373.ico"
         Title="Scripts Selenium Tests"
         Height="936"
         Width="1824" WindowStartupLocation="CenterScreen">
@@ -258,7 +259,8 @@
                 FontSize="14"  IsCancel="True" Click="ButtonCancelExecute_Click" />
             </StackPanel>
         </Grid>
-        <StackPanel Name="StackPanelSave" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="10">
+        <StackPanel Name="StackPanelSave" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    Grid.Row="10">
             <Label VerticalAlignment="Center" Content="Save as:"/>
             <TextBox Name="TextBoxSaveAs" 
                      VerticalContentAlignment="Center" 
@@ -296,6 +298,11 @@
                VerticalContentAlignment="Center" 
                HorizontalContentAlignment="Center"/>
         </StackPanel>
+        <Button Grid.Row="12" Grid.Column="5" Width="150"
+                HorizontalAlignment="Center"
+                IsEnabled="False"
+                Style="{DynamicResource MyButtonStyle}" 
+                Name="ButtonDeleteScript" Click="ButtonDeleteScript_Click">Delete selected script</Button>
         <Button Content="Preconditions"
                 Name="ButtonPreConditions"
                 Width="150"

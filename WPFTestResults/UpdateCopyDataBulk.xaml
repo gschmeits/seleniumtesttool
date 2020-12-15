@@ -11,7 +11,7 @@
         Topmost="True"
         ResizeMode="NoResize"
         WindowStyle="ToolWindow">
-    <Grid >
+    <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1"
                                  MappingMode="RelativeToBoundingBox"
@@ -69,8 +69,7 @@
                VerticalContentAlignment="Center"
                HorizontalAlignment="Left"
                Height="32"
-               Width="460"
-/>
+               Width="460" />
         <Label Name="LabelTestDestination"
                FontWeight="Bold"
                FontSize="16"
@@ -123,5 +122,23 @@
                  Width="335"
                  Grid.Column="1"
                  TextChanged="TextBoxSourceTextChanged" />
+        <StackPanel Orientation="Horizontal" 
+                    Visibility="Hidden"
+                    Name="StackPanelFromUpto" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Grid.Row="3"
+                    Grid.Column="1">
+            <Label Content="From Testnr.:" />
+            <TextBox Name="txtFrom" 
+                     Width="75" 
+                     TextChanged="TxtFrom_TextChanged"
+                     VerticalContentAlignment="Center"/>
+            <Label Content="Up to Testnr.:" />
+            <TextBox Name="txtUpto" 
+                     Width="75" 
+                     VerticalContentAlignment="Center"
+                     TextChanged="TxtUpto_TextChanged" />
+        </StackPanel>
     </Grid>
 </Window>

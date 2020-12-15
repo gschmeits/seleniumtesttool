@@ -117,10 +117,6 @@
       <Project>{d1fdc253-9569-490b-92a6-7ff07b50de16}</Project>
       <Name>GeneralFunctionality</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LicentieWPF\LicentieWPF.csproj">
-      <Project>{22190e5c-bf5e-404c-87d2-11dd14a9f6a7}</Project>
-      <Name>LicentieWPF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WPFTestResults\WPFTestResults.csproj">
       <Project>{55B089F2-E874-44BA-B7E9-F138A42EF931}</Project>
       <Name>WPFTestResults</Name>

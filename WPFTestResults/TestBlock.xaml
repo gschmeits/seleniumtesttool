@@ -1,10 +1,10 @@
-﻿<Window x:Class="WPFTestResults.TestCases"
+﻿<Window x:Class="WPFTestResults.TestBlock"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="TestCases"
+        Title="TestModules"
         Height="909"
         Width="1596"
         Icon="images/if_chemistry_45373.ico"
@@ -32,47 +32,51 @@
         <Border Grid.Row="0"
                 Margin="3"
                 Style="{DynamicResource BorderaStyleG}" />
-        <StackPanel Orientation="Horizontal"
-                    Margin="254,16,191,12"
-                    Visibility="Visible"
-                    Name="PanelNamen">
-            <Label Content="XML File:"
-                   HorizontalAlignment="Left"
-                   FontWeight="Bold"
+        <StackPanel Orientation="Horizontal" Margin="15,0" VerticalAlignment="Center">
+            <RadioButton Name="CheckBoxCurrentProject"
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         Content="Current project"
+                         Margin="10,0"
+                         IsChecked="True" Click="CheckBoxCurrentProject_Click"
+                         GroupName="project" />
+            <RadioButton Name="CheckBoxAllProjects"
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         Content="All projects"
+                         Margin="10,0"
+                         GroupName="project"
+                         IsChecked="False" Click="CheckBoxAllProjects_Click" />
+            <Label Name="LabelModules"
+                   Content="Module:"
                    VerticalAlignment="Center"
-                   VerticalContentAlignment="Center" />
-            <Label Name="textboxApplictionname"
-                   HorizontalAlignment="Left"
-                   Height="32"
-                   Margin="5,0,0,0"
-                   VerticalAlignment="Center"
-                   Width="Auto"
-                   VerticalContentAlignment="Center" />
-            <Label Content="Start URL: "
-                   VerticalAlignment="Center"
-                   FontWeight="Bold"
-                   Margin="5,0,0,0" />
-            <TextBox Text=""
-                     Height="24"
-                     VerticalContentAlignment="Center"
-                     Width="450"
-                     Name="LabelUrl"
-                     VerticalAlignment="Center" KeyDown="LabelUrl_KeyDown" />
-        </StackPanel>
-        <Button Content="Show Test Cases"
-                Style="{DynamicResource MyButtonStyle}"
-                HorizontalAlignment="Left"
-                Margin="21,20,0,16"
-                VerticalAlignment="Center"
-                Width="150"
+                   VerticalContentAlignment="Center"
+                   Margin="40,0,0,0" />
+            <ComboBox
                 Height="24"
-                Click="Button_Click" />
-        <Button Content="Preconditions"
-                Name="ButtonPreConditions"
-                Width="150"
-                HorizontalAlignment="Right"
-                Margin="15,0"
-                Style="{DynamicResource MyButtonStyle}" Click="ButtonPreConditions_Click" IsEnabled="False" />
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="250"
+                Name="ComboBoxModule" DropDownClosed="ComboBoxModule_DropDownClosed" />
+            <Button Content="Create New Module"
+                    Name="ButtonCreateNew"
+                    Style="{DynamicResource MyButtonStyle}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Width="200"
+                    Height="24" Click="ButtonCreateNew_Click" />
+            <StackPanel Orientation="Horizontal"
+                        Name="StackPanelModuleName"
+                        Visibility="Hidden">
+                <Label Name="LabelModule" Content="Name of the Module"
+                       VerticalAlignment="Center" />
+                <TextBox Name="TextBoxModuleName"
+                         Width="300"
+                         Height="24"
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="center" LostFocus="TextBoxModuleName_LostFocus" />
+            </StackPanel>
+        </StackPanel>
         <Border Grid.Row="1"
                 Margin="3"
                 Style="{DynamicResource BorderaStyleG}" />
@@ -98,7 +102,7 @@
                 <ColumnDefinition Width="2.8*" />
             </Grid.ColumnDefinitions>
             <TextBox Name="TextBoxTag" Grid.Column="1" Visibility="Hidden" Margin="10,1,115,10" Grid.Row="5" />
-            <Label Content="*TestName:"
+            <Label Content="*TestModule:"
                    Grid.Row="0"
                    Grid.Column="0"
                    VerticalAlignment="Center"
@@ -244,7 +248,7 @@
                      HorizontalAlignment="Left"
                      HorizontalContentAlignment="Left"
                      IsEnabled="False"
-                     IsReadOnly="True" />
+                     LostFocus="TextBoxTestName_LostFocus" TextChanged="TextBoxTestName_TextChanged" />
             <TextBox Name="TextBoxTestNr"
                      Grid.Row="1"
                      Grid.Column="1"
@@ -497,7 +501,7 @@
                     Width="115"
                     HorizontalAlignment="Right"
                     Visibility="Hidden"
-                    Style="{DynamicResource MyButtonStyle}" />
+                    Style="{DynamicResource MyButtonStyle}" Click="ButtonImportCSV_Click_1" />
             </StackPanel>
 
             <TextBox Name="TextBoxNoExecution"
@@ -521,7 +525,7 @@
             <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Left">
                 <TextBox Name="TextInsertRow" Margin="10,0,0,0" Height="24" Width="35"
                          VerticalAlignment="Center"
-                         HorizontalContentAlignment="Right"
+                         HorizontalContentAlignment="Center"
                          VerticalContentAlignment="Center"
                          Text="" KeyDown="TextInsertRow_KeyDown" />
                 <Button Name="ButtonInsertRow"
@@ -667,9 +671,9 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding testcase}"
+                <DataGridTextColumn Binding="{Binding testblock}"
                                     Width="auto"
-                                    Header="Testcase"
+                                    Header="TestBlock"
                                     Visibility="Visible">
                     <DataGridTextColumn.ElementStyle>
                         <Style>
@@ -778,7 +782,7 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding testcomment}"
+                <DataGridTextColumn Binding="{Binding testdescription}"
                                     Width="auto"
                                     Header="Description">
                     <DataGridTextColumn.ElementStyle>
@@ -881,7 +885,7 @@
                 Content="Create CSV"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,7,500,6"
+                Margin="0,7,522,6"
                 Grid.Row="3"
                 Width="100"
                 IsEnabled="False" Click="ButtonCreateCSV_Click" />
@@ -891,20 +895,22 @@
                 Content="Import CSV"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,7,384,6"
+                Margin="0,7,404,6"
                 Grid.Row="3"
                 Width="100" Visibility="Visible"
                 IsEnabled="False" Click="ButtonImportCSV_Click" />
 
-        <Button x:Name="buttonImportModule"
+        <Button x:Name="buttonDeleteModule"
                 Style="{DynamicResource MyButtonStyle}"
-                Content="Import Module"
+                Content="Delete Module"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,7,165,6"
+                Margin="0,7,215,6"
                 Grid.Row="3"
-                Width="100" Visibility="Visible"
-                IsEnabled="False" Click="ButtonImportModule_Click" />
+                Width="100"
+                IsEnabled="False" Click="ButtonDeleteModule_Click" />
+
+
         <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="15,0">
             <Label Content="Total Teststeps: "
                    VerticalAlignment="Center"
@@ -921,97 +927,12 @@
                    VerticalAlignment="Center"
                    VerticalContentAlignment="Center" />
         </StackPanel>
+
         <StackPanel Width="510"
                     Height="275"
                     Name="ModuleImport"
                     Orientation="Horizontal"
-                    Visibility="Visible"
                     Grid.Row="2" IsVisibleChanged="ModuleImport_IsVisibleChanged">
-            <Grid>
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1"
-                                         MappingMode="RelativeToBoundingBox"
-                                         StartPoint="0.5,0">
-                        <GradientStop Color="White"
-                                      Offset="1" />
-                        <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"
-                                      Offset="0.01" />
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="50" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120" />
-                    <ColumnDefinition Width="120" />
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="120" />
-                    <ColumnDefinition Width="120" />
-                </Grid.ColumnDefinitions>
-                <Border Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6"
-                        Margin="3,3,3,0"
-                        Style="{DynamicResource BorderaStyleG}" />
-
-                <Label Content="Insert TestSteps from Module"
-                       FontWeight="Bold"
-                       FontSize="16"
-                       Grid.ColumnSpan="5"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" />
-
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="5" HorizontalAlignment="Center">
-                    <Label Content="Select module:" VerticalContentAlignment="Center" />
-                    <ComboBox Name="ComboBoxModules"
-                              Height="24"
-                              VerticalAlignment="Center"
-                              VerticalContentAlignment="Center"
-                              Width="250" DropDownClosed="ComboBoxModules_DropDownClosed" />
-                </StackPanel>
-
-                <Label Grid.Row="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
-                       Content="From testnr.:" />
-                <TextBox Grid.Row="2" Grid.Column="1"
-                         Width="75"
-                         Height="28"
-                         HorizontalAlignment="Left"
-                         Name="TextBoxModuleFrom"
-                         TextChanged="TextBoxModuleFrom_TextChanged"
-                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="1" />
-                <Label Grid.Row="2" Grid.Column="3" Content="Till testnr.:" HorizontalContentAlignment="Right"
-                       VerticalContentAlignment="Center" />
-                <TextBox Grid.Row="2" HorizontalAlignment="Left" Grid.Column="4" HorizontalContentAlignment="Center"
-                         VerticalContentAlignment="Center" Width="75" Height="28" Name="TextBoxModuleTill"
-                         TextChanged="TextBoxModuleTill_TextChanged" TabIndex="2" />
-                <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center">
-                    <Label Content="Import after testnr.:" HorizontalAlignment="Right"
-                           VerticalContentAlignment="Center" />
-                    <TextBox Name="TextBoxInsertAfter" HorizontalContentAlignment="Center"
-                             VerticalContentAlignment="Center" Width="75" Height="28"
-                             TextChanged="TextBoxInsertAfter_TextChanged" TabIndex="3" />
-
-                </StackPanel>
-                <Button Style="{DynamicResource MyButtonStyle}"
-                        Name="ButtonImportModule" Content="Import Module"
-                        Grid.Row="5" Grid.ColumnSpan="5" Width="100" IsEnabled="False" TabIndex="4"
-                        Click="ButtonImportModule_Click_1" />
-                <Button Style="{DynamicResource MyButtonStyle}"
-                        Name="ButtonCloseModule" Content="Close Module"
-                        Grid.Row="5" Grid.ColumnSpan="5" Width="100" HorizontalAlignment="Right"
-                        Click="ButtonCloseModule_Click" TabIndex="5" />
-            </Grid>
-        </StackPanel>
-
-        <StackPanel Width="510"
-                    Height="275"
-                    Name="CSVImport"
-                    Orientation="Horizontal"
-                    Visibility="Hidden"
-                    Grid.Row="2" IsVisibleChanged="CSVImport_IsVisibleChanged">
             <Grid>
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1"
@@ -1048,26 +969,17 @@
                        Grid.ColumnSpan="5"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
-                <StackPanel Orientation="Horizontal"
-                            Grid.Row="1"
-                            Grid.ColumnSpan="5"
-                            HorizontalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1"
+                            Grid.ColumnSpan="5" HorizontalAlignment="Center" Margin="10,0" Width="490">
                     <Button Style="{DynamicResource MyButtonStyle}"
-                            Content="Select CSV-file"
-                            Width="100"
-                            Name="ButtonSelectCVSFile"
-                            VerticalContentAlignment="Center" Click="ButtonSelectCVSFile_Click" />
-                    <Label Name="TextBlockCVSFile"
-                           Width="375"
-                           HorizontalContentAlignment="Left"
-                           VerticalContentAlignment="Center"
-                           Height="24" />
+                            Content="Select a CSV file"
+                            Name="ButtonSelectFile"
+                            VerticalContentAlignment="Center" Width="100" Click="ButtonSelectFile_Click" />
+                    <TextBlock Name="TextBlockFile" Width="380"
+                               VerticalAlignment="Center" />
+
                 </StackPanel>
-                <Label Name="bestandsnaamVol"
-                       Grid.Row="4"
-                       Grid.ColumnSpan="5"
-                       Visibility="Hidden"
-                       Content="test" />
 
                 <Label Grid.Row="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
                        Content="From testnr.:" />
@@ -1075,31 +987,32 @@
                          Width="75"
                          Height="28"
                          HorizontalAlignment="Left"
-                         Name="TextBoxCSVFrom"
-                         TextChanged="TextBoxCSVFrom_TextChanged"
+                         Name="TextBoxModuleFrom"
+                         TextChanged="TextBoxModuleFrom_TextChanged"
                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="1" />
                 <Label Grid.Row="2" Grid.Column="3" Content="Till testnr.:" HorizontalContentAlignment="Right"
                        VerticalContentAlignment="Center" />
                 <TextBox Grid.Row="2" HorizontalAlignment="Left" Grid.Column="4" HorizontalContentAlignment="Center"
-                         VerticalContentAlignment="Center" Width="75" Height="28" Name="TextBoxCSVTill"
-                         TextChanged="TextBoxCSVTill_TextChanged" TabIndex="2" />
+                         VerticalContentAlignment="Center" Width="75" Height="28" Name="TextBoxModuleTill"
+                         TextChanged="TextBoxModuleTill_TextChanged" TabIndex="2" />
                 <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center">
                     <Label Content="Import after testnr.:" HorizontalAlignment="Right"
                            VerticalContentAlignment="Center" />
-                    <TextBox Name="TextBoxInsertAfterCSV" HorizontalContentAlignment="Center"
+                    <TextBox Name="TextBoxInsertAfter" HorizontalContentAlignment="Center" IsEnabled="False"
                              VerticalContentAlignment="Center" Width="75" Height="28"
-                             TextChanged="TextBoxInsertAfterCSV_TextChanged" TabIndex="3" />
+                             TextChanged="TextBoxInsertAfter_TextChanged" TabIndex="3" />
 
                 </StackPanel>
                 <Button Style="{DynamicResource MyButtonStyle}"
-                        Name="ButtonImportCSV1" Content="Import CSV"
+                        Name="ButtonImportModule" Content="Import Module"
                         Grid.Row="5" Grid.ColumnSpan="5" Width="100" IsEnabled="False" TabIndex="4"
-                        Click="ButtonImportCSV1_Click" />
+                        Click="ButtonImportModule_Click_1" />
                 <Button Style="{DynamicResource MyButtonStyle}"
-                        Name="ButtonCloseCSV" Content="Close Option"
+                        Name="ButtonCloseModule" Content="Close Module"
                         Grid.Row="5" Grid.ColumnSpan="5" Width="100" HorizontalAlignment="Right"
-                        Click="ButtonCloseCSV_Click" TabIndex="5" />
+                        Click="ButtonCloseModule_Click" TabIndex="5" />
             </Grid>
         </StackPanel>
+
     </Grid>
 </Window>

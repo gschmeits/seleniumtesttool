@@ -95,8 +95,9 @@ namespace DataStorage
             dbProviderName = sProvider;
         }
 
+
         /// <summary>
-        /// Gets the current dir.
+        ///     Gets the current dir.
         /// </summary>
         /// <param name="niveau">The niveau.</param>
         /// <returns>System.String.</returns>
@@ -117,7 +118,7 @@ namespace DataStorage
                 }
                 catch (Exception ex)
                 {
-                    General.LogMessageDatabase(ex.Message + ex.StackTrace, 4);
+                    General.LogMessage(ex.Message + ex.StackTrace, 4);
                     MessageBox.Show(
                         "The 'settings.xml' file is not found!!!\r\nPlease fill in the correct drive and directory.\r\n"
                         + Environment.CurrentDirectory,

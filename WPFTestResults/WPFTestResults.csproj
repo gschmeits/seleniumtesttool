@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>WPFTestResults</RootNamespace>
     <AssemblyName>SeleniumTestTool</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -28,9 +28,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.9.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -81,8 +82,21 @@
   <PropertyGroup>
     <ApplicationIcon>if_chemistry_45373.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <ManifestCertificateThumbprint>C5EBF8BEEEABDF9E4BC31446275E5116C5D8C93F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>WPFTestResults_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WPFTestResults.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Awesomium.Core, Version=1.6.6.0, Culture=neutral, PublicKeyToken=e1a0d7c8071a5214, processorArchitecture=x86" />
@@ -209,6 +223,9 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CopyPrecondtions.xaml.cs">
+      <DependentUpon>CopyPrecondtions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteBulkData.xaml.cs">
       <DependentUpon>DeleteBulkData.xaml</DependentUpon>
     </Compile>
@@ -238,6 +255,9 @@
     <Compile Include="SettingsTextScript.xaml.cs">
       <DependentUpon>SettingsTextScript.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestBlock.xaml.cs">
+      <DependentUpon>TestBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestCases.xaml.cs">
       <DependentUpon>TestCases.xaml</DependentUpon>
     </Compile>
@@ -259,6 +279,10 @@
     <Compile Include="WachtwoordWijzigen.xaml.cs">
       <DependentUpon>WachtwoordWijzigen.xaml</DependentUpon>
     </Compile>
+    <Page Include="CopyPrecondtions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DeleteBulkData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -306,6 +330,10 @@
     <Page Include="SettingsTextScript.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TestCases.xaml">
       <SubType>Designer</SubType>
@@ -356,6 +384,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="WPFTestResults_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -372,10 +401,6 @@
     <ProjectReference Include="..\GeneralFunctionality\GeneralFunctionality.csproj">
       <Project>{d1fdc253-9569-490b-92a6-7ff07b50de16}</Project>
       <Name>GeneralFunctionality</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LicentieWPF\LicentieWPF.csproj">
-      <Project>{22190e5c-bf5e-404c-87d2-11dd14a9f6a7}</Project>
-      <Name>LicentieWPF</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -415,6 +440,12 @@
     <Content Include="Drivers\chromedriver.exe" />
     <Content Include="Drivers\IEDriverWin32\IEDriverServer.exe" />
     <Content Include="Drivers\IEDriverWin64\IEDriverServer.exe" />
+    <Resource Include="images\112_DownArrowLong_Green_16x16_72.png" />
+    <Resource Include="images\112_UpArrowLong_Green_16x16_72.png" />
+    <Resource Include="images\copy.png" />
+    <Resource Include="images\delete.png" />
+    <Resource Include="images\Import.png" />
+    <Resource Include="images\Copy_6524.png" />
     <Resource Include="images\Hopstarter-Sleek-Xp-Software-Windows-Close-Program.ico" />
     <Resource Include="images\mastering-selenium-for-automated-acceptance-tests-1-638.jpg" />
     <Resource Include="images\pictureBox1.Image.gif" />

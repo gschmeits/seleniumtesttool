@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:help="clr-namespace:WPFTestResults"
         mc:Ignorable="d"
         Title="Test Results Selenium Tests"
         Height="909"
@@ -27,8 +26,8 @@
             <RowDefinition Height="522*" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
-        <Menu 
-              FontWeight="Bold">
+        <Menu
+            FontWeight="Bold">
             <Menu.Background>
                 <LinearGradientBrush EndPoint="0.5,1"
                                      MappingMode="RelativeToBoundingBox"
@@ -42,29 +41,50 @@
             <MenuItem Name="ExecuteTestsSql"
                       Header="Execute Tests"
                       Click="ExecuteTestsSqlClick" />
-            <MenuItem Name="Adding" 
-                      Header="Testscripts" >
-                <MenuItem Name="AddingTests" 
-                    Header="Edit Test Steps"
-                    Click="AddingTestsClick">
-                </MenuItem>
-                <MenuItem Name="AddingTestsTree" 
+            <MenuItem Name="Adding"
+                      Header="Testscripts">
+                <MenuItem Name="AddingTests"
+                          Header="Edit Test Steps"
+                          Click="AddingTestsClick" />
+                <MenuItem Name="AddingTestsTree"
                           Header="Edit Test Scripts"
-                          Click="EditTestsScriptsClick">
-                </MenuItem>
-
+                          Click="EditTestsScriptsClick" />
+                <Separator />
+                <MenuItem Name="MenuItemTestModule"
+                          Header="Test Modules"
+                          Click="MenuItemTestModule_OnClick" />
             </MenuItem>
             <MenuItem Name="MenuItemBulkChanges"
                       Header="Bulk Changes" Click="MenuItemBulkChanges_Click">
                 <MenuItem Name="MenuItemGetBulk"
                           Header="Import elements"
-                          Click="MenuItemGetBulk_Click" />
+                          Click="MenuItemGetBulk_Click">
+                    <MenuItem.Icon>
+                        <Image Source="images/Import.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
                 <MenuItem Name="MenuItemCopyElements"
                           Header="Copy Elements"
-                          Click="MenuItemCopyElementsClick" />
+                          Click="MenuItemCopyElementsClick">
+                    <MenuItem.Icon>
+                        <Image Source="images/copy.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
                 <MenuItem Name="MenuItemDeleteItems"
-                          Header="Delete Items"
-                          Click="MenuItemDeleteItemsClick" />
+                          Header="Delete Elements"
+                          Click="MenuItemDeleteItemsClick">
+                    <MenuItem.Icon>
+                        <Image Source="images/delete.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Name="MenuItemCopyPreconditions"
+                          Header="Copy Preconditions" Click="MenuItemCopyPreconditions_Click">
+                    <MenuItem.Icon>
+                        <Image Source="images/copy.png" />
+                    </MenuItem.Icon>
+
+                </MenuItem>
             </MenuItem>
             <MenuItem Name="MenuItemSettings"
                       Header="Settings" Click="MenuItemSettings_Click">
@@ -74,29 +94,46 @@
                 <MenuItem Name="MenuItemSettingsConfig"
                           Header="Config"
                           Click="MenuItemSettingsConfig_Click" />
+                <MenuItem Name="MenuItemSettingsProject"
+                          Header="Project" Click="MenuItemSettingsProject_Click" />
 
                 <MenuItem Name="MenuItemSettingsDatabaseConnection"
                           Header="Database Connection"
                           Click="MenuItemSettingsDatabaseConnection_Click" />
                 <MenuItem Name="MenuItemSettingsOverall"
                           Header="Overall Settings"
-                          Click="MenuItemSettingsOverall_OnClick"/>
+                          Click="MenuItemSettingsOverall_OnClick" />
             </MenuItem>
             <MenuItem Name="MenuItemExtras"
                       Header="Extras" Click="MenuItemExtras_Click">
                 <MenuItem Name="MenuItemExtrasFindElements"
-                          Header="Elements URL" 
+                          Header="Elements URL"
                           Click="MenuItemExtrasFindElementsClick" />
                 <MenuItem Name="MenuItemExtrasGetElements"
                           Header="Elements Database"
-                          Click="MenuItemExtrasGetElements_OnClick"/>
+                          Click="MenuItemExtrasGetElements_OnClick" />
+                <Separator />
+                <MenuItem Name="MenuItemExtrasTestScript"
+                          Header="Upload TestScripts"
+                          Click="MenuItemExtrasTestScript_OnClick">
+                    <MenuItem.Icon>
+                        <Image Source="images/112_UpArrowLong_Green_16x16_72.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="MenuItemExtraTestScriptDownload"
+                          Header="Download TestScripts"
+                          Click="MenuItemExtraTestScriptDownload_OnClick">
+                    <MenuItem.Icon>
+                        <Image Source="images/112_DownArrowLong_Green_16x16_72.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
                 <!--
                 <Separator />
                 <MenuItem Name="MenuItemCheckKey"
                           Header="License Key" Click="MenuItemCheckKey_Click"
                           ></MenuItem>-->
             </MenuItem>
-            <MenuItem Name="MenuItemHelp" 
+            <MenuItem Name="MenuItemHelp"
                       Header="Help">
                 <MenuItem Name="MenuItemHelpContent"
                           Header="Content" Click="MenuItemHelpContent_Click" />
@@ -130,13 +167,13 @@
                       Margin="10,0,10,0"
                       DropDownClosed="ComboTestFrom_DropDownClosed"
                       SelectionChanged="ComboTestFrom_SelectionChanged" />
-            <Button Name="ButtonRefreshRuns" 
-                    Content="Refresh" 
+            <Button Name="ButtonRefreshRuns"
+                    Content="Refresh"
                     Style="{DynamicResource MyButtonStyle}" Click="ButtonRefreshRuns_Click" />
             <Label Content="Until Test Run:"
                    Margin="15,0,10,0"
                    FontWeight="Bold"
-                   Visibility="Hidden"/>
+                   Visibility="Hidden" />
             <ComboBox Name="ComboTestTill"
                       Width="180"
                       Margin="10,0,10,0"
@@ -154,68 +191,70 @@
                    Foreground="Black"
                    FontWeight="Bold"
                    Visibility="Visible"
-                   Margin="0,0,0,-8.4"  />
+                   Margin="0,0,0,-8.4" />
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Bottom">
-        <Label Name="LabelPreconditions" Content="Preconditions" 
-               HorizontalAlignment="Center"
-               FontWeight="Bold" 
-               FontSize="24"
-               HorizontalContentAlignment="Center" 
-               Visibility="Visible"/>
-        <DataGrid HorizontalAlignment="Center" 
-                  Height="276" 
-                  GridLinesVisibility="None"
-                  Margin="0,0,0,50"
-                  HorizontalContentAlignment="Center"
-                  Width="772" AllowDrop="True" ColumnWidth="Auto"
-                  AutoGenerateColumns="False"
-                  EnableColumnVirtualization="True"
-                  AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}" 
-                  Background="{DynamicResource DataGridAchtergrond}"
-                  Name="DataGridPre" RowHeaderWidth="0" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" IsReadOnly="True" HeadersVisibility="None" 
-                  Visibility="Visible" HorizontalScrollBarVisibility="Hidden"  AreRowDetailsFrozen="True" VerticalScrollBarVisibility="Hidden" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding id}"
-                                Width="40"
-                                Header="ID"
-                                    Visibility="Hidden">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style>
-                            <Setter Property="TextBlock.TextWrapping"
-                                Value="Wrap" />
-                            <Setter Property="TextBlock.TextAlignment"
-                                Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding number}"
-                                Width="60"
-                                Header="Number"
-                                Visibility="Visible">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style>
-                            <Setter Property="TextBlock.TextWrapping"
-                                Value="Wrap" />
-                            <Setter Property="TextBlock.TextAlignment"
-                                Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding description}"
-                                Width="710"
-                                Header="Precondition" >
-                    <DataGridTextColumn.ElementStyle>
-                        <Style>
-                            <Setter Property="TextBlock.TextWrapping"
-                                Value="Wrap" />
-                            <Setter Property="TextBlock.TextAlignment"
-                                Value="Left" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+            <Label Name="LabelPreconditions" Content="Preconditions"
+                   HorizontalAlignment="Center"
+                   FontWeight="Bold"
+                   FontSize="24"
+                   HorizontalContentAlignment="Center"
+                   Visibility="Visible" />
+            <DataGrid HorizontalAlignment="Center"
+                      Height="276"
+                      GridLinesVisibility="None"
+                      Margin="0,0,0,50"
+                      HorizontalContentAlignment="Center"
+                      Width="772" AllowDrop="True" ColumnWidth="Auto"
+                      AutoGenerateColumns="False"
+                      EnableColumnVirtualization="True"
+                      AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}"
+                      Background="{DynamicResource DataGridAchtergrond}"
+                      Name="DataGridPre" RowHeaderWidth="0" CanUserReorderColumns="False" CanUserResizeColumns="False"
+                      CanUserSortColumns="False" CanUserResizeRows="False" IsReadOnly="True" HeadersVisibility="None"
+                      Visibility="Visible" HorizontalScrollBarVisibility="Hidden" AreRowDetailsFrozen="True"
+                      VerticalScrollBarVisibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding id}"
+                                        Width="40"
+                                        Header="ID"
+                                        Visibility="Hidden">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping"
+                                        Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment"
+                                        Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding number}"
+                                        Width="60"
+                                        Header="Number"
+                                        Visibility="Visible">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping"
+                                        Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment"
+                                        Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding description}"
+                                        Width="710"
+                                        Header="Precondition">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping"
+                                        Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment"
+                                        Value="Left" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
 
         <Grid Grid.Row="1"
@@ -324,15 +363,15 @@
                         Click="ButtonCancelLoadClick" />
             </StackPanel>
         </Grid>
-        <ScrollViewer Name="ScrollViewerHtml" 
+        <ScrollViewer Name="ScrollViewerHtml"
                       Grid.Row="1"
-                      HorizontalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto"
                       Visibility="Hidden" Margin="0,0,0,94">
-            <WebBrowser Name="WebBrowser"  />
+            <WebBrowser Name="WebBrowser" />
         </ScrollViewer>
         <DataGrid Name="DataGridGer"
-                  AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}" 
+                  AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}"
                   Background="{DynamicResource DataGridAchtergrond}"
                   Grid.Row="1"
                   Margin="100,10"
@@ -347,7 +386,7 @@
                   CanUserResizeColumns="True"
                   CanUserResizeRows="False"
                   CanUserSortColumns="False"
-                  Visibility="Visible" ColumnWidth="Auto" MouseDoubleClick="DataGridGer_MouseDoubleClick" >
+                  Visibility="Visible" ColumnWidth="Auto" MouseDoubleClick="DataGridGer_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding testrun}"
                                     Header="Testrun">
@@ -545,7 +584,7 @@
             <Label Content="Version:"
                    Name="LabelVersion"
                    Foreground="Black"
-                   Margin="35,5,5,5"/>
+                   Margin="35,5,5,5" />
             <TextBlock Name="Version"
                        Foreground="Black"
                        FontWeight="Bold"
@@ -574,11 +613,11 @@
         <Grid Grid.Row="1"
               Name="GridBrowser"
               Visibility="Visible"
-              Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" 
-              HorizontalAlignment="Center" Width="300" Height="371" Margin="644,45,644,332">
+              Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"
+              HorizontalAlignment="Center" Width="300" Height="371" VerticalAlignment="Top" Margin="0,25,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7*"/>
-                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="6*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
@@ -592,13 +631,13 @@
                     BorderBrush="Black" Grid.ColumnSpan="2" />
             <TextBlock Margin="15"
                        FontWeight="Bold"
-                       Text="Select the browser:"
+                       Text="Select the browser to execute:"
                        FontSize="14" Grid.ColumnSpan="2" />
             <StackPanel Orientation="Vertical"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Height="190"
-                        Width="153" Grid.ColumnSpan="2" Margin="87,0.462,60,25" Grid.RowSpan="2" Grid.Row="1">
+                        Width="153" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1">
                 <RadioButton Content="Chrome"
                              Margin="0,10"
                              IsChecked="True"
@@ -623,17 +662,22 @@
                              GroupName="RadioBrowser"
                              Checked="RadioButton_Checked_1" />
             </StackPanel>
-            <StackPanel Margin="25,1,25,0" Orientation="Horizontal" Height="30" Grid.Row="2" Grid.ColumnSpan="2">
-                <TextBlock FontWeight="Bold" Text="     URL part:" VerticalAlignment="Center" />
-                <TextBox Name="TextBoxExtra" Margin="5,3,0,3" Width="154" Height="24" 
+            <StackPanel Margin="10,159,10,10" Visibility="Visible" Orientation="Horizontal" Height="30" Grid.Row="1"
+                        Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <TextBlock FontWeight="Bold" Text="URL:" VerticalAlignment="Center" />
+                <TextBox Name="TextBoxExtra" Margin="5,3,0,3" Width="247" Height="24"
                          VerticalAlignment="Center" VerticalContentAlignment="Center" />
             </StackPanel>
-            <StackPanel Margin="25,0,25,1" Orientation="Horizontal" Height="30" Grid.Row="3" Grid.ColumnSpan="2">
+            <StackPanel Margin="10,0,25,1" Orientation="Horizontal" Height="30" Grid.Row="3" Grid.ColumnSpan="2">
                 <TextBlock FontWeight="Bold" Text="Version:" VerticalAlignment="Center" />
-                <TextBox Name="TextBoxVersion" Margin="5,0,0,0" Width="180" 
+                <TextBox Name="TextBoxVersion" Margin="5,3,0,3" Width="100"
                          Height="24" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                <CheckBox Margin="10,0,0,0" VerticalAlignment="Bottom"
+                          VerticalContentAlignment="Center" Content="Save testresults" Height="30"
+                          IsChecked="True" Width="125" Name="CheckBoxSaveResults" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <Button
                     Style="{DynamicResource MyButtonStyle}"
                     Margin="0,0,0,0"
@@ -644,16 +688,133 @@
                     Content="Execute Tests"
                     FontSize="14"
                     Click="ButtonExecuteClick" />
-                <Button 
-                Style="{DynamicResource MyButtonStyle}"
-                Margin="20,0,0,0"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Width="100"
-                Name="ButtonCancelExecute"
-                Content="Cancel"
-                FontSize="14" Click="ButtonCancelExecute_Click" />
+                <Button
+                    Style="{DynamicResource MyButtonStyle}"
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Name="ButtonCancelExecute"
+                    Content="Cancel"
+                    FontSize="14" Click="ButtonCancelExecute_Click" />
             </StackPanel>
         </Grid>
+
+        <Grid Grid.Row="1"
+              Name="GridProject"
+              Visibility="Hidden"
+              Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"
+              HorizontalAlignment="Center" Width="300" Height="371" VerticalAlignment="Top" Margin="0,125,0,0"
+              IsVisibleChanged="GridProject_IsVisibleChanged">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="6*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height=".5*" />
+                <RowDefinition Height=".5*" />
+                <RowDefinition Height="1.5*" />
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="5"
+                    BorderThickness="1"
+                    BorderBrush="Black" Grid.ColumnSpan="2" />
+            <TextBlock Margin="15,15,87,15"
+                       FontWeight="Bold"
+                       Text="Select the project to work on:"
+                       FontSize="14" Grid.ColumnSpan="2" />
+            <Button Width="20" Height="20" Name="ButtonSluitProject" Visibility="Hidden" Grid.Column="1"
+                    Background="{x:Null}" Margin="108,10,10,27" BorderBrush="{x:Null}" Click="ButtonSluitProject_Click">
+                x
+
+            </Button>
+            <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="10,0" Name="ListBoxDir" />
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" Grid.ColumnSpan="2">
+                <Button
+                    Style="{DynamicResource MyButtonStyle}"
+                    Margin="0,0,0,0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Name="ButtonProjectSelect"
+                    Content="Open Project"
+                    FontSize="14" Click="ButtonProjectSelect_Click" />
+                <Button
+                    Style="{DynamicResource MyButtonStyle}"
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Name="ButtonProjectCreate"
+                    Content="Create Project"
+                    FontSize="14" Click="ButtonProjectCreate_Click" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Name="GridProjectCreate"
+              Visibility="Hidden"
+              Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"
+              HorizontalAlignment="Center" Width="300" Height="210" VerticalAlignment="Top" Margin="0,125,0,0"
+              IsVisibleChanged="GridProjectCreate_IsVisibleChanged">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="6*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1.5*" />
+
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="5"
+                    BorderThickness="1"
+                    BorderBrush="Black" Grid.ColumnSpan="2" />
+            <TextBlock Margin="15"
+                       FontWeight="Bold"
+                       Text="Create a new project:"
+                       FontSize="14" Grid.ColumnSpan="2" />
+            <StackPanel Orientation="Vertical" Grid.Row="1" Margin="15,25,0,24"
+                        HorizontalAlignment="left"
+                        VerticalAlignment="Center"
+                        Grid.ColumnSpan="2"
+                        Width="270">
+                <Label Content="Name of the new Project" Height="24" />
+                <TextBox Name="TextBoxNewProject"
+                         VerticalAlignment="Center"
+                         Height="24"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Left"
+                         Width="265"
+                         Margin="5,0,0,0"
+                         HorizontalAlignment="Left" TabIndex="1" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" Grid.ColumnSpan="2">
+                <Button
+                    Style="{DynamicResource MyButtonStyle}"
+                    Margin="0,0,0,0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Name="ButtonProjectCreateSave"
+                    Content="Save Project"
+                    FontSize="14" Click="ButtonProjectCreateSave_Click" TabIndex="2" />
+                <Button
+                    Style="{DynamicResource MyButtonStyle}"
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Name="ButtonProjectCreateCancel"
+                    Content="Cancel"
+                    FontSize="14" Click="ButtonProjectCreateCancel_Click" TabIndex="3" />
+            </StackPanel>
+        </Grid>
+
+
     </Grid>
 </Window>

@@ -333,3 +333,184 @@ Het element mag alleen maar leeggelaten worden wanneer er bepaalde acties uitgev
 # Release 2.0.6.04
 - set_value op de juiste wijze aangepast
 - Name in testcase aangepast wanneer set_value wordt gebruikt
+
+# Release 2.0.6.05
+- De tags in het connect.xml bestand aangepast.
+
+Was:
+
+    	<?xml version="1.0" encoding="utf-8"?>
+    	<settings>
+    	   <connection>
+    	   <host></host>
+    	   <database></database>
+    	   <port></port>
+    	   <user></user>
+    	   <pw></pw>
+    	   </connection>
+    	</settings>
+
+
+Is:
+
+    	<?xml version="1.0" encoding="utf-8"?>
+    	<settings>
+    	   <connection>
+    	   <host></host>
+    	   <database></database>
+    	   <port></port>
+    	   <username></username>
+    	   <password></password>
+    	   </connection>
+    	</settings>
+
+
+# Release 2.0.6.07
+- set_value aangepast zodat het geen NOK meer geeft.
+- uitzetten van login bij het ophalen van de elementen de headers uit gezet.
+- uitzetten van login aangepast zodanig dat het de correcte url gaat gebruiken.
+- tagname button ComboBoxAction op Enabled gezet.
+- text kan nu ook gecontroleerd worden bij een input tag via getAttribute("value")
+
+# Release 2.0.6.08
+- enter als sendkey mogelijkheid toegevoegd.
+
+# Release 2.0.6.09
+- paragraph toegevoegd aan de tags die gezocht kunnen worden.
+
+# Release 2.0.6.10
+- Het zoeken naar elementen aangepast. Bovenaan de url die men wil raadplegen. In het midden de url waar men in 1e instantie naar toe moet om in te loggen.
+
+# Release 2.0.6.11
+- Wanneer er geen bestand geselecteerd is wordt het test steps gedeelte afgesloten na een melding.
+- De volgorde van de elementen die in het test script gezet worden is aangepast.
+- URL uit de datagrid gehaald van de elementen.
+- nummering bij het wegschrijven van de elementen naar testscript houdt rekening met reeds bestaande teststappen
+
+# Release 2.0.6.12
+- Error weghalen bij geen content
+
+# Release 2.0.6.13
+- Error weggehaald bij het saven van een testscript
+- Verwijderknop gemaakt om testscripts te verwijderen.
+
+# Release 2.0.6.14
+- Icon="images/if_chemistry_45373.ico" toegevoegd
+
+# Release 2.0.6.15
+- Er kunnen nu meerdere paginas toegevoegd worden voor de elementen.
+
+# Release 2.0.6.16
+- Bij aanmaken van nieuwe elementen wordt Switch to URL op false gezet. Ook het begin wanneer er naar het scherm gegaan wordt.
+
+# Release 2.0.6.17
+- Wanneer een element zichtbaar is, zal het programma er naar toe gaan springen bij de uitvoer van de teststappen.
+
+# Release 2.0.6.18
+- Select All Text niet zichtbaar maken in elements voordat de datagrid zichtbaar is.
+
+# Release 2.0.6.19
+- Breedte van de datagrid in TestCase aangepast zodat de breedte van de tekst getoond wordt.
+
+# Release 2.0.6.20
+- Overbodige kolommen uit datagrid gehaald van TestCases.
+
+# Release 2.0.6.22
+- Schermen aangepast zodat ze ook netjes werken met een andere resolutie
+
+# Release 2.0.7.2
+- Copy bulp aangepast met testnr from en testnr to
+
+# Release 2.0.7.5
+- Copy preconditions ingevoerd
+- Icoontjes toegevoegd aan het bulkmenu
+
+# Release 2.0.7.6
+- double click mogelijkheid ingebouwd bij de action van een test stap
+- URL part weggehaald bij het uitvoeren van een test script.
+- Downloaden van testscripts aangepast zodat ze ook gedownload worden.
+
+# Release 2.0.7.7
+- elementen kunnen selecteren die in de database staan
+- selectie kunnen maken van elementen die geselecteerd moeten worden
+
+# Release 2.0.8.0
+- alle xml bestanden worden nu in projecten verdeeld. Per project wordt 
+  er een aparte directory aangemaakt en verder gebruikt in het verloop
+  van de applicatie.
+ 
+# Release 2.0.8.2
+- testresultaten alleen laten zien van het project waar aan gewerkt wordt.
+
+# Release 2.0.8.3
+- In TestCase ook de url kunnen aanpassen.
+
+# Release 2.0.8.4
+- testruns ook voorzien van project_id
+
+# Release 2.0.8.7
+- ULR kunnen aanpassen tijdens testrun
+
+# Release 2.0.8.8
+- Al of niet kunnen opslaan van de testresultaten.
+
+# Release 2.0.8.9
+- Up- en download aangepast voor projecten.
+
+# Release 2.0.8.10
+- Up- en download ook laten werken.
+- Pre-condities niet meer tonen nadat een testrun heeft plaatsgevonden zonder opslaan. 
+
+# Release 2.0.8.11
+- Save testresults altijd weer op checked zetten
+- Save optie niet beschikbaar nadat actie is aangepast.
+
+# Release 2.0.8.12
+- Verwerken van de opgeslagen data (set_value / get_value) met projectid.
+
+# Release 2.0.8.13
+- Ophalen testcase via get gerepareerd
+- Mogelijkheid om een nieuw testscript aan te maken vanuit een oud testscript
+
+# Release 2.0.8.14
+- Checkbox aangepast.
+
+# Release 2.0.8.15
+- Bij scroll is geen verplichte invulling noodzakelijk.
+
+# Release 2.0.8.17
+- Testnr copieeren mogelijk gemaakt
+
+# Release 2.0.8.18
+- Gebruiker kan bij het maken van een testscript nu ook kiezen om een screenshot te maken.
+
+# Release 2.0.8.21
+CVS bestanden kunnen maken.
+
+# Release 2.0.8.23
+- CVS bestanden gelijk getrokken bij het aanmaken
+- Directory controleren of die bestaan bij het aanmaken van een CSV bestand
+
+# Release 2.0.8.24
+- inloggen en 1e stappen bij de elementen gecorrigeerd
+
+# Release 2.0.8.25
+- inloggen en 1e stappen bij de elementen gecorrigeerd
+
+# Release 2.0.8.27
+- aanmaken nieuwe inlog gegevens aangepast
+
+# Release 2.0.8.28
+- get_value kan nu vanuit alle scripts binnen een project gehaald worden.
+
+# Release 2.0.8.30
+- arrange testnr in testcase
+
+# Release 2.0.9.01
+- betere afhandeling wanneer browser uitgeschakeld is.
+
+# Release 2.0.9.2
+- geen logging meer op productie
+
+# Release 2.0.10.9
+- Tekst wordt volledig gecontroleerd, inclusief returns, maar zonder html code.

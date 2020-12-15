@@ -605,7 +605,7 @@ namespace WPFTestResults.Tests
                     teller++; 
 
                     title2 = title1.Replace("\'", "\\'");
-                    General.LogMessageDatabase(
+                    General.LogMessage(
                         "XPath: " + nodePath + "\r\n\tText: " + node.InnerText.Trim() + "\r\n\tId: " + node.Id
                         + "\r\n\tName: " + node.Name + "\r\n\tClass: " + class1 + "\r\n\tHref: " + href1 + "\r\n\tTag: "
                         + node.Attributes["tagename"],

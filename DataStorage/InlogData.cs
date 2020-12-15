@@ -63,31 +63,36 @@ namespace DataStorage
                         LoginAttributeExtra1 = row["login_attribute_extra1"].ToString(),
                         LoginAttributeExtra2 = row["login_attribute_extra2"].ToString(),
                         LoginAttributeExtra3 = row["login_attribute_extra3"].ToString(),
+                        LoginAttributeExtra4 = row["login_attribute_extra4"].ToString(),
                         LoginTagnameExtra1 = row["login_tagname_extra1"].ToString(),
                         LoginTagnameExtra2 = row["login_tagname_extra2"].ToString(),
                         LoginTagnameExtra3 = row["login_tagname_extra3"].ToString(),
+                        LoginTagnameExtra4 = row["login_tagname_extra4"].ToString(),
                         LoginDescriptionExtra1 = row["login_description_extra1"].ToString(),
                         LoginDescriptionExtra2 = row["login_description_extra2"].ToString(),
                         LoginDescriptionExtra3 = row["login_description_extra3"].ToString(),
+                        LoginDescriptionExtra4 = row["login_description_extra4"].ToString(),
                         LoginOrder1 = row["login_order1"].ToString(),
                         LoginOrder2 = row["login_order2"].ToString(),
                         LoginOrder3 = row["login_order3"].ToString(),
                         LoginOrder4 = row["login_order4"].ToString(),
                         LoginOrder5 = row["login_order5"].ToString(),
                         LoginOrder6 = row["login_order6"].ToString(),
+                        LoginOrder7 = row["login_order7"].ToString(),
                         LoginAction1 = row["login_action1"].ToString(),
                         LoginAction2 = row["login_action2"].ToString(),
                         LoginAction3 = row["login_action3"].ToString(),
                         LoginAction4 = row["login_action4"].ToString(),
                         LoginAction5 = row["login_action5"].ToString(),
                         LoginAction6 = row["login_action6"].ToString(),
+                        LoginAction7 = row["login_action7"].ToString(),
                         LoginName = row["login_name"].ToString()
                     }).ToList();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-                General.LogMessageDatabase(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
             }
 
             return inlogData;
@@ -182,26 +187,29 @@ namespace DataStorage
             public string LoginAttributeExtra1 { get; set; }
             public string LoginAttributeExtra2 { get; set; }
             public string LoginAttributeExtra3 { get; set; }
+            public string LoginAttributeExtra4 { get; set; }
             public string LoginTagnameExtra1 { get; set; }
             public string LoginTagnameExtra2 { get; set; }
             public string LoginTagnameExtra3 { get; set; }
+            public string LoginTagnameExtra4 { get; set; }
             public string LoginDescriptionExtra1 { get; set; }
             public string LoginDescriptionExtra2 { get; set; }
-
             public string LoginDescriptionExtra3 { get; set; }
+            public string LoginDescriptionExtra4 { get; set; }
             public string LoginOrder1 { get; set; }
             public string LoginOrder2 { get; set; }
             public string LoginOrder3 { get; set; }
             public string LoginOrder4 { get; set; }
             public string LoginOrder5 { get; set; }
             public string LoginOrder6 { get; set; }
+            public string LoginOrder7 { get; set; }
             public string LoginAction1 { get; set; }
             public string LoginAction2 { get; set; }
             public string LoginAction3 { get; set; }
             public string LoginAction4 { get; set; }
             public string LoginAction5 { get; set; }
             public string LoginAction6 { get; set; }
-
+            public string LoginAction7 { get; set; }
             public string LoginName { get; set; }
         }
     }
