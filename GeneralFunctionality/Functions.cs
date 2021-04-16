@@ -218,7 +218,8 @@ namespace GeneralFunctionality
                             break;
                         case "CLASS":
                             driver.FindElement(By.ClassName(idString));
-                            content = driver.FindElement(By.ClassName(idString));
+                            content =
+                                driver.FindElement(By.ClassName(idString));
                             break;
                         case "ID":
                             driver.FindElement(By.Id(idString));
@@ -226,41 +227,49 @@ namespace GeneralFunctionality
                             break;
                         case "CSSSELECTOR":
                             driver.FindElement(By.CssSelector(idString));
-                            content = driver.FindElement(By.CssSelector(idString));
+                            content =
+                                driver.FindElement(By.CssSelector(idString));
                             break;
                     }
 
-                    if (content != null && tekst != string.Empty && content.TagName == "input" &&
+                    if (content != null && tekst != string.Empty &&
+                        content.TagName == "input" &&
                         content.GetAttribute("value") != string.Empty)
                     {
                         //MessageBox.Show("|" + content.GetAttribute("value").Trim() + "|"+ tekst + "|");
 
-                        if (tekst != string.Empty && content.GetAttribute("value").Trim() == tekst)
+                        if (tekst != string.Empty &&
+                            content.GetAttribute("value").Trim() == tekst)
                             result = gewoon;
 
-                        if (tekst != string.Empty && content.GetAttribute("value").Trim() != tekst)
+                        if (tekst != string.Empty &&
+                            content.GetAttribute("value").Trim() != tekst)
                             result = ongewoon;
                     }
 
 
-                    if (content != null && content.Text != null && content.Text != string.Empty &&
+                    if (content != null && content.Text != null &&
+                        content.Text != string.Empty &&
                         tekst != string.Empty)
                     {
+                        // MessageBox.Show("|" + content.Text.Trim() + "|" + tekst.Trim() + "|");
 
-                       // MessageBox.Show("|" + content.Text.Trim() + "|" + tekst.Trim() + "|");
-
-                        if (tekst != string.Empty && content.Text.Trim() == tekst.Trim())
+                        if (tekst != string.Empty &&
+                            content.Text.Trim() == tekst.Trim())
                             result = gewoon;
 
-                        if (tekst != string.Empty && content.Text.Trim() != tekst.Trim())
+                        if (tekst != string.Empty &&
+                            content.Text.Trim() != tekst.Trim())
                             result = ongewoon;
                     }
 
                     if (tekst == string.Empty) result = gewoon;
 
-                    HighlightAndScreenshot(driver, content, showShowTime, showBorderColor, showBorderWidth);
+                    HighlightAndScreenshot(driver, content, showShowTime,
+                        showBorderColor, showBorderWidth);
 
-                    if (idString.ToUpper().Trim() != "POPUP" && idString.Trim().Length > 0)
+                    if (idString.ToUpper().Trim() != "POPUP" &&
+                        idString.Trim().Length > 0)
                         if (result == ongewoon)
                             TakeScreenshot(driver, ongewoon);
 
@@ -362,7 +371,8 @@ namespace GeneralFunctionality
             uint diskIndex = 999;
             foreach (ManagementObject partition in searcher.Get())
             {
-                diskIndex = Convert.ToUInt32(partition.GetPropertyValue("Index"));
+                diskIndex =
+                    Convert.ToUInt32(partition.GetPropertyValue("Index"));
                 break; // TODO: might not be correct. Was : Exit For
             }
 
@@ -371,7 +381,8 @@ namespace GeneralFunctionality
                 return string.Empty;
 
             // --- Win32 Disk Drive
-            searcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive where Index = " + diskIndex);
+            searcher = new ManagementObjectSearcher(
+                "SELECT * FROM Win32_DiskDrive where Index = " + diskIndex);
 
             var deviceName = "";
             foreach (ManagementObject wmi_HD in searcher.Get())
@@ -385,11 +396,14 @@ namespace GeneralFunctionality
                 return string.Empty;
 
             // -- Some problems in query parsing with backslash. Using like operator
-            if (deviceName.StartsWith("\\\\.\\")) deviceName = deviceName.Replace("\\\\.\\", "%");
+            if (deviceName.StartsWith("\\\\.\\"))
+                deviceName = deviceName.Replace("\\\\.\\", "%");
 
             // --- Physical Media
-            searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMedia WHERE Tag like '" + deviceName +
-                                                    "'");
+            searcher = new ManagementObjectSearcher(
+                "SELECT * FROM Win32_PhysicalMedia WHERE Tag like '" +
+                deviceName +
+                "'");
             var serial = string.Empty;
             foreach (ManagementObject wmi_HD in searcher.Get())
             {
@@ -403,7 +417,8 @@ namespace GeneralFunctionality
 
         public static int getMachineCode()
         {
-            var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
+            var searcher =
+                new ManagementObjectSearcher("select * from Win32_Processor");
             var collectedInfo = "";
             // here we will put the informa
             foreach (ManagementObject share in searcher.Get())
@@ -421,7 +436,8 @@ namespace GeneralFunctionality
                 collectedInfo += share.GetPropertyValue("SerialNumber");
 
             // patch luca bernardini
-            if (string.IsNullOrEmpty(collectedInfo) | (collectedInfo == "00") | (collectedInfo.Length <= 3))
+            if (string.IsNullOrEmpty(collectedInfo) | (collectedInfo == "00") |
+                (collectedInfo.Length <= 3))
                 collectedInfo += getHddSerialNumber();
 
             return getEightByteHash(collectedInfo, 100000);
@@ -435,7 +451,8 @@ namespace GeneralFunctionality
         /// <returns>System.Int32.</returns>
         /// <autogeneratedoc />
         /// TODO Edit XML Comment Template for getEightByteHash
-        public static int getEightByteHash(string s, int MUST_BE_LESS_THAN = 1000000000)
+        public static int getEightByteHash(string s,
+            int MUST_BE_LESS_THAN = 1000000000)
         {
             //This function generates a eight byte hash
 
@@ -485,26 +502,37 @@ namespace GeneralFunctionality
             if (!dis.Exists)
             {
                 var driverPathSub = di.CreateSubdirectory(dirName);
-                var applicationPathSub = di.CreateSubdirectory(dirName + "\\" + applicationName.Trim());
-                var applicationPathSubErrors = di.CreateSubdirectory(dirName + "\\" + applicationName.Trim());
+                var applicationPathSub =
+                    di.CreateSubdirectory(dirName + "\\" +
+                                          applicationName.Trim());
+                var applicationPathSubErrors =
+                    di.CreateSubdirectory(dirName + "\\" +
+                                          applicationName.Trim());
             }
             else
             {
                 var applicationPath =
-                    new DirectoryInfo(screenshotsPath + "\\" + dirName + "\\" + applicationName.Trim());
+                    new DirectoryInfo(screenshotsPath + "\\" + dirName + "\\" +
+                                      applicationName.Trim());
                 if (applicationPath.Exists)
                 {
                 }
                 else
                 {
-                    var applicationPathSub = di.CreateSubdirectory(dirName + "\\" + applicationName.Trim());
+                    var applicationPathSub =
+                        di.CreateSubdirectory(dirName + "\\" +
+                                              applicationName.Trim());
                 }
 
-                applicationPath = new DirectoryInfo(screenshotsPath + "\\" + dirName + "\\" + applicationName.Trim());
+                applicationPath = new DirectoryInfo(screenshotsPath + "\\" +
+                                                    dirName + "\\" +
+                                                    applicationName.Trim());
 
                 if (!applicationPath.Exists)
                 {
-                    var applicationPathSubErrors = di.CreateSubdirectory(dirName + "\\" + applicationName.Trim());
+                    var applicationPathSubErrors =
+                        di.CreateSubdirectory(dirName + "\\" +
+                                              applicationName.Trim());
                 }
             }
         }
@@ -544,7 +572,8 @@ namespace GeneralFunctionality
 
                 if (!applicationPath.Exists)
                 {
-                    var applicationPathSubErrors = di.CreateSubdirectory("CSV\\");
+                    var applicationPathSubErrors =
+                        di.CreateSubdirectory("CSV\\");
                 }
             }
         }
@@ -560,59 +589,87 @@ namespace GeneralFunctionality
         {
             try
             {
-                var totalTestResultsHtmls = new List<TestResults.TotalTestResultsHTML>();
-                totalTestResultsHtmls = TestResults.GetTotalTestResultsHTML(testrun);
+                var totalTestResultsHtmls =
+                    new List<TestResults.TotalTestResultsHTML>();
+                totalTestResultsHtmls =
+                    TestResults.GetTotalTestResultsHTML(testrun);
 
                 var testResults = new List<TestResults.TestResultsHTML>();
                 testResults = TestResults.GetTestResultsHTML(testrun);
                 setApplicationName(testResults[0].application);
 
-                var timestring = "run_" + string.Format("{0,8:D8}", Convert.ToInt32(testrun));
+                var timestring = "run_" +
+                                 string.Format("{0,8:D8}",
+                                     Convert.ToInt32(testrun));
                 var message = "<!DOCTYPE html>\r\n<html>\r\n<head>";
                 message += "\t<meta charset=\"UTF-8\">\r\n";
-                message += "\t<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\r\n";
-                message += "\t<title>Testrun: " + testResults[0].application + "_" + timestring + "</title>\r\n";
-                message += "\t<link rel=\"stylesheet\" href=\"" + GetCurrentDir(0) + "\\style.css\">\r\n";
+                message +=
+                    "\t<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\r\n";
+                message += "\t<title>Testrun: " + testResults[0].application +
+                           "_" + timestring + "</title>\r\n";
+                message += "\t<link rel=\"stylesheet\" href=\"" +
+                           GetCurrentDir(0) + "\\style.css\">\r\n";
                 message += "</head>";
                 message +=
                     "<body class=\"dark-theme\"><script id=\"__bs_script__\">//<![CDATA[document.write(\"<script async src='/browser-sync/browser-sync-client.js?v=2.23.6'><\\/script>\".replace(\"HOST\", location.hostname));//]]></script>\r\n";
                 message += "<div id=\"wrapper\">\r\n";
-                message += "\t<h1>Test: " + testResults[0].application.Trim() + "</h1>\r\n";
-                message += "\t<h2>Testrun: " + testResults[0].testrun.ToString().Trim() + "</h2>\r\n";
-                message += "\t<h2>Browser: " + totalTestResultsHtmls[0].testrun_browser + "</h2>\r\n";
+                message += "\t<h1>Test: " + testResults[0].application.Trim() +
+                           "</h1>\r\n";
+                message += "\t<h2>Testrun: " +
+                           testResults[0].testrun.ToString().Trim() +
+                           "</h2>\r\n";
+                message += "\t<h2>Browser: " +
+                           totalTestResultsHtmls[0].testrun_browser +
+                           "</h2>\r\n";
                 message += "\t<div id=\"dashboard\">\r\n";
 
                 // TestResults total
-                var passedInt = Convert.ToDouble(totalTestResultsHtmls[0].testrun_passed);
-                var failedInt = Convert.ToDouble(totalTestResultsHtmls[0].testrun_failed);
-                var passedAfgerond = Convert.ToInt32(passedInt / (passedInt + failedInt) * 100 - 0.50);
-                var passedAfgerond1 = string.Format("{0:F1}", passedInt / (passedInt + failedInt) * 100);
+                var passedInt =
+                    Convert.ToDouble(totalTestResultsHtmls[0].testrun_passed);
+                var failedInt =
+                    Convert.ToDouble(totalTestResultsHtmls[0].testrun_failed);
+                var passedAfgerond =
+                    Convert.ToInt32(passedInt / (passedInt + failedInt) * 100 -
+                                    0.50);
+                var passedAfgerond1 = string.Format("{0:F1}",
+                    passedInt / (passedInt + failedInt) * 100);
                 message += "\t\t<div class=\"row\">\r\n";
 
                 // Grafic
                 message += "\t\t\t<div class=\"col-4\">\r\n";
                 message += "\t\t\t\t<div class=\"card\">\r\n";
-                message += "\t\t\t\t\t<div class=\"card__content row donut\">\r\n";
-                message += "\t\t\t\t\t\t<div id=\"chart\" class=\"col-5\" data-percent=\"" + passedAfgerond1
+                message +=
+                    "\t\t\t\t\t<div class=\"card__content row donut\">\r\n";
+                message +=
+                    "\t\t\t\t\t\t<div id=\"chart\" class=\"col-5\" data-percent=\"" +
+                    passedAfgerond1
                     + "\">\r\n";
                 message +=
                     "\t\t\t\t\t\t\t<svg width=\"100%\" height=\"100%\" viewbox=\"0 0 40 25\" class=\"donut\">\r\n";
                 message +=
                     "\t\t\t\t\t\t\t\t<circle class=\"donut-ring\" cx=\"20\" cy=\"13\" r=\"16\" fill=\"transparant\"></circle>\r\n";
-                message += "\t\t\t\t\t\t\t\t<circle class=\"donut-segment p-" + passedAfgerond
-                                                                              + "\" cx=\"20\" cy=\"13\" r=\"16\" fill=\"transparant\" stroke-dashoffset=\"25\"></circle>\r\n";
+                message += "\t\t\t\t\t\t\t\t<circle class=\"donut-segment p-" +
+                           passedAfgerond
+                           + "\" cx=\"20\" cy=\"13\" r=\"16\" fill=\"transparant\" stroke-dashoffset=\"25\"></circle>\r\n";
                 message += "\t\t\t\t\t\t\t</svg>\r\n";
                 message += "\t\t\t\t\t\t</div>\r\n";
                 message += "\t\t\t\t\t\t<div class=\"col-7\">\r\n";
                 message += "\t\t\t\t\t\t\t<ul id=\"runtime\">\r\n";
-                message += "\t\t\t\t\t\t\t\t<li><strong>Start time: </strong></br>" + string.Format(
-                    "{0:dd/MM/yy HH:mm:ss}",
-                    totalTestResultsHtmls[0].testrun_begintime) + "</li>\r\n";
-                message += "\t\t\t\t\t\t\t\t<li><strong>End Time: </strong></br>" + string.Format(
-                    "{0:dd/MM/yy HH:mm:ss}",
-                    totalTestResultsHtmls[0].testrun_endtime) + "</li>\r\n";
-                message += "\t\t\t\t\t\t\t\t<li><strong>Execution Time: </strong></br>"
-                           + string.Format("{0:HH:mm:ss}", totalTestResultsHtmls[0].testrun_time) + "</li>\r\n";
+                message +=
+                    "\t\t\t\t\t\t\t\t<li><strong>Start time: </strong></br>" +
+                    string.Format(
+                        "{0:dd/MM/yy HH:mm:ss}",
+                        totalTestResultsHtmls[0].testrun_begintime) +
+                    "</li>\r\n";
+                message +=
+                    "\t\t\t\t\t\t\t\t<li><strong>End Time: </strong></br>" +
+                    string.Format(
+                        "{0:dd/MM/yy HH:mm:ss}",
+                        totalTestResultsHtmls[0].testrun_endtime) + "</li>\r\n";
+                message +=
+                    "\t\t\t\t\t\t\t\t<li><strong>Execution Time: </strong></br>"
+                    + string.Format("{0:HH:mm:ss}",
+                        totalTestResultsHtmls[0].testrun_time) + "</li>\r\n";
                 message += "\t\t\t\t\t\t\t</ul>\r\n";
                 message += "\t\t\t\t\t\t</div>\r\n";
                 message += "\t\t\t\t\t</div>\r\n";
@@ -627,8 +684,10 @@ namespace GeneralFunctionality
                 message += "\t\t\t\t\t\t<div class=\"counter\">\r\n";
                 message += "\t\t\t\t\t\t\t<div>" + passedInt + "</div>\r\n";
                 message += "\t\t\t\t\t\t\t<svg class=\"check\">\r\n";
-                message += "\t\t\t\t\t\t\t\t<line x1=\"5\" y1=\"15\" x2=\"15\" y2=\"25\" />\r\n";
-                message += "\t\t\t\t\t\t\t\t<line x1=\"13\" y1=\"25\" x2=\"30\" y2=\"5\" />\r\n";
+                message +=
+                    "\t\t\t\t\t\t\t\t<line x1=\"5\" y1=\"15\" x2=\"15\" y2=\"25\" />\r\n";
+                message +=
+                    "\t\t\t\t\t\t\t\t<line x1=\"13\" y1=\"25\" x2=\"30\" y2=\"5\" />\r\n";
                 message += "\t\t\t\t\t\t\t<svg>\r\n";
                 message += "\t\t\t\t\t\t</div>\r\n";
                 message += "\t\t\t\t\t</div>\r\n";
@@ -643,8 +702,10 @@ namespace GeneralFunctionality
                 message += "\t\t\t\t\t\t<div class=\"counter\">\r\n";
                 message += "\t\t\t\t\t\t\t<div>" + failedInt + "</div>\r\n";
                 message += "\t\t\t\t\t\t\t<svg class=\"cross\">\r\n";
-                message += "\t\t\t\t\t\t\t\t<line x1=\"1\" y1=\"25\" x2=\"25\" y2=\"1\" />\r\n";
-                message += "\t\t\t\t\t\t\t\t<line x1=\"1\" y1=\"1\" x2=\"25\" y2=\"25\" />\r\n";
+                message +=
+                    "\t\t\t\t\t\t\t\t<line x1=\"1\" y1=\"25\" x2=\"25\" y2=\"1\" />\r\n";
+                message +=
+                    "\t\t\t\t\t\t\t\t<line x1=\"1\" y1=\"1\" x2=\"25\" y2=\"25\" />\r\n";
                 message += "\t\t\t\t\t\t\t<svg>\r\n";
                 message += "\t\t\t\t\t\t</div>\r\n";
                 message += "\t\t\t\t\t</div>\r\n";
@@ -658,37 +719,47 @@ namespace GeneralFunctionality
                 message += "\t\t\t\t<div class=\"list__content__row\">\r\n";
                 message += "\t\t\t\t\t<div class=\"row details\">\r\n";
                 message += "\t\t\t\t\t\t<div class=\"col-1\">\r\n";
-                message += "\t\t\t\t\t\t\t<span><strong>Nr.</strong></span>\r\n";
+                message +=
+                    "\t\t\t\t\t\t\t<span><strong>Nr.</strong></span>\r\n";
                 message += "\t\t\t\t\t\t</div>\r\n";
                 message += "\t\t\t\t\t\t<div class=\"col-3 action\">\r\n";
-                message += "\t\t\t\t\t\t\t<span><strong>attribute</strong></span>\r\n";
+                message +=
+                    "\t\t\t\t\t\t\t<span><strong>attribute</strong></span>\r\n";
                 message += "\t\t\t\t\t\t</div>\r\n";
                 message += "\t\t\t\t\t</div>\r\n";
-                message += "\t\t\t\t\t<div class=\"element\"><strong>element name</strong>\r\n";
+                message +=
+                    "\t\t\t\t\t<div class=\"element\"><strong>element name</strong>\r\n";
                 message += "\t\t\t\t</div>\r\n";
                 message += "\t\t\t</div>\r\n";
 
-                var showErrorDisplay = OverallSettings.ShowErrorDisplay.ToString();
+                var showErrorDisplay =
+                    OverallSettings.ShowErrorDisplay.ToString();
 
                 // Details
                 foreach (var testResult in testResults)
                 {
                     var testOK = "list__content__row success";
-                    if (testResult.result == "4") testOK = "list__content__row error";
+                    if (testResult.result == "4")
+                        testOK = "list__content__row error";
 
                     if (showErrorDisplay == "0" && testResult.result == "4")
                     {
                         message += "\t\t\t\t<div class=\"" + testOK + "\">\r\n";
                         message += "\t\t\t\t\t<div class=\"row details\">\r\n";
                         message += "\t\t\t\t\t\t<div class=\"col-1\">\r\n";
-                        message += "\t\t\t\t\t\t\t<span>" + testResult.testnr + "</span>\r\n";
+                        message += "\t\t\t\t\t\t\t<span>" + testResult.testnr +
+                                   "</span>\r\n";
                         message += "\t\t\t\t\t\t</div>\r\n";
-                        message += "\t\t\t\t\t\t<div class=\"col-3 action\">\r\n";
-                        message += "\t\t\t\t\t\t\t<span>" + testResult.attribute + "</span>\r\n";
+                        message +=
+                            "\t\t\t\t\t\t<div class=\"col-3 action\">\r\n";
+                        message += "\t\t\t\t\t\t\t<span>" +
+                                   testResult.attribute + "</span>\r\n";
                         message += "\t\t\t\t\t\t</div>\r\n";
                         message += "\t\t\t\t\t</div>\r\n";
-                        message += "\t\t\t\t\t<div class=\"element\">" + testResult.elementname + "(" +
-                                   testResult.element + ")</div>\r\n";
+                        message +=
+                            "\t\t\t\t\t<div class=\"element\">" +
+                            testResult.elementname + "(" +
+                            testResult.element + ")</div>\r\n";
                         message += "\t\t\t\t</div>\r\n";
                     }
 
@@ -697,14 +768,19 @@ namespace GeneralFunctionality
                         message += "\t\t\t\t<div class=\"" + testOK + "\">\r\n";
                         message += "\t\t\t\t\t<div class=\"row details\">\r\n";
                         message += "\t\t\t\t\t\t<div class=\"col-1\">\r\n";
-                        message += "\t\t\t\t\t\t\t<span>" + testResult.testnr + "</span>\r\n";
+                        message += "\t\t\t\t\t\t\t<span>" + testResult.testnr +
+                                   "</span>\r\n";
                         message += "\t\t\t\t\t\t</div>\r\n";
-                        message += "\t\t\t\t\t\t<div class=\"col-3 action\">\r\n";
-                        message += "\t\t\t\t\t\t\t<span>" + testResult.attribute + "</span>\r\n";
+                        message +=
+                            "\t\t\t\t\t\t<div class=\"col-3 action\">\r\n";
+                        message += "\t\t\t\t\t\t\t<span>" +
+                                   testResult.attribute + "</span>\r\n";
                         message += "\t\t\t\t\t\t</div>\r\n";
                         message += "\t\t\t\t\t</div>\r\n";
-                        message += "\t\t\t\t\t<div class=\"element\">" + testResult.elementname + "(" +
-                                   testResult.element + ")</div>\r\n";
+                        message +=
+                            "\t\t\t\t\t<div class=\"element\">" +
+                            testResult.elementname + "(" +
+                            testResult.element + ")</div>\r\n";
                         message += "\t\t\t\t</div>\r\n";
                     }
                 }
@@ -731,7 +807,8 @@ namespace GeneralFunctionality
         public static void DeteleImages()
         {
             var screenshotsPath = GetCurrentDir(1);
-            var di = new DirectoryInfo(screenshotsPath + "screenshots\\" + applicationName.Trim());
+            var di = new DirectoryInfo(screenshotsPath + "screenshots\\" +
+                                       applicationName.Trim());
             foreach (var file in di.GetFiles()) file.Delete();
         }
 
@@ -777,7 +854,8 @@ namespace GeneralFunctionality
                 {
                     var xelement = XElement.Load("settings.xml");
                     var elementVars = xelement.Elements();
-                    foreach (var elementVar in elementVars) ValueList.Add(elementVar.Value);
+                    foreach (var elementVar in elementVars)
+                        ValueList.Add(elementVar.Value);
                 }
                 catch (Exception ex)
                 {
@@ -823,7 +901,8 @@ namespace GeneralFunctionality
                     intX++;
 
             var di = string.Empty;
-            for (var x = 0; x < directory.Length - intX - 1; x++) di += directory[x] + "\\";
+            for (var x = 0; x < directory.Length - intX - 1; x++)
+                di += directory[x] + "\\";
 
             return di;
         }
@@ -834,7 +913,8 @@ namespace GeneralFunctionality
         /// <param name="xmlFile">The XML file.</param>
         /// <param name="dirnr">The dirnr.</param>
         /// <returns>List&lt;System.String&gt;.</returns>
-        public static List<string> GetSettingsXmlStrings(string xmlFile, int dirnr = 0)
+        public static List<string> GetSettingsXmlStrings(string xmlFile,
+            int dirnr = 0)
         {
             var ValueList = new List<string>();
 
@@ -847,7 +927,8 @@ namespace GeneralFunctionality
                 {
                     var xelement = XElement.Load(di + xmlFile + ".xml");
                     var elementVars = xelement.Elements().Elements();
-                    foreach (var elementVar in elementVars) ValueList.Add(elementVar.Value);
+                    foreach (var elementVar in elementVars)
+                        ValueList.Add(elementVar.Value);
                 }
                 catch (Exception ex)
                 {
@@ -883,7 +964,8 @@ namespace GeneralFunctionality
         /// <returns>IWebElement.</returns>
         /// <autogeneratedoc />
         /// TODO Edit XML Comment Template for HaalElementop
-        public static IWebElement HaalElementop(IWebDriver driver, string testElement, string testAttribute)
+        public static IWebElement HaalElementop(IWebDriver driver,
+            string testElement, string testAttribute)
         {
             IWebElement webElement = null;
 
@@ -903,7 +985,8 @@ namespace GeneralFunctionality
                     webElement = driver.FindElement(By.XPath(testElement));
                     break;
                 case "CSSSELECTOR":
-                    webElement = driver.FindElement(By.CssSelector(testElement));
+                    webElement =
+                        driver.FindElement(By.CssSelector(testElement));
                     break;
             }
 
@@ -947,9 +1030,10 @@ namespace GeneralFunctionality
 
                 var driver = (IJavaScriptExecutor) rc.WrappedDriver;
 
-                var script = "arguments[0].style.cssText = \"border-width: " + borderWidth
-                                                                             + "px; border-style: solid; border-color: "
-                                                                             + borderColor.ToLower() + "\";";
+                var script = "arguments[0].style.cssText = \"border-width: " +
+                             borderWidth
+                             + "px; border-style: solid; border-color: "
+                             + borderColor.ToLower() + "\";";
                 driver.ExecuteScript(script, rc);
 
                 Thread.Sleep(sleepTime);
@@ -998,12 +1082,19 @@ namespace GeneralFunctionality
              * Gebruiker dient in te loggen op een andere database als waar de data staan
              *
              */
-            var host = "SCHMEITSNAS.SYNOLOGY.ME";
-            var database = "autotest";
-            var port = "3306";
-            var user = "autotest";
-            var password = "NiFSi1fZjbJ4zXE8";
-            General.LogMessage("InitializeDatabaseConnection(" + loginU + ");", 1);
+            //var host = "SCHMEITSNAS.SYNOLOGY.ME";
+            //var database = "autotest";
+            //var port = "3306";
+            //var user = "autotest";
+            //var password = "NiFSi1fZjbJ4zXE8";
+            //
+            var host = "";
+            var database = "";
+            var port = "";
+            var user = "";
+            var password = "";
+            General.LogMessage("InitializeDatabaseConnection(" + loginU + ");",
+                1);
 
             if (loginU == false)
             {
@@ -1066,7 +1157,9 @@ namespace GeneralFunctionality
         /// TODO Edit XML Comment Template for IsWindows10
         public static bool IsWindows10()
         {
-            var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+            var reg =
+                Registry.LocalMachine.OpenSubKey(
+                    @"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
 
             var productName = (string) reg.GetValue("ProductName");
 
@@ -1172,9 +1265,12 @@ namespace GeneralFunctionality
             var projectID = 0;
             if (_project != null)
             {
-                var query = "SELECT id FROM projects WHERE UPPER(project_name) = '" + _project.ToUpper() + "';";
+                var query =
+                    "SELECT id FROM projects WHERE UPPER(project_name) = '" +
+                    _project.ToUpper() + "';";
                 var ds = GenericDataRead.GetData(query);
-                if (ds.Rows.Count > 0) projectID = Convert.ToInt32(ds.Rows[0][0].ToString());
+                if (ds.Rows.Count > 0)
+                    projectID = Convert.ToInt32(ds.Rows[0][0].ToString());
             }
 
             return projectID;
@@ -1238,7 +1334,8 @@ namespace GeneralFunctionality
         /// <param name="name">The name.</param>
         /// <autogeneratedoc />
         /// TODO Edit XML Comment Template for TakeScreenshot
-        public static void TakeScreenshot(IWebDriver driver, int result, string name = "screenshot")
+        public static void TakeScreenshot(IWebDriver driver, int result,
+            string name = "screenshot")
         {
             var screenshotsPath = GetCurrentDir(1);
             var pathG = screenshotsPath.Split('\\');
@@ -1251,13 +1348,18 @@ namespace GeneralFunctionality
 
             if (result == 4)
             {
-                var relativePath = screenshotsPath + "screenshots\\" + name1 + "\\";
-                ScreenshotName = relativePath + name1 + "-" + string.Format("{0:yyyyMMddHHmmssFFF}", DateTime.UtcNow)
-                                 + "testnr_" + SetTestnr + ".png";
+                var relativePath =
+                    screenshotsPath + "screenshots\\" + name1 + "\\";
+                ScreenshotName =
+                    relativePath + name1 + "-" +
+                    string.Format("{0:yyyyMMddHHmmssFFF}", DateTime.UtcNow)
+                    + "testnr_" + SetTestnr + ".png";
                 General.LogMessage("Screenshot name: " + ScreenshotName, 1);
-                driver.TakeScreenshot().SaveAsFile(ScreenshotName, ScreenshotImageFormat.Png);
+                driver.TakeScreenshot().SaveAsFile(ScreenshotName,
+                    ScreenshotImageFormat.Png);
 
-                General.LogMessage("Error", result, name1, Convert.ToInt32(SetTestnr));
+                General.LogMessage("Error", result, name1,
+                    Convert.ToInt32(SetTestnr));
             }
 
             ShowData(driver);
@@ -1276,7 +1378,9 @@ namespace GeneralFunctionality
             switch (tekst)
             {
                 case "=CurrentDate()":
-                    tekstGewijzigd = DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year;
+                    tekstGewijzigd = DateTime.Now.Day + "-" +
+                                     DateTime.Now.Month + "-" +
+                                     DateTime.Now.Year;
                     break;
             }
 
@@ -1315,14 +1419,16 @@ namespace GeneralFunctionality
         /// <param name="bestandsnaamArgument">The bestandsnaam argument.</param>
         /// <autogeneratedoc />
         /// TODO Edit XML Comment Template for Teststap
-        public static void Teststap(IWebDriver driver, string machinestatic, string radiobutton, string version,
+        public static void Teststap(IWebDriver driver, string machinestatic,
+            string radiobutton, string version,
             string bestandsnaamArgument, bool opslaan)
         {
             var table = General.GetTestrun(bestandsnaamArgument);
             var actions = new Actions(driver);
             // var credits = GetCredentials(bestandsnaamArgument);
 
-            var credits = GetCredentials(_project + @"\" + bestandsnaamArgument);
+            var credits =
+                GetCredentials(_project + @"\" + bestandsnaamArgument);
 
             var machineNumber = Convert.ToString(getMachineCode());
 
@@ -1331,20 +1437,28 @@ namespace GeneralFunctionality
                 var drTitle = driver.Title;
                 if (drTitle != null)
                 {
-                    setClassName(table.Rows[intx]["testcase"].ToString().Trim());
+                    setClassName(table.Rows[intx]["testcase"].ToString()
+                        .Trim());
                     setTestnr(table.Rows[intx]["testnr"].ToString().Trim());
 
-                    var v = (table != null ? table != null ? table.Rows[intx]["testurl"] : null : null) != string.Empty;
+                    var v = (table != null
+                        ? table != null ? table.Rows[intx]["testurl"] : null
+                        : null) != string.Empty;
 
-                    if (table.Rows[intx]["testurl"] != null && table.Rows.Count > intx && v)
-                        if (table.Rows[intx]["testurl"].ToString().Trim().Length > 0
-                            && table.Rows[intx]["testswitch"].ToString().ToUpper() == "YES")
+                    if (table.Rows[intx]["testurl"] != null &&
+                        table.Rows.Count > intx && v)
+                        if (table.Rows[intx]["testurl"].ToString().Trim()
+                                .Length > 0
+                            && table.Rows[intx]["testswitch"].ToString()
+                                .ToUpper() == "YES")
                         {
                             var handles = driver.WindowHandles;
                             foreach (var handle in handles)
                             {
-                                var contains = driver.SwitchTo().Window(handle).Url
-                                    .Contains(table.Rows[intx]["testurl"].ToString().Trim());
+                                var contains = driver.SwitchTo().Window(handle)
+                                    .Url
+                                    .Contains(table.Rows[intx]["testurl"]
+                                        .ToString().Trim());
                             }
                         }
 
@@ -1352,37 +1466,57 @@ namespace GeneralFunctionality
                     {
                         if (table.Rows[intx]["testaction"].ToString() == "wait")
                         {
-                            Thread.Sleep(Convert.ToInt32(table.Rows[intx]["testtext"].ToString().Trim()) * 1000);
+                            Thread.Sleep(Convert.ToInt32(
+                                table.Rows[intx]["testtext"].ToString()
+                                    .Trim()) * 1000);
                         }
                         else
                         {
-                            var idString = table.Rows[intx]["testelement"].ToString().Trim();
-                            var testname = table.Rows[intx]["testname"].ToString().Trim();
-                            var testcase = table.Rows[intx]["testcase"].ToString().Trim();
-                            var testaction = table.Rows[intx]["testaction"].ToString().Trim();
+                            var idString = table.Rows[intx]["testelement"]
+                                .ToString().Trim();
+                            var testname = table.Rows[intx]["testname"]
+                                .ToString().Trim();
+                            var testcase = table.Rows[intx]["testcase"]
+                                .ToString().Trim();
+                            var testaction = table.Rows[intx]["testaction"]
+                                .ToString().Trim();
 
                             Assert.IsTrue(
                                 CheckBy(
                                     driver,
-                                    table.Rows[intx]["testelement"].ToString().Trim(),
-                                    table.Rows[intx]["testattribute"].ToString().Trim(),
-                                    table.Rows[intx]["testnr"].ToString().Trim(),
+                                    table.Rows[intx]["testelement"].ToString()
+                                        .Trim(),
+                                    table.Rows[intx]["testattribute"].ToString()
+                                        .Trim(),
+                                    table.Rows[intx]["testnr"].ToString()
+                                        .Trim(),
                                     radiobutton,
-                                    table.Rows[intx]["testext_check"].ToString().Trim(),
-                                    table.Rows[intx]["testaction"].ToString().Trim(),
-                                    table.Rows[intx]["testurl"].ToString().Trim(),
-                                    table.Rows[intx]["testswitch"].ToString().Trim(),
-                                    table.Rows[intx]["testdescription"].ToString().Trim(),
-                                    table.Rows[intx]["testinverse"].ToString().Trim(),
-                                    table.Rows[intx]["test_comment"].ToString().Trim(),
-                                    table.Rows[intx]["testname"].ToString().Trim(),
-                                    table.Rows[intx]["testcase"].ToString().Trim(),
+                                    table.Rows[intx]["testext_check"].ToString()
+                                        .Trim(),
+                                    table.Rows[intx]["testaction"].ToString()
+                                        .Trim(),
+                                    table.Rows[intx]["testurl"].ToString()
+                                        .Trim(),
+                                    table.Rows[intx]["testswitch"].ToString()
+                                        .Trim(),
+                                    table.Rows[intx]["testdescription"]
+                                        .ToString().Trim(),
+                                    table.Rows[intx]["testinverse"].ToString()
+                                        .Trim(),
+                                    table.Rows[intx]["test_comment"].ToString()
+                                        .Trim(),
+                                    table.Rows[intx]["testname"].ToString()
+                                        .Trim(),
+                                    table.Rows[intx]["testcase"].ToString()
+                                        .Trim(),
                                     version,
                                     0,
                                     machineNumber,
-                                    table.Rows[intx]["testlogicalobjectname"].ToString().Trim(),
+                                    table.Rows[intx]["testlogicalobjectname"]
+                                        .ToString().Trim(),
                                     credits.Url,
-                                    table.Rows[intx]["testtext"].ToString().Trim(),
+                                    table.Rows[intx]["testtext"].ToString()
+                                        .Trim(),
                                     bestandsnaamArgument,
                                     "",
                                     opslaan
@@ -1392,45 +1526,70 @@ namespace GeneralFunctionality
                             IWebElement content = null;
                             var tekst1 = string.Empty;
 
-                            var testElement = table.Rows[intx]["testelement"].ToString().Trim();
-                            var testAttribute = table.Rows[intx]["testattribute"].ToString().Trim()
-                                .ToUpper();
+                            var testElement = table.Rows[intx]["testelement"]
+                                .ToString().Trim();
+                            var testAttribute =
+                                table.Rows[intx]["testattribute"].ToString()
+                                    .Trim()
+                                    .ToUpper();
                             switch (testAttribute)
                             {
                                 case "ID":
-                                    content = driver.FindElement(By.Id(testElement));
+                                    content =
+                                        driver.FindElement(By.Id(testElement));
                                     break;
                                 case "NAME":
-                                    content = driver.FindElement(By.Name(testElement));
+                                    content =
+                                        driver.FindElement(
+                                            By.Name(testElement));
                                     break;
                                 case "CLASS":
-                                    content = driver.FindElement(By.ClassName(testElement));
+                                    content =
+                                        driver.FindElement(
+                                            By.ClassName(testElement));
                                     break;
                                 case "XPATH":
-                                    content = driver.FindElement(By.XPath(testElement));
+                                    content =
+                                        driver.FindElement(
+                                            By.XPath(testElement));
                                     break;
                                 case "CSSSELECTOR":
-                                    content = driver.FindElement(By.CssSelector(testElement));
+                                    content =
+                                        driver.FindElement(
+                                            By.CssSelector(testElement));
                                     break;
                             }
 
-                            if (table.Rows[intx]["testelement"].ToString().Trim().Length == 0
-                                || table.Rows[intx]["testelement"].ToString().ToUpper().Trim() == "POPUP")
+                            if (table.Rows[intx]["testelement"].ToString()
+                                    .Trim().Length == 0
+                                || table.Rows[intx]["testelement"].ToString()
+                                    .ToUpper().Trim() == "POPUP")
                             {
-                                if (table.Rows[intx]["testtext"].ToString().ToUpper() == "DISMISS")
-                                    ExpectedConditions.AlertIsPresent().Invoke(driver).Dismiss();
-                                if (table.Rows[intx]["testtext"].ToString().ToUpper() == "ACCEPT")
-                                    ExpectedConditions.AlertIsPresent().Invoke(driver).Accept();
+                                if (table.Rows[intx]["testtext"].ToString()
+                                    .ToUpper() == "DISMISS")
+                                    ExpectedConditions.AlertIsPresent()
+                                        .Invoke(driver).Dismiss();
+                                if (table.Rows[intx]["testtext"].ToString()
+                                    .ToUpper() == "ACCEPT")
+                                    ExpectedConditions.AlertIsPresent()
+                                        .Invoke(driver).Accept();
                             }
 
 
-                            if (table.Rows[intx]["testaction"].ToString() != null)
-                                if (table.Rows[intx]["testaction"].ToString().Trim().Length > 0
-                                    || table.Rows[intx]["testaction"].ToString().Trim().ToLower() != "empty")
-                                    switch (table.Rows[intx]["testaction"].ToString())
+                            if (table.Rows[intx]["testaction"].ToString() !=
+                                null)
+                                if (table.Rows[intx]["testaction"].ToString()
+                                        .Trim().Length > 0
+                                    || table.Rows[intx]["testaction"].ToString()
+                                        .Trim().ToLower() != "empty")
+                                    switch (table.Rows[intx]["testaction"]
+                                        .ToString())
                                     {
                                         case "switch to url":
-                                            driver.Navigate().GoToUrl(table.Rows[intx]["testurl"].ToString());
+                                            driver.Navigate()
+                                                .GoToUrl(
+                                                    table.Rows[intx]["testurl"]
+                                                        .ToString());
                                             break;
                                         case "click":
                                             actions = new Actions(driver);
@@ -1439,13 +1598,15 @@ namespace GeneralFunctionality
                                             content.Click();
                                             break;
                                         case "value":
-                                            if (table.Rows[intx]["testtext"] != null && table.Rows.Count > intx
+                                            if (table.Rows[intx]["testtext"] !=
+                                                null && table.Rows.Count > intx
                                                 && (string) table.Rows[intx][
                                                     "testtext"]
                                                 != string.Empty)
                                             {
                                                 tekst1 = TekstVervanging(
-                                                    table.Rows[intx]["testtext"].ToString().Trim());
+                                                    table.Rows[intx]["testtext"]
+                                                        .ToString().Trim());
                                                 actions = new Actions(driver);
                                                 actions.MoveToElement(content);
                                                 actions.Perform();
@@ -1456,81 +1617,135 @@ namespace GeneralFunctionality
 
                                             break;
                                         case "sendkeys":
-                                            if (table.Rows[intx]["testtext"] != null && table.Rows.Count > intx
+                                            if (table.Rows[intx]["testtext"] !=
+                                                null && table.Rows.Count > intx
                                                 && (string) table.Rows[intx][
                                                     "testtext"]
                                                 != string.Empty)
                                                 tekst1 = TekstVervanging(
-                                                    table.Rows[intx]["testtext"].ToString().Trim());
-                                            if (table.Rows[intx]["test_password"] != null && table.Rows.Count > intx
+                                                    table.Rows[intx]["testtext"]
+                                                        .ToString().Trim());
+                                            if (table.Rows[intx][
+                                                    "test_password"] != null &&
+                                                table.Rows.Count > intx
                                                 && table.Rows[intx][
                                                     "test_password"].ToString()
                                                 != string.Empty)
                                                 tekst1 = TekstVervanging(
-                                                    table.Rows[intx]["test_password"].ToString().Trim());
+                                                    table.Rows[intx][
+                                                            "test_password"]
+                                                        .ToString().Trim());
                                             actions = new Actions(driver);
 
                                             actions.MoveToElement(content);
                                             actions.Perform();
 
-                                            switch (tekst1.ToUpper())
+                                            var tekst27 = tekst1;
+
+                                            if (tekst1.ToUpper().Contains("{ENTER}"))
                                             {
-                                                case "TAB":
-                                                    tekst1 = Keys.Tab;
-                                                    break;
-                                                case "PGUP":
-                                                    tekst1 = Keys.PageUp;
-                                                    break;
-                                                case "PGDN":
-                                                    tekst1 = Keys.PageDown;
-                                                    break;
-                                                case "ENTER":
-                                                    tekst1 = Keys.Enter;
-                                                    break;
+                                                var splitTekst = tekst1.Split('{');
+                                                content.Click();
+                                                content.Clear();
+                                                content.SendKeys(splitTekst[0] + Keys.Enter);
+                                            }
+                                            else
+                                            {
+                                                switch (tekst1.ToUpper())
+                                                {
+                                                    case "TAB":
+                                                        tekst1 = Keys.Tab;
+                                                        break;
+                                                    case "PGUP":
+                                                        tekst1 = Keys.PageUp;
+                                                        break;
+                                                    case "PGDN":
+                                                        tekst1 = Keys.PageDown;
+                                                        break;
+                                                    case "ENTER":
+                                                        tekst1 = Keys.Enter;
+                                                        break;
+                                                    case "ESC":
+                                                        tekst1 = Keys.Escape;
+                                                        break;
+                                                }
+
+                                                content.Click();
+                                                if (tekst27.ToUpper() != "ENTER" &&
+                                                    tekst27.ToUpper() != "TAB" &&
+                                                    tekst27.ToUpper() != "PGUP" &&
+                                                    tekst27.ToUpper() != "PGDN" &&
+                                                    tekst27.ToUpper() != "ESC")
+                                                    content.Clear();
+                                                content.SendKeys(tekst1);
                                             }
 
-                                            content.Click();
-                                            content.Clear();
 
-                                            content.SendKeys(tekst1);
                                             break;
 
                                         case "select":
                                             var tekst2 = TekstVervanging(
-                                                table.Rows[intx]["testtext"].ToString().Trim());
+                                                table.Rows[intx]["testtext"]
+                                                    .ToString().Trim());
 
                                             IWebElement education = null;
                                             SelectElement selectElement = null;
 
-                                            switch (table.Rows[intx]["testattribute"].ToString().Trim().ToUpper())
+                                            switch (table.Rows[intx][
+                                                    "testattribute"].ToString()
+                                                .Trim().ToUpper())
                                             {
                                                 case "ID":
                                                     // select the drop down list
-                                                    education = driver.FindElement(By.Id(table.Rows[intx]["testelement"]
-                                                        .ToString().Trim()));
+                                                    education =
+                                                        driver.FindElement(
+                                                            By.Id(table.Rows[
+                                                                    intx][
+                                                                    "testelement"]
+                                                                .ToString()
+                                                                .Trim()));
                                                     break;
                                                 case "NAME":
-                                                    education = driver.FindElement(
-                                                        By.Name(table.Rows[intx]["testelement"].ToString().Trim()));
+                                                    education =
+                                                        driver.FindElement(
+                                                            By.Name(
+                                                                table.Rows[intx]
+                                                                    ["testelement"]
+                                                                    .ToString()
+                                                                    .Trim()));
                                                     break;
                                                 case "CLASS":
-                                                    education = driver.FindElement(
-                                                        By.ClassName(table.Rows[intx]["testelement"].ToString()
-                                                            .Trim()));
+                                                    education =
+                                                        driver.FindElement(
+                                                            By.ClassName(
+                                                                table.Rows[intx]
+                                                                    ["testelement"]
+                                                                    .ToString()
+                                                                    .Trim()));
                                                     break;
                                                 case "XPATH":
-                                                    education = driver.FindElement(
-                                                        By.XPath(table.Rows[intx]["testelement"].ToString().Trim()));
+                                                    education =
+                                                        driver.FindElement(
+                                                            By.XPath(
+                                                                table.Rows[intx]
+                                                                    ["testelement"]
+                                                                    .ToString()
+                                                                    .Trim()));
                                                     break;
                                                 case "CSSSELECTOR":
-                                                    education = driver.FindElement(
-                                                        By.CssSelector(
-                                                            table.Rows[intx]["testelement"].ToString().Trim()));
+                                                    education =
+                                                        driver.FindElement(
+                                                            By.CssSelector(
+                                                                table.Rows[intx]
+                                                                    ["testelement"]
+                                                                    .ToString()
+                                                                    .Trim()));
                                                     break;
                                             }
 
                                             //create select element object 
-                                            selectElement = new SelectElement(education);
+                                            selectElement =
+                                                new SelectElement(education);
                                             // select by text
                                             selectElement.SelectByText(tekst2);
                                             break;
@@ -1542,8 +1757,10 @@ namespace GeneralFunctionality
 
                                         case "upload":
                                             tekst1 = TekstVervanging(
-                                                table.Rows[intx]["testtext"].ToString().Trim());
-                                            var file1 = tekst1.Replace("\'", "\\'");
+                                                table.Rows[intx]["testtext"]
+                                                    .ToString().Trim());
+                                            var file1 =
+                                                tekst1.Replace("\'", "\\'");
                                             content.Click();
                                             Thread.Sleep(5000);
                                             SendKeys.SendWait(file1);
@@ -1552,25 +1769,40 @@ namespace GeneralFunctionality
                                         case "checkbox":
                                             IWebElement checkbox1 = null;
 
-                                            checkbox1 = HaalElementop(driver, testElement, testAttribute);
+                                            checkbox1 = HaalElementop(driver,
+                                                testElement, testAttribute);
 
-                                            var oldScript = checkbox1.GetAttribute("checked");
+                                            var oldScript =
+                                                checkbox1.GetAttribute(
+                                                    "checked");
 
-                                            var tekst3 = table.Rows[intx]["testtext"].ToString().Trim();
-                                            var rc = (RemoteWebElement) checkbox1;
-                                            var driver1 = (IJavaScriptExecutor) rc.WrappedDriver;
+                                            var tekst3 =
+                                                table.Rows[intx]["testtext"]
+                                                    .ToString().Trim();
+                                            var rc =
+                                                (RemoteWebElement) checkbox1;
+                                            var driver1 =
+                                                (IJavaScriptExecutor) rc
+                                                    .WrappedDriver;
                                             var script1 = "";
-                                            if (tekst3.ToUpper() == "TRUE" && oldScript == null)
-                                                script1 = "arguments[0].setAttribute('checked', 'true');";
-                                            if (tekst3.ToUpper() == "FALSE" && oldScript != null)
-                                                script1 = "arguments[0].removeAttribute('checked');";
+                                            if (tekst3.ToUpper() == "TRUE" &&
+                                                oldScript == null)
+                                                script1 =
+                                                    "arguments[0].setAttribute('checked', 'true');";
+                                            if (tekst3.ToUpper() == "FALSE" &&
+                                                oldScript != null)
+                                                script1 =
+                                                    "arguments[0].removeAttribute('checked');";
 
                                             driver1.ExecuteScript(script1, rc);
                                             break;
                                         case "switch to iFrame":
-                                            var tekstFrame = table.Rows[intx]["testtext"].ToString().Trim();
+                                            var tekstFrame =
+                                                table.Rows[intx]["testtext"]
+                                                    .ToString().Trim();
                                             var detailFrame = content;
-                                            driver.SwitchTo().Frame(detailFrame);
+                                            driver.SwitchTo()
+                                                .Frame(detailFrame);
                                             break;
                                         case "switch to default":
                                             driver.SwitchTo().DefaultContent();
@@ -1585,30 +1817,50 @@ namespace GeneralFunctionality
                                             */
                                             var query = string.Empty;
 
-                                            query = "SELECT * FROM saved_values WHERE ";
-                                            query += "saved_values_testname = '" + bestandsnaamArgument + "' AND ";
+                                            query =
+                                                "SELECT * FROM saved_values WHERE ";
+                                            query +=
+                                                "saved_values_testname = '" +
+                                                bestandsnaamArgument + "' AND ";
                                             query += "saved_values_name = '" +
-                                                     table.Rows[intx]["testtext"].ToString().Trim() + "';";
-                                            var dt = GenericDataRead.GetData(query);
+                                                table.Rows[intx]["testtext"]
+                                                    .ToString().Trim() + "';";
+                                            var dt =
+                                                GenericDataRead.GetData(query);
 
                                             if (dt.Rows.Count > 0)
                                             {
                                                 // Indien variable voor testscript bestaat, update deze uit tabel 'saved_values'
-                                                var save_id = dt.Rows[0][0].ToString();
-                                                query = "UPDATE saved_values SET saved_values_value = '";
-                                                query += content.Text.Trim().Replace("\r\n", string.Empty) + "' ";
+                                                var save_id = dt.Rows[0][0]
+                                                    .ToString();
+                                                query =
+                                                    "UPDATE saved_values SET saved_values_value = '";
+                                                query += content.Text.Trim()
+                                                    .Replace("\r\n",
+                                                        string.Empty) + "' ";
                                                 query += "WHERE ";
-                                                query += "saved_values_id = " + save_id + ";";
+                                                query += "saved_values_id = " +
+                                                    save_id + ";";
                                             }
                                             else
                                             {
                                                 // anders Voeg de gegevens toe aan de tabel 'saved_values'
-                                                query = "INSERT INTO saved_values (saved_values_testname, ";
-                                                query += "saved_values_name, saved_values_value, projectid) ";
-                                                query += "VALUES('" + bestandsnaamArgument + "', ";
-                                                query += "'" + table.Rows[intx]["testtext"].ToString().Trim() + "', ";
-                                                query += "'" + content.Text.Trim().Replace("\r\n", string.Empty) +
-                                                         "', ";
+                                                query =
+                                                    "INSERT INTO saved_values (saved_values_testname, ";
+                                                query +=
+                                                    "saved_values_name, saved_values_value, projectid) ";
+                                                query += "VALUES('" +
+                                                    bestandsnaamArgument +
+                                                    "', ";
+                                                query += "'" +
+                                                    table.Rows[intx]["testtext"]
+                                                        .ToString().Trim() +
+                                                    "', ";
+                                                query += "'" +
+                                                    content.Text.Trim()
+                                                        .Replace("\r\n",
+                                                            string.Empty) +
+                                                    "', ";
                                                 query += getProjectID() + ");";
                                             }
 
@@ -1616,20 +1868,25 @@ namespace GeneralFunctionality
                                             break;
                                         case "get_value":
 
-                                            query = "SELECT saved_values_value FROM saved_values ";
+                                            query =
+                                                "SELECT saved_values_value FROM saved_values ";
                                             // query += "WHERE saved_values_testname = '" + bestandsnaamArgument + "' AND ";
                                             query += "WHERE ";
-                                            query += "projectid = " + getProjectID() + " AND ";
+                                            query += "projectid = " +
+                                                getProjectID() + " AND ";
                                             query += "saved_values_name = '" +
-                                                     table.Rows[intx]["testtext"].ToString().Trim() + "';";
-                                            var dtget = GenericDataRead.GetData(query);
+                                                table.Rows[intx]["testtext"]
+                                                    .ToString().Trim() + "';";
+                                            var dtget =
+                                                GenericDataRead.GetData(query);
 
                                             if (dtget.Rows.Count > 0)
                                             {
                                                 actions = new Actions(driver);
                                                 actions.MoveToElement(content);
                                                 actions.Perform();
-                                                var tekstget = dtget.Rows[0][0].ToString();
+                                                var tekstget = dtget.Rows[0][0]
+                                                    .ToString();
                                                 content.Click();
                                                 content.Clear();
                                                 content.SendKeys(tekstget);
@@ -1637,63 +1894,93 @@ namespace GeneralFunctionality
 
                                             break;
                                         case "scroll":
-                                            var richting = table.Rows[intx]["testtext"].ToString().Trim();
-                                            var js = (IJavaScriptExecutor) driver;
+                                            var richting =
+                                                table.Rows[intx]["testtext"]
+                                                    .ToString().Trim();
+                                            var js =
+                                                (IJavaScriptExecutor) driver;
                                             if (richting.ToUpper() == "BOTTOM")
-                                                js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
-                                            if (richting.ToUpper() == "TOP") js.ExecuteScript("window.scrollTo(0, 0)");
+                                                js.ExecuteScript(
+                                                    "window.scrollTo(0, document.body.scrollHeight)");
+                                            if (richting.ToUpper() == "TOP")
+                                                js.ExecuteScript(
+                                                    "window.scrollTo(0, 0)");
                                             if (richting.ToUpper() == "DOWN")
-                                                js.ExecuteScript("window.scrollTo(0, 1000)");
+                                                js.ExecuteScript(
+                                                    "window.scrollTo(0, 1000)");
                                             if (richting.ToUpper() == "UP")
-                                                js.ExecuteScript("window.scrollTo(0, 1000)");
+                                                js.ExecuteScript(
+                                                    "window.scrollTo(0, 1000)");
                                             break;
                                         case "cmd":
                                             if (intx != 0)
                                                 using (var cmd =
-                                                    Process.Start(table.Rows[intx]["testtext"].ToString().Trim()))
+                                                    Process.Start(
+                                                        table.Rows[intx][
+                                                                "testtext"]
+                                                            .ToString().Trim()))
                                                 {
                                                     cmd.WaitForExit();
                                                 }
 
                                             break;
                                         case "screenshot":
-                                            var screenshotsPath = GetCurrentDir(1);
-                                            var pathG = screenshotsPath.Split('\\');
+                                            var screenshotsPath =
+                                                GetCurrentDir(1);
+                                            var pathG =
+                                                screenshotsPath.Split('\\');
                                             var g = string.Empty;
 
-                                            for (var i = 0; i < pathG.Length - 2; i++) g += pathG[i] + "\\";
+                                            for (var i = 0;
+                                                i < pathG.Length - 2;
+                                                i++) g += pathG[i] + "\\";
 
                                             screenshotsPath = g;
                                             var name1 = applicationName.Trim();
 
 
-                                            var relativePath = screenshotsPath + "screenshots\\" + name1 + "\\";
+                                            var relativePath = screenshotsPath +
+                                                "screenshots\\" + name1 + "\\";
                                             ScreenshotName =
                                                 relativePath + name1 + "-" +
-                                                string.Format("{0:yyyyMMddHHmmssFFF}", DateTime.UtcNow)
-                                                + "testnr_" + SetTestnr + ".png";
-                                            General.LogMessage("Screenshot name: " + ScreenshotName, 1);
+                                                string.Format(
+                                                    "{0:yyyyMMddHHmmssFFF}",
+                                                    DateTime.UtcNow)
+                                                + "testnr_" + SetTestnr +
+                                                ".png";
+                                            General.LogMessage(
+                                                "Screenshot name: " +
+                                                ScreenshotName, 1);
                                             driver.TakeScreenshot()
-                                                .SaveAsFile(ScreenshotName, ScreenshotImageFormat.Png);
+                                                .SaveAsFile(ScreenshotName,
+                                                    ScreenshotImageFormat.Png);
                                             break;
 
                                         case "logout":
-                                            driver.Manage().Cookies.DeleteAllCookies();
+                                            driver.Manage().Cookies
+                                                .DeleteAllCookies();
                                             break;
                                     }
 
                             if (testElement == string.Empty)
                                 General.LogMessage("", 1, testname,
-                                    Convert.ToInt32(testnr), testcase, testaction, testAttribute);
+                                    Convert.ToInt32(testnr), testcase,
+                                    testaction, testAttribute);
                             else
-                                General.LogMessage("Element '" + testElement + "' gevonden!", 1, testname,
-                                    Convert.ToInt32(testnr), testcase, testaction, testAttribute);
+                                General.LogMessage(
+                                    "Element '" + testElement + "' gevonden!",
+                                    1, testname,
+                                    Convert.ToInt32(testnr), testcase,
+                                    testaction, testAttribute);
                         }
                     }
                     catch (Exception exception)
                     {
-                        General.LogMessage(exception.Message, 4, table.Rows[intx]["testname"].ToString().Trim(),
-                            Convert.ToInt32(table.Rows[intx]["testnr"].ToString().Trim()), string.Empty, machinestatic);
+                        General.LogMessage(exception.Message, 4,
+                            table.Rows[intx]["testname"].ToString().Trim(),
+                            Convert.ToInt32(table.Rows[intx]["testnr"]
+                                .ToString().Trim()), string.Empty,
+                            machinestatic);
                     }
                 }
                 else

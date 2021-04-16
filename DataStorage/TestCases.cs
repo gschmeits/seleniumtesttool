@@ -437,7 +437,7 @@ namespace DataStorage
         public static void AddTestResults(string testrun_application, string testrun, string testpassed,
             string testfailed, DateTime begin,
             DateTime eind, string tijd, string browserid, string version1, string machinenumber, string start_url,
-            string testscenario_name, string projectid)
+            string testscenario_name, string projectid, string scriptid)
         {
             try
             {
@@ -454,6 +454,7 @@ namespace DataStorage
                 commandText += "testscenario_name = '" + testscenario_name + "', ";
                 commandText += "start_url ='" + start_url + "', ";
                 commandText += "project_id = " + projectid + ", ";
+                commandText += "idtestscripttotal = " + scriptid + ", ";
                 commandText += "testrun_version = '" + version1 + "';";
                 General.LogMessage(commandText, 1);
                 General.ExecuteQueryCommand(commandText);

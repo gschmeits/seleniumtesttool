@@ -481,6 +481,10 @@ namespace WPFTestResults
 
                     var lastTestRun = Convert.ToString(Convert.ToInt32(General.LastTestRun) - 1);
 
+                    var lastscripttotal =
+                        Convert.ToString(
+                            Convert.ToInt32(General.LastScriptTotal));
+
                     var EinDateTime = DateTime.Now;
                     var verstreken = (EinDateTime - BeginDateTime).ToString();
                     var passed1 = "0";
@@ -515,7 +519,8 @@ namespace WPFTestResults
                             machinestatic,
                             credits.Url,
                             bestandsnaam_argument,
-                            Convert.ToString(GeneralFunctionality.Functions.getProjectID()));
+                            Convert.ToString(GeneralFunctionality.Functions.getProjectID()),
+                            lastscripttotal);
                         passedGer += Convert.ToInt32(passed1);
                         failedGer += Convert.ToInt32(failed1);
                     }
@@ -554,7 +559,7 @@ namespace WPFTestResults
 
         }
 
-        private void Melding(Int32 passed, Int32 failed, DateTime beDateTime, DateTime enDateTime)
+        private void Melding(double passed, double failed, DateTime beDateTime, DateTime enDateTime)
         {
             var query = string.Empty;
             var script_id = "";
@@ -573,28 +578,41 @@ namespace WPFTestResults
             {
                 query = "INSERT INTO testscriptstotal ";
                 query += "(script_id, script_name, passed, failed, begin_time, ";
-                query += "end_time, duration) ";
+                query += "end_time, duration, project_id) ";
                 query += "VALUES (";
                 query += script_id + ", '" + ComboBoxLoadScripts.Text + "', ";
                 query += passed + ", " + failed + ", '" + beDateTime.ToString("yyyy-MM-dd HH:mm:ss");
                 query += "', '" + enDateTime.ToString("yyyy-MM-dd HH:mm:ss");
-                query += "', '" + Convert.ToString(enDateTime - beDateTime) + "');";
+                query += "', '" + Convert.ToString(enDateTime - beDateTime) +
+                         "', ";
+                    query += project_id + ");";
             }
             else
             {
                 query = "INSERT INTO testscriptstotal ";
                 query += "(passed, failed, begin_time, ";
-                query += "end_time, duration) ";
+                query += "end_time, duration, project_id) ";
                 query += "VALUES (";
                 query += passed + ", " + failed + ", '" + beDateTime.ToString("yyyy-MM-dd HH:mm:ss");
                 query += "', '" + enDateTime.ToString("yyyy-MM-dd HH:mm:ss");
-                query += "', '" + Convert.ToString(enDateTime - beDateTime) + "');";
+                query += "', '" + Convert.ToString(enDateTime - beDateTime) + "', ";
+                query += project_id + ");";
             }
 
             GenericDataRead.INUPDEL(query);
-
+            double totaal = passed + failed;
             LabelDone.Content = String.Format("Begin Time: {0} - End Time: {1} --- Duration: {2:T}", beDateTime, enDateTime, enDateTime-beDateTime);
-            LabelDone1.Content = String.Format("Test Steps Passed: {0} - Test Steps Failed: {1} --- Total Test Steps: {2}", passed, failed, passed + failed);  
+            LabelDone1.Content = String.Format(
+                "Test Steps Passed: {0} ({3:P2})  - " +
+                "Test Steps Failed: {1} ({4:P2}) --- " +
+                "Total Test Steps: {2} ({5:P2})",
+                passed, 
+                failed, 
+                totaal, 
+                (passed / totaal), 
+                (failed / totaal), 
+                totaal / totaal);
+
         }
 
         private void ButtonCancelExecute_Click(object sender, RoutedEventArgs e)

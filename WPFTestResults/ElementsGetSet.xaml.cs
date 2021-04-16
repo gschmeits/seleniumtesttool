@@ -43,6 +43,7 @@ using DataGrid = System.Windows.Controls.DataGrid;
 using DataGridCell = System.Windows.Controls.DataGridCell;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using Keys = OpenQA.Selenium.Keys;
 using MessageBox = System.Windows.MessageBox;
 using Timer = System.Threading.Timer;
 
@@ -469,9 +470,23 @@ namespace WPFTestResults
                     actions = new Actions(driver1);
                     actions.MoveToElement(content);
                     actions.Perform();
-                    content.Click();
-                    content.Clear();
-                    content.SendKeys(tekst1);
+                    if (tekst1.ToUpper().Contains("{ENTER}"))
+                    {
+                        var splitTekst = tekst1.Split('{');
+                        content.Click();
+                        content.Clear();
+                        content.SendKeys(splitTekst[0] + Keys.Enter);
+                    }
+                    else
+                    {
+                        if (tekst1.ToUpper() == "ESC")
+                        {
+                            tekst1 = Keys.Escape;
+                        }
+                        content.SendKeys(tekst1);
+                    }
+
+                    
                     break;
                 case "select":
                     IWebElement education = null;
@@ -2001,6 +2016,8 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for HaalGegevensEnToon
         private void HaalGegevensEnToon()
         {
+
+            var sleepTime = OverallSettings.ShowDuration;
             ButtonGetElements.IsEnabled = false;
             url = !(ElementSetting == "GET") ? ComboBoxURL.Text : TextBoxURL.Text;
             General.LogMessage(
@@ -2035,12 +2052,14 @@ namespace WPFTestResults
 
                         _driver.Navigate().GoToUrl(url);
                         _driver.Manage().Window.Maximize();
-                        _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+                        _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(sleepTime);
 
                         IWebElement content = null;
                         if (loginCheck.IsChecked == true)
                             for (var i = 1; i < 8; i++)
                             {
+
+                                Thread.Sleep(sleepTime);
                                 // UserName
                                 if (Order1.Text == i.ToString())
                                     if (ComboBoxAction1.Text != string.Empty && UserText.Text != string.Empty
@@ -2374,9 +2393,15 @@ namespace WPFTestResults
             ButtonAttributeExtra2s.Visibility = visibility;
             Extra.Visibility = visibility;
             if (zien)
+            {
                 CheckBoxSwitchTo.Visibility = Visibility.Hidden;
+                ExtraExtra.Visibility = Visibility.Visible;
+            }
             else
+            {
                 CheckBoxSwitchTo.Visibility = Visibility.Visible;
+                ExtraExtra.Visibility = Visibility.Hidden;
+            }
         }
 
         private void LeegMaken()
@@ -2390,10 +2415,12 @@ namespace WPFTestResults
 
             UserAttribute.SelectedIndex = 2;
             PasswordAtrribute.SelectedIndex = 2;
+
             ButtonAttribute.SelectedIndex = 2;
             ButtonAttributeExtra1.SelectedIndex = 2;
             ButtonAttributeExtra2.SelectedIndex = 2;
             ButtonAttributeExtra3.SelectedIndex = 2;
+            ButtonAttributeExtra4.SelectedIndex = 2;
 
             TextBoxTestCase.Text = string.Empty;
             TextBoxTestCasePage.Text = string.Empty;

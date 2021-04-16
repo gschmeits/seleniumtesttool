@@ -434,7 +434,8 @@ namespace WPFTestResults
                         InloggerData.MachineCode,
                         credits.Url,
                         bestandsnaam_argument, 
-                        Convert.ToString(GeneralFunctionality.Functions.getProjectID())
+                        Convert.ToString(GeneralFunctionality.Functions.getProjectID()),
+                        ""
                     );
 
                     Functions.CreateHTML(indexT.ToString());

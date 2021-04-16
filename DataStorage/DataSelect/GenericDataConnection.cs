@@ -56,12 +56,19 @@ namespace DataStorage
         /// TODO Edit XML Comment Template for #ctor
         static GenericDataConnection()
         {
-            var sServerName = "SCHMEITSNAS.SYNOLOGY.ME";
-            var sPort = "3306";
-            var sUserName = "autotest";
-            var sPassword = "NiFSi1fZjbJ4zXE8";
-            var sDatabase = "autotest";
-            var sProvider = "MySql.Data.MySqlClient";
+            //var sServerName = "SCHMEITSNAS.SYNOLOGY.ME";
+            //var sPort = "3306";
+            //var sUserName = "autotest";
+            //var sPassword = "NiFSi1fZjbJ4zXE8";
+            ///var sDatabase = "autotest";
+            //var sProvider = "MySql.Data.MySqlClient";
+
+            var sServerName = "";
+            var sPort = "";
+            var sUserName = "";
+            var sPassword = "";
+            var sDatabase = "";
+            var sProvider = "";
 
             sServerName = string.Empty;
             sPort = string.Empty;

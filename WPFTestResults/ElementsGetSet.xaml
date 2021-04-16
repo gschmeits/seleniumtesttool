@@ -74,7 +74,7 @@
             </StackPanel>
 
             <StackPanel Name="Extra" Margin="0,5,0,5" Orientation="Horizontal">
-                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttributeExtra3" Width="60" TabIndex="4" Height="26">
                     <ListBoxItem Content=""></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
@@ -97,7 +97,7 @@
                           Width="100"
                           Height="26"
                           HorizontalAlignment="Left"
-                          VerticalAlignment="Center" SelectedIndex="4">
+                          VerticalAlignment="Center" SelectedIndex="0">
                     <ListBoxItem Content="" />
                     <ListBoxItem Content="click" />
                     <ListBoxItem Content="doubleclick" />
@@ -123,7 +123,7 @@
             </StackPanel>
 
             <StackPanel Name="username" Margin="0,0,0,5" Orientation="Horizontal">
-                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="UserAttribute" Width="60" TabIndex="8" Height="26">
                     <ListBoxItem Content=""></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
@@ -145,7 +145,7 @@
                           Width="100"
                           HorizontalAlignment="Left"
                           VerticalAlignment="Center"
-                          Height="26" SelectedIndex="2">
+                          Height="26" SelectedIndex="0">
                     <ListBoxItem Content="" />
                     <ListBoxItem Content="click" />
                     <ListBoxItem Content="doubleclick" />
@@ -172,7 +172,7 @@
 
 
             <StackPanel Name="passwordname" Margin="0,5" Orientation="Horizontal">
-                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="PasswordAtrribute" Width="60" Height="26" TabIndex="10">
                     <ListBoxItem Content=""></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
@@ -191,7 +191,7 @@
                           Width="100"
                           Height="26"
                           HorizontalAlignment="Left"
-                          VerticalAlignment="Center" SelectedIndex="2">
+                          VerticalAlignment="Center" SelectedIndex="0">
                     <ListBoxItem Content="" />
                     <ListBoxItem Content="click" />
                     <ListBoxItem Content="doubleclick" />
@@ -216,7 +216,7 @@
                          HorizontalContentAlignment="Center" TabIndex="11" />
             </StackPanel>
             <StackPanel Name="buttonName" Margin="0,5" Orientation="Horizontal">
-                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttribute" Width="60" TabIndex="14" Height="26">
                     <ListBoxItem Content=""></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
@@ -232,7 +232,7 @@
                           Height="26"
                           Margin="235,0,0,0"
                           HorizontalAlignment="Left"
-                          VerticalAlignment="Center" SelectedIndex="1" IsEnabled="True">
+                          VerticalAlignment="Center" SelectedIndex="0" IsEnabled="True">
                     <ListBoxItem Content="" />
                     <ListBoxItem Content="click" />
                     <ListBoxItem Content="doubleclick" />
@@ -259,7 +259,7 @@
 
 
             <StackPanel Name="ExtraExtra" Margin="0,5,0,5" Orientation="Horizontal">
-                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttributeExtra4" Width="60" TabIndex="4" Height="26">
                     <ListBoxItem Content=""></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
@@ -282,7 +282,7 @@
                           Width="100"
                           Height="26"
                           HorizontalAlignment="Left"
-                          VerticalAlignment="Center" SelectedIndex="4">
+                          VerticalAlignment="Center" SelectedIndex="0">
                     <ListBoxItem Content="" />
                     <ListBoxItem Content="click" />
                     <ListBoxItem Content="doubleclick" />
@@ -317,7 +317,7 @@
                        FontWeight="Bold" />
             </StackPanel>
             <StackPanel Name="buttonExtaName" Margin="0,5" Orientation="Horizontal" Height="26">
-                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttributeExtra1" Height="26" Width="60" TabIndex="17">
                     <ListBoxItem Content=""></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
@@ -337,7 +337,7 @@
                           Width="100"
                           Height="26"
                           HorizontalAlignment="Left"
-                          VerticalAlignment="Center" SelectedIndex="1">
+                          VerticalAlignment="Center" SelectedIndex="0">
                     <ListBoxItem Content="" />
                     <ListBoxItem Content="click" />
                     <ListBoxItem Content="doubleclick" />
@@ -362,7 +362,7 @@
                          HorizontalContentAlignment="Center" TabIndex="20" />
             </StackPanel>
             <StackPanel Name="ButtonAttributeExtra2s" Margin="0,5" Orientation="Horizontal" Height="26">
-                <Label VerticalContentAlignment="Center">Atribute:</Label>
+                <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttributeExtra2" Width="60" TabIndex="21">
                     <ListBoxItem Content=""></ListBoxItem>
                     <ListBoxItem>Id</ListBoxItem>
@@ -382,7 +382,7 @@
                           Width="100"
                           Height="26"
                           HorizontalAlignment="Left"
-                          VerticalAlignment="Center" SelectedIndex="1">
+                          VerticalAlignment="Center" SelectedIndex="0">
                     <ListBoxItem Content="" />
                     <ListBoxItem Content="click" />
                     <ListBoxItem Content="doubleclick" />

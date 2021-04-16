@@ -77,6 +77,31 @@ namespace DataStorage
             }
         }
 
+        public static string LastScriptTotal
+        {
+            get
+            {
+                const string CommandText = "SELECT idtestscriptstotal FROM testscriptstotal ORDER BY idtestscriptstotal DESC LIMIT 1";
+                using (var objConn = new MySqlConnection(MySqlConnectionString()))
+                {
+                    var command = objConn.CreateCommand();
+                    command.CommandText = CommandText;
+                    objConn.Open();
+                    var reader = command.ExecuteReader();
+                    DataTable table;
+                    using (table = new DataTable())
+                    {
+                        table.Load(reader);
+                        var testrun = 1;
+                        if (table.Rows.Count > 0) testrun = Convert.ToInt32(table.Rows[0][0].ToString()) + 1;
+
+                        objConn.Close();
+                        return testrun.ToString();
+                    }
+                }
+            }
+        }
+
         /// <summary>
         ///     Adds the result to database.
         /// </summary>

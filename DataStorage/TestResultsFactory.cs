@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Windows;
 using MySql.Data.MySqlClient;
 
@@ -35,11 +36,13 @@ namespace DataStorage
         /// <param name="testrunFrom">The testrun from.</param>
         /// <param name="testrunTill">The testrun till.</param>
         /// <returns>List&lt;ResultsCount&gt;.</returns>
-        public static List<ResultsCount> GetCount(string testrunFrom, string testrunTill)
+        public static List<ResultsCount> GetCount(string testrunFrom,
+            string testrunTill)
         {
             var testresults = new List<ResultsCount>();
-            var sqlConn = "SELECT count(*) as Result  FROM autotest.testresultsselenium where testrun >= '"
-                          + testrunFrom;
+            var sqlConn =
+                "SELECT count(*) as Result  FROM autotest.testresultsselenium where testrun >= '"
+                + testrunFrom;
             sqlConn += "' and testrun <= '" + testrunTill + "' GROUP BY result";
             var objConn = new MySqlConnection(General.MySqlConnectionString());
             var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn);
@@ -51,12 +54,18 @@ namespace DataStorage
                 objDataAdapter.Fill(objDataset, "call_calls124");
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                     testresults.Add(
-                        new ResultsCount {value1 = Convert.ToInt64(objDataset.Tables[0].Rows[i][0].ToString())});
+                        new ResultsCount
+                        {
+                            value1 = Convert.ToInt64(
+                                objDataset.Tables[0].Rows[i][0].ToString())
+                        });
                 objConn.Close();
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return testresults;
@@ -68,14 +77,17 @@ namespace DataStorage
         /// <param name="testrunFrom">The testrun from.</param>
         /// <param name="testrunTill">The testrun till.</param>
         /// <returns>List&lt;TestResults&gt;.</returns>
-        public static List<TestResults> GeTestResults(string testrunFrom, string testrunTill)
+        public static List<TestResults> GeTestResults(string testrunFrom,
+            string testrunTill)
         {
             var testresults = new List<TestResults>();
             var sqlConn =
                 "SELECT testrun, datetime_created, application, testnr, element, ";
-            sqlConn += "attribute, If(result = 3, 'OK', 'NOK') as Result, testname, ";
+            sqlConn +=
+                "attribute, If(result = 3, 'OK', 'NOK') as Result, testname, ";
             sqlConn += "browserID, comment, elementname, testpage, action ";
-            sqlConn += "FROM testresultsselenium where testrun <= " + testrunTill + " and testrun >= " + testrunFrom;
+            sqlConn += "FROM testresultsselenium where testrun <= " +
+                       testrunTill + " and testrun >= " + testrunFrom;
             sqlConn += " ORDER BY testrun, testnr";
             var objConn = new MySqlConnection(General.MySqlConnectionString());
             var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn);
@@ -89,25 +101,36 @@ namespace DataStorage
                     testresults.Add(
                         new TestResults
                         {
-                            testrun = Convert.ToInt64(objDataset.Tables[0].Rows[i][0].ToString()),
+                            testrun = Convert.ToInt64(
+                                objDataset.Tables[0].Rows[i][0].ToString()),
                             date = objDataset.Tables[0].Rows[i][1].ToString(),
-                            application = objDataset.Tables[0].Rows[i][2].ToString(),
+                            application = objDataset.Tables[0].Rows[i][2]
+                                .ToString(),
                             testnr = objDataset.Tables[0].Rows[i][3].ToString(),
-                            element = objDataset.Tables[0].Rows[i][4].ToString(),
-                            attribute = objDataset.Tables[0].Rows[i][5].ToString(),
+                            element =
+                                objDataset.Tables[0].Rows[i][4].ToString(),
+                            attribute = objDataset.Tables[0].Rows[i][5]
+                                .ToString(),
                             result = objDataset.Tables[0].Rows[i][6].ToString(),
-                            testname = objDataset.Tables[0].Rows[i][7].ToString(),
-                            browserID = objDataset.Tables[0].Rows[i][8].ToString(),
-                            comment = objDataset.Tables[0].Rows[i][9].ToString(),
-                            elementname = objDataset.Tables[0].Rows[i][10].ToString(),
+                            testname = objDataset.Tables[0].Rows[i][7]
+                                .ToString(),
+                            browserID = objDataset.Tables[0].Rows[i][8]
+                                .ToString(),
+                            comment =
+                                objDataset.Tables[0].Rows[i][9].ToString(),
+                            elementname = objDataset.Tables[0].Rows[i][10]
+                                .ToString(),
                             page = objDataset.Tables[0].Rows[i][11].ToString(),
-                            action1 = objDataset.Tables[0].Rows[i][12].ToString()
+                            action1 = objDataset.Tables[0].Rows[i][12]
+                                .ToString()
                         });
                 objConn.Close();
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return testresults;
@@ -125,7 +148,8 @@ namespace DataStorage
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, " +
                 "testaction, testtext, testurl, testswitch, testexecution, testext_check, testinverse,testtag, " +
                 "test_comment, testpage ";
-            sqlConn += "FROM testcases_selenium WHERE testname = '" + testname + "' ";
+            sqlConn += "FROM testcases_selenium WHERE testname = '" + testname +
+                       "' ";
             sqlConn += "ORDER BY testname, testnr";
             var objConn = new MySqlConnection(General.MySqlConnectionString());
             var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn);
@@ -142,22 +166,48 @@ namespace DataStorage
                         {
                             rownr = rownumber,
                             id = objDataset.Tables[0].Rows[i]["id"].ToString(),
-                            testname = objDataset.Tables[0].Rows[i]["testname"].ToString(),
-                            testnr = Convert.ToInt32(objDataset.Tables[0].Rows[i]["testnr"].ToString()),
-                            testcase = objDataset.Tables[0].Rows[i]["testcase"].ToString(),
-                            testelementname = objDataset.Tables[0].Rows[i]["testlogicalobjectname"].ToString(),
-                            testelement = objDataset.Tables[0].Rows[i]["testelement"].ToString(),
-                            testattribute = objDataset.Tables[0].Rows[i]["testattribute"].ToString(),
-                            testaction = objDataset.Tables[0].Rows[i]["testaction"].ToString(),
-                            testtext = objDataset.Tables[0].Rows[i]["testtext"].ToString(),
-                            testurl = objDataset.Tables[0].Rows[i]["testurl"].ToString(),
-                            testswitch = objDataset.Tables[0].Rows[i]["testswitch"].ToString(),
-                            testexecution = objDataset.Tables[0].Rows[i]["testexecution"].ToString(),
-                            testinverse = objDataset.Tables[0].Rows[i]["testinverse"].ToString(),
-                            testcomment = objDataset.Tables[0].Rows[i]["test_comment"].ToString(),
-                            testext_check = objDataset.Tables[0].Rows[i]["testext_check"].ToString(),
-                            testpage = objDataset.Tables[0].Rows[i]["testpage"].ToString(),
-                            testtag = objDataset.Tables[0].Rows[i]["testtag"].ToString()
+                            testname = objDataset.Tables[0].Rows[i]["testname"]
+                                .ToString(),
+                            testnr = Convert.ToInt32(
+                                objDataset.Tables[0].Rows[i]["testnr"]
+                                    .ToString()),
+                            testcase = objDataset.Tables[0].Rows[i]["testcase"]
+                                .ToString(),
+                            testelementname =
+                                objDataset.Tables[0].Rows[i][
+                                    "testlogicalobjectname"].ToString(),
+                            testelement =
+                                objDataset.Tables[0].Rows[i]["testelement"]
+                                    .ToString(),
+                            testattribute =
+                                objDataset.Tables[0].Rows[i]["testattribute"]
+                                    .ToString(),
+                            testaction =
+                                objDataset.Tables[0].Rows[i]["testaction"]
+                                    .ToString(),
+                            testtext = objDataset.Tables[0].Rows[i]["testtext"]
+                                .ToString(),
+                            testurl = objDataset.Tables[0].Rows[i]["testurl"]
+                                .ToString(),
+                            testswitch =
+                                objDataset.Tables[0].Rows[i]["testswitch"]
+                                    .ToString(),
+                            testexecution =
+                                objDataset.Tables[0].Rows[i]["testexecution"]
+                                    .ToString(),
+                            testinverse =
+                                objDataset.Tables[0].Rows[i]["testinverse"]
+                                    .ToString(),
+                            testcomment =
+                                objDataset.Tables[0].Rows[i]["test_comment"]
+                                    .ToString(),
+                            testext_check =
+                                objDataset.Tables[0].Rows[i]["testext_check"]
+                                    .ToString(),
+                            testpage = objDataset.Tables[0].Rows[i]["testpage"]
+                                .ToString(),
+                            testtag = objDataset.Tables[0].Rows[i]["testtag"]
+                                .ToString()
                         });
                     rownumber++;
                 }
@@ -166,7 +216,9 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return testcases;
@@ -199,22 +251,50 @@ namespace DataStorage
                         {
                             rownr = rownumber,
                             id = objDataset.Tables[0].Rows[i]["id"].ToString(),
-                            testblock = objDataset.Tables[0].Rows[i]["testblock"].ToString(),
-                            testnr = Convert.ToInt32(objDataset.Tables[0].Rows[i]["testnr"].ToString()),
-                            testcase = objDataset.Tables[0].Rows[i]["testcase"].ToString(),
-                            testelementname = objDataset.Tables[0].Rows[i]["testlogicalobjectname"].ToString(),
-                            testelement = objDataset.Tables[0].Rows[i]["testelement"].ToString(),
-                            testattribute = objDataset.Tables[0].Rows[i]["testattribute"].ToString(),
-                            testaction = objDataset.Tables[0].Rows[i]["testaction"].ToString(),
-                            testtag = objDataset.Tables[0].Rows[i]["testtag"].ToString(),
-                            testtext = objDataset.Tables[0].Rows[i]["testtext"].ToString(),
-                            testpassword = objDataset.Tables[0].Rows[i]["test_password"].ToString(),
-                            testurl = objDataset.Tables[0].Rows[i]["testurl"].ToString(),
-                            testswitch = objDataset.Tables[0].Rows[i]["testswitch"].ToString(),
-                            testdescription = objDataset.Tables[0].Rows[i]["testdescription"].ToString(),
-                            testexecution = objDataset.Tables[0].Rows[i]["testexecution"].ToString(),
-                            testext_check = objDataset.Tables[0].Rows[i]["testext_check"].ToString(),
-                            testinverse = objDataset.Tables[0].Rows[i]["testinverse"].ToString()
+                            testblock =
+                                objDataset.Tables[0].Rows[i]["testblock"]
+                                    .ToString(),
+                            testnr = Convert.ToInt32(
+                                objDataset.Tables[0].Rows[i]["testnr"]
+                                    .ToString()),
+                            testcase = objDataset.Tables[0].Rows[i]["testcase"]
+                                .ToString(),
+                            testelementname =
+                                objDataset.Tables[0].Rows[i][
+                                    "testlogicalobjectname"].ToString(),
+                            testelement =
+                                objDataset.Tables[0].Rows[i]["testelement"]
+                                    .ToString(),
+                            testattribute =
+                                objDataset.Tables[0].Rows[i]["testattribute"]
+                                    .ToString(),
+                            testaction =
+                                objDataset.Tables[0].Rows[i]["testaction"]
+                                    .ToString(),
+                            testtag = objDataset.Tables[0].Rows[i]["testtag"]
+                                .ToString(),
+                            testtext = objDataset.Tables[0].Rows[i]["testtext"]
+                                .ToString(),
+                            testpassword =
+                                objDataset.Tables[0].Rows[i]["test_password"]
+                                    .ToString(),
+                            testurl = objDataset.Tables[0].Rows[i]["testurl"]
+                                .ToString(),
+                            testswitch =
+                                objDataset.Tables[0].Rows[i]["testswitch"]
+                                    .ToString(),
+                            testdescription =
+                                objDataset.Tables[0].Rows[i]["testdescription"]
+                                    .ToString(),
+                            testexecution =
+                                objDataset.Tables[0].Rows[i]["testexecution"]
+                                    .ToString(),
+                            testext_check =
+                                objDataset.Tables[0].Rows[i]["testext_check"]
+                                    .ToString(),
+                            testinverse =
+                                objDataset.Tables[0].Rows[i]["testinverse"]
+                                    .ToString()
                         });
                     rownumber++;
                 }
@@ -223,7 +303,9 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return testblocks;
@@ -239,7 +321,8 @@ namespace DataStorage
         {
             var sqlConn =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, testaction, testtext, testurl, testswitch, testext_check, testpage ";
-            sqlConn += "FROM testcases_selenium WHERE testname = '" + testname + "' ";
+            sqlConn += "FROM testcases_selenium WHERE testname = '" + testname +
+                       "' ";
             sqlConn += "ORDER BY testname, testnr";
             var objConn = new MySqlConnection(General.MySqlConnectionString());
             var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn);
@@ -255,7 +338,9 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return teststepscount;
@@ -286,7 +371,9 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return teststepscount;
@@ -315,14 +402,18 @@ namespace DataStorage
                         new Scenario
                         {
                             id = objDataset.Tables[0].Rows[i][0].ToString(),
-                            scenarionaam = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\"),
-                            description = objDataset.Tables[0].Rows[i][3].ToString().Replace("\\", "\\\\")
+                            scenarionaam = objDataset.Tables[0].Rows[i][2]
+                                .ToString().Replace("\\", "\\\\"),
+                            description = objDataset.Tables[0].Rows[i][3]
+                                .ToString().Replace("\\", "\\\\")
                         });
                 objConn.Close();
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return scenarios;
@@ -349,15 +440,19 @@ namespace DataStorage
                 objDataAdapter.Fill(objDataset, "call_calls13");
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                 {
-                    tekst = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\");
+                    tekst = objDataset.Tables[0].Rows[i][2].ToString()
+                        .Replace("\\", "\\\\");
                     selectedScenarios.Add(
                         new SelectedScenario
                         {
                             selectedScenario =
-                                Convert.ToInt32(objDataset.Tables[0].Rows[i][0].ToString()),
+                                Convert.ToInt32(objDataset.Tables[0].Rows[i][0]
+                                    .ToString()),
                             bestandsnaam =
-                                objDataset.Tables[0].Rows[i][1].ToString().Replace("\\", "\\\\"),
-                            data = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\")
+                                objDataset.Tables[0].Rows[i][1].ToString()
+                                    .Replace("\\", "\\\\"),
+                            data = objDataset.Tables[0].Rows[i][2].ToString()
+                                .Replace("\\", "\\\\")
                         });
                 }
 
@@ -365,7 +460,9 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return selectedScenarios;
@@ -392,15 +489,19 @@ namespace DataStorage
                 objDataAdapter.Fill(objDataset, "call_calls12");
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                 {
-                    tekst = objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\");
+                    tekst = objDataset.Tables[0].Rows[i][2].ToString()
+                        .Replace("\\", "\\\\");
                     selectedScenariosCall.Add(
                         new SelectedScenarioCall
                         {
                             selectedScenario =
-                                Convert.ToInt32(objDataset.Tables[0].Rows[i][0].ToString()),
-                            bestandsnaam = objDataset.Tables[0].Rows[i][1].ToString(),
+                                Convert.ToInt32(objDataset.Tables[0].Rows[i][0]
+                                    .ToString()),
+                            bestandsnaam = objDataset.Tables[0].Rows[i][1]
+                                .ToString(),
                             data =
-                                objDataset.Tables[0].Rows[i][2].ToString().Replace("\\", "\\\\"),
+                                objDataset.Tables[0].Rows[i][2].ToString()
+                                    .Replace("\\", "\\\\"),
                             setting = objDataset.Tables[0].Rows[i][3].ToString()
                                 .Replace("\\", "\\\\")
                         });
@@ -410,7 +511,9 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return selectedScenariosCall;
@@ -431,7 +534,8 @@ namespace DataStorage
 
             try
             {
-                using (var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn))
+                using (var objDataAdapter =
+                    new MySqlDataAdapter(sqlConn, objConn))
                 {
                     var objDataset = new DataSet();
                     objConn.Open();
@@ -442,10 +546,14 @@ namespace DataStorage
                         testresults.Add(
                             new TestResultPie
                             {
-                                result = objDataset.Tables[0].Rows[i][0].ToString(),
-                                count1 = Convert.ToInt64(objDataset.Tables[0].Rows[i][1].ToString()),
-                                module = objDataset.Tables[0].Rows[i][2].ToString(),
-                                function = objDataset.Tables[0].Rows[i][3].ToString()
+                                result = objDataset.Tables[0].Rows[i][0]
+                                    .ToString(),
+                                count1 = Convert.ToInt64(
+                                    objDataset.Tables[0].Rows[i][1].ToString()),
+                                module = objDataset.Tables[0].Rows[i][2]
+                                    .ToString(),
+                                function = objDataset.Tables[0].Rows[i][3]
+                                    .ToString()
                             });
 
                     objConn.Close();
@@ -453,7 +561,9 @@ namespace DataStorage
             }
             catch (Exception e)
             {
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return testresults;
@@ -463,18 +573,22 @@ namespace DataStorage
         ///     Gets the test result selects.
         /// </summary>
         /// <returns>List&lt;TestResultsSelect&gt;.</returns>
-        public static List<TestResultsSelect> GetTestResultSelects(int projectid)
+        public static List<TestResultsSelect> GetTestResultSelects(
+            int projectid)
         {
             var testresults = new List<TestResultsSelect>();
             try
             {
                 var sqlConn =
                     "SELECT testrun, DATE_FORMAT(datetime_created, '%Y-%m %d %T') as Date, " +
-                    "testscenario_name FROM testresultsselenium WHERE project_id = " + projectid +
+                    "testscenario_name FROM testresultsselenium WHERE project_id = " +
+                    projectid +
                     " GROUP BY testrun ORDER BY testID DESC ";
 
-                var objConn = new MySqlConnection(General.MySqlConnectionString());
-                using (var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn))
+                var objConn =
+                    new MySqlConnection(General.MySqlConnectionString());
+                using (var objDataAdapter =
+                    new MySqlDataAdapter(sqlConn, objConn))
                 {
                     var objDataset = new DataSet();
                     objConn.Open();
@@ -485,8 +599,10 @@ namespace DataStorage
                             {
                                 testrun = Convert.ToInt64(
                                     objDataset.Tables[0].Rows[i][0].ToString()),
-                                date = objDataset.Tables[0].Rows[i][1].ToString(),
-                                testscenario_name = objDataset.Tables[0].Rows[i][2].ToString()
+                                date = objDataset.Tables[0].Rows[i][1]
+                                    .ToString(),
+                                testscenario_name =
+                                    objDataset.Tables[0].Rows[i][2].ToString()
                             });
                     objConn.Close();
                 }
@@ -495,11 +611,121 @@ namespace DataStorage
             {
                 Console.WriteLine(e);
                 MessageBox.Show(e.Message);
-                General.LogMessage(e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" + e.Source, 4);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
             }
 
             return testresults;
         }
+
+        public static List<TestResultsScripts> GetTestResultScripts(
+            int projectid)
+        {
+            var testresults = new List<TestResultsScripts>();
+            try
+            {
+                var sqlConn =
+                    "SELECT idtestscriptstotal,DATE_FORMAT(datetime_created, '%Y-%m %d %T') as Date, " +
+                    "passed + failed as Total from testscriptstotal WHERE project_id = " + projectid + " ORDER " +
+                    "BY idtestscriptstotal DESC ";
+
+                var objConn =
+                    new MySqlConnection(General.MySqlConnectionString());
+                using (var objDataAdapter =
+                    new MySqlDataAdapter(sqlConn, objConn))
+                {
+                    var objDataset = new DataSet();
+                    objConn.Open();
+                    objDataAdapter.Fill(objDataset, "call_calls189");
+                    for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
+                        testresults.Add(
+                            new TestResultsScripts
+                            {
+                                testscriptid = Convert.ToInt64(
+                                    objDataset.Tables[0].Rows[i][0].ToString()),
+                                date = objDataset.Tables[0].Rows[i][1]
+                                    .ToString(),
+                                testtotal =
+                                    objDataset.Tables[0].Rows[i][2].ToString()
+                            });
+                    objConn.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                MessageBox.Show(e.Message);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
+            }
+
+            return testresults;
+        }
+
+
+        public static List<TestResultsScriptsDetails> GetTestResultScriptsDetails(
+            int scriptnumber, int projectid)
+        {
+            var testResultsScriptsDetails = new List<TestResultsScriptsDetails>();
+            var sqlConn = "";
+            try
+            {
+                if (scriptnumber != 0)
+                {
+                    sqlConn =
+                        "SELECT testrun_run, DATE_FORMAT(testrun_begintime,'%Y-%m %d %T') as Date, " +
+                        "testscenario_name, testrun_passed, testrun_failed, testrun_time FROM " +
+                        "autotest.testruns_selenium WHERE idtestscripttotal = " +
+                        scriptnumber +
+                        " ORDER BY testrun_run DESC;";
+                }
+                else
+                {
+                    sqlConn =
+                        "SELECT testrun_run, DATE_FORMAT(testrun_begintime,'%Y-%m %d %T') as Date, " +
+                        "testscenario_name, testrun_passed, testrun_failed, testrun_time FROM " +
+                        "autotest.testruns_selenium WHERE project_id = " +
+                        projectid +
+                        " ORDER BY testrun_run DESC;";
+                }
+
+                var objConn =
+                    new MySqlConnection(General.MySqlConnectionString());
+                using (var objDataAdapter =
+                    new MySqlDataAdapter(sqlConn, objConn))
+                {
+                    var objDataset = new DataSet();
+                    objConn.Open();
+                    objDataAdapter.Fill(objDataset, "call_calls189");
+                    for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
+                        testResultsScriptsDetails.Add(
+                            new TestResultsScriptsDetails()
+                            {
+                                testrun = objDataset.Tables[0].Rows[i][0].ToString(),
+                                date = objDataset.Tables[0].Rows[i][1]
+                                    .ToString(),
+                                application = objDataset.Tables[0].Rows[i][2].ToString(),
+                                passed = objDataset.Tables[0].Rows[i][3].ToString(),
+                                failed = objDataset.Tables[0].Rows[i][4].ToString(),
+                                testtime = objDataset.Tables[0].Rows[i][5].ToString()
+                            });
+                    objConn.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                MessageBox.Show(e.Message);
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
+            }
+
+            return testResultsScriptsDetails;
+        }
+
 
         /// <summary>
         ///     Class ResultsCount.
@@ -725,6 +951,26 @@ namespace DataStorage
             public long testrun { get; set; }
 
             public string testscenario_name { get; set; }
+        }
+
+        public class TestResultsScripts
+        {
+            public string date { get; set; }
+
+            public long testscriptid { get; set; }
+
+            public string testtotal { get; set; }
+        }
+
+
+        public class TestResultsScriptsDetails
+        {
+            public string date { get; set; }
+            public string testrun { get; set; }
+            public string application { get; set; }
+            public string passed { get; set; }
+            public string failed { get; set; }
+            public string testtime { get; set; }
         }
 
         /// <summary>
@@ -955,5 +1201,6 @@ namespace DataStorage
             /// <value>The testtag.</value>
             public string testtag { get; set; }
         }
+
     }
 }

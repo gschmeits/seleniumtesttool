@@ -166,32 +166,48 @@
                       Height="24"
                       Margin="10,0,10,0"
                       DropDownClosed="ComboTestFrom_DropDownClosed"
-                      SelectionChanged="ComboTestFrom_SelectionChanged" />
-            <Button Name="ButtonRefreshRuns"
-                    Content="Refresh"
-                    Style="{DynamicResource MyButtonStyle}" Click="ButtonRefreshRuns_Click" />
-            <Label Content="Until Test Run:"
-                   Margin="15,0,10,0"
-                   FontWeight="Bold"
-                   Visibility="Hidden" />
-            <ComboBox Name="ComboTestTill"
-                      Width="180"
+                      SelectionChanged="ComboTestFrom_SelectionChanged" GotFocus="ComboTestFrom_GotFocus" />
+            
+            <!-- <Button Name="ButtonRefreshRuns" -->
+            <!--         Content="Refresh" -->
+            <!--         Style="{DynamicResource MyButtonStyle}" Click="ButtonRefreshRuns_Click" /> -->
+            <!-- <Label Content="Until Test Run:" -->
+            <!--        Margin="15,0,10,0" -->
+            <!--        FontWeight="Bold" -->
+            <!--        Visibility="Hidden" /> -->
+            <!-- <ComboBox Name="ComboTestTill" -->
+            <!--           Width="180" -->
+            <!--           Margin="10,0,10,0" -->
+            <!--           Visibility="Hidden" -->
+            <!--           DropDownClosed="ComboTestTill_DropDownClosed" /> -->
+            <!-- <Label FontSize="14" -->
+            <!--        Name="LabelAppliction" -->
+            <!--        FontWeight="Bold" -->
+            <!--        Content="Application: " -->
+            <!--        Margin="15,0,0,-6.4" -->
+            <!--        Visibility="Hidden" /> -->
+            <!-- <Label FontSize="14" -->
+            <!--        Name="LabelApplicationData" -->
+            <!--        Content="" -->
+            <!--        Foreground="Black" -->
+            <!--        FontWeight="Bold" -->
+            <!--        Visibility="Hidden" -->
+            <!--        Margin="0,0,0,-8.4" /> -->
+            <Label Name="LabelScripts" 
+                Content="Executed Scripts:" 
+                   VerticalContentAlignment="Center"
+                   FontWeight="Bold" />
+            <ComboBox Name="ComboTestScripts"
+                      Width="200"
+                      VerticalContentAlignment="Center"
+                      Height="24"
                       Margin="10,0,10,0"
-                      Visibility="Hidden"
-                      DropDownClosed="ComboTestTill_DropDownClosed" />
-            <Label FontSize="14"
-                   Name="LabelAppliction"
-                   FontWeight="Bold"
-                   Content="Application: "
-                   Margin="15,0,0,-6.4"
-                   Visibility="Hidden" />
-            <Label FontSize="14"
-                   Name="LabelApplicationData"
-                   Content=""
-                   Foreground="Black"
-                   FontWeight="Bold"
-                   Visibility="Visible"
-                   Margin="0,0,0,-8.4" />
+                      DropDownClosed="ComboTestScripts_DropDownClosed" 
+                      SelectionChanged="ComboTestScripts_SelectionChanged" GotFocus="ComboTestScripts_GotFocus" />
+                <CheckBox Name="CheckBoxAll"
+                          Content="All"
+                          VerticalAlignment="Center"
+                          VerticalContentAlignment="Center" Click="CheckBoxAll_Click" />
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Bottom">
             <Label Name="LabelPreconditions" Content="Preconditions"
@@ -386,7 +402,7 @@
                   CanUserResizeColumns="True"
                   CanUserResizeRows="False"
                   CanUserSortColumns="False"
-                  Visibility="Visible" ColumnWidth="Auto" MouseDoubleClick="DataGridGer_MouseDoubleClick">
+                  Visibility="Visible" ColumnWidth="Auto" MouseDoubleClick="DataGridGer_MouseDoubleClick" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding testrun}"
                                     Header="Testrun">
@@ -729,7 +745,7 @@
                 x
 
             </Button>
-            <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="10,0" Name="ListBoxDir" />
+            <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="10,0" Name="ListBoxDir" MouseDoubleClick="ListBoxDir_MouseDoubleClick" />
             <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <Button
@@ -805,7 +821,7 @@
                     FontSize="14" Click="ButtonProjectCreateSave_Click" TabIndex="2" />
                 <Button
                     Style="{DynamicResource MyButtonStyle}"
-                    Margin="20,0,0,0"
+                    Margin="20,35,20,0"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Width="100"
@@ -815,6 +831,111 @@
             </StackPanel>
         </Grid>
 
+        <DataGrid Name="DataGridScripts"
+                  AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}"
+                  Background="{DynamicResource DataGridAchtergrond}"
+                  Grid.Row="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Width="auto"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False"
+                  EnableColumnVirtualization="True"
+                  IsReadOnly="True"
+                  RowDetailsVisibilityMode="Collapsed"
+                  RowHeaderWidth="0"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="True"
+                  CanUserResizeRows="False"
+                  CanUserSortColumns="False"
+                  Visibility="Hidden" ColumnWidth="Auto" 
+                  MouseDoubleClick="DataGridScripts_MouseDoubleClick" Margin="0,25,0,10" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding testrun}"
+                                    Header="Testrun">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding application}"
+                                    Header="Application"
+                                    Visibility="Visible">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding passed}"
+                                    Header="Passed"
+                                    Visibility="Visible">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Right" />
+                            <Setter Property="TextElement.Foreground"
+                                    Value="Green" />
+                            <Setter Property="TextBlock.FontWeight" 
+                                    Value="Bold" />
+                            <Setter Property="TextBlock.Margin" 
+                                    Value="0,0,0,5"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding failed}"
+                                    Header="Failed"
+                                    Visibility="Visible">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Right" />
+                            <Setter Property="TextElement.Foreground"
+                                    Value="Red" />
+                            <Setter Property="TextBlock.FontWeight" 
+                                    Value="Bold" />
+                            <Setter Property="TextBlock.Margin" 
+                                    Value="0,0,0,5"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding date}"
+                                    Header="Date/Time"
+                                    Visibility="Visible">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
 
+                <DataGridTextColumn Binding="{Binding testtime}"
+                                    Header="Duration"
+                                    Visibility="Visible">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment"
+                                    Value="Left" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

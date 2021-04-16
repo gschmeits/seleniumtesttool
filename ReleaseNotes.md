@@ -514,3 +514,13 @@ CVS bestanden kunnen maken.
 
 # Release 2.0.10.9
 - Tekst wordt volledig gecontroleerd, inclusief returns, maar zonder html code.
+
+# Release 2.0.10.12
+- ESC toegevoegd bij het invoeren van tekst (sendkeys)
+- {ENTER} toegevoegd aan een string (achteraan)
+
+# Release 2.0.10.15
+- ESC en {ENTER} toegevoegd bij sendkeys bij het ophalen van de elementen.
+
+# Release 2.0.11.1
+- Alle uitgevoerde testen die via een Edit Test Scripts zijn uitvoerd kunnen nu getoond en geselecteerd worden om de resultaten te selecteren en te zien.
