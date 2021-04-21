@@ -454,7 +454,7 @@ namespace WPFTestResults
                                 credits.Url,
                                 bestandsnaam_argument,
                                 Convert.ToString(GeneralFunctionality.Functions.getProjectID()),
-                                "");
+                                "0");
                             ShowDataGrid(true);
                             TextBoxExtra.Text = string.Empty;
                         }
@@ -807,7 +807,7 @@ namespace WPFTestResults
                         credits.Url,
                         bestandsnaam_argument,
                         Convert.ToString(GeneralFunctionality.Functions.getProjectID()),
-                        "");
+                        "0");
 
                     ShowDataGrid(true);
 
