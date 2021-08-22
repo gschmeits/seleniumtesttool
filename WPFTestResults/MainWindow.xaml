@@ -168,9 +168,9 @@
                       DropDownClosed="ComboTestFrom_DropDownClosed"
                       SelectionChanged="ComboTestFrom_SelectionChanged" GotFocus="ComboTestFrom_GotFocus" />
             
-            <!-- <Button Name="ButtonRefreshRuns" -->
-            <!--         Content="Refresh" -->
-            <!--         Style="{DynamicResource MyButtonStyle}" Click="ButtonRefreshRuns_Click" /> -->
+            <Button Name="ButtonRefreshRuns"
+                    Content="Refresh"
+                    Style="{DynamicResource MyButtonStyle}" Click="ButtonRefreshRuns_Click" />
             <!-- <Label Content="Until Test Run:" -->
             <!--        Margin="15,0,10,0" -->
             <!--        FontWeight="Bold" -->
@@ -745,7 +745,12 @@
                 x
 
             </Button>
-            <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="10,0" Name="ListBoxDir" MouseDoubleClick="ListBoxDir_MouseDoubleClick" />
+            <ListBox Grid.Row="1" 
+                     Grid.ColumnSpan="2" 
+                     Grid.RowSpan="3" 
+                     Margin="10,0" 
+                     Name="ListBoxDir" 
+                     MouseDoubleClick="ListBoxDir_MouseDoubleClick" />
             <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <Button

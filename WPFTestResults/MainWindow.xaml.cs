@@ -427,12 +427,10 @@ namespace WPFTestResults
                             var indexT = testresultsCount.Count;
                             ComboTestFrom.SelectedIndex = indexT;
                             ComboTestFrom.Text = ComboTestFrom.Items[0].ToString();
-                            //ComboTestTill.SelectedIndex = indexT;
-                            //ComboTestTill.Text = ComboTestTill.Items[0].ToString();
+
                             CheckFromTill();
                             var ttt = ComboTestFrom.Text.Split(' ');
-                           // LabelAppliction.Visibility = Visibility.Visible;
-                            //LabelApplicationData.Visibility = Visibility.Visible;
+
                             EinDateTime = DateTime.Now;
                             TextBlockDateTime.Text = (EinDateTime - BeginDateTime).ToString();
                             Version.Text = TextBoxVersion.Text;
@@ -536,6 +534,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     machinestatic,
                                     string.Empty,
+                                    string.Empty,
+                                    "yes",
                                     string.Empty);
                                 intTeller++;
                                 element = string.Empty;
@@ -1278,7 +1278,7 @@ namespace WPFTestResults
                 ComboTestScripts.Items.Add(tekst + " " + gu.date);
             }
 
-            if (ComboTestScripts.Items.Count == 0) ComboTestFrom.IsEnabled = false;
+            if (ComboTestScripts.Items.Count == 0) ComboTestScripts.IsEnabled = false;
             else ComboTestScripts.IsEnabled = true;
 
         }
@@ -1322,6 +1322,7 @@ namespace WPFTestResults
             //LabelApplicationData.Visibility = Visibility.Hidden;
             GridBrowser.Visibility = Visibility.Hidden;
             // VulTestResults();
+            ComboTestFrom.SelectedIndex = -1;
         }
 
         private void MenuItemSettingsOverall_OnClick(object sender, RoutedEventArgs e)
@@ -1591,18 +1592,23 @@ namespace WPFTestResults
             if (ListBoxDir.Items.Count > 0 && GridProject.Visibility == Visibility.Visible)
                 try
                 {
-                    foreach (var itm in ListBoxDir.SelectedItems)
+                    using (new PleaseWait())
                     {
-                        GeneralFunctionality.Functions.setProjectName(itm.ToString());
+                        foreach (var itm in ListBoxDir.SelectedItems)
+                        {
+                            GeneralFunctionality.Functions.setProjectName(
+                                itm.ToString());
 
-                        projectid = GeneralFunctionality.Functions.getProjectID();
-                        VulTestResults();
-                        VulTestResultsScripts();
-                        CheckTestCases();
-                        MessageBox.Show("The project '" + itm + "' is selected.", "Selected Project",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
-                        GridProject.Visibility = Visibility.Hidden;
-                        // MessageBox.Show(GeneralFunctionality.Functions._project);
+                            projectid = GeneralFunctionality.Functions
+                                .getProjectID();
+                            VulTestResults();
+                            VulTestResultsScripts();
+                            CheckTestCases();
+                            //MessageBox.Show("The project '" + itm + "' is selected.", "Selected Project",
+                            //    MessageBoxButton.OK, MessageBoxImage.Information);
+                            GridProject.Visibility = Visibility.Hidden;
+                            // MessageBox.Show(GeneralFunctionality.Functions._project);
+                        }
                     }
                 }
                 catch (Exception exception)

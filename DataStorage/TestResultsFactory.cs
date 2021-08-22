@@ -147,7 +147,7 @@ namespace DataStorage
             var sqlConn =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, " +
                 "testaction, testtext, testurl, testswitch, testexecution, testext_check, testinverse,testtag, " +
-                "test_comment, testpage ";
+                "test_comment, testpage, test_password, test_check_strict ";
             sqlConn += "FROM testcases_selenium WHERE testname = '" + testname +
                        "' ";
             sqlConn += "ORDER BY testname, testnr";
@@ -207,7 +207,9 @@ namespace DataStorage
                             testpage = objDataset.Tables[0].Rows[i]["testpage"]
                                 .ToString(),
                             testtag = objDataset.Tables[0].Rows[i]["testtag"]
-                                .ToString()
+                                .ToString(),
+                            testcheckstrict = objDataset.Tables[0].Rows[i]["test_check_strict"].ToString(),
+                            testpassword =  objDataset.Tables[0].Rows[i]["test_password"].ToString()
                         });
                     rownumber++;
                 }
@@ -1085,6 +1087,10 @@ namespace DataStorage
             /// </summary>
             /// <value>The testtag.</value>
             public string testtag { get; set; }
+
+            public string testcheckstrict { get; set; }
+
+            public string testpassword { get; set; }
         }
 
         public class TestBlocks

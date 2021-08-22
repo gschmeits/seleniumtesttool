@@ -214,7 +214,10 @@ namespace DataStorage
         {
             //var commandText = "SET @rowno = 0;";
             var commandText =
-                "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, testaction, testtext, testurl, testswitch, testdescription, testexecution, testext_check, testinverse, test_comment, test_password FROM testcases_selenium WHERE id = '" +
+                "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, " +
+                "testattribute, testaction, testtext, testurl, testswitch, testdescription, " +
+                "testexecution, testext_check, testinverse, test_comment, test_password, test_check_strict " +
+                "FROM testcases_selenium WHERE id = '" +
                 id + "';";
             return ExecuteQueryCommandReturnTable(commandText);
         }
@@ -225,7 +228,7 @@ namespace DataStorage
             var commandText = "SELECT id, testname, testnr, testcase, testlogicalobjectname, ";
             commandText += "testelement, testattribute, testaction, testtext, testurl, testswitch, ";
             commandText += "testdescription, testexecution, testext_check, testinverse, test_comment, ";
-            commandText += "test_password FROM testcases_selenium WHERE testname = '" + testname + "' AND ";
+            commandText += "test_password, test_check_strict FROM testcases_selenium WHERE testname = '" + testname + "' AND ";
             commandText += "testnr = " + testnr + ";";
             return ExecuteQueryCommandReturnTable(commandText);
         }
@@ -324,7 +327,7 @@ namespace DataStorage
             return path;
         }
 
-        [Conditional("DEBUG")]
+        //[Conditional("DEBUG")]
         public static void LogMessage(string message, int niveau, string testname = "", int testnr = 0,
             string testcase = "", string testaction = "", string testattribute = "", string machinecode = "")
         {

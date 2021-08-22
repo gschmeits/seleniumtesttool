@@ -72,6 +72,7 @@ namespace DataStorage
             string testmachinecode,
             string testtag,
             string testcheck,
+            string testcheckstrict,
             string test_password = "")
         {
             try
@@ -89,7 +90,9 @@ namespace DataStorage
                 commandText += "testext_check = '" + MySqlHelper.EscapeString(testcheck) + "', ";
                 commandText += "testurl = '" + MySqlHelper.EscapeString(testurl) + "', ";
                 commandText += "testexecution = '" + MySqlHelper.EscapeString(testexecution) + "', ";
+                commandText += "testdescription = '" + MySqlHelper.EscapeString(testdescription) + "', ";
                 commandText += "testinverse = '" + MySqlHelper.EscapeString(testinverse) + "', ";
+                commandText += "test_check_strict = '" + MySqlHelper.EscapeString(testcheckstrict) + "', ";
                 commandText += "test_comment = '" + MySqlHelper.EscapeString(testcomment) + "', ";
                 commandText += "machinenumber = '" + testmachinecode + "', ";
                 commandText += "test_password = '" + test_password + "', ";
@@ -142,6 +145,7 @@ namespace DataStorage
             string testdescription,
             string testcomment,
             string testtag,
+            string testcheckstrict,
             string testpassword = "")
         {
             try
@@ -158,7 +162,9 @@ namespace DataStorage
                 commandText += "testtext = '" + MySqlHelper.EscapeString(testtext) + "', ";
                 commandText += "testurl = '" + MySqlHelper.EscapeString(testurl) + "', ";
                 commandText += "testexecution = '" + MySqlHelper.EscapeString(testexecution) + "', ";
+                commandText += "testdescription = '" + MySqlHelper.EscapeString(testdescription) + "', ";
                 commandText += "testinverse = '" + MySqlHelper.EscapeString(testinverse) + "', ";
+                commandText += "test_check_strict = '" + MySqlHelper.EscapeString(testcheckstrict) + "', ";
                 commandText += "testext_check = '" + MySqlHelper.EscapeString(testdescription) + "', ";
                 commandText += "test_comment = '" + MySqlHelper.EscapeString(testcomment) + "', ";
                 commandText += "test_password = '" + testpassword + "', ";
@@ -253,7 +259,8 @@ namespace DataStorage
                 commandText += "testurl = '" + MySqlHelper.EscapeString(testurl) + "', ";
                 commandText += "testexecution = '" + MySqlHelper.EscapeString(testexecution) + "', ";
                 commandText += "testinverse = '" + MySqlHelper.EscapeString(testinverse) + "', ";
-                commandText += "testdescription = '" + MySqlHelper.EscapeString(testcomment) + "', ";
+                commandText += "testdescription = '" + MySqlHelper.EscapeString(testdescription) + "', ";
+                commandText += "test_comment = '" + MySqlHelper.EscapeString(testcomment) + "', ";
                 commandText += "test_password = '" + MySqlHelper.EscapeString(test_password) + "', ";
                 commandText += "project_id = " + MySqlHelper.EscapeString(projectid) + ", ";
                 commandText += "testswitch = '" + MySqlHelper.EscapeString(testswitch) + "';";
@@ -326,7 +333,8 @@ namespace DataStorage
                 commandText += "testurl = '" + MySqlHelper.EscapeString(testurl) + "', ";
                 commandText += "testexecution = '" + MySqlHelper.EscapeString(testexecution) + "', ";
                 commandText += "testinverse = '" + MySqlHelper.EscapeString(testinverse) + "', ";
-                commandText += "testdescription = '" + MySqlHelper.EscapeString(testcomment) + "', ";
+                commandText += "testdescription = '" + MySqlHelper.EscapeString(testdescription) + "', ";
+                commandText += "testcomment = '" + MySqlHelper.EscapeString(testcomment) + "', ";
                 commandText += "test_password = '" + MySqlHelper.EscapeString(test_password) + "', ";
                 commandText += "project_id = " + MySqlHelper.EscapeString(projectid) + ", ";
                 commandText += "testswitch = '" + MySqlHelper.EscapeString(testswitch) + "' WHERE ";

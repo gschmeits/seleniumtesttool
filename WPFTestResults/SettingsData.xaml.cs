@@ -23,9 +23,11 @@ namespace WPFTestResults
 
             var settingsSettingsDir = OverallSettings.SettingsSettingsDir;
             var settingsDataDir = OverallSettings.SettingsDataDir;
+            var settingswdioDir = OverallSettings.SettingswdioDir;
 
             TextBoxSettingsDir.Text = settingsSettingsDir;
             TextBoxDataDir.Text = settingsDataDir;
+            TextBoxwdioDir.Text = settingswdioDir;
         }
 
         private void ButtonSaveConfig_Click(object sender, RoutedEventArgs e)
@@ -42,6 +44,7 @@ namespace WPFTestResults
                 writer.WriteStartElement("settings");
                 writer.WriteElementString("settingsdir", TextBoxSettingsDir.Text );
                 writer.WriteElementString("datadir", TextBoxDataDir.Text);
+                writer.WriteElementString("wdiodir", TextBoxwdioDir.Text);
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
             }

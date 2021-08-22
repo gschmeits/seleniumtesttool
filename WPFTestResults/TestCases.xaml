@@ -457,15 +457,16 @@
             <TextBox Name="TextBoxTestDescription"
                      Grid.Row="2"
                      Grid.Column="5"
-                     Grid.RowSpan="3"
-                     Margin="5,8,0,36"
-                     Height="70"
-                     VerticalAlignment="Center"
+                     Grid.RowSpan="2"
+                     Height="60"
+                     VerticalAlignment="Top"
                      VerticalContentAlignment="Top"
                      HorizontalAlignment="Left"
                      HorizontalContentAlignment="Left" TabIndex="11" TextWrapping="Wrap"
-                     VerticalScrollBarVisibility="Auto" MaxHeight="140" MinHeight="70" MinLines="3" MaxLength="450"
-                     Width="494" AcceptsReturn="True" />
+                     VerticalScrollBarVisibility="Auto" MaxHeight="140" MinHeight="60" MinLines="3" MaxLength="450"
+                     Width="439" AcceptsReturn="True" Margin="5,0" />
+            <CheckBox Name="CheckBoxStrict" Content="Check Text Strict" Grid.Row="3"
+                      Grid.Column="6" VerticalAlignment="Bottom" Margin="5,0" TabIndex="12" />
             <StackPanel Orientation="Horizontal"
                         Grid.Row="4"
                         Grid.Column="5">
@@ -474,7 +475,7 @@
                           Width="75"
                           HorizontalAlignment="Left"
                           VerticalAlignment="Center"
-                          Height="24" TabIndex="12">
+                          Height="24" TabIndex="13">
                     <ListBoxItem Content="yes" />
                     <ListBoxItem Content="no" />
                 </ComboBox>
@@ -486,18 +487,19 @@
                           Width="75"
                           HorizontalAlignment="Left"
                           VerticalAlignment="Center"
-                          Height="24" TabIndex="13">
+                          Height="24" TabIndex="14">
                     <ListBoxItem Content="no" />
                     <ListBoxItem Content="yes" />
                 </ComboBox>
                 <Button
                     x:Name="ButtonImportCSV"
                     Content="Import CSV"
-                    Margin="110,0,0,0"
+                    Margin="10,0,0,0"
                     Width="115"
                     HorizontalAlignment="Right"
                     Visibility="Hidden"
                     Style="{DynamicResource MyButtonStyle}" />
+
             </StackPanel>
 
             <TextBox Name="TextBoxNoExecution"
@@ -881,7 +883,7 @@
                 Content="Create CSV"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,7,500,6"
+                Margin="0,7,650,6"
                 Grid.Row="3"
                 Width="100"
                 IsEnabled="False" Click="ButtonCreateCSV_Click" />
@@ -891,7 +893,7 @@
                 Content="Import CSV"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,7,384,6"
+                Margin="0,7,534,6"
                 Grid.Row="3"
                 Width="100" Visibility="Visible"
                 IsEnabled="False" Click="ButtonImportCSV_Click" />
@@ -901,10 +903,18 @@
                 Content="Import Module"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,7,165,6"
+                Margin="0,7,375,6"
                 Grid.Row="3"
-                Width="100" Visibility="Visible"
-                IsEnabled="False" Click="ButtonImportModule_Click" />
+                Width="100" Visibility="Visible" Click="ButtonImportModule_Click" />
+        <Button Name="ButtonGenWebdriverIo"
+                Style="{DynamicResource MyButtonStyle}"
+                Content="Code webdriver.io"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0,7,175,6"
+                Grid.Row="3"
+                Width="150" Visibility="Visible"
+                IsEnabled="False" Click="ButtonGenWebdriverIo_Click" />
         <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="15,0">
             <Label Content="Total Teststeps: "
                    VerticalAlignment="Center"
@@ -1003,6 +1013,105 @@
                         Name="ButtonCloseModule" Content="Close Module"
                         Grid.Row="5" Grid.ColumnSpan="5" Width="100" HorizontalAlignment="Right"
                         Click="ButtonCloseModule_Click" TabIndex="5" />
+            </Grid>
+        </StackPanel>
+
+
+        <StackPanel Width="510"
+                    Height="275"
+                    Name="ModuleWebdriver"
+                    Orientation="Horizontal"
+                    Visibility="Visible"
+                    Grid.Row="2">
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1"
+                                         MappingMode="RelativeToBoundingBox"
+                                         StartPoint="0.5,0">
+                        <GradientStop Color="White"
+                                      Offset="1" />
+                        <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"
+                                      Offset="0.01" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6"
+                        Margin="3,3,3,0"
+                        Style="{DynamicResource BorderaStyleG}" />
+                <Label Content="Generate webdriver.io javascript"
+                       FontWeight="Bold"
+                       FontSize="16"
+                       Grid.ColumnSpan="5"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="5" HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <Label Content="HomePage App function" />
+                        <TextBox Name="TextBoxAppFunction" VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Left" Width="300"   TabIndex="1" ToolTip="App.openHomePage();"  />
+                </StackPanel>
+
+                <CheckBox Content="Using general login" Grid.Row="2"
+                          Name="checkboxLoginrows"
+                          Grid.ColumnSpan="5"
+                          VerticalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          TabIndex="2"
+                          IsChecked="True" Click="CheckboxLoginrows_Click" />
+                <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="5" Name="StackPanelRowsLogin"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center" Margin="50,0">
+                    <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+                           Content="From testnr.:" />
+                    <TextBox
+                        Width="75"
+                        Height="28"
+                        HorizontalAlignment="Left"
+                        Name="TextBoxLoginFrom"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="3"
+                        TextChanged="TextBoxLoginFrom_TextChanged" />
+                    <Label Content="Till testnr.:" HorizontalContentAlignment="Right"
+                           VerticalContentAlignment="Center" Margin="50,0" />
+                    <TextBox HorizontalAlignment="Left" HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center" Width="75" Height="28" Name="TextBoxLoginTill"
+                             TabIndex="4" TextChanged="TextBoxLoginTill_TextChanged" />
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" Grid.Row="4" VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Label Content="Switch to url function:" />
+                    <TextBox Name="TextBoxSwitchUrl" HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center" Width="300" TabIndex="5" Margin="10,0" />
+                </StackPanel>
+
+                <Button Style="{DynamicResource MyButtonStyle}"
+                        Name="ButtonWebdriverMaakleeg" Content="Make empty"
+                        Grid.Row="5"  Width="100" TabIndex="9" Click="ButtonWebdriverMaakleeg_Click"
+                        />
+                <Button Style="{DynamicResource MyButtonStyle}"
+                        Name="ButtonWebdriverGenerate" Content="Generate javascript"
+                        Grid.Row="5" Grid.ColumnSpan="5" Width="120" IsEnabled="False" TabIndex="6"
+                        Click="ButtonWebdriverGenerate_Click" />
+                <Button Style="{DynamicResource MyButtonStyle}"
+                        Name="ButtonCloseWebdriver" Content="Close Module"
+                        Grid.Row="5" Grid.ColumnSpan="5" Width="100" HorizontalAlignment="Right"
+                        TabIndex="7" Click="ButtonCloseWebdriver_Click" />
             </Grid>
         </StackPanel>
 

@@ -1409,6 +1409,20 @@ namespace GeneralFunctionality
             }
         }
 
+        public static void CodeToFile(string message, string timestring)
+        {
+            var sw = File.AppendText(HtmlPage); // Change filename
+            try
+            {
+                var logLine = $"{message}";
+                sw.WriteLine(logLine);
+            }
+            finally
+            {
+                sw.Close();
+            }
+        }
+
         /// <summary>
         ///     Teststaps the specified driver.
         /// </summary>
@@ -1427,6 +1441,8 @@ namespace GeneralFunctionality
             var actions = new Actions(driver);
             // var credits = GetCredentials(bestandsnaamArgument);
 
+            var inhoud = "";
+            var vestandsnaam = "";
             var credits =
                 GetCredentials(_project + @"\" + bestandsnaamArgument);
 
@@ -1437,7 +1453,8 @@ namespace GeneralFunctionality
                 var drTitle = driver.Title;
                 if (drTitle != null)
                 {
-                    setClassName(table.Rows[intx]["testcase"].ToString()
+                    vestandsnaam = table.Rows[intx]["testcase"].ToString().Trim();
+            setClassName(table.Rows[intx]["testcase"].ToString()
                         .Trim());
                     setTestnr(table.Rows[intx]["testnr"].ToString().Trim());
 
@@ -1590,6 +1607,9 @@ namespace GeneralFunctionality
                                                 .GoToUrl(
                                                     table.Rows[intx]["testurl"]
                                                         .ToString());
+
+                                            inhoud += "driver.Navigate().GoToUrl('" + table.Rows[intx]["testurl"].ToString() + "')\r\n";
+   
                                             break;
                                         case "click":
                                             actions = new Actions(driver);
@@ -1973,6 +1993,11 @@ namespace GeneralFunctionality
                                     Convert.ToInt32(testnr), testcase,
                                     testaction, testAttribute);
                         }
+                        var appendtext = GetCurrentDir(2) + "\\" + vestandsnaam + ".js";
+                        var sw = File.CreateText(appendtext);
+                        sw.WriteLine(inhoud);
+
+                        sw.Close();
                     }
                     catch (Exception exception)
                     {
