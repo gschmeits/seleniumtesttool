@@ -175,7 +175,8 @@ namespace GeneralFunctionality
             string texttext = "",
             string testpage = "",
             string testscenario_name = "",
-            bool opslaan = true)
+            bool opslaan = true,
+            bool strikt = true)
         {
             bool present;
             var opslaan1 = opslaan;
@@ -233,22 +234,56 @@ namespace GeneralFunctionality
                     }
 
                     if (content != null && tekst != string.Empty &&
+                        content.Text != string.Empty)
+                    {
+                        if (strikt == true)
+                        {
+                            if (tekst != string.Empty &&
+                                content.Text == tekst)
+                                result = gewoon;
+                        }
+                        else
+                        {
+                            if (tekst != string.Empty &&
+                                content.Text.IndexOf(tekst) != -1)
+                                result = gewoon;
+                        }
+
+                        /*if (tekst != string.Empty &&
+                            content.Text != tekst)
+                            result = ongewoon;*/
+                    }
+
+                    /*
+                    if (content != null && tekst != string.Empty &&
                         content.TagName == "input" &&
                         content.GetAttribute("value") != string.Empty)
-                    {
-                        //MessageBox.Show("|" + content.GetAttribute("value").Trim() + "|"+ tekst + "|");
 
-                        if (tekst != string.Empty &&
-                            content.GetAttribute("value").Trim() == tekst)
+                        //if (content != null && tekst != string.Empty &&
+                        //(cont/ent.TagName == "input" || content.TagName == "textarea") &&
+                        //content.GetAttribute("value") != string.Empty)
+                    {
+                        if (strikt == true)
+                        {
+                            if (tekst != string.Empty &&
+                                content.GetAttribute("value").Trim() == tekst)
+                                result = gewoon;
+                        }
+                        else
+                        {
+                            if (tekst != string.Empty &&
+                                content.GetAttribute("value").Trim().IndexOf(tekst) != -1)
                             result = gewoon;
+                        }
 
                         if (tekst != string.Empty &&
                             content.GetAttribute("value").Trim() != tekst)
                             result = ongewoon;
                     }
+                    */
 
 
-                    if (content != null && content.Text != null &&
+                    /*if (content != null && content.Text != null &&
                         content.Text != string.Empty &&
                         tekst != string.Empty)
                     {
@@ -261,7 +296,7 @@ namespace GeneralFunctionality
                         if (tekst != string.Empty &&
                             content.Text.Trim() != tekst.Trim())
                             result = ongewoon;
-                    }
+                    }*/
 
                     if (tekst == string.Empty) result = gewoon;
 
@@ -309,7 +344,8 @@ namespace GeneralFunctionality
                                 texttext,
                                 testpage,
                                 testscenario_name,
-                                opslaan1);
+                                opslaan1,
+                                strikt);
                         }
                     }
                     else
@@ -1450,6 +1486,7 @@ namespace GeneralFunctionality
 
             for (var intx = 0; intx < table.Rows.Count; intx++)
             {
+                var strikt = true;
                 var drTitle = driver.Title;
                 if (drTitle != null)
                 {
@@ -1457,6 +1494,15 @@ namespace GeneralFunctionality
             setClassName(table.Rows[intx]["testcase"].ToString()
                         .Trim());
                     setTestnr(table.Rows[intx]["testnr"].ToString().Trim());
+
+                    if (table.Rows[intx]["test_check_strict"].ToString().ToUpper() == "TRUE")
+                    {
+                        strikt = true;
+                    }
+                    else
+                    {
+                        strikt = false;
+                    }
 
                     var v = (table != null
                         ? table != null ? table.Rows[intx]["testurl"] : null
@@ -1536,7 +1582,8 @@ namespace GeneralFunctionality
                                         .Trim(),
                                     bestandsnaamArgument,
                                     "",
-                                    opslaan
+                                    opslaan,
+                                    strikt
                                 ));
 
 

@@ -14,6 +14,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -28,8 +29,6 @@ using DataStorage;
 using GeneralFunctionality;
 using MySql.Data.MySqlClient;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Remote;
 using DataGrid = System.Windows.Controls.DataGrid;
 using DataGridCell = System.Windows.Controls.DataGridCell;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
@@ -46,6 +45,8 @@ namespace WPFTestResults
     /// TODO Edit XML Comment Template for TestCases
     public partial class TestCases : Window
     {
+        private ICollectionView defaultView;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="TestCases" /> class.
         /// </summary>
@@ -144,7 +145,7 @@ namespace WPFTestResults
             for (var childIndex = 0; childIndex < childrenCount; ++childIndex)
             {
                 var child =
-                    (Visual) VisualTreeHelper.GetChild(parent, childIndex);
+                    (Visual)VisualTreeHelper.GetChild(parent, childIndex);
                 obj = child as T;
                 if (obj == null)
                     obj = GetVisualChild<T>(child);
@@ -193,13 +194,13 @@ namespace WPFTestResults
                 var visualChild = GetVisualChild<DataGridCellsPresenter>(row1);
                 if (visualChild != null)
                 {
-                    var dataGridCell = (DataGridCell) visualChild
+                    var dataGridCell = (DataGridCell)visualChild
                         .ItemContainerGenerator.ContainerFromIndex(column);
                     if (dataGridCell == null)
                     {
                         AddDataGrid.ScrollIntoView(row1,
                             AddDataGrid.Columns[column]);
-                        dataGridCell = (DataGridCell) visualChild
+                        dataGridCell = (DataGridCell)visualChild
                             .ItemContainerGenerator.ContainerFromIndex(column);
                     }
 
@@ -235,13 +236,13 @@ namespace WPFTestResults
         public DataGridRow GetRow(int index)
         {
             var dataGridRow =
-                (DataGridRow) AddDataGrid.ItemContainerGenerator
+                (DataGridRow)AddDataGrid.ItemContainerGenerator
                     .ContainerFromIndex(index);
             if (dataGridRow == null)
             {
                 AddDataGrid.UpdateLayout();
                 AddDataGrid.ScrollIntoView(AddDataGrid.Items[index]);
-                dataGridRow = (DataGridRow) AddDataGrid.ItemContainerGenerator
+                dataGridRow = (DataGridRow)AddDataGrid.ItemContainerGenerator
                     .ContainerFromIndex(index);
             }
 
@@ -456,6 +457,7 @@ namespace WPFTestResults
                     VulGetValues(bestandsnaam);
                     ButtonPreConditions.IsEnabled = true;
                     buttonCreateCSV.IsEnabled = true;
+                    buttonCreateExcel.IsEnabled = true;
                     buttonImportCSV.IsEnabled = true;
                     ButtonImportModule.IsEnabled = true;
                     ButtonGenWebdriverIo.IsEnabled = true;
@@ -681,7 +683,7 @@ namespace WPFTestResults
         private void ButtonPreConditions_Click(object sender, RoutedEventArgs e)
         {
             OverallSettings.applicationName =
-                (string) textboxApplictionname.Content;
+                (string)textboxApplictionname.Content;
             var preConditions = new PreConditions();
             preConditions.Show();
         }
@@ -925,6 +927,7 @@ namespace WPFTestResults
                             Convert.ToInt32(data.Rows[0][0].ToString()) + 1);
                     TextBoxTestCase.Text = data.Rows[0][1].ToString();
                     buttonCreateCSV.IsEnabled = true;
+                    buttonCreateExcel.IsEnabled = true;
                     buttonImportCSV.IsEnabled = true;
                     buttonImportModule.IsEnabled = true;
                 }
@@ -933,6 +936,7 @@ namespace WPFTestResults
                     TextBoxTestNr.Text = string.Empty;
                     TextBoxTestCase.Text = string.Empty;
                     buttonCreateCSV.IsEnabled = false;
+                    buttonCreateExcel.IsEnabled = false;
                     buttonImportCSV.IsEnabled = false;
                     buttonImportModule.IsEnabled = false;
                 }
@@ -1121,12 +1125,14 @@ namespace WPFTestResults
             LabelTestSteps.Content = testCasesCount;
 
             AddDataGrid.ItemsSource = null;
+            // AddDataGrid.ItemsSource = testCases;
             AddDataGrid.ItemsSource = testCases;
             AddDataGrid.SelectedIndex = -1;
             if (AddDataGrid.Items.Count == 0) TextBoxTestNr.Text = "1";
 
             PanelNamen.Visibility = Visibility.Visible;
 
+            //VulTestNr(testCases);
             VulTestNr(testCases);
         }
 
@@ -1289,26 +1295,29 @@ namespace WPFTestResults
 
         private void ButtonCreateCSV_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var testCase in testCases)
-                General.CSVfile(
-                    GeneralFunctionality.Functions._project,
-                    testCase.testname,
-                    testCase.testnr.ToString(),
-                    testCase.testcase,
-                    testCase.testelementname,
-                    testCase.testelement,
-                    testCase.testattribute,
-                    testCase.testaction,
-                    testCase.testtext,
-                    testCase.testurl,
-                    testCase.testexecution,
-                    testCase.testswitch,
-                    testCase.testinverse,
-                    testCase.testcomment,
-                    testCase.testcomment,
-                    machinestatic,
-                    testCase.testtag,
-                    testCase.testext_check);
+            using (new PleaseWait())
+            {
+                foreach (var testCase in testCases)
+                    General.CSVfile(
+                        GeneralFunctionality.Functions._project,
+                        testCase.testname,
+                        testCase.testnr.ToString(),
+                        testCase.testcase,
+                        testCase.testelementname,
+                        testCase.testelement,
+                        testCase.testattribute,
+                        testCase.testaction,
+                        testCase.testtext,
+                        testCase.testurl,
+                        testCase.testexecution,
+                        testCase.testswitch,
+                        testCase.testinverse,
+                        testCase.testcomment,
+                        testCase.testcomment,
+                        machinestatic,
+                        testCase.testtag,
+                        testCase.testext_check);
+            }
 
             MessageBox.Show("CSV-file is created", "Create CSV-file",
                 MessageBoxButton.OK, MessageBoxImage.Information);
@@ -2029,9 +2038,12 @@ namespace WPFTestResults
 
                 if (iTeller == 0)
                 {
-                    inhoud += "import App from '../../pageobjects/App'\r\n";
-                    inhoud +=
-                        "import LoginPage from '../../pageobjects/pages/LoginPage'\r\n\r\n";
+                    inhoud += TextBoxImportApp.Text;
+                    if (TextBoxImportApp.Text != string.Empty) inhoud += "\r\n";
+
+                    inhoud += TextBoxImportLogin.Text;
+                    if (TextBoxImportLogin.Text != string.Empty)
+                        inhoud += "\r\n\r\n";
 
                     inhoud += "describe('" +
                               GeneralFunctionality.Functions._project + "_" +
@@ -2052,6 +2064,9 @@ namespace WPFTestResults
                 var content = string.Empty;
                 var controleText =
                     MySqlHelper.EscapeString(testCase.testext_check);
+                var cleaned = controleText.Replace("\n", "\\n")
+                    .Replace("\r", "\\r").Replace("\t", "\\t");
+                controleText = cleaned;
 
                 if (testCase.testexecution == "yes")
                 {
@@ -2097,13 +2112,10 @@ namespace WPFTestResults
                         }
 
                         if (testCase.testelementname != string.Empty)
-                            inhoud += "\t\t// " + testCase.testelementname +
+                            inhoud += "\t\t// " + testCase.testelementname
+                                          .Replace("\n", "").Replace("\r", "")
+                                          .Replace("\t", "") +
                                       "\r\n";
-
-                        if (testCase.testcomment != string.Empty)
-                            inhoud += "\t\t/* " + testCase.testcomment +
-                                      "*/\r\n";
-
 
                         if (testCase.testelement != string.Empty)
                             inhoud += "\t\t$('" + content +
@@ -2127,12 +2139,12 @@ namespace WPFTestResults
                         switch (testCase.testaction.ToUpper())
                         {
                             case "CLICK":
-                                inhoud += waitForDis(content) + ";";
+                                inhoud += waitForEx(content); //+ ";";
                                 inhoud += "\t\t$('" + content +
                                           "').click();\r\n";
                                 break;
                             case "DOUBLECLICK":
-                                inhoud += waitForDis(content) + ";";
+                                inhoud += waitForEx(content);
                                 inhoud += "\t\t$('" + content +
                                           "').doubleClick();\r\n";
                                 break;
@@ -2140,7 +2152,7 @@ namespace WPFTestResults
                                 var text = testCase.testtext;
                                 if (testCase.testtext == string.Empty)
                                     text = testCase.testpassword;
-                                inhoud += waitForDis(content) + ";";
+                                inhoud += waitForEx(content);
                                 inhoud +=
                                     "\t\t$('" + content + "').setValue('" +
                                     text + "');\r\n";
@@ -2154,19 +2166,19 @@ namespace WPFTestResults
 
                                 break;
                             case "SELECT":
-                                inhoud += waitForDis(content) + ";";
+                                inhoud += waitForEx(content);
                                 inhoud += "\t\t$('" + content +
                                           "').selectByVisibleText('" +
                                           testCase.testtext + "');\r\n";
                                 break;
                             case "VALUE":
-                                inhoud += waitForDis(content) + ";";
+                                inhoud += waitForEx(content);
                                 inhoud +=
                                     "\t\t$('" + content + "').setValue('" +
                                     testCase.testtext + "');\r\n";
                                 break;
                             case "CHECKBOX":
-                                var Bestandsnaam = TextBoxTestName.Text;
+                                /*var Bestandsnaam = TextBoxTestName.Text;
                                 IWebElement checkbox1 = null;
                                 var chromePath = GeneralFunctionality.Functions
                                     .GetCurrentDir(0);
@@ -2177,7 +2189,7 @@ namespace WPFTestResults
                                         @"\" + Bestandsnaam);
                                 var urlstring = credits.Url;
                                 IWebDriver driver = new ChromeDriver(chromePath)
-                                    {Url = urlstring};
+                                    { Url = urlstring };
 
                                 checkbox1 = HaalElementop(driver,
                                     testCase.testelement,
@@ -2185,32 +2197,18 @@ namespace WPFTestResults
 
                                 var oldScript =
                                     checkbox1.GetAttribute(
-                                        "checked");
-
+                                        "checked");*/
+                                var keuze = "false";
                                 var tekst3 =
                                     testCase.testtext.Trim();
-                                var rc =
-                                    (RemoteWebElement) checkbox1;
-                                var driver1 =
-                                    (IJavaScriptExecutor) rc
-                                        .WrappedDriver;
-                                var script1 = "";
-                                if (tekst3.ToUpper() == "TRUE" &&
-                                    oldScript == null)
-                                    script1 =
-                                        "arguments[0].setAttribute('checked', 'true');";
-                                if (tekst3.ToUpper() == "FALSE" &&
-                                    oldScript != null)
-                                    script1 =
-                                        "arguments[0].removeAttribute('checked');";
-                                inhoud += waitForDis(content) + ";";
-                                inhoud +=
-                                    "\t\tbrowser.executeScript(" + script1 +
-                                    ", " + rc + ");\r\n";
+                                if (tekst3.ToUpper() == "TRUE")
+                                    keuze = "true";
+                                inhoud += waitForEx(content);
+                                inhoud += "\t\t$('" + content +
+                                          "').isSelected(" + keuze + ");\r\n";
                                 break;
-
                             case "MOVE TO":
-                                inhoud += waitForDis(content) + ";";
+                                inhoud += waitForEx(content);
                                 inhoud += "\t\t$('" + content +
                                           "').moveTo()\r\n";
                                 break;
@@ -2219,13 +2217,24 @@ namespace WPFTestResults
                                     TekstVervanging(testCase.testtext.Trim());
                                 var file1 =
                                     tekst1.Replace("\'", "\\'");
+
+                                var laatste = tekst1.Split('\\');
+
                                 inhoud +=
-                                    "\t\t$('" + content + "').sendKeys('" +
-                                    tekst1 + "');\r\n";
+                                    "\r\n\t\tconst path = require('path');\r\n";
+                                inhoud +=
+                                    "\t\tconst filePath = path.join(__dirname, '/Downloads/" +
+                                    laatste[laatste.Length - 1] + "');\r\n";
+                                inhoud +=
+                                    "\t\tconst remoteFilePath = browser.uploadFile(filePath);\r\n";
+                                inhoud +=
+                                    "\t\t$('" + content +
+                                    "').setValue(remoteFilePath);\r\n\r\n";
+
                                 break;
                             case "SWITCH TO IFRAME":
                                 var detailFrame = content;
-                                inhoud += waitForDis(content) + ";";
+                                inhoud += waitForEx(content);
                                 inhoud += "\t\tbrowser.frame(" + detailFrame +
                                           ");\r\n";
                                 break;
@@ -2246,18 +2255,25 @@ namespace WPFTestResults
                             case "SCROLL":
                                 break;
                             case "SWITCH TO URL":
-                                inhoud +=
-                                    "\t\t// Define <switchTo> in ../pageobjects/App.js file!\r\n";
-                                inhoud +=
-                                    "\t\t// browser.url('" + testCase.testurl +
-                                    "');\r\n";
-                                if (TextBoxSwitchUrl.Text != string.Empty)
-                                    inhoud += "\t\t" +
-                                              TextBoxSwitchUrl.Text +
-                                              ";\r\n\r\n";
-                                else
+                                if (CheckBoxSwitch.IsChecked == true)
+                                {
+                                    var voor = string.Empty;
+                                    if (TextBoxSwitchUrl.Text != string.Empty)
+                                        voor = "// ";
                                     inhoud +=
-                                        "\t\t// App.<url-function in App.js>();\r\n\r\n";
+                                        "\t\t// Define <switchTo> in ../pageobjects/App.js file!\r\n";
+                                    inhoud +=
+                                        "\t\t" + voor + "browser.url('" +
+                                        testCase.testurl +
+                                        "');\r\n";
+                                    if (TextBoxSwitchUrl.Text != string.Empty)
+                                        inhoud += "\t\t" +
+                                                  TextBoxSwitchUrl.Text +
+                                                  ";\r\n\r\n";
+                                    else
+                                        inhoud +=
+                                            "\t\t// App.<url-function in App.js>();\r\n\r\n";
+                                }
 
                                 break;
                             case "CMD":
@@ -2326,6 +2342,11 @@ namespace WPFTestResults
             return "\t\t$('" + content + "').waitForDisplayed();\r\n";
         }
 
+        private string waitForEx(string content)
+        {
+            return "\t\t$('" + content + "').waitForExist();\r\n";
+        }
+
 
         public static string TekstVervanging(string tekst)
         {
@@ -2384,10 +2405,14 @@ namespace WPFTestResults
         {
             if (checkboxLoginrows.IsChecked == true)
             {
+                TextBoxImportLogin.Text =
+                    "import LoginPage from '../../pageobjects/Pages/LoginPage'";
                 StackPanelRowsLogin.Visibility = Visibility.Visible;
             }
             else
             {
+                TextBoxImportLogin.Text =
+                    "";
                 StackPanelRowsLogin.Visibility = Visibility.Hidden;
                 ButtonWebdriverGenerate.IsEnabled = true;
             }
@@ -2400,13 +2425,9 @@ namespace WPFTestResults
                 Regex.Replace(TextBoxLoginTill.Text, "[^0-9]+", "");
             if (TextBoxLoginFrom.Text != string.Empty &&
                 TextBoxLoginTill.Text != string.Empty)
-            {
                 ButtonWebdriverGenerate.IsEnabled = true;
-            }
             else
-            {
                 ButtonWebdriverGenerate.IsEnabled = false;
-            }
         }
 
         private void TextBoxLoginFrom_TextChanged(object sender,
@@ -2433,10 +2454,78 @@ namespace WPFTestResults
             generateJavascript();
         }
 
-        private void ButtonWebdriverMaakleeg_Click(object sender, RoutedEventArgs e)
+        private void ButtonWebdriverMaakleeg_Click(object sender,
+            RoutedEventArgs e)
         {
             MaakVeldenLeeg();
         }
 
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            var sSQL = "SELECT id FROM testcases_selenium WHERE testname = '" +
+                       TextBoxTestName.Text +
+                       "' AND testelement LIKE '%" + SearchTextBox.Text + "%';";
+
+            var dt = GenericDataRead.GetData(sSQL);
+            if (dt.Rows.Count > 0)
+            {
+                var testid = dt.Rows[0][0].ToString();
+
+                testCases = TestResultsFactory.GetTestCase(
+                    textboxApplictionname.Content.ToString().Substring(
+                        0,
+                        textboxApplictionname.Content.ToString().Length - 4),
+                    SearchTextBox.Text);
+
+                AddDataGrid.ItemsSource = null;
+                AddDataGrid.ItemsSource = testCases;
+            }
+        }
+
+        private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchTextBox.Text = string.Empty;
+            testCases = TestResultsFactory.GetTestCases(
+                textboxApplictionname.Content.ToString().Substring(
+                    0,
+                    textboxApplictionname.Content.ToString().Length - 4));
+
+            AddDataGrid.ItemsSource = null;
+            AddDataGrid.ItemsSource = testCases;
+        }
+
+        private void ButtonCreateExcel_Click(object sender, RoutedEventArgs e)
+        {
+            using (new PleaseWait())
+            {
+                var query =
+                    "SELECT * FROM testcases_selenium ";
+                query += "WHERE testname = '" + bestandsnaamgeopend +
+                         "' ORDER BY testnr;";
+                var dt = GenericDataRead.GetData(query);
+
+                General.exportToExcel(dt,
+                    GeneralFunctionality.Functions._project,
+                    TextBoxTestName.Text);
+            }
+
+            MessageBox.Show("Excel-file is created", "Create Excel-file",
+                MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void TextBoxSwitchUrl_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TextBoxSwitchUrl.Text == string.Empty)
+            {
+                CheckBoxSwitch.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                if (CheckBoxSwitch != null)
+                {
+                    CheckBoxSwitch.Visibility = Visibility.Hidden;
+                }
+            }
+        }
     }
 }

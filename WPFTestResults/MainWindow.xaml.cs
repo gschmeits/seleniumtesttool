@@ -1553,6 +1553,8 @@ namespace WPFTestResults
                         }
                     }
 
+
+
                 Directory.CreateDirectory(GeneralFunctionality.Functions.GetCurrentDir(1) + "\\" +
                                           TextBoxNewProject.Text);
                 MessageBox.Show("Project '" + TextBoxNewProject.Text + "' is created.", "Create Project",
@@ -1694,6 +1696,13 @@ namespace WPFTestResults
         private void ComboTestFrom_GotFocus(object sender, RoutedEventArgs e)
         {
             HideDataGridScripts();
+        }
+
+        private void MenuItemChangeExecute_Click(object sender, RoutedEventArgs e)
+        {
+            HideDataGridScripts();
+            var changeExecuteBulkData = new ChangeExecuteBulkData();
+            changeExecuteBulkData.Show();
         }
     }
 }

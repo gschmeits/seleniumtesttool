@@ -232,6 +232,9 @@
     <Compile Include="CopyPrecondtions.xaml.cs">
       <DependentUpon>CopyPrecondtions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChangeExecuteBulkData.xaml.cs">
+      <DependentUpon>ChangeExecuteBulkData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteBulkData.xaml.cs">
       <DependentUpon>DeleteBulkData.xaml</DependentUpon>
     </Compile>
@@ -288,6 +291,10 @@
     <Page Include="CopyPrecondtions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeExecuteBulkData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DeleteBulkData.xaml">
       <SubType>Designer</SubType>
@@ -446,6 +453,7 @@
     <Content Include="Drivers\chromedriver.exe" />
     <Content Include="Drivers\IEDriverWin32\IEDriverServer.exe" />
     <Content Include="Drivers\IEDriverWin64\IEDriverServer.exe" />
+    <Resource Include="images\Assembly-excluded_5817.ico" />
     <Resource Include="images\112_DownArrowLong_Green_16x16_72.png" />
     <Resource Include="images\112_UpArrowLong_Green_16x16_72.png" />
     <Resource Include="images\copy.png" />

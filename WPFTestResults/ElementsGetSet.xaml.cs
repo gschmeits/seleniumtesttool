@@ -244,7 +244,7 @@ namespace WPFTestResults
             for (var childIndex = 0; childIndex < childrenCount; ++childIndex)
             {
                 var child =
-                    (Visual) VisualTreeHelper.GetChild(parent, childIndex);
+                    (Visual)VisualTreeHelper.GetChild(parent, childIndex);
                 obj = child as T;
                 if (obj == null)
                     obj = GetVisualChild<T>(child);
@@ -269,7 +269,7 @@ namespace WPFTestResults
 
             style = style.Replace(" ", string.Empty).ToLowerInvariant();
 
-            var settings = style.Split(new[] {';'},
+            var settings = style.Split(new[] { ';' },
                 StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var s in settings)
@@ -339,13 +339,13 @@ namespace WPFTestResults
                 var visualChild = GetVisualChild<DataGridCellsPresenter>(row1);
                 if (visualChild != null)
                 {
-                    var dataGridCell = (DataGridCell) visualChild
+                    var dataGridCell = (DataGridCell)visualChild
                         .ItemContainerGenerator.ContainerFromIndex(column);
                     if (dataGridCell == null)
                     {
                         DataGridElements.ScrollIntoView(row1,
                             DataGridElements.Columns[column]);
-                        dataGridCell = (DataGridCell) visualChild
+                        dataGridCell = (DataGridCell)visualChild
                             .ItemContainerGenerator.ContainerFromIndex(column);
                     }
 
@@ -384,13 +384,13 @@ namespace WPFTestResults
         /// TODO Edit XML Comment Template for GetRow
         public DataGridRow GetRow(int index)
         {
-            var dataGridRow = (DataGridRow) DataGridElements
+            var dataGridRow = (DataGridRow)DataGridElements
                 .ItemContainerGenerator.ContainerFromIndex(index);
             if (dataGridRow == null)
             {
                 DataGridElements.UpdateLayout();
                 DataGridElements.ScrollIntoView(DataGridElements.Items[index]);
-                dataGridRow = (DataGridRow) DataGridElements
+                dataGridRow = (DataGridRow)DataGridElements
                     .ItemContainerGenerator.ContainerFromIndex(index);
             }
 
@@ -1010,7 +1010,7 @@ namespace WPFTestResults
 
 
                                 if (ButtonCSV.IsChecked != null &&
-                                    (bool) ButtonCSV.IsChecked)
+                                    (bool)ButtonCSV.IsChecked)
                                     General.CSVfile(project, bestandsnaam,
                                         Convert.ToString(
                                             Convert.ToInt32(Order1.Text) +
@@ -1060,7 +1060,7 @@ namespace WPFTestResults
                                     PasswordText.Password);
 
                                 if (ButtonCSV.IsChecked != null &&
-                                    (bool) ButtonCSV.IsChecked)
+                                    (bool)ButtonCSV.IsChecked)
                                     General.CSVfile(project, bestandsnaam,
                                         Convert.ToString(
                                             Convert.ToInt32(Order2.Text) +
@@ -1111,7 +1111,7 @@ namespace WPFTestResults
 
 
                                 if (ButtonCSV.IsChecked != null &&
-                                    (bool) ButtonCSV.IsChecked)
+                                    (bool)ButtonCSV.IsChecked)
                                     General.CSVfile(project, bestandsnaam,
                                         Convert.ToString(
                                             Convert.ToInt32(Order3.Text) +
@@ -1166,7 +1166,7 @@ namespace WPFTestResults
                                     string.Empty);
 
                                 if (ButtonCSV.IsChecked != null &&
-                                    (bool) ButtonCSV.IsChecked)
+                                    (bool)ButtonCSV.IsChecked)
                                     General.CSVfile(project, bestandsnaam,
                                         Convert.ToString(
                                             Convert.ToInt32(Order6.Text) +
@@ -1218,7 +1218,7 @@ namespace WPFTestResults
                                     string.Empty);
 
                                 if (ButtonCSV.IsChecked != null &&
-                                    (bool) ButtonCSV.IsChecked)
+                                    (bool)ButtonCSV.IsChecked)
                                     General.CSVfile(project, bestandsnaam,
                                         ger6.ToString(),
                                         TextBoxTestCase.Text,
@@ -1268,7 +1268,7 @@ namespace WPFTestResults
                                     string.Empty);
 
                                 if (ButtonCSV.IsChecked != null &&
-                                    (bool) ButtonCSV.IsChecked)
+                                    (bool)ButtonCSV.IsChecked)
                                     General.CSVfile(project, bestandsnaam,
                                         Convert.ToString(
                                             Convert.ToInt32(Order1.Text) +
@@ -1321,7 +1321,7 @@ namespace WPFTestResults
 
 
                                 if (ButtonCSV.IsChecked != null &&
-                                    (bool) ButtonCSV.IsChecked)
+                                    (bool)ButtonCSV.IsChecked)
                                     General.CSVfile(project, bestandsnaam,
                                         num7.ToString(),
                                         DescriptionExtra2.Text,
@@ -1367,7 +1367,7 @@ namespace WPFTestResults
                                     string.Empty);
 
                                 if (ButtonCSV.IsChecked != null &&
-                                    (bool) ButtonCSV.IsChecked)
+                                    (bool)ButtonCSV.IsChecked)
                                     General.CSVfile(project, bestandsnaam,
                                         Order7.Text,
                                         ButtonTagnameExtra4.Text,
@@ -1417,7 +1417,7 @@ namespace WPFTestResults
                                 string.Empty);
 
                             if (ButtonCSV.IsChecked != null &&
-                                (bool) ButtonCSV.IsChecked)
+                                (bool)ButtonCSV.IsChecked)
                                 General.CSVfile(project, bestandsnaam,
                                     num8.ToString(),
                                     TextBoxTestCase.Text,
@@ -1459,7 +1459,7 @@ namespace WPFTestResults
                             string text;
 
                             if (dt.Rows[row][15].ToString() == "1")
-                                checktekst = dt.Rows[row][6].ToString();
+                                checktekst = dt.Rows[row][6].ToString().Replace("\n", "\\\\n").Replace("\r", "\\\\r").Replace("\t", "\\\\t"); ; //.Replace("\n", "").Replace("\r", "");
 
                             if (dt.Rows[row][7].ToString().Length > 0)
                             {
@@ -1496,11 +1496,18 @@ namespace WPFTestResults
                                 testattribute = "xpath";
                             }
 
+
+                            var testelement = dt.Rows[row][6].ToString(); //.Replace("\n", "\\\\n").Replace("\r", "\\\\r");
+                            if (testelement.Length > 75)
+                            {
+                                testelement = testelement.Substring(0, 75);
+                            }
+
                             DataStorage.TestCases.AddTestCase(
                                 bestandsnaam,
                                 num8.ToString(),
                                 TextBoxTestCase.Text,
-                                dt.Rows[row][6].ToString(),
+                                testelement,
                                 text,
                                 testattribute,
                                 string.Empty,
@@ -1513,12 +1520,12 @@ namespace WPFTestResults
                                 string.Empty,
                                 machineNumber,
                                 dt.Rows[row][5].ToString(),
-                                string.Empty,
+                                checktekst,
                                 "yes",
-                                checktekst);
+                                string.Empty);
 
                             if (ButtonCSV.IsChecked != null &&
-                                (bool) ButtonCSV.IsChecked)
+                                (bool)ButtonCSV.IsChecked)
                                 General.CSVfile(project, bestandsnaam,
                                     num8.ToString(),
                                     TextBoxTestCase.Text,
@@ -1550,7 +1557,7 @@ namespace WPFTestResults
                     }
 
                     var num9 =
-                        (int) MessageBox.Show("Data added to test scenario.");
+                        (int)MessageBox.Show("Data added to test scenario.");
                     MaakLoginLeeg();
                 }
                 else
@@ -1567,7 +1574,7 @@ namespace WPFTestResults
                     0,
                     string.Empty,
                     string.Empty);
-                var num = (int) MessageBox.Show(
+                var num = (int)MessageBox.Show(
                     "Test Case is still empty!!!\r\nPlease fill in the Test Case name.",
                     "Error",
                     MessageBoxButton.OK,
@@ -1662,6 +1669,14 @@ namespace WPFTestResults
             CheckBoxTd.IsChecked = keuze;
             CheckBoxUl.IsChecked = keuze;
             CheckBoxNav.IsChecked = keuze;
+            CheckBoxH1.IsChecked = keuze;
+            CheckBoxH2.IsChecked = keuze;
+            CheckBoxH3.IsChecked = keuze;
+            CheckBoxH4.IsChecked = keuze;
+            CheckBoxH5.IsChecked = keuze;
+            CheckBoxH6.IsChecked = keuze;
+            CheckBoxForm.IsChecked = keuze;
+            CheckBoxThead.IsChecked = keuze;
         }
 
         /// <summary>
@@ -1687,6 +1702,14 @@ namespace WPFTestResults
             CheckBoxTd.IsChecked = true;
             CheckBoxNav.IsChecked = true;
             CheckBoxUl.IsChecked = true;
+            CheckBoxH1.IsChecked = true;
+            CheckBoxH2.IsChecked = true;
+            CheckBoxH3.IsChecked = true;
+            CheckBoxH4.IsChecked = true;
+            CheckBoxH5.IsChecked = true;
+            CheckBoxH6.IsChecked = true;
+            CheckBoxForm.IsChecked = true;
+            CheckBoxThead.IsChecked = true;
         }
 
         /// <summary>
@@ -1707,7 +1730,7 @@ namespace WPFTestResults
                                            MessageBoxResult.Yes)
                 return;
             ElementsFromDatabase.DeleteDataFromDatabase(url);
-            var num = (int) MessageBox.Show("Elements are deleted!",
+            var num = (int)MessageBox.Show("Elements are deleted!",
                 "Deleting elements", MessageBoxButton.OK);
         }
 
@@ -1849,7 +1872,7 @@ namespace WPFTestResults
 
                 var checkedGer = false;
                 var checkedGer0 = false;
-                var row = (DataGridRow) DataGridElements.ItemContainerGenerator
+                var row = (DataGridRow)DataGridElements.ItemContainerGenerator
                     .ContainerFromIndex(dataGridRow);
                 var cellContent =
                     DataGridElements.Columns[0]
@@ -2007,6 +2030,15 @@ namespace WPFTestResults
                         goto label_39;
                 }
 
+                if (node.Name == "textarea")
+                {
+                    isChecked = CheckBoxInput.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) &
+                        isChecked.HasValue)
+                        goto label_39;
+                }
+
                 if (node.Name == "iframe")
                 {
                     isChecked = CheckBoxIframe.IsChecked;
@@ -2126,6 +2158,78 @@ namespace WPFTestResults
                 }
 
 
+                if (node.Name == "h1")
+                {
+                    isChecked = CheckBoxH1.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) &
+                        isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "h2")
+                {
+                    isChecked = CheckBoxH2.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) &
+                        isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "h3")
+                {
+                    isChecked = CheckBoxH3.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) &
+                        isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "h4")
+                {
+                    isChecked = CheckBoxH4.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) &
+                        isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "h5")
+                {
+                    isChecked = CheckBoxH5.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) &
+                        isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "h6")
+                {
+                    isChecked = CheckBoxH6.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) &
+                        isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "thead")
+                {
+                    isChecked = CheckBoxThead.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) &
+                        isChecked.HasValue)
+                        goto label_39;
+                }
+
+                if (node.Name == "form")
+                {
+                    isChecked = CheckBoxForm.IsChecked;
+                    var flag = true;
+                    if ((isChecked.GetValueOrDefault() == flag) &
+                        isChecked.HasValue)
+                        goto label_39;
+                }
+
                 if (node.Name == "span")
                 {
                     isChecked = CheckBoxSpan.IsChecked;
@@ -2168,9 +2272,14 @@ namespace WPFTestResults
                 // if (StripHTML(HttpUtility.HtmlDecode(node.InnerHtml.Trim())).Length < byte.MaxValue)
                 var innertekst = string.Empty;
                 if (IsNodeVisible(node))
+                {
+                    //innertekst =
+                    //    StripHTML(
+                    //        HttpUtility.HtmlDecode(node.InnerText.Trim()));
+
                     innertekst =
-                        StripHTML(
-                            HttpUtility.HtmlDecode(node.InnerText.Trim()));
+                        HttpUtility.HtmlDecode(node.InnerText.Trim());
+                }
 
                 // if (node.Name == "input" && node.Attributes["type"].Value != "search" && node.Attributes["type"].Value != "checkbox")
                 // {
@@ -2183,26 +2292,33 @@ namespace WPFTestResults
                 // var te = Encoding.GetEncoding(node.InnerText).ToString();
                 //if (StripHTML(HttpUtility.HtmlDecode(node.InnerText.Trim()))
                 //    .Length < byte.MaxValue)
-                    General.ExecuteQueryCommand(
-                        "INSERT INTO `autotest`.`selenium_elements` " +
-                        "(`url`, " + "gebruikte_link, " + "`xpath`, "
-                        + "`tagname`, " + "`text`, " + "`id`, " + "`name`, " +
-                        "`class`, " + "`href`, " + "`title`, "//
-                        + "`value`, `checktext`, project_id) " + "VALUES " +
-                        "('" + MySqlHelper.EscapeString(TextBoxURL.Text)
-                        + "', " + "'" + MySqlHelper.EscapeString(href_link) +
-                        "', " + "'"
-                        + MySqlHelper.EscapeString(node.XPath) + "', " + "'" +
-                        MySqlHelper.EscapeString(node.Name)
-                        + "', " + "'" + MySqlHelper.EscapeString(innertekst) +
-                        "', " + "'"
-                        + MySqlHelper.EscapeString(node.Id) + "', " + "'" +
-                        MySqlHelper.EscapeString(empty3) + "', "
-                        + "'" + MySqlHelper.EscapeString(empty2) + "', " + "'" +
-                        MySqlHelper.EscapeString(empty1)
-                        + "', " + "'" + MySqlHelper.EscapeString(str2) + "', " +
-                        "'" + MySqlHelper.EscapeString(str1)
-                        + "', '0', " + project_id + "); ");
+
+                var sSQL = "INSERT INTO `autotest`.`selenium_elements` " +
+                           "(`url`, " + "gebruikte_link, " + "`xpath`, "
+                           + "`tagname`, " + "`text`, " + "`id`, " +
+                           "`name`, " +
+                           "`class`, " + "`href`, " + "`title`, " //
+                           + "`value`, `checktext`, project_id) " + "VALUES " +
+                           "('" + MySqlHelper.EscapeString(TextBoxURL.Text)
+                           + "', " + "'" + MySqlHelper.EscapeString(href_link) +
+                           "', " + "'"
+                           + MySqlHelper.EscapeString(node.XPath) + "', " +
+                           "'" +
+                           MySqlHelper.EscapeString(node.Name)
+                           + "', " + "'" +
+                           MySqlHelper.EscapeString(innertekst) +
+                           "', " + "'"
+                           + MySqlHelper.EscapeString(node.Id) + "', " + "'" +
+                           MySqlHelper.EscapeString(empty3) + "', "
+                           + "'" + MySqlHelper.EscapeString(empty2) + "', " +
+                           "'" +
+                           MySqlHelper.EscapeString(empty1)
+                           + "', " + "'" + MySqlHelper.EscapeString(str2) +
+                           "', " +
+                           "'" + MySqlHelper.EscapeString(str1)
+                           + "', '0', " + project_id + "); ";
+
+                General.ExecuteQueryCommand(sSQL);
                 label_45:
                 foreach (var childNode in node.ChildNodes)
                     ExamineNode(childNode, driver2WebDriver);
@@ -2313,7 +2429,7 @@ namespace WPFTestResults
             CheckDataUrlInDatabase();
             if (!url.StartsWith("http://") && !url.StartsWith("https://"))
             {
-                var num = (int) MessageBox.Show(
+                var num = (int)MessageBox.Show(
                     "The url has to start with 'http://' or 'https://'\r\nPlease try again!!!",
                     "Message",
                     MessageBoxButton.OK,
@@ -2793,7 +2909,7 @@ namespace WPFTestResults
                 ElementsFromDatabase.UpdateAllCheckbox8(url, isChecked8.Value,
                     "checktext");
 
-                if (((CheckBox) DataGridElements.Columns[1]
+                if (((CheckBox)DataGridElements.Columns[1]
                     .GetCellContent(dataGridRow)).IsChecked.Value)
                 {
                     ButtonSetToTest.IsEnabled = true;
@@ -2824,7 +2940,7 @@ namespace WPFTestResults
                     byteArrayAsync.Length - 1));
             var htmlDocument = new HtmlDocument();
             htmlDocument.LoadHtml(str);
-            var num = (int) MessageBox.Show(str);
+            var num = (int)MessageBox.Show(str);
             foreach (var htmlNode in htmlDocument.DocumentNode.Descendants()
                 .ToList())
             {

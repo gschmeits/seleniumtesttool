@@ -78,6 +78,14 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
+                <MenuItem Name="MenuItemChangeExecute"
+                          Header="Change Execute Status" 
+                          Click="MenuItemChangeExecute_Click">
+<MenuItem.Icon>
+    <Image Source="images/Assembly-excluded_5817.ico" />
+</MenuItem.Icon>
+                </MenuItem>
+                <Separator />
                 <MenuItem Name="MenuItemCopyPreconditions"
                           Header="Copy Preconditions" Click="MenuItemCopyPreconditions_Click">
                     <MenuItem.Icon>
@@ -826,7 +834,7 @@
                     FontSize="14" Click="ButtonProjectCreateSave_Click" TabIndex="2" />
                 <Button
                     Style="{DynamicResource MyButtonStyle}"
-                    Margin="20,35,20,0"
+                    Margin="20,0,0,0"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Width="100"

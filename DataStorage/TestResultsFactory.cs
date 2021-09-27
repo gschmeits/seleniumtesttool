@@ -226,6 +226,92 @@ namespace DataStorage
             return testcases;
         }
 
+
+        public static List<TestCases> GetTestCase(string testname, string searchText)
+        {
+            var testcase = new List<TestCases>();
+            var sqlConn =
+                "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, " +
+                "testaction, testtext, testurl, testswitch, testexecution, testext_check, testinverse,testtag, " +
+                "test_comment, testpage, test_password, test_check_strict ";
+            sqlConn += "FROM testcases_selenium WHERE testname = '" + testname +
+                       "' AND testelement LIKE '%" + searchText + "%'";
+            sqlConn += " ORDER BY testname, testnr";
+            var objConn = new MySqlConnection(General.MySqlConnectionString());
+            var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn);
+            var objDataset = new DataSet();
+            var rownumber = 1;
+            try
+            {
+                objConn.Open();
+                objDataAdapter.Fill(objDataset, "call_calls123");
+                for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
+                {
+                    testcase.Add(
+                        new TestCases
+                        {
+                            rownr = rownumber,
+                            id = objDataset.Tables[0].Rows[i]["id"].ToString(),
+                            testname = objDataset.Tables[0].Rows[i]["testname"]
+                                .ToString(),
+                            testnr = Convert.ToInt32(
+                                objDataset.Tables[0].Rows[i]["testnr"]
+                                    .ToString()),
+                            testcase = objDataset.Tables[0].Rows[i]["testcase"]
+                                .ToString(),
+                            testelementname =
+                                objDataset.Tables[0].Rows[i][
+                                    "testlogicalobjectname"].ToString(),
+                            testelement =
+                                objDataset.Tables[0].Rows[i]["testelement"]
+                                    .ToString(),
+                            testattribute =
+                                objDataset.Tables[0].Rows[i]["testattribute"]
+                                    .ToString(),
+                            testaction =
+                                objDataset.Tables[0].Rows[i]["testaction"]
+                                    .ToString(),
+                            testtext = objDataset.Tables[0].Rows[i]["testtext"]
+                                .ToString(),
+                            testurl = objDataset.Tables[0].Rows[i]["testurl"]
+                                .ToString(),
+                            testswitch =
+                                objDataset.Tables[0].Rows[i]["testswitch"]
+                                    .ToString(),
+                            testexecution =
+                                objDataset.Tables[0].Rows[i]["testexecution"]
+                                    .ToString(),
+                            testinverse =
+                                objDataset.Tables[0].Rows[i]["testinverse"]
+                                    .ToString(),
+                            testcomment =
+                                objDataset.Tables[0].Rows[i]["test_comment"]
+                                    .ToString(),
+                            testext_check =
+                                objDataset.Tables[0].Rows[i]["testext_check"]
+                                    .ToString(),
+                            testpage = objDataset.Tables[0].Rows[i]["testpage"]
+                                .ToString(),
+                            testtag = objDataset.Tables[0].Rows[i]["testtag"]
+                                .ToString(),
+                            testcheckstrict = objDataset.Tables[0].Rows[i]["test_check_strict"].ToString(),
+                            testpassword = objDataset.Tables[0].Rows[i]["test_password"].ToString()
+                        });
+                    rownumber++;
+                }
+
+                objConn.Close();
+            }
+            catch (Exception e)
+            {
+                General.LogMessage(
+                    e.Message + "\r\n\r\n" + e.StackTrace + "\r\n\r\n" +
+                    e.Source, 4);
+            }
+
+            return testcase;
+        }
+
         /// <summary>
         ///     Gets the test cases.
         /// </summary>

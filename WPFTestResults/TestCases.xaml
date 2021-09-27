@@ -33,7 +33,7 @@
                 Margin="3"
                 Style="{DynamicResource BorderaStyleG}" />
         <StackPanel Orientation="Horizontal"
-                    Margin="254,16,191,12"
+                    Margin="254,8,191,12"
                     Visibility="Visible"
                     Name="PanelNamen">
             <Label Content="XML File:"
@@ -58,6 +58,15 @@
                      Width="450"
                      Name="LabelUrl"
                      VerticalAlignment="Center" KeyDown="LabelUrl_KeyDown" />
+            <TextBox Name="SearchTextBox" VerticalContentAlignment="Center" Width="300" Margin="20,0,0,0" Height="24" />
+            <Button Name="SearchButton" Style="{DynamicResource MyButtonStyle}" 
+                    Height="24" 
+                    Content="Search" 
+                    VerticalContentAlignment="Center" Click="SearchButton_Click" />
+            <Button Name="ClearSearchButton" Style="{DynamicResource MyButtonStyle}" 
+                    Height="24" 
+                    Content="Clear" 
+                    VerticalContentAlignment="Center" Click="ClearSearchButton_Click"  />
         </StackPanel>
         <Button Content="Show Test Cases"
                 Style="{DynamicResource MyButtonStyle}"
@@ -362,7 +371,7 @@
                      VerticalAlignment="Center"
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Left"
-                     HorizontalContentAlignment="Left" />
+                     HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto" />
             <ComboBox Name="ComboBoxTestText"
                       Grid.Row="2"
                       Grid.Column="3"
@@ -616,7 +625,7 @@
                   AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}"
                   Background="{DynamicResource DataGridAchtergrond}"
                   IsReadOnly="True" ColumnWidth="Auto"
-                  Visibility="Visible" RowHeaderWidth="0" GotFocus="AddDataGrid_GotFocus">
+                  Visibility="Visible" RowHeaderWidth="0" GotFocus="AddDataGrid_GotFocus" RowHeight="24">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding id}"
                                     Width="auto"
@@ -749,8 +758,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding testtext}"
-                                    Width="auto"
-                                    Header="Text">
+                                    Header="Text" MaxWidth="500">
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping"
@@ -878,6 +886,16 @@
                 Grid.Row="3"
                 Width="100"
                 Click="buttonCloseWindow_Click" IsEnabled="True" />
+        <Button x:Name="buttonCreateExcel"
+                Style="{DynamicResource MyButtonStyle}"
+                Content="Create Excel"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0,7,770,6"
+                Grid.Row="3"
+                Width="100"
+                IsEnabled="False" Click="ButtonCreateExcel_Click"  />
+
         <Button x:Name="buttonCreateCSV"
                 Style="{DynamicResource MyButtonStyle}"
                 Content="Create CSV"
@@ -1017,8 +1035,8 @@
         </StackPanel>
 
 
-        <StackPanel Width="510"
-                    Height="275"
+        <StackPanel Width="710"
+                    Height="375"
                     Name="ModuleWebdriver"
                     Orientation="Horizontal"
                     Visibility="Visible"
@@ -1037,19 +1055,21 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
                     <RowDefinition Height="25" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120" />
-                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="150" />
                     <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="120" />
-                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="220" />
                 </Grid.ColumnDefinitions>
-                <Border Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6"
+                <Border Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="8"
                         Margin="3,3,3,0"
                         Style="{DynamicResource BorderaStyleG}" />
                 <Label Content="Generate webdriver.io javascript"
@@ -1060,20 +1080,34 @@
                        VerticalAlignment="Center" />
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="5" HorizontalAlignment="Center"
                             VerticalAlignment="Center">
-                    <Label Content="HomePage App function" />
-                        <TextBox Name="TextBoxAppFunction" VerticalContentAlignment="Center"
-                                 HorizontalContentAlignment="Left" Width="300"   TabIndex="1" ToolTip="App.openHomePage();"  />
+                    <Label Content="Import App function:" Width="150" HorizontalContentAlignment="Right" Margin="0,0,5,0"   />
+                    <TextBox Name="TextBoxImportApp" VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Left" Width="400"   TabIndex="1"  Text="import App from '../../pageobjects/App'"  />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="5" HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <Label Content="Import Login function:" Width="150" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="TextBoxImportLogin" VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Left" Width="400"   TabIndex="2"  Text="import LoginPage from '../../pageobjects/Pages/LoginPage'"  />
                 </StackPanel>
 
-                <CheckBox Content="Using general login" Grid.Row="2"
+
+                <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <Label Content="HomePage App function:" Width="150" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="TextBoxAppFunction" VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Left" Width="400"   TabIndex="3" ToolTip="App.openHomePage();" Text="App."  />
+                </StackPanel>
+
+                <CheckBox Content="Using general login" Grid.Row="4"
                           Name="checkboxLoginrows"
                           Grid.ColumnSpan="5"
                           VerticalContentAlignment="Center"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
-                          TabIndex="2"
+                          TabIndex="4"
                           IsChecked="True" Click="CheckboxLoginrows_Click" />
-                <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="5" Name="StackPanelRowsLogin"
+                <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="5" Name="StackPanelRowsLogin"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center" Margin="50,0">
                     <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
@@ -1083,34 +1117,41 @@
                         Height="28"
                         HorizontalAlignment="Left"
                         Name="TextBoxLoginFrom"
-                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="3"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="5"
                         TextChanged="TextBoxLoginFrom_TextChanged" />
                     <Label Content="Till testnr.:" HorizontalContentAlignment="Right"
-                           VerticalContentAlignment="Center" Margin="50,0" />
+                           VerticalContentAlignment="Center" Margin="50,0,0,0" />
                     <TextBox HorizontalAlignment="Left" HorizontalContentAlignment="Center"
                              VerticalContentAlignment="Center" Width="75" Height="28" Name="TextBoxLoginTill"
-                             TabIndex="4" TextChanged="TextBoxLoginTill_TextChanged" />
+                             TabIndex="6" TextChanged="TextBoxLoginTill_TextChanged" />
 
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" Grid.Row="4" VerticalAlignment="Center"
+                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="7" Grid.Row="6" VerticalAlignment="Center"
                             HorizontalAlignment="Center">
-                    <Label Content="Switch to url function:" />
+                    <Label Content="Switch to url function:" Width="150" HorizontalContentAlignment="Right" Margin="0,0,5,0" />
                     <TextBox Name="TextBoxSwitchUrl" HorizontalContentAlignment="Left"
-                             VerticalContentAlignment="Center" Width="300" TabIndex="5" Margin="10,0" />
+                             VerticalContentAlignment="Center" Width="400" TabIndex="2" Text="App." 
+                             TextChanged="TextBoxSwitchUrl_TextChanged" />
+                    <CheckBox Name="CheckBoxSwitch" 
+                              VerticalAlignment="Center" 
+                              VerticalContentAlignment="Center" 
+                              Margin="5,0,0,0"
+                              Content="Switch used?" 
+                              Visibility="Hidden"></CheckBox>
                 </StackPanel>
 
                 <Button Style="{DynamicResource MyButtonStyle}"
                         Name="ButtonWebdriverMaakleeg" Content="Make empty"
-                        Grid.Row="5"  Width="100" TabIndex="9" Click="ButtonWebdriverMaakleeg_Click"
+                        Grid.Row="7"  Width="100" TabIndex="9" Click="ButtonWebdriverMaakleeg_Click"
                         />
                 <Button Style="{DynamicResource MyButtonStyle}"
                         Name="ButtonWebdriverGenerate" Content="Generate javascript"
-                        Grid.Row="5" Grid.ColumnSpan="5" Width="120" IsEnabled="False" TabIndex="6"
+                        Grid.Row="7" Grid.ColumnSpan="5" Width="120" IsEnabled="False" TabIndex="6"
                         Click="ButtonWebdriverGenerate_Click" />
                 <Button Style="{DynamicResource MyButtonStyle}"
                         Name="ButtonCloseWebdriver" Content="Close Module"
-                        Grid.Row="5" Grid.ColumnSpan="5" Width="100" HorizontalAlignment="Right"
+                        Grid.Row="7" Grid.ColumnSpan="5" Width="100" HorizontalAlignment="Right"
                         TabIndex="7" Click="ButtonCloseWebdriver_Click" />
             </Grid>
         </StackPanel>
