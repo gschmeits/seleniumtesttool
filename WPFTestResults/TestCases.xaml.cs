@@ -2255,6 +2255,10 @@ namespace WPFTestResults
                             case "SCROLL":
                                 break;
                             case "SWITCH TO URL":
+                                if (TextBoxSwitchUrl.Text != string.Empty)
+                                {
+                                    CheckBoxSwitch.IsChecked = true;
+                                }
                                 if (CheckBoxSwitch.IsChecked == true)
                                 {
                                     var voor = string.Empty;
