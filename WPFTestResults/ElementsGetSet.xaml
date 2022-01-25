@@ -42,7 +42,10 @@
                     Margin="5,0,0,0" />
             <Button Click="ButtonTest_Click" Name="ButtonTest" Content="Test" Style="{DynamicResource MyButtonStyle}"
                     Margin="5,0,0,0" Visibility="Hidden" />
+
         </StackPanel>
+
+
         <Label Name="LabelID" Content="ddd" Visibility="Hidden" />
         <CheckBox Name="CheckBoxWholeWebsite" Content="Get elements from the whole website" Grid.Row="2"
                   Margin="15,0,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="14"
@@ -76,7 +79,7 @@
             <StackPanel Name="Extra" Margin="0,5,0,5" Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttributeExtra3" Width="60" TabIndex="4" Height="26">
-                    <ListBoxItem Content=""></ListBoxItem>
+                    <ListBoxItem Content="" />
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
                     <ListBoxItem>XPath</ListBoxItem>
@@ -125,7 +128,7 @@
             <StackPanel Name="username" Margin="0,0,0,5" Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="UserAttribute" Width="60" TabIndex="8" Height="26">
-                    <ListBoxItem Content=""></ListBoxItem>
+                    <ListBoxItem Content="" />
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
                     <ListBoxItem>XPath</ListBoxItem>
@@ -174,7 +177,7 @@
             <StackPanel Name="passwordname" Margin="0,5" Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="PasswordAtrribute" Width="60" Height="26" TabIndex="10">
-                    <ListBoxItem Content=""></ListBoxItem>
+                    <ListBoxItem Content="" />
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
                     <ListBoxItem>XPath</ListBoxItem>
@@ -218,7 +221,7 @@
             <StackPanel Name="buttonName" Margin="0,5" Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttribute" Width="60" TabIndex="14" Height="26">
-                    <ListBoxItem Content=""></ListBoxItem>
+                    <ListBoxItem Content="" />
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
                     <ListBoxItem>XPath</ListBoxItem>
@@ -261,7 +264,7 @@
             <StackPanel Name="ExtraExtra" Margin="0,5,0,5" Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttributeExtra4" Width="60" TabIndex="4" Height="26">
-                    <ListBoxItem Content=""></ListBoxItem>
+                    <ListBoxItem Content="" />
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
                     <ListBoxItem>XPath</ListBoxItem>
@@ -308,10 +311,6 @@
             </StackPanel>
 
 
-
-
-
-
             <StackPanel Orientation="Horizontal">
                 <Label Name="LabelFoundElements1" Content="Extra elements to use:" VerticalContentAlignment="Center"
                        FontWeight="Bold" />
@@ -319,7 +318,7 @@
             <StackPanel Name="buttonExtaName" Margin="0,5" Orientation="Horizontal" Height="26">
                 <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttributeExtra1" Height="26" Width="60" TabIndex="17">
-                    <ListBoxItem Content=""></ListBoxItem>
+                    <ListBoxItem Content="" />
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
                     <ListBoxItem>XPath</ListBoxItem>
@@ -364,7 +363,7 @@
             <StackPanel Name="ButtonAttributeExtra2s" Margin="0,5" Orientation="Horizontal" Height="26">
                 <Label VerticalContentAlignment="Center">Attribute:</Label>
                 <ComboBox Name="ButtonAttributeExtra2" Width="60" TabIndex="21">
-                    <ListBoxItem Content=""></ListBoxItem>
+                    <ListBoxItem Content="" />
                     <ListBoxItem>Id</ListBoxItem>
                     <ListBoxItem>Name</ListBoxItem>
                     <ListBoxItem>XPath</ListBoxItem>
@@ -420,7 +419,7 @@
             </StackPanel>
         </StackPanel>
 
-        <Grid Name="GridSelectTags" Margin="0, 550, 0, 94" HorizontalAlignment="Center" 
+        <Grid Name="GridSelectTags" Margin="0, 550, 0, 94" HorizontalAlignment="Center"
               Row="2" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="110" />
@@ -437,10 +436,10 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <TextBlock Text="Select the tags you want to find" Grid.ColumnSpan="4" HorizontalAlignment="Center"
-                       VerticalAlignment="Center" FontWeight="Bold" FontSize="24" FontFamily="Open Sans Semibold" 
+                       VerticalAlignment="Center" FontWeight="Bold" FontSize="24" FontFamily="Open Sans Semibold"
                        Grid.Column="2" Height="36" Margin="38,-5,38,27" Grid.RowSpan="2" />
             <CheckBox Name="CheckBoxA" Content="a (hyperlink)" HorizontalAlignment="Center"
                       VerticalContentAlignment="Center" Grid.Row="1" Width="100" Margin="10,0,0,0" />
@@ -494,8 +493,9 @@
                       VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="7" Margin="10,0,0,0" />
 
 
-            <StackPanel Orientation="Horizontal" Margin="25,6,25,-26" Grid.Row="4" Grid.ColumnSpan="8" HorizontalAlignment="Center"
-                        VerticalAlignment="Center"  Height="51">
+            <StackPanel Orientation="Horizontal" Margin="25,6,25,-26" Grid.Row="4" Grid.ColumnSpan="8"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" Height="51">
                 <Button Click="ButtonCheckboxCheckAll_Click" Name="ButtonCheckboxCheckAll" Margin="5,0"
                         Style="{DynamicResource MyButtonStyle}" Content="All Checked" />
                 <Button Click="ButtonCheckboxCheckNone_Click" Name="ButtonCheckboxCheckNone" Margin="5,0"
@@ -577,15 +577,22 @@
                     Width="110"
                     IsEnabled="False"
                     Click="CheckTextAll_Click" />
-            <CheckBox Margin="0,0,0,0" Name="CheckBoxSwitchTo" Visibility="Hidden" Content="Switch to URL"
+            <CheckBox Margin="0,0,0,0" Name="CheckBoxSwitchTo" Visibility="Hidden" 
+                      Content="Switch to URL"
+                      VerticalContentAlignment="Center" Width="100" />
+            <CheckBox Margin="0,0,0,0" Name="CheckBoxUseXPath"  
+                      Content="Use XPath" IsChecked="False"
                       VerticalContentAlignment="Center" Width="100" />
             <CheckBox Name="ButtonCSV"
                       Content="Save as CSV"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Right"
-                      Margin="50,0,0,0" />
+                      Margin="10,0,0,0" />
 
-            <Button Name="ButtonTotCSV" IsEnabled="False" Style="{DynamicResource MyButtonStyle}" Content="Save as CSV" Click="ButtonTotCSV_Click" />
+            <Button Name="ButtonTotCSV" IsEnabled="False" Style="{DynamicResource MyButtonStyle}" Content="Save as CSV"
+                    Click="ButtonTotCSV_Click" />
+            <Button Name="ButtonExcel"  IsEnabled="False" Style="{DynamicResource MyButtonStyle}" 
+                    Content="Save as Excel" Width="100" Click="ButtonExcel_Click" />
 
         </StackPanel>
 
@@ -598,7 +605,7 @@
                   Grid.ColumnSpan="2"
                   AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}"
                   Background="{DynamicResource DataGridAchtergrondAlternatief}"
-                  Visibility="Hidden"
+                  Visibility="Visible"
                   CanUserResizeColumns="true"
                   CanUserResizeRows="true"
                   AutoGenerateColumns="false"
@@ -622,7 +629,7 @@
                 <DataGridTextColumn Header="Name" IsReadOnly="true" Binding="{Binding elementName}" />
                 <DataGridTextColumn Header="XPath" IsReadOnly="true" Binding="{Binding elementXpath}" MaxWidth="500" />
                 <DataGridTextColumn Header="Tagname" IsReadOnly="true" Binding="{Binding elementTagname}" />
-                <DataGridTextColumn Header="Text" IsReadOnly="true" Binding="{Binding elementText}"  MaxWidth="500"/>
+                <DataGridTextColumn Header="Text" IsReadOnly="true" Binding="{Binding elementText}" MaxWidth="500" />
                 <DataGridCheckBoxColumn Header="Check Text" IsReadOnly="false"
                                         Binding="{Binding elementCheckText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTextColumn Header="Class" IsReadOnly="true" Binding="{Binding elementClass}" />
@@ -641,5 +648,61 @@
                 HorizontalAlignment="Right"
                 HorizontalContentAlignment="Center" Click="ButtonJSON_Click"
                 Visibility="Hidden" />
+        <StackPanel Orientation="Horizontal"               
+                    Grid.Column="1" 
+                    Grid.RowSpan="3"
+                    Width="1000"
+                    Height="50"
+                    Name="GridCheckText"
+                    Visibility="Visible" Margin="599,63,61,752">
+
+
+            <Label Content="Which text do you want to check?" 
+       VerticalContentAlignment="Center"
+       VerticalAlignment="Center" 
+       Height="26" 
+       Margin="5,0"/>
+            <ComboBox Name="CheckClassText" Width="166"
+                      VerticalAlignment="Center" 
+                      VerticalContentAlignment="Center"
+                      HorizontalAlignment="Left"
+                      Grid.Column="1" 
+                      Height="26"
+                      Margin="5,0"
+                      SelectionChanged="CheckClassText_SelectionChanged">
+                <ListBoxItem Content="" />
+                <ListBoxItem>Name</ListBoxItem>
+                <ListBoxItem>XPath</ListBoxItem>
+                <ListBoxItem>Tagname</ListBoxItem>
+                <ListBoxItem>Class</ListBoxItem>
+            </ComboBox>
+            <TextBox Name="TextBoxChangeText"
+                     Grid.Column="2"
+                     Height="26"
+                     VerticalContentAlignment="Center"
+                     VerticalAlignment="Center" TextChanged="TextBoxChangeText_TextChanged" Margin="0,12" Width="433"/>
+            <Button Name="ButtonSetTextCheck"
+                    Style="{DynamicResource MyButtonStyle}"
+                    Grid.Column="3"
+                    Height="26"
+                    Width="100"
+                    IsEnabled="False"
+                    VerticalContentAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Set Check Text" Margin="5,0" 
+                    Click="ButtonSetTextCheck_Click"/>
+            <CheckBox Content="Clear Text"
+                      IsEnabled="False"
+                      Name="CheckBoxClearTextCheck"
+                      Grid.Column="4"
+                      VerticalContentAlignment="Center"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center" 
+                      Height="26"  
+                      Width="71"/>
+
+        </StackPanel>
+
+
     </Grid>
 </Window>

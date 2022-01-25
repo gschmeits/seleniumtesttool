@@ -44,6 +44,8 @@ namespace GeneralFunctionality
 
         public static string SettingswdioDir { get; set; }
 
+        public static string SettingCypressioDir { get; set; }
+
         /// <summary>
         /// Gets or sets the settings settings dir.
         /// </summary>
@@ -147,6 +149,7 @@ namespace GeneralFunctionality
                 SettingsSettingsDir = ValueList[0];
                 SettingsDataDir = ValueList[1];
                 SettingswdioDir = ValueList[2];
+                SettingCypressioDir = ValueList[3];
             }
             catch (Exception ex)
             {

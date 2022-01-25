@@ -24,7 +24,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Selenium Test Tool")]
-[assembly: AssemblyCopyright("Copyright © G.H.M.H. Schmeits  2018-2021")]
+[assembly: AssemblyCopyright("Copyright © G.H.M.H. Schmeits  2018-2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -63,8 +63,8 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.1.1.50")]
-[assembly: AssemblyFileVersion("2.1.1.50")]
+[assembly: AssemblyVersion("2.2.4.2")]
+[assembly: AssemblyFileVersion("2.2.4.2")]
 [assembly: InternalsVisibleTo("WPFTestResults.Tests")]
 [assembly: InternalsVisibleTo("WPFTestResults.Explorables")]
 

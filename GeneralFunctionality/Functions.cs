@@ -236,7 +236,7 @@ namespace GeneralFunctionality
                     if (content != null && tekst != string.Empty &&
                         content.Text != string.Empty)
                     {
-                        if (strikt == true)
+                        if (strikt)
                         {
                             if (tekst != string.Empty &&
                                 content.Text == tekst)
@@ -508,7 +508,7 @@ namespace GeneralFunctionality
             hash ^= hash >> 11;
             hash += hash << 15;
 
-            var result = (int) (hash % MUST_BE_LESS_THAN);
+            var result = (int)(hash % MUST_BE_LESS_THAN);
             var check = MUST_BE_LESS_THAN / result;
 
             if (check > 1) result *= check;
@@ -1052,7 +1052,7 @@ namespace GeneralFunctionality
             int borderWidth)
         {
             var oldScript = context.GetAttribute("style");
-            var rc = (RemoteWebElement) context;
+            var rc = (RemoteWebElement)context;
             var actions = new Actions(driver1);
             if (rc.Displayed)
             {
@@ -1064,7 +1064,7 @@ namespace GeneralFunctionality
                     actions.Perform();
                 }
 
-                var driver = (IJavaScriptExecutor) rc.WrappedDriver;
+                var driver = (IJavaScriptExecutor)rc.WrappedDriver;
 
                 var script = "arguments[0].style.cssText = \"border-width: " +
                              borderWidth
@@ -1197,7 +1197,7 @@ namespace GeneralFunctionality
                 Registry.LocalMachine.OpenSubKey(
                     @"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
 
-            var productName = (string) reg.GetValue("ProductName");
+            var productName = (string)reg.GetValue("ProductName");
 
             return productName.StartsWith("Windows 10");
         }
@@ -1471,7 +1471,7 @@ namespace GeneralFunctionality
         /// TODO Edit XML Comment Template for Teststap
         public static void Teststap(IWebDriver driver, string machinestatic,
             string radiobutton, string version,
-            string bestandsnaamArgument, bool opslaan)
+            string bestandsnaamArgument, bool opslaan, string saveWat = "")
         {
             var table = General.GetTestrun(bestandsnaamArgument);
             var actions = new Actions(driver);
@@ -1487,22 +1487,22 @@ namespace GeneralFunctionality
             for (var intx = 0; intx < table.Rows.Count; intx++)
             {
                 var strikt = true;
+                var savedAttribute =
+                    table.Rows[intx]["save_attribute"].ToString().Trim();
                 var drTitle = driver.Title;
                 if (drTitle != null)
                 {
-                    vestandsnaam = table.Rows[intx]["testcase"].ToString().Trim();
-            setClassName(table.Rows[intx]["testcase"].ToString()
+                    vestandsnaam =
+                        table.Rows[intx]["testcase"].ToString().Trim();
+                    setClassName(table.Rows[intx]["testcase"].ToString()
                         .Trim());
                     setTestnr(table.Rows[intx]["testnr"].ToString().Trim());
 
-                    if (table.Rows[intx]["test_check_strict"].ToString().ToUpper() == "TRUE")
-                    {
+                    if (table.Rows[intx]["test_check_strict"].ToString()
+                        .ToUpper() == "TRUE")
                         strikt = true;
-                    }
                     else
-                    {
                         strikt = false;
-                    }
 
                     var v = (table != null
                         ? table != null ? table.Rows[intx]["testurl"] : null
@@ -1655,8 +1655,11 @@ namespace GeneralFunctionality
                                                     table.Rows[intx]["testurl"]
                                                         .ToString());
 
-                                            inhoud += "driver.Navigate().GoToUrl('" + table.Rows[intx]["testurl"].ToString() + "')\r\n";
-   
+                                            inhoud +=
+                                                "driver.Navigate().GoToUrl('" +
+                                                table.Rows[intx]["testurl"] +
+                                                "')\r\n";
+
                                             break;
                                         case "click":
                                             actions = new Actions(driver);
@@ -1667,7 +1670,7 @@ namespace GeneralFunctionality
                                         case "value":
                                             if (table.Rows[intx]["testtext"] !=
                                                 null && table.Rows.Count > intx
-                                                && (string) table.Rows[intx][
+                                                && (string)table.Rows[intx][
                                                     "testtext"]
                                                 != string.Empty)
                                             {
@@ -1686,7 +1689,7 @@ namespace GeneralFunctionality
                                         case "sendkeys":
                                             if (table.Rows[intx]["testtext"] !=
                                                 null && table.Rows.Count > intx
-                                                && (string) table.Rows[intx][
+                                                && (string)table.Rows[intx][
                                                     "testtext"]
                                                 != string.Empty)
                                                 tekst1 = TekstVervanging(
@@ -1709,12 +1712,15 @@ namespace GeneralFunctionality
 
                                             var tekst27 = tekst1;
 
-                                            if (tekst1.ToUpper().Contains("{ENTER}"))
+                                            if (tekst1.ToUpper()
+                                                .Contains("{ENTER}"))
                                             {
-                                                var splitTekst = tekst1.Split('{');
+                                                var splitTekst =
+                                                    tekst1.Split('{');
                                                 content.Click();
                                                 content.Clear();
-                                                content.SendKeys(splitTekst[0] + Keys.Enter);
+                                                content.SendKeys(splitTekst[0] +
+                                                    Keys.Enter);
                                             }
                                             else
                                             {
@@ -1738,10 +1744,14 @@ namespace GeneralFunctionality
                                                 }
 
                                                 content.Click();
-                                                if (tekst27.ToUpper() != "ENTER" &&
-                                                    tekst27.ToUpper() != "TAB" &&
-                                                    tekst27.ToUpper() != "PGUP" &&
-                                                    tekst27.ToUpper() != "PGDN" &&
+                                                if (tekst27.ToUpper() !=
+                                                    "ENTER" &&
+                                                    tekst27.ToUpper() !=
+                                                    "TAB" &&
+                                                    tekst27.ToUpper() !=
+                                                    "PGUP" &&
+                                                    tekst27.ToUpper() !=
+                                                    "PGDN" &&
                                                     tekst27.ToUpper() != "ESC")
                                                     content.Clear();
                                                 content.SendKeys(tekst1);
@@ -1847,9 +1857,9 @@ namespace GeneralFunctionality
                                                 table.Rows[intx]["testtext"]
                                                     .ToString().Trim();
                                             var rc =
-                                                (RemoteWebElement) checkbox1;
+                                                (RemoteWebElement)checkbox1;
                                             var driver1 =
-                                                (IJavaScriptExecutor) rc
+                                                (IJavaScriptExecutor)rc
                                                     .WrappedDriver;
                                             var script1 = "";
                                             if (tekst3.ToUpper() == "TRUE" &&
@@ -1902,9 +1912,16 @@ namespace GeneralFunctionality
                                                     .ToString();
                                                 query =
                                                     "UPDATE saved_values SET saved_values_value = '";
-                                                query += content.Text.Trim()
-                                                    .Replace("\r\n",
-                                                        string.Empty) + "' ";
+                                                if (savedAttribute == string.Empty)
+                                                    query += content.Text.Trim()
+                                                            .Replace("\r\n",
+                                                                string.Empty) +
+                                                        "' ";
+                                                if (savedAttribute == "href")
+                                                    query += content.GetAttribute(
+                                                            "href").Trim()
+                                                        +
+                                                        "' ";
                                                 query += "WHERE ";
                                                 query += "saved_values_id = " +
                                                     save_id + ";";
@@ -1922,12 +1939,19 @@ namespace GeneralFunctionality
                                                 query += "'" +
                                                     table.Rows[intx]["testtext"]
                                                         .ToString().Trim() +
-                                                    "', ";
-                                                query += "'" +
-                                                    content.Text.Trim()
-                                                        .Replace("\r\n",
-                                                            string.Empty) +
-                                                    "', ";
+                                                    "', '";
+
+                                                if (savedAttribute == string.Empty)
+                                                    query += content.Text.Trim()
+                                                            .Replace("\r\n",
+                                                                string.Empty) +
+                                                        "', ";
+                                                if (savedAttribute == "href")
+                                                    query += content.GetAttribute(
+                                                            "href").Trim()
+                                                        +
+                                                        "', ";
+
                                                 query += getProjectID() + ");";
                                             }
 
@@ -1936,7 +1960,7 @@ namespace GeneralFunctionality
                                         case "get_value":
 
                                             query =
-                                                "SELECT saved_values_value FROM saved_values ";
+                                                "SELECT saved_values_value, attribute FROM saved_values ";
                                             // query += "WHERE saved_values_testname = '" + bestandsnaamArgument + "' AND ";
                                             query += "WHERE ";
                                             query += "projectid = " +
@@ -1949,14 +1973,28 @@ namespace GeneralFunctionality
 
                                             if (dtget.Rows.Count > 0)
                                             {
-                                                actions = new Actions(driver);
-                                                actions.MoveToElement(content);
-                                                actions.Perform();
-                                                var tekstget = dtget.Rows[0][0]
-                                                    .ToString();
-                                                content.Click();
-                                                content.Clear();
-                                                content.SendKeys(tekstget);
+                                                if (dtget.Rows[0][1]
+                                                    .ToString() == string.Empty)
+                                                {
+                                                    actions =
+                                                        new Actions(driver);
+                                                    actions.MoveToElement(
+                                                        content);
+                                                    actions.Perform();
+                                                    var tekstget =
+                                                        dtget.Rows[0][0]
+                                                            .ToString();
+                                                    content.Click();
+                                                    content.Clear();
+                                                    content.SendKeys(tekstget);
+                                                }
+
+                                                if (dtget.Rows[0][1]
+                                                    .ToString() == "href")
+                                                    driver.Navigate()
+                                                        .GoToUrl(
+                                                            dtget.Rows[0][0]
+                                                                .ToString());
                                             }
 
                                             break;
@@ -1965,7 +2003,7 @@ namespace GeneralFunctionality
                                                 table.Rows[intx]["testtext"]
                                                     .ToString().Trim();
                                             var js =
-                                                (IJavaScriptExecutor) driver;
+                                                (IJavaScriptExecutor)driver;
                                             if (richting.ToUpper() == "BOTTOM")
                                                 js.ExecuteScript(
                                                     "window.scrollTo(0, document.body.scrollHeight)");
@@ -2040,7 +2078,9 @@ namespace GeneralFunctionality
                                     Convert.ToInt32(testnr), testcase,
                                     testaction, testAttribute);
                         }
-                        var appendtext = GetCurrentDir(2) + "\\" + vestandsnaam + ".js";
+
+                        var appendtext = GetCurrentDir(2) + "\\" +
+                                         vestandsnaam + ".js";
                         var sw = File.CreateText(appendtext);
                         sw.WriteLine(inhoud);
 

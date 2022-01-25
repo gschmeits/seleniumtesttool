@@ -24,10 +24,12 @@ namespace WPFTestResults
             var settingsSettingsDir = OverallSettings.SettingsSettingsDir;
             var settingsDataDir = OverallSettings.SettingsDataDir;
             var settingswdioDir = OverallSettings.SettingswdioDir;
+            var settingsCypressidDir = OverallSettings.SettingCypressioDir;
 
             TextBoxSettingsDir.Text = settingsSettingsDir;
             TextBoxDataDir.Text = settingsDataDir;
             TextBoxwdioDir.Text = settingswdioDir;
+            TextBoxcypressioDir.Text = settingsCypressidDir;
         }
 
         private void ButtonSaveConfig_Click(object sender, RoutedEventArgs e)
@@ -45,6 +47,7 @@ namespace WPFTestResults
                 writer.WriteElementString("settingsdir", TextBoxSettingsDir.Text );
                 writer.WriteElementString("datadir", TextBoxDataDir.Text);
                 writer.WriteElementString("wdiodir", TextBoxwdioDir.Text);
+                writer.WriteElementString("cypressiodir", TextBoxcypressioDir.Text);
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
             }

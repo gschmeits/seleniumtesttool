@@ -94,8 +94,16 @@ namespace DataStorage
                 //MessageBox.Show(ex.Message + ex.StackTrace, "Ger Exception Detail");
                 var str = ex;
                 string message = "De database kan niet geraadpleegd worden.\r\n\r\nControleer of er een netwerkconnectie is.";
-                message += "\r\n\r\n" + ex.Message + ex.StackTrace;
+                message += "\r\n\r\n" + ex.Message + ex.StackTrace + "\r\n\r\n" + strQue ;
                 MessageBox.Show(message);
+                General.LogMessage(
+                    "INUPDEL query: '" + strQue + "'.",
+                    4,
+                    strQue,
+                    0,
+                    string.Empty,
+                    InloggerData.MachineCode);
+
                 //BikeBillWPF2014.melding frmMelding = new BikeBillWPF2014.melding(message);
                 //frmMelding.ShowDialog();
                 //throw;

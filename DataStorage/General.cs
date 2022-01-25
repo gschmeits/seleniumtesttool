@@ -220,7 +220,7 @@ namespace DataStorage
             var commandText =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, testaction, testtext, " +
                 "testurl, testswitch, testdescription, testexecution, testext_check, testinverse, test_comment, " +
-                "test_password, test_check_strict FROM testcases_selenium WHERE testname = '" +
+                "test_password, test_check_strict, save_attribute FROM testcases_selenium WHERE testname = '" +
                 testname + "' AND testexecution = 'yes' ORDER BY testnr";
             return ExecuteQueryCommandReturnTable(commandText);
         }
@@ -238,7 +238,7 @@ namespace DataStorage
             var commandText =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, " +
                 "testattribute, testaction, testtext, testurl, testswitch, testdescription, " +
-                "testexecution, testext_check, testinverse, test_comment, test_password, test_check_strict " +
+                "testexecution, testext_check, testinverse, test_comment, test_password, test_check_strict, save_attribute " +
                 "FROM testcases_selenium WHERE id = '" +
                 id + "';";
             return ExecuteQueryCommandReturnTable(commandText);
@@ -596,28 +596,39 @@ namespace DataStorage
                     osheet.Cells[1, colIndex].Font.Bold = true;
                 }
 
-                foreach (DataRow dr in dt.Rows)
+                try
                 {
-                    rowIndex++;
-                    colIndex = 0;
-
-                    foreach (DataColumn dc in dt.Columns)
+                    foreach (DataRow dr in dt.Rows)
                     {
-                        colIndex++;
-                        if (dc.ColumnName == "test_password")
+                        rowIndex++;
+                        colIndex = 0;
+
+                        foreach (DataColumn dc in dt.Columns)
                         {
-                            if (dr[dc.ColumnName].ToString().Length > 0)
+                            colIndex++;
+                            if (dc.ColumnName == "test_password")
                             {
-                                osheet.Cells[rowIndex, colIndex] = new String('*', dr[dc.ColumnName].ToString().Length);
+                                if (dr[dc.ColumnName].ToString().Length > 0)
+                                {
+                                    osheet.Cells[rowIndex, colIndex] = new String('*', dr[dc.ColumnName].ToString().Length);
+                                }
                             }
+                            else
+                            {
+                                osheet.Cells[rowIndex, colIndex] = dr[dc.ColumnName];
+                            }
+
                         }
-                        else
-                        {
-                            osheet.Cells[rowIndex, colIndex] = dr[dc.ColumnName];
-                        }
-                        
                     }
                 }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+
+
+                
 
                 osheet.Columns.AutoFit();
 

@@ -60,6 +60,7 @@ namespace DataStorage
             string testcase,
             string testelementname,
             string testelement,
+            string testxpath,
             string testattribute,
             string testaction,
             string testtext,
@@ -73,7 +74,8 @@ namespace DataStorage
             string testtag,
             string testcheck,
             string testcheckstrict,
-            string test_password = "")
+            string save_attribute,
+            string test_password)
         {
             try
             {
@@ -83,6 +85,7 @@ namespace DataStorage
                 commandText += "testcase ='" + testcase + "', ";
                 commandText += "testlogicalobjectname = '" + MySqlHelper.EscapeString(testelementname) + "', ";
                 commandText += "testelement = '" + MySqlHelper.EscapeString(testelement) + "', ";
+                commandText += "test_element_xpath = '" + MySqlHelper.EscapeString(testxpath) + "', ";
                 commandText += "testattribute = '" + MySqlHelper.EscapeString(testattribute) + "', ";
                 commandText += "testaction = '" + MySqlHelper.EscapeString(testaction) + "', ";
                 commandText += "testtag = '" + MySqlHelper.EscapeString(testtag) + "', ";
@@ -96,6 +99,7 @@ namespace DataStorage
                 commandText += "test_comment = '" + MySqlHelper.EscapeString(testcomment) + "', ";
                 commandText += "machinenumber = '" + testmachinecode + "', ";
                 commandText += "test_password = '" + test_password + "', ";
+                commandText += "save_attribute = '" + save_attribute + "', ";
                 commandText += "testswitch = '" + MySqlHelper.EscapeString(testswitch) + "';";
                 General.ExecuteQueryCommand(commandText);
                 General.LogMessage(commandText, 1);
@@ -146,6 +150,7 @@ namespace DataStorage
             string testcomment,
             string testtag,
             string testcheckstrict,
+            string save_attribute,
             string testpassword = "")
         {
             try
@@ -168,6 +173,7 @@ namespace DataStorage
                 commandText += "testext_check = '" + MySqlHelper.EscapeString(testdescription) + "', ";
                 commandText += "test_comment = '" + MySqlHelper.EscapeString(testcomment) + "', ";
                 commandText += "test_password = '" + testpassword + "', ";
+                commandText += "save_attribute = '" + save_attribute + "', ";
                 commandText += "testswitch = '" + MySqlHelper.EscapeString(testswitch) + "' WHERE ";
                 commandText += "id = " + testID;
                 General.ExecuteQueryCommand(commandText);

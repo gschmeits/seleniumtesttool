@@ -726,7 +726,7 @@
 
         <Grid Grid.Row="1"
               Name="GridProject"
-              Visibility="Hidden"
+              Visibility="Visible"
               Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"
               HorizontalAlignment="Center" Width="300" Height="371" VerticalAlignment="Top" Margin="0,125,0,0"
               IsVisibleChanged="GridProject_IsVisibleChanged">
@@ -784,7 +784,7 @@
 
         <Grid Grid.Row="1"
               Name="GridProjectCreate"
-              Visibility="Hidden"
+              Visibility="Visible"
               Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"
               HorizontalAlignment="Center" Width="300" Height="210" VerticalAlignment="Top" Margin="0,125,0,0"
               IsVisibleChanged="GridProjectCreate_IsVisibleChanged">

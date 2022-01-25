@@ -523,6 +523,7 @@ namespace WPFTestResults
                                     testCase,
                                     string.Empty,
                                     element,
+                                    string.Empty,
                                     attribute,
                                     string.Empty,
                                     string.Empty,
@@ -536,6 +537,7 @@ namespace WPFTestResults
                                     string.Empty,
                                     string.Empty,
                                     "yes",
+                                    string.Empty,
                                     string.Empty);
                                 intTeller++;
                                 element = string.Empty;
@@ -1521,6 +1523,8 @@ namespace WPFTestResults
         private void ButtonProjectCreate_Click(object sender, RoutedEventArgs e)
         {
             GridProjectCreate.Visibility = Visibility.Visible;
+            TextBoxNewProject.Focusable = true;
+            TextBoxNewProject.Focus();
         }
 
         private void ButtonProjectCreateCancel_Click(object sender, RoutedEventArgs e)
@@ -1566,7 +1570,11 @@ namespace WPFTestResults
 
         private void GridProjectCreate_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (GridProjectCreate.Visibility == Visibility.Visible) TextBoxNewProject.Focus();
+            if (GridProjectCreate.Visibility == Visibility.Visible)
+            {
+                TextBoxNewProject.Focusable = true;
+                TextBoxNewProject.Focus();
+            }
         }
 
         private void ButtonSluitProject_Click(object sender, RoutedEventArgs e)

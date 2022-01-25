@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTestResults"
         mc:Ignorable="d"
-        Title="Settings Data Location" Height="360" Width="600"
+        Title="Settings Data Location" Height="420" Width="600"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Loaded="Window_Loaded" WindowStyle="ToolWindow">
@@ -22,6 +22,7 @@
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
+            <RowDefinition Height="63" />
             <RowDefinition Height="63" />
             <RowDefinition Height="63" />
             <RowDefinition Height="63" />
@@ -59,7 +60,7 @@
                  HorizontalAlignment="Left" 
                  Margin="5,0,0,0" 
                  VerticalContentAlignment="Center"
-                 Name="TextBoxSettingsDir" />
+                 Name="TextBoxSettingsDir" TabIndex="1" />
         <TextBox Grid.Row="2" 
                  Grid.Column="1" 
                  Height="24" 
@@ -67,10 +68,10 @@
                  HorizontalAlignment="Left" 
                  Margin="5,0,0,0" 
                  VerticalContentAlignment="Center"
-                 Name="TextBoxDataDir" />
+                 Name="TextBoxDataDir" TabIndex="2" />
         <Label Grid.Row="3"
                Grid.Column="0"
-               Content="webdriver.id Directory:"
+               Content="webdriver.io Directory:"
                Margin="5,0"
                VerticalAlignment="Center"
                VerticalContentAlignment="Center"
@@ -82,10 +83,27 @@
                  HorizontalAlignment="Left" 
                  Margin="5,0,0,0" 
                  VerticalContentAlignment="Center"
-                 Name="TextBoxwdioDir" />
+                 Name="TextBoxwdioDir" TabIndex="3" />
+
+        <Label Grid.Row="4"
+               Grid.Column="0"
+               Content="Cypress.io Directory:"
+               Margin="5,0"
+               VerticalAlignment="Center"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" />
+
+        <TextBox Grid.Row="4" 
+                 Grid.Column="1" 
+                 Height="24" 
+                 Width="350" 
+                 HorizontalAlignment="Left" 
+                 Margin="5,0,0,0" 
+                 VerticalContentAlignment="Center"
+                 Name="TextBoxcypressioDir" TabIndex="4" />
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     VerticalAlignment="Center">
@@ -95,7 +113,7 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Content="Save Configuration"
-                    Click="ButtonSaveConfig_Click" />
+                    Click="ButtonSaveConfig_Click" TabIndex="5" />
         </StackPanel>
     </Grid>
 </Window>

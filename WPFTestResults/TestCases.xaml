@@ -8,7 +8,7 @@
         Height="909"
         Width="1596"
         Icon="images/if_chemistry_45373.ico"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen" 
         IsVisibleChanged="Window_IsVisibleChanged" Loaded="Window_Loaded">
     <Window.Resources>
     </Window.Resources>
@@ -33,7 +33,7 @@
                 Margin="3"
                 Style="{DynamicResource BorderaStyleG}" />
         <StackPanel Orientation="Horizontal"
-                    Margin="254,8,191,12"
+                    Margin="254,8,242,12"
                     Visibility="Visible"
                     Name="PanelNamen">
             <Label Content="XML File:"
@@ -68,6 +68,27 @@
                     Content="Clear" 
                     VerticalContentAlignment="Center" Click="ClearSearchButton_Click"  />
         </StackPanel>
+
+        <StackPanel Margin="1500,0,120,0" Name="StackPanelCoDeEx" Orientation="Horizontal">
+
+            <Button Name="CopyRegels"
+                    Style="{DynamicResource MyButtonStyle}" 
+                    Width="50" 
+                    VerticalAlignment="Center"
+                    Click="CopyRegels_Click">Copy</Button>
+            <Button Name="DeleteRegels"
+                    Style="{DynamicResource MyButtonStyle}" 
+                    Width="50" 
+                    VerticalAlignment="Center"
+                    Click="DeleteRegels_Click">Delete</Button>
+            <Button Name="ExecuteRegels"
+                    Style="{DynamicResource MyButtonStyle}" 
+                    Width="50" 
+                    VerticalAlignment="Center"
+                    Click="ExecuteRegels_OnClickRegels_Click">Execute</Button>
+
+        </StackPanel>
+
         <Button Content="Show Test Cases"
                 Style="{DynamicResource MyButtonStyle}"
                 HorizontalAlignment="Left"
@@ -78,9 +99,9 @@
                 Click="Button_Click" />
         <Button Content="Preconditions"
                 Name="ButtonPreConditions"
-                Width="150"
+                Width="89"
                 HorizontalAlignment="Right"
-                Margin="15,0"
+                Margin="0,14,15,14"
                 Style="{DynamicResource MyButtonStyle}" Click="ButtonPreConditions_Click" IsEnabled="False" />
         <Border Grid.Row="1"
                 Margin="3"
@@ -351,6 +372,19 @@
                 <ListBoxItem Content="screenshot" />
                 <ListBoxItem Content="logout" />
             </ComboBox>
+
+            <ComboBox Name="ComboBoxAttributeSave"
+                      Grid.Row="1"
+                      Grid.Column="3"
+                      Margin="275,5,5,5"
+                      Width="150"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Height="24" TabIndex="6"
+                      Visibility="Hidden">
+                <ListBoxItem Content="" />
+                <ListBoxItem Content="href" />
+            </ComboBox>
             <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Content="Description:" FontWeight="Bold"
                    VerticalAlignment="Center" />
             <TextBox Name="TextBoxComment" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Margin="5,5,0,5"
@@ -551,6 +585,7 @@
                 <Label Content="TestNr.:" VerticalContentAlignment="Center" />
                 <ComboBox Name="ComboboxSelectNr" Width="73" Height="28" VerticalContentAlignment="Center"
                           DropDownClosed="ComboboxSelectNr_DropDownClosed" Margin="0,10" />
+                <Button Name="ButtonXpath" Content="Use XPath" Margin="15,0" Width="100" Style="{DynamicResource MyButtonStyle}" Click="ButtonXpath_Click"></Button>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"
@@ -867,6 +902,15 @@
                 VerticalAlignment="Center"
                 Width="100"
                 Visibility="Hidden" />
+        <Button x:Name="buttonCloseWindow"
+                Style="{DynamicResource MyButtonStyle}"
+                Content="Close"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0,7,92,6"
+                Grid.Row="3"
+                Width="50"
+                Click="buttonCloseWindow_Click" IsEnabled="True" />
         <Button x:Name="buttonClear"
                 Style="{DynamicResource MyButtonStyle}"
                 Content="Delete selected row"
@@ -877,15 +921,6 @@
                 Visibility="Hidden"
                 Width="150"
                 IsEnabled="False" />
-        <Button x:Name="buttonCloseWindow"
-                Style="{DynamicResource MyButtonStyle}"
-                Content="Close"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Margin="0,7,15,6"
-                Grid.Row="3"
-                Width="100"
-                Click="buttonCloseWindow_Click" IsEnabled="True" />
         <Button x:Name="buttonCreateExcel"
                 Style="{DynamicResource MyButtonStyle}"
                 Content="Create Excel"
@@ -921,18 +956,27 @@
                 Content="Import Module"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,7,375,6"
+                Margin="0,8,412,5"
                 Grid.Row="3"
                 Width="100" Visibility="Visible" Click="ButtonImportModule_Click" />
         <Button Name="ButtonGenWebdriverIo"
                 Style="{DynamicResource MyButtonStyle}"
-                Content="Code webdriver.io"
+                Content="webdriver.io"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,8,270,0"
+                Grid.Row="3"
+                Width="100" Visibility="Visible"
+                IsEnabled="False" Click="ButtonGenWebdriverIo_Click" />
+        <Button Name="ButtonGenCypressIO"
+                Style="{DynamicResource MyButtonStyle}"
+                Content="Cypress.io"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,7,175,6"
+                Margin="0,8,158,7"
                 Grid.Row="3"
-                Width="150" Visibility="Visible"
-                IsEnabled="False" Click="ButtonGenWebdriverIo_Click" />
+                Width="100" Visibility="Visible"
+                IsEnabled="False" Click="ButtonGenCypressIO_Click" />
         <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="15,0">
             <Label Content="Total Teststeps: "
                    VerticalAlignment="Center"
@@ -1077,12 +1121,15 @@
                        FontSize="16"
                        Grid.ColumnSpan="5"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center" />
+                       VerticalAlignment="Center"
+                       Name="LabelHeader"/>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="5" HorizontalAlignment="Center"
                             VerticalAlignment="Center">
                     <Label Content="Import App function:" Width="150" HorizontalContentAlignment="Right" Margin="0,0,5,0"   />
                     <TextBox Name="TextBoxImportApp" VerticalContentAlignment="Center"
-                             HorizontalContentAlignment="Left" Width="400"   TabIndex="1"  Text="import App from '../../pageobjects/App'"  />
+                             HorizontalContentAlignment="Left" Width="400"   
+                             TabIndex="1"  
+                             Text="import App from '../../pageobjects/App'"  />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="5" HorizontalAlignment="Center"
                             VerticalAlignment="Center">
@@ -1094,8 +1141,9 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center"
                             VerticalAlignment="Center">
-                    <Label Content="HomePage App function:" Width="150" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
-                        <TextBox Name="TextBoxAppFunction" VerticalContentAlignment="Center"
+                    <Label Content="HomePage App function:" Name="LabelHomePage"
+                           Width="150" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
+                    <TextBox Name="TextBoxAppFunction" VerticalContentAlignment="Center"
                                  HorizontalContentAlignment="Left" Width="400"   TabIndex="3" ToolTip="App.openHomePage();" Text="App."  />
                 </StackPanel>
 

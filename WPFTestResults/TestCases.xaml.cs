@@ -89,6 +89,7 @@ namespace WPFTestResults
 
             buttonCloseWindow.IsEnabled = false;
             ButtonPreConditions.IsEnabled = false;
+            StackPanelCoDeEx.Visibility = Visibility.Hidden;
             AddDataGrid.Visibility = Visibility.Hidden;
             ButtonSubmitFromTo.IsEnabled = false;
             ButtonRangschik.IsEnabled = false;
@@ -284,6 +285,8 @@ namespace WPFTestResults
 
         private void HaalGegevensInEdit(string idNumber, bool datagrid = true)
         {
+
+            PasswordTestText.Password = String.Empty;
             var warder = General.GetTestCase(idNumber);
 
             if (datagrid)
@@ -369,6 +372,8 @@ namespace WPFTestResults
                 LabelNameGetValue.Visibility = Visibility.Visible;
                 TextBoxSetValueName.Visibility = Visibility.Visible;
                 TextBoxSetValueName.Text = TextBoxTestText.Text;
+                ComboBoxAttributeSave.Text =
+                    warder.Rows[0]["save_attribute"].ToString();
             }
             else
             {
@@ -456,11 +461,13 @@ namespace WPFTestResults
 
                     VulGetValues(bestandsnaam);
                     ButtonPreConditions.IsEnabled = true;
+                    StackPanelCoDeEx.Visibility = Visibility.Visible;
                     buttonCreateCSV.IsEnabled = true;
                     buttonCreateExcel.IsEnabled = true;
                     buttonImportCSV.IsEnabled = true;
                     ButtonImportModule.IsEnabled = true;
                     ButtonGenWebdriverIo.IsEnabled = true;
+                    ButtonGenCypressIO.IsEnabled = true;
                 }
             }
 
@@ -564,7 +571,9 @@ namespace WPFTestResults
                         // Indien variable voor testscript bestaat, update deze uit tabel 'saved_values'
                         var saved_id = dt.Rows[0][0].ToString();
                         query = "UPDATE saved_values SET saved_values_name = '";
-                        query += TextBoxSetValueName.Text + "' ";
+                        query += TextBoxSetValueName.Text + "', ";
+                        query += "attribute = '";
+                        query += ComboBoxAttributeSave.Text + "' ";
                         query += "WHERE ";
                         query += "saved_values_id = '" + saved_id + "';";
                     }
@@ -573,9 +582,10 @@ namespace WPFTestResults
                         // anders Voeg de gegevens toe aan de tabel 'saved_values'
                         query =
                             "INSERT INTO saved_values (saved_values_testname, ";
-                        query += "saved_values_name, projectid) ";
+                        query += "saved_values_name, projectid, attribute) ";
                         query += "VALUES('" + bestandsnaam + "', ";
-                        query += "'" + TextBoxSetValueName.Text + "', ";
+                        query += "'" + TextBoxSetValueName.Text + "', '";
+                        query += ComboBoxAttributeSave.Text + "', ";
                         query += GeneralFunctionality.Functions.getProjectID() +
                                  ");";
                     }
@@ -598,6 +608,7 @@ namespace WPFTestResults
                         TextBoxTestCase.Text,
                         TextBoxTestElementName.Text,
                         TextBoxTestElement.Text,
+                        string.Empty,
                         ComboBoxAttribute.Text,
                         ComboBoxAction.Text,
                         tekst,
@@ -611,7 +622,9 @@ namespace WPFTestResults
                         TextBoxTag.Text,
                         TextBoxTestDescription.Text.Replace("'", "\'"),
                         checkstrict,
-                        wachtwoord); // text_password
+                        ComboBoxAttributeSave.Text,
+                        wachtwoord
+                    ); // text_password
                 }
                 else
                 {
@@ -633,6 +646,7 @@ namespace WPFTestResults
                         TextBoxComment.Text.Replace("'", "\'"),
                         TextBoxTag.Text,
                         checkstrict,
+                        ComboBoxAttributeSave.Text,
                         wachtwoord);
                     ganaar = true;
                 }
@@ -747,6 +761,7 @@ namespace WPFTestResults
 
         private void VerplichtElement()
         {
+            ComboBoxAttributeSave.Visibility = Visibility.Hidden;
             switch (ComboBoxAction.Text)
             {
                 case "click":
@@ -778,6 +793,7 @@ namespace WPFTestResults
                     break;
                 case "set_value":
                     verplicht = false;
+                    ComboBoxAttributeSave.Visibility = Visibility.Visible;
                     break;
                 case "get_value":
                     verplicht = false;
@@ -1064,26 +1080,12 @@ namespace WPFTestResults
             checkSaveble();
         }
 
-        /// <summary>
-        ///     Handles the TextChanged event of the TextBoxTestElement control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for TextBoxTestElement_TextChanged
         private void TextBoxTestElement_TextChanged(object sender,
             TextChangedEventArgs e)
         {
             checkSaveble();
         }
 
-        /// <summary>
-        ///     Handles the TextChanged event of the TextBoxTestNr control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for TextBoxTestNr_TextChanged
         private void TextBoxTestNr_TextChanged(object sender,
             TextChangedEventArgs e)
         {
@@ -1107,11 +1109,6 @@ namespace WPFTestResults
             }
         }
 
-        /// <summary>
-        ///     Vuls the label.
-        /// </summary>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for VulLabel
         private void VulLabel()
         {
             testCases = TestResultsFactory.GetTestCases(
@@ -1123,16 +1120,11 @@ namespace WPFTestResults
                     0,
                     textboxApplictionname.Content.ToString().Length - 4));
             LabelTestSteps.Content = testCasesCount;
-
             AddDataGrid.ItemsSource = null;
-            // AddDataGrid.ItemsSource = testCases;
             AddDataGrid.ItemsSource = testCases;
             AddDataGrid.SelectedIndex = -1;
             if (AddDataGrid.Items.Count == 0) TextBoxTestNr.Text = "1";
-
             PanelNamen.Visibility = Visibility.Visible;
-
-            //VulTestNr(testCases);
             VulTestNr(testCases);
         }
 
@@ -1143,13 +1135,6 @@ namespace WPFTestResults
                 ComboboxSelectNr.Items.Add(testCases[x].testnr);
         }
 
-        /// <summary>
-        ///     Handles the IsVisibleChanged event of the Window control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-        /// <autogeneratedoc />
-        /// TODO Edit XML Comment Template for Window_IsVisibleChanged
         private void Window_IsVisibleChanged(object sender,
             DependencyPropertyChangedEventArgs e)
         {
@@ -1383,6 +1368,7 @@ namespace WPFTestResults
                                 testcase,
                                 string.Empty,
                                 text,
+                                text,
                                 testattribute,
                                 string.Empty,
                                 values[7],
@@ -1396,7 +1382,8 @@ namespace WPFTestResults
                                 values[6],
                                 string.Empty,
                                 "yes",
-                                values[7]);
+                                values[7],
+                                string.Empty);
 
                             testnr++;
                         }
@@ -1466,6 +1453,7 @@ namespace WPFTestResults
                                 testcase,
                                 testelementname,
                                 testelement,
+                                string.Empty,
                                 testattribute,
                                 testaction,
                                 testtext,
@@ -1479,7 +1467,8 @@ namespace WPFTestResults
                                 testtag,
                                 testcheck,
                                 "yes",
-                                testcheck);
+                                testcheck,
+                                string.Empty);
 
                             testnr++;
                         }
@@ -1543,6 +1532,7 @@ namespace WPFTestResults
                             testcase,
                             string.Empty,
                             text,
+                            text,
                             testattribute,
                             string.Empty,
                             values[7],
@@ -1556,7 +1546,8 @@ namespace WPFTestResults
                             values[6],
                             string.Empty,
                             "yes",
-                            values[7]);
+                            values[7],
+                            string.Empty);
                     }
 
                     testnr++;
@@ -1620,6 +1611,7 @@ namespace WPFTestResults
                                 testcase,
                                 testelementname,
                                 testelement,
+                                testelement,
                                 testattribute,
                                 testaction,
                                 testtext,
@@ -1633,7 +1625,8 @@ namespace WPFTestResults
                                 testtag,
                                 testcheck,
                                 "yes",
-                                testcheck);
+                                testcheck,
+                                string.Empty);
                         }
 
                         testnr++;
@@ -1684,6 +1677,7 @@ namespace WPFTestResults
             {
                 ButtonImportModule.IsEnabled = true;
                 ButtonGenWebdriverIo.IsEnabled = true;
+                ButtonGenCypressIO.IsEnabled = true;
                 TextBoxModuleFrom.Focusable = true;
                 TextBoxModuleFrom.Focus();
             }
@@ -1691,6 +1685,7 @@ namespace WPFTestResults
             {
                 //ButtonImportModule.IsEnabled = false;
                 ButtonGenWebdriverIo.IsEnabled = false;
+                ButtonGenCypressIO.IsEnabled = false;
             }
         }
 
@@ -1795,6 +1790,7 @@ namespace WPFTestResults
                         testcase,
                         testelementname,
                         testelement,
+                        string.Empty,
                         testattribute,
                         testaction,
                         testtext,
@@ -1808,7 +1804,8 @@ namespace WPFTestResults
                         testtag,
                         testcheck,
                         "yes",
-                        testcheck);
+                        testcheck,
+                        string.Empty);
 
                     testnr++;
                 }
@@ -2025,268 +2022,286 @@ namespace WPFTestResults
             var iTeller = 0;
             foreach (var testCase in testCases)
             {
-                var from1 = 10000000;
-                var till1 = -1;
-
-                if (TextBoxLoginFrom.Text != string.Empty)
-                    if (Convert.ToInt32(TextBoxLoginFrom.Text) > 0)
-                        from1 = Convert.ToInt32(TextBoxLoginFrom.Text);
-
-                if (TextBoxLoginFrom.Text != string.Empty)
-                    if (Convert.ToInt32(TextBoxLoginTill.Text) > 0)
-                        till1 = Convert.ToInt32(TextBoxLoginTill.Text);
-
-                if (iTeller == 0)
-                {
-                    inhoud += TextBoxImportApp.Text;
-                    if (TextBoxImportApp.Text != string.Empty) inhoud += "\r\n";
-
-                    inhoud += TextBoxImportLogin.Text;
-                    if (TextBoxImportLogin.Text != string.Empty)
-                        inhoud += "\r\n\r\n";
-
-                    inhoud += "describe('" +
-                              GeneralFunctionality.Functions._project + "_" +
-                              TextBoxTestName.Text + "', function() {\r\n";
-                    inhoud += "\tit('" + TextBoxTestName.Text +
-                              "', function() {\r\n";
-
-                    inhoud += "\t\t\r\n";
-                    if (TextBoxAppFunction.Text != string.Empty)
-                        inhoud += "\t\t" + TextBoxAppFunction.Text +
-                                  ";\r\n\r\n";
-                    else
-                        inhoud += "\t\tbrowser.url('" + LabelUrl.Text +
-                                  "');\r\n\r\n";
-                }
-
-                iTeller++;
-                var content = string.Empty;
-                var controleText =
-                    MySqlHelper.EscapeString(testCase.testext_check);
-                var cleaned = controleText.Replace("\n", "\\n")
-                    .Replace("\r", "\\r").Replace("\t", "\\t");
-                controleText = cleaned;
 
                 if (testCase.testexecution == "yes")
                 {
-                    if (testCase.testnr ==
-                        from1)
-                        if (checkboxLoginrows.IsChecked == true)
-                        {
-                            inhoud +=
-                                "\t\tLoginPage.formSingleSingOnIsVisible();\r\n";
-                            inhoud += "\t\tLoginPage.fillForm();\r\n";
-                            inhoud += "\t\tLoginPage.submitForm();\r\n\r\n";
-                        }
 
-                    if (testCase.testnr <
-                        from1 ||
-                        testCase.testnr >
-                        till1)
+
+                    var from1 = 10000000;
+                    var till1 = -1;
+
+                    if (TextBoxLoginFrom.Text != string.Empty)
+                        if (Convert.ToInt32(TextBoxLoginFrom.Text) > 0)
+                            from1 = Convert.ToInt32(TextBoxLoginFrom.Text);
+
+                    if (TextBoxLoginFrom.Text != string.Empty)
+                        if (Convert.ToInt32(TextBoxLoginTill.Text) > 0)
+                            till1 = Convert.ToInt32(TextBoxLoginTill.Text);
+
+                    if (iTeller == 0)
                     {
-                        switch (testCase.testattribute.ToUpper())
+                        inhoud += TextBoxImportApp.Text;
+                        if (TextBoxImportApp.Text != string.Empty)
+                            inhoud += "\r\n";
+
+                        inhoud += TextBoxImportLogin.Text;
+                        if (TextBoxImportLogin.Text != string.Empty)
+                            inhoud += "\r\n\r\n";
+
+                        inhoud += "describe('" +
+                                  GeneralFunctionality.Functions._project +
+                                  "_" +
+                                  TextBoxTestName.Text + "', function() {\r\n";
+                        inhoud += "\tit('" + TextBoxTestName.Text +
+                                  "', function() {\r\n";
+
+                        inhoud += "\t\t\r\n";
+                        if (TextBoxAppFunction.Text != string.Empty)
+                            inhoud += "\t\t" + TextBoxAppFunction.Text +
+                                      ";\r\n\r\n";
+                        else
+                            inhoud += "\t\tbrowser.url('" + LabelUrl.Text +
+                                      "');\r\n\r\n";
+                    }
+
+                    iTeller++;
+                    var content = string.Empty;
+                    var controleText =
+                        MySqlHelper.EscapeString(testCase.testext_check);
+                    var cleaned = controleText.Replace("\n", "\\n")
+                        .Replace("\r", "\\r").Replace("\t", "\\t");
+                    controleText = cleaned;
+
+                    if (testCase.testexecution == "yes")
+                    {
+                        if (testCase.testnr ==
+                            from1)
+                            if (checkboxLoginrows.IsChecked.ToString() ==
+                                "True")
+                            {
+                                inhoud +=
+                                    "\t\tLoginPage.formSingleSingOnIsVisible();\r\n";
+                                inhoud += "\t\tLoginPage.fillForm();\r\n";
+                                inhoud += "\t\tLoginPage.submitForm();\r\n\r\n";
+                            }
+
+                        if (testCase.testnr <
+                            from1 ||
+                            testCase.testnr >
+                            till1)
                         {
-                            case "ID":
-                                content = "//*[@id=\"" + testCase.testelement +
-                                          "\"]";
-                                break;
+                            switch (testCase.testattribute.ToUpper())
+                            {
+                                case "ID":
+                                    content =
+                                        "//*[@id=\"" + testCase.testelement +
+                                        "\"]";
+                                    break;
 
-                            case "NAME":
-                                content = "[name=\"" + testCase.testelement +
-                                          "\"]";
-                                break;
+                                case "NAME":
+                                    content =
+                                        "[name=\"" + testCase.testelement +
+                                        "\"]";
+                                    break;
 
-                            case "CLASS":
-                                content = "[class=\"" + testCase.testelement +
-                                          "\"]";
-                                break;
+                                case "CLASS":
+                                    content =
+                                        "[class=\"" + testCase.testelement +
+                                        "\"]";
+                                    break;
 
-                            case "XPATH":
-                                content = testCase.testelement;
-                                break;
+                                case "XPATH":
+                                    content = testCase.testelement;
+                                    break;
 
-                            case "CSSSELECTOR":
-                                content = testCase.testelement;
-                                break;
-                        }
+                                case "CSSSELECTOR":
+                                    content = testCase.testelement;
+                                    break;
+                            }
 
-                        if (testCase.testelementname != string.Empty)
-                            inhoud += "\t\t// " + testCase.testelementname
-                                          .Replace("\n", "").Replace("\r", "")
-                                          .Replace("\t", "") +
-                                      "\r\n";
+                            if (testCase.testelementname != string.Empty)
+                                inhoud += "\t\t// " + testCase.testelementname
+                                              .Replace("\n", "")
+                                              .Replace("\r", "")
+                                              .Replace("\t", "") +
+                                          "\r\n";
 
-                        if (testCase.testelement != string.Empty)
-                            inhoud += "\t\t$('" + content +
-                                      "').isExisting();\r\n";
-
-
-                        if (testCase.testext_check != string.Empty)
-                        {
-                            if (testCase.testcheckstrict == "no")
-                                inhoud += "\t\texpect($('" + content +
-                                          "')).toHaveTextContaining('" +
-                                          controleText +
-                                          "');\r\n";
-
-                            if (testCase.testcheckstrict == "yes")
-                                inhoud += "\t\texpect($('" + content +
-                                          "')).toHaveText('" + controleText +
-                                          "');\r\n";
-                        }
-
-                        switch (testCase.testaction.ToUpper())
-                        {
-                            case "CLICK":
-                                inhoud += waitForEx(content); //+ ";";
+                            if (testCase.testelement != string.Empty)
                                 inhoud += "\t\t$('" + content +
-                                          "').click();\r\n";
-                                break;
-                            case "DOUBLECLICK":
-                                inhoud += waitForEx(content);
-                                inhoud += "\t\t$('" + content +
-                                          "').doubleClick();\r\n";
-                                break;
-                            case "SENDKEYS":
-                                var text = testCase.testtext;
-                                if (testCase.testtext == string.Empty)
-                                    text = testCase.testpassword;
-                                inhoud += waitForEx(content);
-                                inhoud +=
-                                    "\t\t$('" + content + "').setValue('" +
-                                    text + "');\r\n";
+                                          "').isExisting();\r\n";
 
-                                if (text.Contains("{ENTER}"))
-                                    inhoud += "browser.keys(\"\uE007\");";
 
-                                if (text.Contains("{TAP}"))
+                            if (testCase.testext_check != string.Empty)
+                            {
+                                if (testCase.testcheckstrict == "no")
+                                    inhoud += "\t\texpect($('" + content +
+                                              "')).toHaveTextContaining('" +
+                                              controleText +
+                                              "');\r\n";
+
+                                if (testCase.testcheckstrict == "yes")
+                                    inhoud += "\t\texpect($('" + content +
+                                              "')).toHaveText('" +
+                                              controleText +
+                                              "');\r\n";
+                            }
+
+                            switch (testCase.testaction.ToUpper())
+                            {
+                                case "CLICK":
+                                    inhoud += waitForEx(content); //+ ";";
+                                    inhoud += "\t\t$('" + content +
+                                              "').click()\r\n";
+                                    break;
+                                case "DOUBLECLICK":
+                                    inhoud += waitForEx(content);
+                                    inhoud += "\t\t$('" + content +
+                                              "').doubleClick()\r\n";
+                                    break;
+                                case "SENDKEYS":
+                                    var text = testCase.testtext;
+                                    if (testCase.testtext == string.Empty)
+                                        text = testCase.testpassword;
+                                    inhoud += waitForEx(content);
                                     inhoud +=
-                                        "\t\tbrowser.setValue('input', ['Tab']);\r\n";
+                                        "\t\t$('" + content + "').setValue('" +
+                                        text + "')\r\n";
 
-                                break;
-                            case "SELECT":
-                                inhoud += waitForEx(content);
-                                inhoud += "\t\t$('" + content +
-                                          "').selectByVisibleText('" +
-                                          testCase.testtext + "');\r\n";
-                                break;
-                            case "VALUE":
-                                inhoud += waitForEx(content);
-                                inhoud +=
-                                    "\t\t$('" + content + "').setValue('" +
-                                    testCase.testtext + "');\r\n";
-                                break;
-                            case "CHECKBOX":
-                                /*var Bestandsnaam = TextBoxTestName.Text;
-                                IWebElement checkbox1 = null;
-                                var chromePath = GeneralFunctionality.Functions
-                                    .GetCurrentDir(0);
-                                var credits = GeneralFunctionality.Functions
-                                    .GetCredentials(
-                                        GeneralFunctionality.Functions
-                                            ._project +
-                                        @"\" + Bestandsnaam);
-                                var urlstring = credits.Url;
-                                IWebDriver driver = new ChromeDriver(chromePath)
-                                    { Url = urlstring };
+                                    if (text.Contains("{ENTER}"))
+                                        inhoud += "browser.keys(\"\uE007\");";
 
-                                checkbox1 = HaalElementop(driver,
-                                    testCase.testelement,
-                                    testCase.testattribute);
-
-                                var oldScript =
-                                    checkbox1.GetAttribute(
-                                        "checked");*/
-                                var keuze = "false";
-                                var tekst3 =
-                                    testCase.testtext.Trim();
-                                if (tekst3.ToUpper() == "TRUE")
-                                    keuze = "true";
-                                inhoud += waitForEx(content);
-                                inhoud += "\t\t$('" + content +
-                                          "').isSelected(" + keuze + ");\r\n";
-                                break;
-                            case "MOVE TO":
-                                inhoud += waitForEx(content);
-                                inhoud += "\t\t$('" + content +
-                                          "').moveTo()\r\n";
-                                break;
-                            case "UPLOAD":
-                                var tekst1 =
-                                    TekstVervanging(testCase.testtext.Trim());
-                                var file1 =
-                                    tekst1.Replace("\'", "\\'");
-
-                                var laatste = tekst1.Split('\\');
-
-                                inhoud +=
-                                    "\r\n\t\tconst path = require('path');\r\n";
-                                inhoud +=
-                                    "\t\tconst filePath = path.join(__dirname, '/Downloads/" +
-                                    laatste[laatste.Length - 1] + "');\r\n";
-                                inhoud +=
-                                    "\t\tconst remoteFilePath = browser.uploadFile(filePath);\r\n";
-                                inhoud +=
-                                    "\t\t$('" + content +
-                                    "').setValue(remoteFilePath);\r\n\r\n";
-
-                                break;
-                            case "SWITCH TO IFRAME":
-                                var detailFrame = content;
-                                inhoud += waitForEx(content);
-                                inhoud += "\t\tbrowser.frame(" + detailFrame +
-                                          ");\r\n";
-                                break;
-                            case "SWITCH TO DEFAULT":
-                                inhoud +=
-                                    "\t\tbrowser.SwitchTo().DefaultContent();\r\n";
-                                break;
-                            case "SET_VALUE":
-                                break;
-                            case "GET_VALUE":
-                                break;
-                            case "WAIT":
-                                inhoud += "\t\tbrowser.pause('" +
-                                          Convert.ToInt32(testCase.testtext) *
-                                          1000 + "');\r\n";
-                                ;
-                                break;
-                            case "SCROLL":
-                                break;
-                            case "SWITCH TO URL":
-                                if (TextBoxSwitchUrl.Text != string.Empty)
-                                {
-                                    CheckBoxSwitch.IsChecked = true;
-                                }
-                                if (CheckBoxSwitch.IsChecked == true)
-                                {
-                                    var voor = string.Empty;
-                                    if (TextBoxSwitchUrl.Text != string.Empty)
-                                        voor = "// ";
-                                    inhoud +=
-                                        "\t\t// Define <switchTo> in ../pageobjects/App.js file!\r\n";
-                                    inhoud +=
-                                        "\t\t" + voor + "browser.url('" +
-                                        testCase.testurl +
-                                        "');\r\n";
-                                    if (TextBoxSwitchUrl.Text != string.Empty)
-                                        inhoud += "\t\t" +
-                                                  TextBoxSwitchUrl.Text +
-                                                  ";\r\n\r\n";
-                                    else
+                                    if (text.Contains("{TAP}"))
                                         inhoud +=
-                                            "\t\t// App.<url-function in App.js>();\r\n\r\n";
-                                }
+                                            "\t\tbrowser.setValue('input', ['Tab']);\r\n";
 
-                                break;
-                            case "CMD":
-                                break;
-                            case "SCREENSHOT":
-                                inhoud += "browser.screenshot();";
-                                break;
-                            case "LOGOUT":
-                                break;
+                                    break;
+                                case "SELECT":
+                                    inhoud += waitForEx(content);
+                                    inhoud += "\t\t$('" + content +
+                                              "').selectByVisibleText('" +
+                                              testCase.testtext + "');\r\n";
+                                    break;
+                                case "VALUE":
+                                    inhoud += waitForEx(content);
+                                    inhoud +=
+                                        "\t\t$('" + content + "').setValue('" +
+                                        testCase.testtext + "');\r\n";
+                                    break;
+                                case "CHECKBOX":
+                                    /*var Bestandsnaam = TextBoxTestName.Text;
+                                    IWebElement checkbox1 = null;
+                                    var chromePath = GeneralFunctionality.Functions
+                                        .GetCurrentDir(0);
+                                    var credits = GeneralFunctionality.Functions
+                                        .GetCredentials(
+                                            GeneralFunctionality.Functions
+                                                ._project +
+                                            @"\" + Bestandsnaam);
+                                    var urlstring = credits.Url;
+                                    IWebDriver driver = new ChromeDriver(chromePath)
+                                        { Url = urlstring };
+    
+                                    checkbox1 = HaalElementop(driver,
+                                        testCase.testelement,
+                                        testCase.testattribute);
+    
+                                    var oldScript =
+                                        checkbox1.GetAttribute(
+                                            "checked");*/
+                                    var keuze = "false";
+                                    var tekst3 =
+                                        testCase.testtext.Trim();
+                                    if (tekst3.ToUpper() == "TRUE")
+                                        keuze = "true";
+                                    inhoud += waitForEx(content);
+                                    inhoud += "\t\t$('" + content +
+                                              "').isSelected(" + keuze +
+                                              ");\r\n";
+                                    break;
+                                case "MOVE TO":
+                                    inhoud += waitForEx(content);
+                                    inhoud += "\t\t$('" + content +
+                                              "').moveTo()\r\n";
+                                    break;
+                                case "UPLOAD":
+                                    var tekst1 =
+                                        TekstVervanging(
+                                            testCase.testtext.Trim());
+                                    var file1 =
+                                        tekst1.Replace("\'", "\\'");
+
+                                    var laatste = tekst1.Split('\\');
+
+                                    inhoud +=
+                                        "\r\n\t\tconst path = require('path');\r\n";
+                                    inhoud +=
+                                        "\t\tconst filePath = path.join(__dirname, '/Downloads/" +
+                                        laatste[laatste.Length - 1] + "');\r\n";
+                                    inhoud +=
+                                        "\t\tconst remoteFilePath = browser.uploadFile(filePath);\r\n";
+                                    inhoud +=
+                                        "\t\t$('" + content +
+                                        "').setValue(remoteFilePath);\r\n\r\n";
+
+                                    break;
+                                case "SWITCH TO IFRAME":
+                                    var detailFrame = content;
+                                    inhoud += waitForEx(content);
+                                    inhoud +=
+                                        "\t\tbrowser.frame(" + detailFrame +
+                                        ");\r\n";
+                                    break;
+                                case "SWITCH TO DEFAULT":
+                                    inhoud +=
+                                        "\t\tbrowser.SwitchTo().DefaultContent();\r\n";
+                                    break;
+                                case "SET_VALUE":
+                                    break;
+                                case "GET_VALUE":
+                                    break;
+                                case "WAIT":
+                                    inhoud += "\t\tbrowser.pause('" +
+                                              Convert.ToInt32(testCase
+                                                  .testtext) *
+                                              1000 + "');\r\n";
+                                    ;
+                                    break;
+                                case "SCROLL":
+                                    break;
+                                case "SWITCH TO URL":
+                                    if (TextBoxSwitchUrl.Text != string.Empty)
+                                        CheckBoxSwitch.IsChecked = true;
+                                    if (CheckBoxSwitch.IsChecked == true)
+                                    {
+                                        var voor = string.Empty;
+                                        if (TextBoxSwitchUrl.Text !=
+                                            string.Empty)
+                                            voor = "// ";
+                                        inhoud +=
+                                            "\t\t// Define <switchTo> in ../pageobjects/App.js file!\r\n";
+                                        inhoud +=
+                                            "\t\t" + voor + "browser.url('" +
+                                            testCase.testurl +
+                                            "');\r\n";
+                                        if (TextBoxSwitchUrl.Text !=
+                                            string.Empty)
+                                            inhoud += "\t\t" +
+                                                TextBoxSwitchUrl.Text +
+                                                ";\r\n\r\n";
+                                        else
+                                            inhoud +=
+                                                "\t\t// App.<url-function in App.js>();\r\n\r\n";
+                                    }
+
+                                    break;
+                                case "CMD":
+                                    break;
+                                case "SCREENSHOT":
+                                    inhoud += "browser.screenshot();";
+                                    break;
+                                case "LOGOUT":
+                                    break;
+                            }
                         }
                     }
                 }
@@ -2329,6 +2344,14 @@ namespace WPFTestResults
             MaakVeldenLeeg();
 
             StackPanelRowsLogin.Visibility = Visibility.Visible;
+            LabelHeader.Content = "Generate webdriver.io javascript";
+            LabelHomePage.Content = "HomePage App function:";
+            TextBoxImportApp.Text = "import App from '../../pageobjects/App'";
+            TextBoxImportLogin.Text =
+                "import LoginPage from '../../pageobjects/Pages/LoginPage'";
+            TextBoxAppFunction.Text = "App.";
+            TextBoxSwitchUrl.Text = "App.";
+
             ModuleWebdriver.Visibility = Visibility.Visible;
         }
 
@@ -2346,11 +2369,13 @@ namespace WPFTestResults
             return "\t\t$('" + content + "').waitForDisplayed();\r\n";
         }
 
-        private string waitForEx(string content)
+        private string waitForEx(string content, string soort = "get")
         {
-            return "\t\t$('" + content + "').waitForExist();\r\n";
+            if (LabelHeader.Content.ToString() ==
+                "Generate webdriver.io javascript")
+                return "\t\t$('" + content + "').waitForExist()\r\n";
+            return "\t\tcy." + soort + "('" + content + "').waitForExist()\r\n";
         }
-
 
         public static string TekstVervanging(string tekst)
         {
@@ -2455,7 +2480,10 @@ namespace WPFTestResults
         private void ButtonWebdriverGenerate_Click(object sender,
             RoutedEventArgs e)
         {
-            generateJavascript();
+            if (LabelHeader.Content.ToString() ==
+                "Generate webdriver.io javascript") generateJavascript();
+            if (LabelHeader.Content.ToString() ==
+                "Generate Cypress.io javascript") generateJavascriptCypress();
         }
 
         private void ButtonWebdriverMaakleeg_Click(object sender,
@@ -2517,7 +2545,8 @@ namespace WPFTestResults
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void TextBoxSwitchUrl_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBoxSwitchUrl_TextChanged(object sender,
+            TextChangedEventArgs e)
         {
             if (TextBoxSwitchUrl.Text == string.Empty)
             {
@@ -2526,10 +2555,360 @@ namespace WPFTestResults
             else
             {
                 if (CheckBoxSwitch != null)
-                {
                     CheckBoxSwitch.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void ButtonGenCypressIO_Click(object sender, RoutedEventArgs e)
+        {
+            checkboxLoginrows.IsChecked = true;
+            MaakVeldenLeeg();
+
+            StackPanelRowsLogin.Visibility = Visibility.Visible;
+
+            LabelHeader.Content = "Generate Cypress.io javascript";
+            LabelHomePage.Content = "URL 'Nickname':";
+            TextBoxImportApp.Text = "";
+            TextBoxImportLogin.Text =
+                "import LoginUVT from '../../../support/LoginUVT'";
+            TextBoxAppFunction.Text = "";
+            TextBoxSwitchUrl.Text = "";
+            ModuleWebdriver.Visibility = Visibility.Visible;
+        }
+
+        private void generateJavascriptCypress()
+        {
+            var inhoud = "";
+            var iTeller = 0;
+            foreach (var testCase in testCases)
+            {
+                if (testCase.testexecution == "yes")
+                {
+                    var from1 = 10000000;
+                    var till1 = -1;
+
+                    if (TextBoxLoginFrom.Text != string.Empty)
+                        if (Convert.ToInt32(TextBoxLoginFrom.Text) > 0)
+                            from1 = Convert.ToInt32(TextBoxLoginFrom.Text);
+
+                    if (TextBoxLoginFrom.Text != string.Empty)
+                        if (Convert.ToInt32(TextBoxLoginTill.Text) > 0)
+                            till1 = Convert.ToInt32(TextBoxLoginTill.Text);
+
+                    if (iTeller == 0)
+                    {
+                        inhoud += TextBoxImportApp.Text;
+                        if (TextBoxImportApp.Text != string.Empty)
+                            inhoud += "\r\n";
+
+                        inhoud += TextBoxImportLogin.Text;
+                        if (TextBoxImportLogin.Text != string.Empty)
+                            inhoud += "\r\n\r\n";
+
+                        inhoud += "describe('" +
+                                  GeneralFunctionality.Functions._project +
+                                  "_" +
+                                  TextBoxTestName.Text + "', () => {\r\n";
+                        inhoud += "\tit('" + TextBoxTestName.Text +
+                                  "', () => {\r\n";
+
+                        inhoud += "\t\t\r\n";
+                    }
+
+                    iTeller++;
+                    var content = string.Empty;
+                    var controleText =
+                        MySqlHelper.EscapeString(testCase.testext_check);
+                    var cleaned = controleText.Replace("\n", "\\n")
+                        .Replace("\r", "\\r").Replace("\t", "\\t");
+                    controleText = cleaned;
+
+                    if (testCase.testexecution == "yes")
+                    {
+                        if (testCase.testnr ==
+                            from1)
+                            if (checkboxLoginrows.IsChecked == true)
+                                inhoud +=
+                                    "\t\tLoginUVT.login('" +
+                                    TextBoxAppFunction.Text + "', '0')\r\n";
+
+                        if (testCase.testnr <
+                            from1 ||
+                            testCase.testnr >
+                            till1)
+                        {
+                            switch (testCase.testattribute.ToUpper())
+                            {
+                                case "ID":
+                                    content = "#" + testCase.testelement;
+                                    break;
+
+                                case "NAME":
+                                    content =
+                                        "[name=\"" + testCase.testelement +
+                                        "\"]";
+                                    break;
+
+                                case "CLASS":
+                                    content = "." + testCase.testelement;
+                                    break;
+
+                                case "XPATH":
+                                    content = testCase.testelement;
+                                    break;
+
+                                case "CSSSELECTOR":
+                                    content = testCase.testelement;
+                                    break;
+                            }
+
+                            var soort = "get";
+                            if (testCase.testattribute.ToUpper() == "XPATH")
+                                soort = "xpath";
+
+                            if (testCase.testelement != string.Empty)
+                                inhoud += "\t\tcy." + soort + "('" + content +
+                                          "').should('exist')\r\n";
+
+                            if (testCase.testext_check != string.Empty)
+                            {
+                                var vergelijking = "equal";
+                                var vergelijking1 = "equal";
+
+                                if (CheckBoxStrict.IsChecked ?? false)
+                                {
+                                    vergelijking = "contain";
+                                    vergelijking1 = "include";
+                                }
+
+                                inhoud += "\t\tif (cy." + soort + "('" +
+                                          content +
+                                          "').should('have.prop', 'tagName') === 'INPUT') {\r\n";
+                                inhoud += "\t\t\tcy." + soort + "('" + content +
+                                          "').invoke('attr', 'value').should('" + vergelijking +"', '" +
+                                          controleText + "')\r\n\t\t}\r\n";
+                                inhoud += "\t\telse {\r\n";
+                                inhoud += "\t\t\tcy." + soort + "('" + content +
+                                          "').should($div => {\r\n\t\t\texpect($div.text().trim())." + vergelijking1 + "('" +
+                                          controleText + "')})\r\n\t\t}\r\n";
+                            }
+
+                            switch (testCase.testaction.ToUpper())
+                            {
+                                case "CLICK":
+
+                                    inhoud +=
+                                        "\t\tcy." + soort + "('" + content +
+                                        "').click({force: true})\r\n";
+                                    break;
+                                case "DOUBLECLICK":
+                                    //inhoud += waitForEx(content, soort);
+                                    inhoud +=
+                                        "\t\tcy." + soort + "('" + content +
+                                        "').doubleClick()\r\n";
+                                    break;
+                                case "SENDKEYS":
+                                    var text = testCase.testtext;
+                                    if (testCase.testtext == string.Empty)
+                                        text = testCase.testpassword;
+
+                                    if (text == "{ENTER}")
+                                        inhoud +=
+                                            "\t\tcy." + soort + "('" + content +
+                                            "').type('" +
+                                            text.ToLower() + "')\r\n";
+                                    else
+                                    {
+                                        inhoud +=
+                                            "\t\tcy." + soort + "('" + content +
+                                            "').type('" +
+                                            text + "')\r\n";
+                                    }
+
+                                    break;
+                                case "SELECT":
+                                    inhoud +=
+                                        "\t\tcy." + soort + "('" + content +
+                                        "').select('" +
+                                        testCase.testtext + "')\r\n";
+                                    break;
+                                case "VALUE":
+                                    //inhoud += waitForEx(content, soort);
+                                    inhoud +=
+                                        "\t\tcy." + soort + "('" + content +
+                                        "').setValue('" +
+                                        testCase.testtext + "')\r\n";
+                                    break;
+                                case "CHECKBOX":
+                                    var keuze = "false";
+                                    var tekst3 =
+                                        testCase.testtext.Trim();
+                                    if (tekst3.ToUpper() == "TRUE")
+                                        keuze = "true";
+                                    inhoud += waitForEx(content, soort);
+                                    inhoud +=
+                                        "\t\tcy." + soort + "('" + content +
+                                        "').isSelected(" + keuze + ")\r\n";
+                                    break;
+                                case "MOVE TO":
+                                    //inhoud += waitForEx(content, soort);
+                                    inhoud +=
+                                        "\t\tcy." + soort + "('" + content +
+                                        "').scrollTo('center')\r\n";
+                                    break;
+                                case "UPLOAD":
+                                    var tekst1 =
+                                        TekstVervanging(
+                                            testCase.testtext.Trim());
+                                    var file1 =
+                                        tekst1.Replace("\'", "\\'");
+
+                                    var laatste = tekst1.Split('\\');
+
+                                    inhoud +=
+                                        "\r\n\t\tconst path = require('path');\r\n";
+                                    inhoud +=
+                                        "\t\tconst filePath = path.join(__dirname, '/Downloads/" +
+                                        laatste[laatste.Length - 1] + "')\r\n";
+                                    inhoud +=
+                                        "\t\tconst remoteFilePath = browser.uploadFile(filePath);\r\n";
+                                    inhoud +=
+                                        "\t\tcy." + soort + "('" + content +
+                                        "').setValue(remoteFilePath)\r\n\r\n";
+
+                                    break;
+                                case "SWITCH TO IFRAME":
+                                    var detailFrame = content;
+                                    //inhoud += waitForEx(content, soort);
+                                    inhoud +=
+                                        "\t\tbrowser.frame(" + detailFrame +
+                                        ")\r\n";
+                                    break;
+                                case "SWITCH TO DEFAULT":
+                                    inhoud +=
+                                        "\t\tbrowser.SwitchTo().DefaultContent()\r\n";
+                                    break;
+                                case "SET_VALUE":
+                                    break;
+                                case "GET_VALUE":
+                                    break;
+                                case "WAIT":
+                                    inhoud += "\t\tbrowser.pause('" +
+                                              Convert.ToInt32(testCase
+                                                  .testtext) *
+                                              1000 + "')\r\n";
+                                    break;
+                                case "SCROLL":
+                                    inhoud +=
+                                        "\t\tcy.scrollTo('" +
+                                        testCase.testtext +
+                                        "')\r\n";
+                                    break;
+                                case "SWITCH TO URL":
+                                    if (TextBoxSwitchUrl.Text != string.Empty)
+                                        CheckBoxSwitch.IsChecked = true;
+                                    if (CheckBoxSwitch.IsChecked == true)
+                                    {
+                                        var voor = string.Empty;
+                                        if (TextBoxSwitchUrl.Text !=
+                                            string.Empty)
+                                            voor = "// ";
+                                        inhoud +=
+                                            "\t\t// Define <switchTo> in ../pageobjects/App.js file!\r\n";
+                                        inhoud +=
+                                            "\t\t" + voor + "browser.url('" +
+                                            testCase.testurl +
+                                            "')\r\n";
+                                        if (TextBoxSwitchUrl.Text !=
+                                            string.Empty)
+                                            inhoud += "\t\t" +
+                                                TextBoxSwitchUrl.Text +
+                                                "\r\n\r\n";
+                                        else
+                                            inhoud +=
+                                                "\t\t// App.<url-function in App.js>()\r\n\r\n";
+                                    }
+
+                                    break;
+                                case "CMD":
+                                    break;
+                                case "SCREENSHOT":
+                                    inhoud += "browser.screenshot();";
+                                    break;
+                                case "LOGOUT":
+                                    break;
+                            }
+                        }
+                    }
                 }
             }
+
+            inhoud += "\t})\r\n";
+            inhoud += "})\r\n";
+
+            if (Directory.Exists(
+                GeneralFunctionality.Functions.GetCurrentDir(3)))
+            {
+                // Genereer het bestand
+                var appendtext =
+                    GeneralFunctionality.Functions.GetCurrentDir(3) +
+                    "\\" + TextBoxTestName.Text + ".spec.js";
+                var sw = File.CreateText(appendtext);
+                sw.WriteLine(inhoud);
+
+                sw.Close();
+                MessageBox.Show("webdriver.id javasscript created!",
+                    "Create javascript", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(
+                    GeneralFunctionality.Functions.GetCurrentDir(3) +
+                    " is not a valid directory.\r\n\r\nGo to Settings -> Overall Settings and correct this!!!",
+                    "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            ModuleWebdriver.Visibility = Visibility.Hidden;
+        }
+
+        private void ButtonXpath_Click(object sender, RoutedEventArgs e)
+        {
+            var sqlConn =
+                "SELECT test_element_xpath ";
+            sqlConn += "FROM testcases_selenium WHERE testname = '" +
+                       TextBoxTestName.Text +
+                       "' AND testnr = " + TextBoxTestNr.Text;
+            sqlConn += " ORDER BY testname, testnr";
+            DataTable dt = GenericDataRead.GetData(sqlConn);
+
+            if (dt.Rows.Count > 0)
+            {
+                TextBoxTestElement.Text = dt.Rows[0][0].ToString();
+            }
+        }
+
+        private void CopyRegels_Click(object sender, RoutedEventArgs e)
+        {
+            var updateCopyDataBulk = new UpdateCopyDataBulk(bestandsnaamgeopend);
+            updateCopyDataBulk.ShowDialog();
+            VulLabel();
+        }
+
+
+        private void DeleteRegels_Click(object sender, RoutedEventArgs e)
+        {
+            var deleteBulkData = new DeleteBulkData(bestandsnaamgeopend);
+            deleteBulkData.ShowDialog();
+            VulLabel();
+        }
+
+        private void ExecuteRegels_OnClickRegels_Click(object sender, RoutedEventArgs e)
+        {
+            var changeExecuteBulkData = new ChangeExecuteBulkData(bestandsnaamgeopend);
+            changeExecuteBulkData.ShowDialog();
+            VulLabel();
         }
     }
 }
