@@ -2568,11 +2568,11 @@ namespace WPFTestResults
 
             LabelHeader.Content = "Generate Cypress.io javascript";
             LabelHomePage.Content = "URL 'Nickname':";
-            TextBoxImportApp.Text = "";
+            //TextBoxImportApp.Text = "";
             TextBoxImportLogin.Text =
                 "import LoginUVT from '../../../support/LoginUVT'";
-            TextBoxAppFunction.Text = "";
-            TextBoxSwitchUrl.Text = "";
+            //TextBoxAppFunction.Text = "";
+            //TextBoxSwitchUrl.Text = "";
             ModuleWebdriver.Visibility = Visibility.Visible;
         }
 
