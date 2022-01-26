@@ -2613,6 +2613,12 @@ namespace WPFTestResults
                                   "', () => {\r\n";
 
                         inhoud += "\t\t\r\n";
+
+                        if (TextBoxSwitchUrl.Text != string.Empty)
+                        {
+                            inhoud += "\t\tcy.visit('" +
+                                      TextBoxSwitchUrl.Text + "')\r\n";
+                        }
                     }
 
                     iTeller++;

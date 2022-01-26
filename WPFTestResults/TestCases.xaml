@@ -956,7 +956,7 @@
                 Content="Import Module"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,8,412,5"
+                Margin="0,7,412,6"
                 Grid.Row="3"
                 Width="100" Visibility="Visible" Click="ButtonImportModule_Click" />
         <Button Name="ButtonGenWebdriverIo"
@@ -964,7 +964,7 @@
                 Content="webdriver.io"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0,8,270,0"
+                Margin="0,7,270,6"
                 Grid.Row="3"
                 Width="100" Visibility="Visible"
                 IsEnabled="False" Click="ButtonGenWebdriverIo_Click" />
@@ -973,7 +973,7 @@
                 Content="Cypress.io"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0,8,158,7"
+                Margin="0,7,158,6"
                 Grid.Row="3"
                 Width="100" Visibility="Visible"
                 IsEnabled="False" Click="ButtonGenCypressIO_Click" />
