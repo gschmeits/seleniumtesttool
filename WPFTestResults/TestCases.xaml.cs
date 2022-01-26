@@ -2799,7 +2799,7 @@ namespace WPFTestResults
                                 case "GET_VALUE":
                                     break;
                                 case "WAIT":
-                                    inhoud += "\t\tbrowser.pause('" +
+                                    inhoud += "\t\tcy.wait('" +
                                               Convert.ToInt32(testCase
                                                   .testtext) *
                                               1000 + "')\r\n";
