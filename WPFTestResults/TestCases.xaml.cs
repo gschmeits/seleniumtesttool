@@ -2727,6 +2727,9 @@ namespace WPFTestResults
                                     {
                                         inhoud +=
                                             "\t\tcy." + soort + "('" + content +
+                                            "').clear()\r\n";
+                                        inhoud +=
+                                            "\t\tcy." + soort + "('" + content +
                                             "').type('" +
                                             text + "')\r\n";
                                     }
