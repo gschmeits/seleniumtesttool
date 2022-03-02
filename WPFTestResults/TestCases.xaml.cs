@@ -2656,7 +2656,7 @@ namespace WPFTestResults
                             if (testCase.testattribute.ToUpper() == "XPATH")
                                 soort = "xpath";
 
-                            inhoud += "\r\n\t\tcy.step('Click on the element')\r\n";
+                            inhoud += "\r\n\t\tcy.step('Click on the element " + testCase.testelementname + "')\r\n";
                             inhoud +=
                                 "\t\tcy." + soort + "('" + content +
                                 "').click({force: true})\r\n";
@@ -2718,7 +2718,7 @@ namespace WPFTestResults
 
                                 if (testCase.testext_check != string.Empty)
                                 {
-                                    inhoud += "\r\n\t\tcy.step('Check the text of the element')\r\n";
+                                    inhoud += "\r\n\t\tcy.step('Check the text of the element "+ testCase.testelementname+"')\r\n";
                                     inhoud += "\t\tif (cy." + soort + "('" +
                                               content +
                                               "').should('have.prop', 'tagName') === 'INPUT') {\r\n";
@@ -2739,14 +2739,14 @@ namespace WPFTestResults
                             switch (testCase.testaction.ToUpper())
                             {
                                 case "CLICK":
-                                    inhoud += "\t\tcy.step('Click on the element')\r\n";
+                                    inhoud += "\t\tcy.step('Click on the element " + testCase.testelementname + "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').click({force: true})\r\n\r\n";
                                     break;
                                 case "DOUBLECLICK":
 
-                                    inhoud += "t\tcy.step('Double click on the element')\r\n";
+                                    inhoud += "t\tcy.step('Double click on the element "+testCase.testelementname+"')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').doubleClick()\r\n\r\n";
@@ -2758,7 +2758,7 @@ namespace WPFTestResults
 
                                     if (text == "{ENTER}")
                                     {
-                                        inhoud += "\t\tcy.step('Sendkey Enter')\r\n";
+                                        inhoud += "\t\tcy.step('Sendkey Enter to "+testCase.testelementname+"')\r\n";
                                         inhoud +=
                                             "\t\tcy." + soort + "('" + content +
                                             "').type('" +
@@ -2766,7 +2766,7 @@ namespace WPFTestResults
                                     }
                                     else
                                     {
-                                        inhoud += "\t\tcy.step('Sendkeys: " + text + "')\r\n";
+                                        inhoud += "\t\tcy.step('Sendkeys: " + text +" to "+testCase.testelementname+ "')\r\n";
                                         inhoud +=
                                             "\t\tcy." + soort + "('" + content +
                                             "').clear()\r\n";
@@ -2777,7 +2777,7 @@ namespace WPFTestResults
                                     }
                                     break;
                                 case "SELECT":
-                                    inhoud += "\t\tcy.step('Select: " + testCase.testtext + "')\r\n";
+                                    inhoud += "\t\tcy.step('Select: " + testCase.testtext +" from " +testCase.testelementname+ "')\r\n";
 
                                     if (testCase.testtext.Contains("|"))
                                     {
@@ -2805,7 +2805,7 @@ namespace WPFTestResults
 
                                     break;
                                 case "VALUE":
-                                    inhoud += "\t\tcy.step('Set value: '" + testCase.testtext + "')\r\n";
+                                    inhoud += "\t\tcy.step('Set value: '" + testCase.testtext +" to " +testCase.testelementname+ "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').setValue('" +
@@ -2817,14 +2817,14 @@ namespace WPFTestResults
                                         testCase.testtext.Trim();
                                     if (tekst3.ToUpper() == "TRUE")
                                         keuze = "true";
-                                    inhoud += "\t\tcy.step('Set checkbox to: '" + keuze + "')\r\n";
+                                    inhoud += "\t\tcy.step('Set checkbox "+testCase.testelementname +" to: '" + keuze + "')\r\n";
                                     inhoud += waitForEx(content, soort);
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').isSelected(" + keuze + ")\r\n\r\n";
                                     break;
                                 case "MOVE TO":
-                                    inhoud += "\t\tcy.step('Move to element')\r\n";
+                                    inhoud += "\t\tcy.step('Move to element " +testCase.testelementname+ "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').scrollTo('center')\r\n\r\n";
