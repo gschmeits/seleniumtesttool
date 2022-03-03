@@ -2734,8 +2734,7 @@ namespace WPFTestResults
                                         vergelijking1 + "('" +
                                         controleText + "')})\r\n\t\t}\r\n\r\n";
                                 }
-
-
+                            
                             switch (testCase.testaction.ToUpper())
                             {
                                 case "CLICK":
@@ -2746,7 +2745,7 @@ namespace WPFTestResults
                                     break;
                                 case "DOUBLECLICK":
 
-                                    inhoud += "t\tcy.step('Double click on the element "+testCase.testelementname+"')\r\n";
+                                    inhoud += "\t\tcy.step('Double click on the element "+testCase.testelementname+"')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').doubleClick()\r\n\r\n";
