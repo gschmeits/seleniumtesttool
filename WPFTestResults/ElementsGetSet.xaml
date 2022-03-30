@@ -474,7 +474,6 @@
                       VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="7" Margin="10,0,0,0" />
             <CheckBox Name="CheckBoxNav" Content="nav" Width="100" HorizontalAlignment="Center"
                       VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="7" Margin="10,0,0,0" />
-
             <CheckBox Name="CheckBoxH1" Content="h1" Width="100" HorizontalAlignment="Center"
                       VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="0" Margin="10,0,0,0" />
             <CheckBox Name="CheckBoxH2" Content="h2" Width="100" HorizontalAlignment="Center"
@@ -491,8 +490,6 @@
                       VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="6" Margin="10,0,0,0" />
             <CheckBox Name="CheckBoxThead" Content="thead" Width="100" HorizontalAlignment="Center"
                       VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="7" Margin="10,0,0,0" />
-
-
             <StackPanel Orientation="Horizontal" Margin="25,6,25,-26" Grid.Row="4" Grid.ColumnSpan="8"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center" Height="51">
@@ -504,8 +501,6 @@
         </Grid>
         <Border Name="BorderSelect" Margin="224,524,400,66" Grid.Row="2" BorderThickness="1"
                 BorderBrush="#FF0D21EA" Grid.Column="1" />
-
-
         <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,705,918,14" Grid.ColumnSpan="2" Grid.RowSpan="2"
                     Visibility="Hidden">
             <Label Content="URL to get elements:" Margin="0,3,5,4" VerticalAlignment="Center"
@@ -514,8 +509,6 @@
             <TextBox Name="TextBoxURL1" Margin="5,18" Height="24" Width="400" Text="" VerticalAlignment="Center"
                      VerticalContentAlignment="Center" TextWrapping="Wrap" />
         </StackPanel>
-
-
         <StackPanel Orientation="Horizontal" Grid.Row="3">
             <Label Name="LabelFoundElements" Content="Found Elements:" VerticalContentAlignment="Center"
                    FontWeight="Bold" />

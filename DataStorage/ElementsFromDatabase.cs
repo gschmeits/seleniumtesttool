@@ -121,7 +121,8 @@ namespace DataStorage
         {
             var elementresults = new List<NewElements.AllElements>();
 
-            var query = "SELECT idselenium_elements, gebruikte_link, tagname, text, href, id, name, class, xpath, selenium_check, checktext FROM selenium_elements ";
+            var query = "SELECT idselenium_elements, gebruikte_link, tagname, text, href, id, name, class, xpath, selenium_check, " +
+                        "checktext FROM selenium_elements ";
             query += "WHERE url = '" + url + "' ORDER BY gebruikte_link, idselenium_elements;";
 
             var objConn = new MySqlConnection(General.MySqlConnectionString());

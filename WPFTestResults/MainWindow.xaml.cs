@@ -538,6 +538,7 @@ namespace WPFTestResults
                                     string.Empty,
                                     "yes",
                                     string.Empty,
+                                    string.Empty,
                                     string.Empty);
                                 intTeller++;
                                 element = string.Empty;

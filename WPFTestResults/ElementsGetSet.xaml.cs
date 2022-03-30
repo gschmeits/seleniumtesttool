@@ -977,6 +977,7 @@ namespace WPFTestResults
                 {
                     using (new PleaseWait())
                     {
+                        var datacy = string.Empty;
                         var num6 = 1;
                         var laatsteTestCase =
                             General.GetLaatsteTestCase(bestandsnaam);
@@ -1018,7 +1019,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     "yes",
                                     string.Empty,
-                                    string.Empty);
+                                    string.Empty,
+                                    datacy);
 
 
                                 if (ButtonCSV.IsChecked != null &&
@@ -1071,7 +1073,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     "yes",
                                     "",
-                                    PasswordText.Password);
+                                    PasswordText.Password,
+                                    datacy);
 
                                 if (ButtonCSV.IsChecked != null &&
                                     (bool)ButtonCSV.IsChecked)
@@ -1123,7 +1126,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     "yes",
                                     string.Empty, 
-                                    string.Empty);
+                                    string.Empty,
+                                    datacy);
 
 
                                 if (ButtonCSV.IsChecked != null &&
@@ -1181,7 +1185,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     "yes",
                                     string.Empty,
-                                    string.Empty);
+                                    string.Empty,
+                                    datacy);
 
                                 if (ButtonCSV.IsChecked != null &&
                                     (bool)ButtonCSV.IsChecked)
@@ -1235,7 +1240,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     "yes",
                                     string.Empty,
-                                    string.Empty);
+                                    string.Empty,
+                                    datacy);
 
                                 if (ButtonCSV.IsChecked != null &&
                                     (bool)ButtonCSV.IsChecked)
@@ -1287,7 +1293,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     "yes",
                                     string.Empty,
-                                    string.Empty);
+                                    string.Empty,
+                                    datacy);
 
                                 if (ButtonCSV.IsChecked != null &&
                                     (bool)ButtonCSV.IsChecked)
@@ -1341,7 +1348,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     "yes",
                                     string.Empty,
-                                    PasswordText.Password);
+                                    PasswordText.Password,
+                                    datacy);
 
 
                                 if (ButtonCSV.IsChecked != null &&
@@ -1390,7 +1398,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     "yes",
                                     string.Empty,
-                                    PasswordText.Password);
+                                    PasswordText.Password,
+                                    datacy);
 
                                 if (ButtonCSV.IsChecked != null &&
                                     (bool)ButtonCSV.IsChecked)
@@ -1442,7 +1451,8 @@ namespace WPFTestResults
                                 string.Empty,
                                 "yes",
                                 string.Empty,
-                                string.Empty);
+                                string.Empty,
+                                datacy);
 
                             if (ButtonCSV.IsChecked != null &&
                                 (bool)ButtonCSV.IsChecked)
@@ -1486,6 +1496,7 @@ namespace WPFTestResults
                             string testattribute;
                             string text;
                             string text1 =string.Empty;
+                            datacy = dt.Rows[row]["datacy"].ToString();
 
                             if (dt.Rows[row][15].ToString() == "1")
                                 checktekst = dt.Rows[row][6].ToString().Replace("\n", "\\\\n").Replace("\r", "\\\\r").Replace("\t", "\\\\t"); ; //.Replace("\n", "").Replace("\r", "");
@@ -1553,7 +1564,8 @@ namespace WPFTestResults
                                 checktekst,
                                 "yes",
                                 string.Empty,
-                                string.Empty);
+                                string.Empty, 
+                                datacy);
 
                             if (ButtonCSV.IsChecked != null &&
                                 (bool)ButtonCSV.IsChecked)
@@ -2029,8 +2041,11 @@ namespace WPFTestResults
                 var empty3 = string.Empty;
                 var empty4 = string.Empty;
                 var str1 = string.Empty;
+                var datacy = string.Empty;
                 var empty5 = string.Empty;
                 var empty6 = string.Empty;
+                if (node.Attributes["data-cy"] != null)
+                    datacy = node.Attributes["data-cy"].Value;
                 if (node.Attributes["class"] != null)
                     empty2 = node.Attributes["class"].Value;
                 if (node.Attributes["name"] != null)
@@ -2333,7 +2348,7 @@ namespace WPFTestResults
                            + "`tagname`, " + "`text`, " + "`id`, " +
                            "`name`, " +
                            "`class`, " + "`href`, " + "`title`, " //
-                           + "`value`, `checktext`, project_id) " + "VALUES " +
+                           + "`value`, `checktext`, project_id, datacy) " + "VALUES " +
                            "('" + MySqlHelper.EscapeString(TextBoxURL.Text)
                            + "', " + "'" + MySqlHelper.EscapeString(href_link) +
                            "', " + "'"
@@ -2351,8 +2366,8 @@ namespace WPFTestResults
                            + "', " + "'" + MySqlHelper.EscapeString(str2) +
                            "', " +
                            "'" + MySqlHelper.EscapeString(str1)
-                           + "', '0', " + project_id + "); ";
-
+                           + "', '0', " + project_id + ", '" + MySqlHelper.EscapeString(datacy) + "'); ";
+                
                 General.ExecuteQueryCommand(sSQL);
                 label_45:
                 foreach (var childNode in node.ChildNodes)

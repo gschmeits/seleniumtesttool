@@ -592,7 +592,8 @@ namespace WPFTestResults
                         TextBoxTag.Text,
                         TextBoxTestDescription.Text.Replace("'", "\'"),
                         project_id,
-                        wachtwoord); // text_password
+                        wachtwoord,
+                        string.Empty); // text_password
                 }
                 else
                 {
@@ -616,7 +617,8 @@ namespace WPFTestResults
                         TextBoxTag.Text,
                         TextBoxTestDescription.Text.Replace("'", "\'"),
                         project_id,
-                        wachtwoord);
+                        wachtwoord,
+                        string.Empty);
                     ganaar = true;
                 }
 
@@ -1435,7 +1437,9 @@ namespace WPFTestResults
                                 string.Empty,
                                 values[6],
                                 values[7],
-                                project_id);
+                                project_id,
+                                string.Empty,
+                                string.Empty);
 
                             testnr++;
                         }
@@ -1509,7 +1513,9 @@ namespace WPFTestResults
                                 testmachinecode,
                                 testtag,
                                 testcheck,
-                                project_id);
+                                project_id,
+                                string.Empty,
+                                string.Empty);
 
                             testnr++;
                         }

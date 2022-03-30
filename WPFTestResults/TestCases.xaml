@@ -1155,6 +1155,12 @@
                           HorizontalAlignment="Center"
                           TabIndex="4"
                           IsChecked="True" Click="CheckboxLoginrows_Click" />
+                <CheckBox Content="Using data-cy" 
+                          Name="CheckBoxDataCy"
+                          Grid.Row="4" Grid.Column="4" 
+                          VerticalAlignment="Center" 
+                          HorizontalAlignment="Right"
+                          Margin="0,0,75,0"/>
                 <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="5" Name="StackPanelRowsLogin"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center" Margin="50,0">

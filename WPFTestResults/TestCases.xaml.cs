@@ -101,6 +101,7 @@ namespace WPFTestResults
             ModuleImport.Visibility = Visibility.Hidden;
             CSVImport.Visibility = Visibility.Hidden;
             ModuleWebdriver.Visibility = Visibility.Hidden;
+            CheckBoxDataCy.Visibility = Visibility.Hidden;
         }
 
         private static string bestandsnaamgeopend { get; set; }
@@ -622,7 +623,8 @@ namespace WPFTestResults
                         TextBoxTestDescription.Text.Replace("'", "\'"),
                         checkstrict,
                         ComboBoxAttributeSave.Text,
-                        wachtwoord
+                        wachtwoord,
+                        string.Empty
                     ); // text_password
                 }
                 else
@@ -646,7 +648,8 @@ namespace WPFTestResults
                         TextBoxTag.Text,
                         checkstrict,
                         ComboBoxAttributeSave.Text,
-                        wachtwoord);
+                        wachtwoord,
+                        string.Empty);
                     ganaar = true;
                 }
 
@@ -1382,6 +1385,7 @@ namespace WPFTestResults
                                 string.Empty,
                                 "yes",
                                 values[7],
+                                string.Empty,
                                 string.Empty);
 
                             testnr++;
@@ -1467,6 +1471,7 @@ namespace WPFTestResults
                                 testcheck,
                                 "yes",
                                 testcheck,
+                                string.Empty,
                                 string.Empty);
 
                             testnr++;
@@ -1546,6 +1551,7 @@ namespace WPFTestResults
                             string.Empty,
                             "yes",
                             values[7],
+                            string.Empty,
                             string.Empty);
                     }
 
@@ -1625,6 +1631,7 @@ namespace WPFTestResults
                                 testcheck,
                                 "yes",
                                 testcheck,
+                                string.Empty,
                                 string.Empty);
                         }
 
@@ -1804,6 +1811,7 @@ namespace WPFTestResults
                         testcheck,
                         "yes",
                         testcheck,
+                        string.Empty,
                         string.Empty);
 
                     testnr++;
@@ -2118,7 +2126,7 @@ namespace WPFTestResults
                                 inhoud += "\t\t// " + testCase.testelementname
                                               .Replace("\n", "")
                                               .Replace("\r", "")
-                                              .Replace("\t", "") +
+                                              .Replace("\t", "").Trim() +
                                           "\r\n";
 
                             if (testCase.testelement != string.Empty)
@@ -2345,6 +2353,8 @@ namespace WPFTestResults
                 "import LoginPage from '../../pageobjects/Pages/LoginPage'";
             TextBoxAppFunction.Text = "App.";
             TextBoxSwitchUrl.Text = "App.";
+            CheckBoxDataCy.Visibility = Visibility.Hidden;
+            CheckBoxDataCy.IsChecked = false;
 
             ModuleWebdriver.Visibility = Visibility.Visible;
         }
@@ -2567,6 +2577,8 @@ namespace WPFTestResults
                 "import LoginUVT from '../../../support/LoginUVT'";
             //TextBoxAppFunction.Text = "";
             //TextBoxSwitchUrl.Text = "";
+            CheckBoxDataCy.Visibility = Visibility.Visible;
+            CheckBoxDataCy.IsChecked = true;
             ModuleWebdriver.Visibility = Visibility.Visible;
         }
 
@@ -2656,16 +2668,18 @@ namespace WPFTestResults
                             if (testCase.testattribute.ToUpper() == "XPATH")
                                 soort = "xpath";
 
-                            inhoud += "\r\n\t\tcy.step('Click on the element " + testCase.testelementname + "')\r\n";
+                            /*inhoud += "\r\n\t\tcy.step('Click on the element " +
+                                      testCase.testelementname + "')\r\n";
                             inhoud +=
                                 "\t\tcy." + soort + "('" + content +
-                                "').click({force: true})\r\n";
+                                "').click({force: true})\r\n";*/
                         }
 
                         if (testCase.testnr == from1)
                             if (checkboxLoginrows.IsChecked == true)
                             {
-                                inhoud += "\r\n\t\tcy.step('Login via SSO')\r\n";
+                                inhoud +=
+                                    "\r\n\t\tcy.step('Login via SSO')\r\n";
                                 inhoud +=
                                     "\t\tLoginUVT.login('" +
                                     TextBoxAppFunction.Text + "', '0')\r\n";
@@ -2702,23 +2716,31 @@ namespace WPFTestResults
                             if (testCase.testattribute.ToUpper() == "XPATH")
                                 soort = "xpath";
 
-                            //inhoud += "\r\n\t\tcy.step('')\r\n";
-
                             var vergelijking = "contain";
                             var vergelijking1 = "include";
 
+                            // cy.get('[data-cy=submit]')
 
-                            //if (CheckBoxStrict.IsChecked == true)
+                            //if (cy.xpath('/html/body/div[1]/div/main/div/div[2]/div/div/div/form/div/div[6]/label').should('have.prop', 'tagName') === 'INPUT')
                             //{
-                            //    vergelijking = "equal"; 
-                            //    vergelijking1 = "equal";
-                           // }
+                            //    cy.xpath('/html/body/div[1]/div/main/div/div[2]/div/div/div/form/div/div[6]/label').invoke('attr', 'value').should('contain', 'Course coordinator/Contact person*')
+
+                            //                          }
+//                            else
+                            //                        {
+                            //                          cy.xpath('/html/body/div[1]/div/main/div/div[2]/div/div/div/form/div/div[6]/label').should($div => {
+                            //                            expect($div.text().trim()).include('Course coordinator/Contact person*')})
+                            //          
+                            //                }
+
 
                             if (testCase.testelement != string.Empty)
 
                                 if (testCase.testext_check != string.Empty)
                                 {
-                                    inhoud += "\r\n\t\tcy.step('Check the text of the element "+ testCase.testelementname+"')\r\n";
+                                    inhoud +=
+                                        "\r\n\t\tcy.step('Check the text of the element " +
+                                        testCase.testelementname.Trim() + "')\r\n";
                                     inhoud += "\t\tif (cy." + soort + "('" +
                                               content +
                                               "').should('have.prop', 'tagName') === 'INPUT') {\r\n";
@@ -2734,18 +2756,22 @@ namespace WPFTestResults
                                         vergelijking1 + "('" +
                                         controleText + "')})\r\n\t\t}\r\n\r\n";
                                 }
-                            
+
                             switch (testCase.testaction.ToUpper())
                             {
                                 case "CLICK":
-                                    inhoud += "\t\tcy.step('Click on the element " + testCase.testelementname + "')\r\n";
+                                    inhoud +=
+                                        "\t\tcy.step('Click on the element " +
+                                        testCase.testelementname.Trim() + "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').click({force: true})\r\n\r\n";
                                     break;
                                 case "DOUBLECLICK":
 
-                                    inhoud += "\t\tcy.step('Double click on the element "+testCase.testelementname+"')\r\n";
+                                    inhoud +=
+                                        "\t\tcy.step('Double click on the element " +
+                                        testCase.testelementname.Trim() + "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').doubleClick()\r\n\r\n";
@@ -2757,7 +2783,9 @@ namespace WPFTestResults
 
                                     if (text == "{ENTER}")
                                     {
-                                        inhoud += "\t\tcy.step('Sendkey Enter to "+testCase.testelementname+"')\r\n";
+                                        inhoud +=
+                                            "\t\tcy.step('Sendkey Enter to " +
+                                            testCase.testelementname.Trim() + "')\r\n";
                                         inhoud +=
                                             "\t\tcy." + soort + "('" + content +
                                             "').type('" +
@@ -2765,7 +2793,10 @@ namespace WPFTestResults
                                     }
                                     else
                                     {
-                                        inhoud += "\t\tcy.step('Sendkeys: " + text +" to "+testCase.testelementname+ "')\r\n";
+                                        inhoud += "\t\tcy.step('Sendkeys: " +
+                                                  text + " to " +
+                                                  testCase.testelementname.Trim() +
+                                                  "')\r\n";
                                         inhoud +=
                                             "\t\tcy." + soort + "('" + content +
                                             "').clear()\r\n";
@@ -2774,9 +2805,13 @@ namespace WPFTestResults
                                             "').type('" +
                                             text + "')\r\n\r\n";
                                     }
+
                                     break;
                                 case "SELECT":
-                                    inhoud += "\t\tcy.step('Select: " + testCase.testtext +" from " +testCase.testelementname+ "')\r\n";
+                                    inhoud += "\t\tcy.step('Select: " +
+                                              testCase.testtext + " from " +
+                                              testCase.testelementname.Trim() +
+                                              "')\r\n";
 
                                     if (testCase.testtext.Contains("|"))
                                     {
@@ -2787,11 +2822,10 @@ namespace WPFTestResults
                                             "\t\tcy." + soort + "('" + content +
                                             "').select([";
                                         foreach (var waarde in split1)
-                                        {
                                             inhoud += "'" + waarde + "', ";
-                                        }
 
-                                        var inh = inhoud.Substring(0, inhoud.Length - 2);
+                                        var inh = inhoud.Substring(0,
+                                            inhoud.Length - 2);
                                         inhoud = inh + "])\r\n\r\n";
                                     }
                                     else
@@ -2804,7 +2838,10 @@ namespace WPFTestResults
 
                                     break;
                                 case "VALUE":
-                                    inhoud += "\t\tcy.step('Set value: '" + testCase.testtext +" to " +testCase.testelementname+ "')\r\n";
+                                    inhoud += "\t\tcy.step('Set value: '" +
+                                              testCase.testtext + " to " +
+                                              testCase.testelementname +
+                                              "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').setValue('" +
@@ -2816,14 +2853,18 @@ namespace WPFTestResults
                                         testCase.testtext.Trim();
                                     if (tekst3.ToUpper() == "TRUE")
                                         keuze = "true";
-                                    inhoud += "\t\tcy.step('Set checkbox "+testCase.testelementname +" to: '" + keuze + "')\r\n";
+                                    inhoud += "\t\tcy.step('Set checkbox " +
+                                              testCase.testelementname.Trim() +
+                                              " to: '" + keuze + "')\r\n";
                                     inhoud += waitForEx(content, soort);
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').isSelected(" + keuze + ")\r\n\r\n";
                                     break;
                                 case "MOVE TO":
-                                    inhoud += "\t\tcy.step('Move to element " +testCase.testelementname+ "')\r\n";
+                                    inhoud += "\t\tcy.step('Move to element " +
+                                              testCase.testelementname.Trim() +
+                                              "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').scrollTo('center')\r\n\r\n";
@@ -2837,7 +2878,8 @@ namespace WPFTestResults
 
                                     var laatste = tekst1.Split('\\');
 
-                                    inhoud += "\t\tcy.step('Select: upload a file')\r\n";
+                                    inhoud +=
+                                        "\t\tcy.step('Select: upload a file')\r\n";
                                     inhoud +=
                                         "\r\n\t\tconst path = require('path');\r\n";
                                     inhoud +=
@@ -2866,14 +2908,17 @@ namespace WPFTestResults
                                 case "GET_VALUE":
                                     break;
                                 case "WAIT":
-                                    inhoud += "\t\tcy.step('Wait for " + testCase.testtext + " seconds')\r\n";
+                                    inhoud += "\t\tcy.step('Wait for " +
+                                              testCase.testtext +
+                                              " seconds')\r\n";
                                     inhoud += "\t\tcy.wait(" +
                                               Convert.ToInt32(testCase
                                                   .testtext) *
                                               1000 + ")\r\n\r\n";
                                     break;
                                 case "SCROLL":
-                                    inhoud += "\t\tcy.step('Scroll to: '" + testCase.testtext + "')\r\n";
+                                    inhoud += "\t\tcy.step('Scroll to: '" +
+                                              testCase.testtext + "')\r\n";
                                     inhoud +=
                                         "\t\tcy.scrollTo('" +
                                         testCase.testtext +
@@ -2882,9 +2927,11 @@ namespace WPFTestResults
                                 case "SWITCH TO URL":
                                     if (TextBoxSwitchUrl.Text != string.Empty)
                                     {
-                                        inhoud += "\t\tcy.step('Visit the URL')\r\n";
+                                        inhoud +=
+                                            "\t\tcy.step('Visit the URL')\r\n";
                                         inhoud += "\t\tcy.visit('" +
-                                                  TextBoxSwitchUrl.Text + "')\r\n";
+                                                  TextBoxSwitchUrl.Text +
+                                                  "')\r\n";
                                     }
 
                                     break;
@@ -2896,7 +2943,9 @@ namespace WPFTestResults
                                 case "LOGOUT":
                                     break;
                                 default:
-                                    inhoud += "\t\tcy.step('Check if the element exists')\r\n";
+                                    inhoud +=
+                                        "\t\tcy.step('Check if the element " +
+                                        testCase.testelementname.Trim() + " exists.')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').should('exist')\r\n\r\n";
