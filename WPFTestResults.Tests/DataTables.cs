@@ -625,7 +625,7 @@ namespace WPFTestResults.Tests
                     sql += "('" + MySqlHelper.EscapeString(url) + "', ";
                     sql += @"'/html" + MySqlHelper.EscapeString(nodePath) + "', ";
                     sql += "'" + MySqlHelper.EscapeString(node.Name) + "', ";
-                    sql += "'" + MySqlHelper.EscapeString(node.InnerText.Trim()) + "', ";
+                    sql += "'" + MySqlHelper.EscapeString(node.InnerText.Trim(new Char[] { ' ', '*', '.' })) + "', ";
                     sql += "'" + MySqlHelper.EscapeString(node.Id) + "', ";
                     sql += "'" + MySqlHelper.EscapeString(name1) + "', ";
                     sql += "'" + MySqlHelper.EscapeString(class1) + "', ";

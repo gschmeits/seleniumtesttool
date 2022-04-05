@@ -1499,26 +1499,35 @@ namespace WPFTestResults
                             datacy = dt.Rows[row]["datacy"].ToString();
 
                             if (dt.Rows[row][15].ToString() == "1")
-                                checktekst = dt.Rows[row][6].ToString().Replace("\n", "\\\\n").Replace("\r", "\\\\r").Replace("\t", "\\\\t"); ; //.Replace("\n", "").Replace("\r", "");
+                            {
+                                checktekst = dt.Rows[row][6].ToString()
+                                    .Replace("\n", "\\\\n")
+                                    .Replace("\r", "\\\\r")
+                                    .Replace("\t", "\\\\t");
+                                ; //.Replace("\n", "").Replace("\r", "");
+
+                                checktekst = dt.Rows[row][6].ToString().Replace("\n", "").Replace("\r", "");
+
+                            }
 
                             if (dt.Rows[row][7].ToString().Length > 0)
                             {
-                                text = dt.Rows[row][7].ToString();
+                                text = dt.Rows[row][7].ToString().Replace("\n", "").Replace("\r", ""); ;
                                 testattribute = "id";
                                 id_tekst = text;
                                 id_xpath = dt.Rows[row][4].ToString();
                             }
                             else if (dt.Rows[row][8].ToString().Length > 0)
                             {
-                                text = dt.Rows[row][8].ToString();
+                                text = dt.Rows[row][8].ToString().Replace("\n", "").Replace("\r", ""); ;
                                 testattribute = "name";
                                 name_text = text;
-                                name_xpath = dt.Rows[row][4].ToString();
+                                name_xpath = dt.Rows[row][4].ToString().Replace("\n", "").Replace("\r", ""); ;
                             }
                             else
                             {
-                                text = dt.Rows[row][4].ToString();
-                                text1 = dt.Rows[row][4].ToString();
+                                text = dt.Rows[row][4].ToString().Replace("\n", "").Replace("\r", ""); ;
+                                text1 = dt.Rows[row][4].ToString().Replace("\n", "").Replace("\r", ""); ;
                                 if (id_tekst != string.Empty &&
                                     text.IndexOf(id_xpath) > -1 && CheckBoxUseXPath.IsChecked == false)
                                 {
@@ -1537,7 +1546,7 @@ namespace WPFTestResults
                             }
 
 
-                            var testelement = dt.Rows[row][6].ToString(); //.Replace("\n", "\\\\n").Replace("\r", "\\\\r");
+                            var testelement = dt.Rows[row][6].ToString().Replace("\n", "").Replace("\r", ""); ; //.Replace("\n", "\\\\n").Replace("\r", "\\\\r");
                             if (testelement.Length > 75)
                             {
                                 testelement = testelement.Substring(0, 75);
@@ -1547,12 +1556,12 @@ namespace WPFTestResults
                                 bestandsnaam,
                                 num8.ToString(),
                                 TextBoxTestCase.Text,
-                                testelement,
-                                text,
-                                text1,
-                                testattribute,
+                                testelement.Trim(new Char[] { '\r', '\n', '\t' }),
+                                text.Trim(new Char[] { '\r', '\n', '\t' }),
+                                text1.Trim(new Char[] { '\r', '\n', '\t' }),
+                                testattribute.Trim(new Char[] { '\r', '\n', '\t' }),
                                 string.Empty,
-                                checktekst,
+                                checktekst.Trim(new Char[] { '\r', '\n', '\t' }),
                                 string.Empty,
                                 "yes",
                                 string.Empty,
@@ -1560,8 +1569,8 @@ namespace WPFTestResults
                                 string.Empty,
                                 string.Empty,
                                 machineNumber,
-                                dt.Rows[row][5].ToString(),
-                                checktekst,
+                                dt.Rows[row][5].ToString().Trim(new Char[] { '\r', '\n', '\t' }),
+                                checktekst.Trim(new Char[] { '\r', '\n', '\t' }),
                                 "yes",
                                 string.Empty,
                                 string.Empty, 
@@ -1572,11 +1581,11 @@ namespace WPFTestResults
                                 General.CSVfile(project, bestandsnaam,
                                     num8.ToString(),
                                     TextBoxTestCase.Text,
-                                    dt.Rows[row][6].ToString(),
-                                    text,
-                                    testattribute,
+                                    dt.Rows[row][6].ToString().Trim(new Char[] { '\r', '\n', '\t' }),
+                                    text.Trim(new Char[] { '\r', '\n', '\t' }),
+                                    testattribute.Trim(new Char[] { '\r', '\n', '\t' }),
                                     string.Empty,
-                                    checktekst,
+                                    checktekst.Trim(new Char[] { '\r', '\n', '\t' }),
                                     string.Empty,
                                     "yes",
                                     string.Empty,
@@ -1584,8 +1593,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     string.Empty,
                                     machineNumber,
-                                    dt.Rows[row][5].ToString(),
-                                    checktekst);
+                                    dt.Rows[row][5].ToString().Trim(new Char[] { '\r', '\n', '\t' }),
+                                    checktekst.Trim(new Char[] { '\r', '\n', '\t' }));
 
                             ++num8;
                         }
@@ -2327,6 +2336,9 @@ namespace WPFTestResults
                 }
                 innertekst =
                     HttpUtility.HtmlDecode(node.InnerText.Trim());
+
+                innertekst = innertekst.Trim(new Char[] { '\r', '\n'});
+
 
                 // if (node.Name == "input" && node.Attributes["type"].Value != "search" && node.Attributes["type"].Value != "checkbox")
                 // {
