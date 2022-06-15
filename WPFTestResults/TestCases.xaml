@@ -1135,7 +1135,8 @@
                             VerticalAlignment="Center">
                     <Label Content="Import Login function:" Width="150" Margin="0,0,5,0" HorizontalContentAlignment="Right"/>
                     <TextBox x:Name="TextBoxImportLogin" VerticalContentAlignment="Center"
-                             HorizontalContentAlignment="Left" Width="400"   TabIndex="2"  Text="import LoginPage from '../../pageobjects/Pages/LoginPage'"  />
+                             HorizontalContentAlignment="Left" Width="400"   TabIndex="2"  
+                             Text="import LoginPage from '../pageobjects/Pages/LoginPage'" />
                 </StackPanel>
 
 

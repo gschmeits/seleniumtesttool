@@ -2574,7 +2574,7 @@ namespace WPFTestResults
             LabelHomePage.Content = "URL 'Nickname':";
             //TextBoxImportApp.Text = "";
             TextBoxImportLogin.Text =
-                "import LoginUVT from '../../support/LoginUVT'";
+                "import LoginUVT from '../support/LoginUVT'";
             //TextBoxAppFunction.Text = "";
             //TextBoxSwitchUrl.Text = "";
             CheckBoxDataCy.Visibility = Visibility.Visible;
@@ -2763,19 +2763,19 @@ namespace WPFTestResults
                                         "').should($div => {\r\n\t\t\texpect($div.text().trim())." +
                                         vergelijking1 + "('" +
                                         controleText + "')})\r\n\t\t}\r\n\r\n";*/
-
+                                    
                                     inhoud +=
-                                        "\r\n\t\tcy.step('Check the text of the element " +
+                                        "\t\tcy.step('Check the text of the element " +
                                         testCase.testelementname.Trim() + "')\r\n";
                                     inhoud +=
-                                        "\r\n\t\tcy.ControleerText('";
-                                    inhoud += content + "', '";
+                                        "\t\tcy.ControleerText('";
+                                    inhoud += content.Trim() + "', '";
                                     inhoud += controleText + "'";
-                                    if (soort != "id")
+                                    if (soort != "get")
                                     {
-                                        inhoud += ", '" + soort + "')";
+                                        inhoud += ", 'xpath'";
                                     }
-                                    inhoud += "')";
+                                    inhoud += ")\r\n\r\n";
                                 }
 
                             switch (testCase.testaction.ToUpper())
@@ -2985,7 +2985,7 @@ namespace WPFTestResults
                 // Genereer het bestand
                 var appendtext =
                     GeneralFunctionality.Functions.GetCurrentDir(3) +
-                    "\\" + TextBoxTestName.Text + ".spec.js";
+                    "\\" + TextBoxTestName.Text + ".spec.cy.js";
                 var sw = File.CreateText(appendtext);
                 sw.WriteLine(inhoud);
 
@@ -3044,5 +3044,6 @@ namespace WPFTestResults
             changeExecuteBulkData.ShowDialog();
             VulLabel();
         }
+
     }
 }
