@@ -2574,7 +2574,7 @@ namespace WPFTestResults
             LabelHomePage.Content = "URL 'Nickname':";
             //TextBoxImportApp.Text = "";
             TextBoxImportLogin.Text =
-                "import LoginUVT from '../../../support/LoginUVT'";
+                "import LoginUVT from '../../support/LoginUVT'";
             //TextBoxAppFunction.Text = "";
             //TextBoxSwitchUrl.Text = "";
             CheckBoxDataCy.Visibility = Visibility.Visible;
@@ -2586,6 +2586,7 @@ namespace WPFTestResults
         {
             var inhoud = "";
             var iTeller = 0;
+            var huidigProject = GeneralFunctionality.Functions._project;
             foreach (var testCase in testCases)
                 if (testCase.testexecution == "yes")
                 {
@@ -2614,16 +2615,23 @@ namespace WPFTestResults
                                   GeneralFunctionality.Functions._project +
                                   "_" +
                                   TextBoxTestName.Text + "', () => {\r\n";
+
+                        inhoud += "\tit('"+huidigProject+"_loginpage', () => {\r\n";
+
+                        inhoud += "\t\tcy.Login"+huidigProject+"()\r\n";
+
+                        inhoud += "\t})\r\n\r\n";
+                    
                         inhoud += "\tit('" + TextBoxTestName.Text +
-                                  "', () => {\r\n";
+                              "', () => {\r\n";
 
                         //inhoud += "\t\t\r\n";
 
                         if (TextBoxSwitchUrl.Text != string.Empty)
                         {
-                            inhoud += "\r\n\t\tcy.step('Visit the URL')\r\n";
-                            inhoud += "\t\tcy.visit('" +
-                                      TextBoxSwitchUrl.Text + "')\r\n";
+                            //inhoud += "\r\n\t\tcy.step('Visit the URL')\r\n";
+                            //inhoud += "\t\tcy.visit('" +
+                            //          TextBoxSwitchUrl.Text + "')\r\n";
                         }
                     }
 
@@ -2682,7 +2690,7 @@ namespace WPFTestResults
                                     "\r\n\t\tcy.step('Login via SSO')\r\n";
                                 inhoud +=
                                     "\t\tLoginUVT.login('" +
-                                    TextBoxAppFunction.Text + "', '0')\r\n";
+                                    TextBoxAppFunction.Text + "', '0')\r\n\r\n";
                             }
 
                         if (testCase.testnr > till1)
@@ -2738,7 +2746,7 @@ namespace WPFTestResults
 
                                 if (testCase.testext_check != string.Empty)
                                 {
-                                    inhoud +=
+                                    /*inhoud +=
                                         "\r\n\t\tcy.step('Check the text of the element " +
                                         testCase.testelementname.Trim() + "')\r\n";
                                     inhoud += "\t\tif (cy." + soort + "('" +
@@ -2754,7 +2762,20 @@ namespace WPFTestResults
                                         "\t\t\tcy." + soort + "('" + content +
                                         "').should($div => {\r\n\t\t\texpect($div.text().trim())." +
                                         vergelijking1 + "('" +
-                                        controleText + "')})\r\n\t\t}\r\n\r\n";
+                                        controleText + "')})\r\n\t\t}\r\n\r\n";*/
+
+                                    inhoud +=
+                                        "\r\n\t\tcy.step('Check the text of the element " +
+                                        testCase.testelementname.Trim() + "')\r\n";
+                                    inhoud +=
+                                        "\r\n\t\tcy.ControleerText('";
+                                    inhoud += content + "', '";
+                                    inhoud += controleText + "'";
+                                    if (soort != "id")
+                                    {
+                                        inhoud += ", '" + soort + "')";
+                                    }
+                                    inhoud += "')";
                                 }
 
                             switch (testCase.testaction.ToUpper())

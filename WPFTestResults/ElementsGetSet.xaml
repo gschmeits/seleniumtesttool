@@ -50,10 +50,9 @@
         <CheckBox Name="CheckBoxWholeWebsite" Content="Get elements from the whole website" Grid.Row="2"
                   Margin="15,0,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="14"
                   Visibility="Hidden" FontWeight="Bold" />
-        <Border Name="BorderInlog" Margin="75,53,75,66" Grid.Row="2" BorderThickness="1" BorderBrush="#FF0D21EA"
-                Grid.ColumnSpan="2" />
+        <Border Name="BorderInlog" Margin="153,53,153,66" Grid.Row="2" BorderThickness="1" BorderBrush="#FF0D21EA" Grid.ColumnSpan="2" />
         <StackPanel Name="Inlog" Margin="0,53,0,40" HorizontalAlignment="Center" Orientation="Vertical"
-                    Grid.Row="2" Width="900" Grid.ColumnSpan="2">
+                    Grid.Row="2" Width="900" Grid.ColumnSpan="2" Visibility="Hidden">
             <CheckBox Click="loginCheck_Click" Name="loginCheck" Margin="0,15,0,0" HorizontalAlignment="Center"
                       TabIndex="2" IsChecked="True">
                 Do you need to login?
@@ -420,7 +419,7 @@
         </StackPanel>
 
         <Grid Name="GridSelectTags" Margin="0, 550, 0, 94" HorizontalAlignment="Center"
-              Row="2" Grid.ColumnSpan="2">
+              Row="2" Grid.ColumnSpan="2" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="110" />
                 <ColumnDefinition Width="110" />
@@ -556,7 +555,7 @@
                     HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="15,0,25,0" />
             <Button Click="ButtonSetToTest_Click" IsEnabledChanged="ButtonSetToTest_IsEnabledChanged"
                     Name="ButtonSetToTest" Style="{DynamicResource MyButtonStyle}"
-                    Width="175" IsEnabled="true" VerticalAlignment="Center" HorizontalAlignment="Right"
+                    Width="120" IsEnabled="true" VerticalAlignment="Center" HorizontalAlignment="Right"
                     HorizontalContentAlignment="Center" Content="Add to test steps" TabIndex="9" />
             <CheckBox Name="CheckBoxInlogIncluded" Content="Login included" VerticalContentAlignment="Center"
                       Click="CheckBoxInlogIncluded_Click" Width="99" />
@@ -567,15 +566,13 @@
                     HorizontalContentAlignment="Center"
                     Content="Select All Text"
                     Margin="5,24,5,25"
-                    Width="110"
+                    Width="100"
                     IsEnabled="False"
                     Click="CheckTextAll_Click" />
-            <CheckBox Margin="0,0,0,0" Name="CheckBoxSwitchTo" Visibility="Hidden" 
-                      Content="Switch to URL"
-                      VerticalContentAlignment="Center" Width="100" />
+
             <CheckBox Margin="0,0,0,0" Name="CheckBoxUseXPath"  
                       Content="Use XPath" IsChecked="False"
-                      VerticalContentAlignment="Center" Width="100" />
+                      VerticalContentAlignment="Center" Width="86"  />
             <CheckBox Name="ButtonCSV"
                       Content="Save as CSV"
                       VerticalAlignment="Center"
@@ -587,18 +584,20 @@
             <Button Name="ButtonExcel"  IsEnabled="False" Style="{DynamicResource MyButtonStyle}" 
                     Content="Save as Excel" Width="100" Click="ButtonExcel_Click" />
 
+            <CheckBox Margin="0,0,0,0" Name="CheckBoxSwitchTo" Visibility="Hidden" 
+                      Content="Switch to URL"
+                      VerticalContentAlignment="Center"  />
         </StackPanel>
 
         <TextBox Name="TextBoxElementen" Visibility="Hidden" Width="900" Height="600" Grid.RowSpan="5"
                  Grid.ColumnSpan="5" />
         <DataGrid LostFocus="DataGridElementsLostFocus"
-                  Width="1700"
+
                   Name="DataGridElements"
                   Grid.Row="2"
-                  Grid.ColumnSpan="2"
                   AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}"
                   Background="{DynamicResource DataGridAchtergrondAlternatief}"
-                  Visibility="Visible"
+                  Visibility="Hidden"
                   CanUserResizeColumns="true"
                   CanUserResizeRows="true"
                   AutoGenerateColumns="false"
@@ -607,12 +606,14 @@
                   HorizontalScrollBarVisibility="Visible"
                   IsSynchronizedWithCurrentItem="False"
                   VerticalScrollBarVisibility="Visible"
+
                   HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   CanUserReorderColumns="False"
-                  Height="700"
-                  CurrentCellChanged="DataGridElements_CurrentCellChanged" RowHeight="24">
+                  CurrentCellChanged="DataGridElements_CurrentCellChanged" RowHeight="24" Margin="76,51,77,0" 
+                  Grid.ColumnSpan="2" Height="675" Width="1663" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" IsReadOnly="true" Binding="{Binding idSelenium_element}" />
                 <DataGridCheckBoxColumn Header="Select" IsReadOnly="false"
@@ -642,12 +643,16 @@
                 HorizontalContentAlignment="Center" Click="ButtonJSON_Click"
                 Visibility="Hidden" />
         <StackPanel Orientation="Horizontal"               
-                    Grid.Column="1" 
-                    Grid.RowSpan="3"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
                     Width="1000"
                     Height="50"
                     Name="GridCheckText"
-                    Visibility="Visible" Margin="599,63,61,752">
+                    Visibility="Visible"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    >
 
 
             <Label Content="Which text do you want to check?" 
