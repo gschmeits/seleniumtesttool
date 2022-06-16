@@ -63,8 +63,8 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.2.4.21")]
-[assembly: AssemblyFileVersion("2.2.4.21")]
+[assembly: AssemblyVersion("2.2.4.22")]
+[assembly: AssemblyFileVersion("2.2.4.22")]
 [assembly: InternalsVisibleTo("WPFTestResults.Tests")]
 [assembly: InternalsVisibleTo("WPFTestResults.Explorables")]
 

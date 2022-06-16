@@ -1510,19 +1510,48 @@ namespace WPFTestResults
 
                             }
 
-                            if (dt.Rows[row][7].ToString().Length > 0)
+                            if (CheckBoxUseXPath.IsChecked
+                                != true)
                             {
-                                text = dt.Rows[row][7].ToString().Replace("\n", "").Replace("\r", ""); ;
-                                testattribute = "id";
-                                id_tekst = text;
-                                id_xpath = dt.Rows[row][4].ToString();
-                            }
-                            else if (dt.Rows[row][8].ToString().Length > 0)
-                            {
-                                text = dt.Rows[row][8].ToString().Replace("\n", "").Replace("\r", ""); ;
-                                testattribute = "name";
-                                name_text = text;
-                                name_xpath = dt.Rows[row][4].ToString().Replace("\n", "").Replace("\r", ""); ;
+                                if (dt.Rows[row][7].ToString().Length > 0)
+                                {
+                                    text = dt.Rows[row][7].ToString().Replace("\n", "").Replace("\r", "");
+                                    ;
+                                    testattribute = "id";
+                                    id_tekst = text;
+                                    id_xpath = dt.Rows[row][4].ToString();
+                                }
+                                else if (dt.Rows[row][8].ToString().Length > 0)
+                                {
+                                    text = dt.Rows[row][8].ToString().Replace("\n", "").Replace("\r", "");
+                                    ;
+                                    testattribute = "name";
+                                    name_text = text;
+                                    name_xpath = dt.Rows[row][4].ToString().Replace("\n", "").Replace("\r", "");
+                                    ;
+                                }
+                                else
+                                {
+                                    text = dt.Rows[row][4].ToString().Replace("\n", "").Replace("\r", "");
+                                    ;
+                                    text1 = dt.Rows[row][4].ToString().Replace("\n", "").Replace("\r", "");
+                                    ;
+                                    if (id_tekst != string.Empty &&
+                                        text.IndexOf(id_xpath) > -1 && CheckBoxUseXPath.IsChecked == false)
+                                    {
+                                        var testd = text.IndexOf(id_xpath);
+
+                                        var tekst3 =
+                                            text.Substring(id_xpath.Length,
+                                                text.Length - id_xpath.Length);
+                                        var index = text.IndexOf(id_xpath);
+
+                                        text = "//*[@id=\"" + id_tekst + "\"]" +
+                                               tekst3;
+                                    }
+
+                                    testattribute = "xpath";
+                                }
                             }
                             else
                             {
