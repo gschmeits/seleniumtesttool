@@ -597,23 +597,23 @@
                   Grid.Row="2"
                   AlternatingRowBackground="{DynamicResource DataGridAchtergrondAlternatief}"
                   Background="{DynamicResource DataGridAchtergrondAlternatief}"
-                  Visibility="Hidden"
+                  Visibility="Visible"
                   CanUserResizeColumns="true"
                   CanUserResizeRows="true"
                   AutoGenerateColumns="false"
                   CanUserSortColumns="true"
                   RowHeaderWidth="0"
-                  HorizontalScrollBarVisibility="Visible"
                   IsSynchronizedWithCurrentItem="False"
-                  VerticalScrollBarVisibility="Visible"
-
                   HorizontalAlignment="Center"
                   VerticalAlignment="Top"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   CanUserReorderColumns="False"
-                  CurrentCellChanged="DataGridElements_CurrentCellChanged" RowHeight="24" Margin="76,51,77,0" 
-                  Grid.ColumnSpan="2" Height="675" Width="1663" >
+                  CurrentCellChanged="DataGridElements_CurrentCellChanged" 
+                  RowHeight="24" 
+                  Margin="75,54,75,0" 
+                  Height="720" 
+                  Width="1527" Grid.ColumnSpan="2" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" IsReadOnly="true" Binding="{Binding idSelenium_element}" />
                 <DataGridCheckBoxColumn Header="Select" IsReadOnly="false"
