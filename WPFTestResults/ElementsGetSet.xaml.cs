@@ -184,8 +184,8 @@ namespace WPFTestResults
             var borderInlogMargin = BorderInlog.Margin;
             borderInlogMargin.Bottom = 307.0;
             DataGridElements.Visibility = Visibility.Visible;
-            DataGridElements.Height = Height*0.6;
-            DataGridElements.Width = Width*0.8;
+            DataGridElements.Height = Height*0.75;
+            DataGridElements.Width = Width*0.85;
             DataGridElements.Visibility = Visibility.Hidden;
             CheckTextAll.Visibility = Visibility.Hidden;
             ButtonCSV.Visibility = Visibility.Hidden;
