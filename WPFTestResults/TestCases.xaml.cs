@@ -2768,7 +2768,7 @@ namespace WPFTestResults
                                         "\t\tcy.step('Check the text of the element " +
                                         testCase.testelementname.Trim() + "')\r\n";
                                     inhoud +=
-                                        "\t\tcy.ControleerText('";
+                                        "\t\tcy.ControlText('";
                                     inhoud += content.Trim() + "', '";
                                     inhoud += controleText + "'";
                                     if (soort != "get")
