@@ -2938,7 +2938,7 @@ namespace WPFTestResults
                                               1000 + ")\r\n\r\n";
                                     break;
                                 case "SCROLL":
-                                    inhoud += "\t\tcy.step('Scroll to: '" +
+                                    inhoud += "\t\tcy.step('Scroll to: " +
                                               testCase.testtext + "')\r\n";
                                     inhoud +=
                                         "\t\tcy.scrollTo('" +
