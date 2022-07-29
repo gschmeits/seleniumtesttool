@@ -38,17 +38,20 @@
                                   Offset="0.01" />
                 </LinearGradientBrush>
             </Menu.Background>
+            <MenuItem Name="Execution" Header="Execute Tests" >
             <MenuItem Name="ExecuteTestsSql"
-                      Header="Execute Tests"
+                      Header="One Test"
                       Click="ExecuteTestsSqlClick" />
+            <Separator />
+            <MenuItem Name="AddingTestsTree"
+                      Header="Edit Test Scripts"
+                      Click="EditTestsScriptsClick" />
+            </MenuItem>
             <MenuItem Name="Adding"
                       Header="Testscripts">
                 <MenuItem Name="AddingTests"
                           Header="Edit Test Steps"
                           Click="AddingTestsClick" />
-                <MenuItem Name="AddingTestsTree"
-                          Header="Edit Test Scripts"
-                          Click="EditTestsScriptsClick" />
                 <Separator />
                 <MenuItem Name="MenuItemTestModule"
                           Header="Test Modules"
