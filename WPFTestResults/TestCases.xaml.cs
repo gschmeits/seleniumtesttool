@@ -882,12 +882,13 @@ namespace WPFTestResults
                         settingsXML.IndentChars = "\t";
 
                         using (var writer =
-                            XmlWriter.Create(
-                                GeneralFunctionality.Functions
-                                    .GetCurrentDir(1) +
-                                GeneralFunctionality.Functions._project + "\\" +
-                                bestandsnaamgeopend + ".xml",
-                                settingsXML))
+                               XmlWriter.Create(
+                                   GeneralFunctionality.Functions
+                                       .GetCurrentDir(1) +
+                                   GeneralFunctionality.Functions._project +
+                                   "\\" +
+                                   bestandsnaamgeopend + ".xml",
+                                   settingsXML))
                         {
                             writer.WriteStartDocument();
                             writer.WriteStartElement("settings");
@@ -2313,7 +2314,7 @@ namespace WPFTestResults
             inhoud += "})\r\n";
 
             if (Directory.Exists(
-                GeneralFunctionality.Functions.GetCurrentDir(2)))
+                    GeneralFunctionality.Functions.GetCurrentDir(2)))
             {
                 // Genereer het bestand
                 var appendtext =
@@ -2323,7 +2324,7 @@ namespace WPFTestResults
                 sw.WriteLine(inhoud);
 
                 sw.Close();
-                MessageBox.Show("webdriver.id javasscript created!",
+                MessageBox.Show("webdriver.io javasscript created!",
                     "Create javascript", MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
@@ -2616,14 +2617,23 @@ namespace WPFTestResults
                                   "_" +
                                   TextBoxTestName.Text + "', () => {\r\n";
 
-                        inhoud += "\tit('"+huidigProject+"_loginpage', () => {\r\n";
+                        if (TextBoxAppFunction.Text != string.Empty)
+                        {
+                            inhoud += "\tit('" + huidigProject +
+                                      "_loginpage', () => {\r\n";
+                            inhoud += "\t\tcy.Login" + huidigProject + "()\r\n";
+                            inhoud += "\t})\r\n";
+                        }
 
-                        inhoud += "\t\tcy.Login"+huidigProject+"()\r\n";
+                        
+                        inhoud += "\r\n\tit('" + TextBoxTestName.Text +
+                                  "', () => {\r\n";
 
-                        inhoud += "\t})\r\n\r\n";
-                    
-                        inhoud += "\tit('" + TextBoxTestName.Text +
-                              "', () => {\r\n";
+                        if (TextBoxAppFunction.Text == string.Empty)
+                        {
+                            inhoud += "\r\n\t\tcy.step('Visit: " + LabelUrl.Text + "')";
+                            inhoud += "\r\n\t\tcy.visit('" + LabelUrl.Text + "')\r\n\r\n";
+                        }
 
                         //inhoud += "\t\t\r\n";
 
@@ -2763,18 +2773,16 @@ namespace WPFTestResults
                                         "').should($div => {\r\n\t\t\texpect($div.text().trim())." +
                                         vergelijking1 + "('" +
                                         controleText + "')})\r\n\t\t}\r\n\r\n";*/
-                                    
+
                                     inhoud +=
                                         "\t\tcy.step('Check the text of the element " +
-                                        testCase.testelementname.Trim() + "')\r\n";
+                                        testCase.testelementname.Trim() +
+                                        "')\r\n";
                                     inhoud +=
                                         "\t\tcy.ControlText('";
                                     inhoud += content.Trim() + "', '";
                                     inhoud += controleText + "'";
-                                    if (soort != "get")
-                                    {
-                                        inhoud += ", 'xpath'";
-                                    }
+                                    if (soort != "get") inhoud += ", 'xpath'";
                                     inhoud += ")\r\n\r\n";
                                 }
 
@@ -2783,7 +2791,8 @@ namespace WPFTestResults
                                 case "CLICK":
                                     inhoud +=
                                         "\t\tcy.step('Click on the element " +
-                                        testCase.testelementname.Trim() + "')\r\n";
+                                        testCase.testelementname.Trim() +
+                                        "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').click({force: true})\r\n\r\n";
@@ -2792,7 +2801,8 @@ namespace WPFTestResults
 
                                     inhoud +=
                                         "\t\tcy.step('Double click on the element " +
-                                        testCase.testelementname.Trim() + "')\r\n";
+                                        testCase.testelementname.Trim() +
+                                        "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').doubleClick()\r\n\r\n";
@@ -2806,7 +2816,8 @@ namespace WPFTestResults
                                     {
                                         inhoud +=
                                             "\t\tcy.step('Sendkey Enter to " +
-                                            testCase.testelementname.Trim() + "')\r\n";
+                                            testCase.testelementname.Trim() +
+                                            "')\r\n";
                                         inhoud +=
                                             "\t\tcy." + soort + "('" + content +
                                             "').type('" +
@@ -2816,7 +2827,8 @@ namespace WPFTestResults
                                     {
                                         inhoud += "\t\tcy.step('Sendkeys: " +
                                                   text + " to " +
-                                                  testCase.testelementname.Trim() +
+                                                  testCase.testelementname
+                                                      .Trim() +
                                                   "')\r\n";
                                         inhoud +=
                                             "\t\tcy." + soort + "('" + content +
@@ -2966,7 +2978,8 @@ namespace WPFTestResults
                                 default:
                                     inhoud +=
                                         "\t\tcy.step('Check if the element " +
-                                        testCase.testelementname.Trim() + " exists.')\r\n";
+                                        testCase.testelementname.Trim() +
+                                        " exists.')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
                                         "').should('exist')\r\n\r\n";
@@ -2980,7 +2993,7 @@ namespace WPFTestResults
             inhoud += "})\r\n";
 
             if (Directory.Exists(
-                GeneralFunctionality.Functions.GetCurrentDir(3)))
+                    GeneralFunctionality.Functions.GetCurrentDir(3)))
             {
                 // Genereer het bestand
                 var appendtext =
@@ -2990,7 +3003,7 @@ namespace WPFTestResults
                 sw.WriteLine(inhoud);
 
                 sw.Close();
-                MessageBox.Show("webdriver.id javasscript created!",
+                MessageBox.Show("Cypress javasscript created!",
                     "Create javascript", MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
@@ -3044,6 +3057,5 @@ namespace WPFTestResults
             changeExecuteBulkData.ShowDialog();
             VulLabel();
         }
-
     }
 }
