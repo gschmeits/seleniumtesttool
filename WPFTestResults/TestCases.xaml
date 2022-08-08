@@ -1162,6 +1162,20 @@
                           VerticalAlignment="Center" 
                           HorizontalAlignment="Right"
                           Margin="0,0,75,0"/>
+                <CheckBox Content="One it() for all tests"
+                          Name="CheckBoxIT"
+                          Grid.Row="4"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          IsChecked="True" Click="CheckBoxIT_Click"/>
+                <CheckBox Content="Divide into parts"
+                          Name="CheckBoxITParts"
+                          Grid.Row="5"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          IsChecked="True "/>
+
+
                 <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="5" Name="StackPanelRowsLogin"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center" Margin="50,0">
