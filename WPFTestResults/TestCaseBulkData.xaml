@@ -1,0 +1,107 @@
+﻿<Window x:Class="WPFTestResults.TestCaseBulkData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Updating Database"
+        Height="300"
+        Width="600"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow">
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1"
+                                 MappingMode="RelativeToBoundingBox"
+                                 StartPoint="0.5,0">
+                <GradientStop Color="White"
+                              Offset="1" />
+                <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"
+                              Offset="0.01" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="48" />
+            <RowDefinition Height="48" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+        <Button Name="ButtonGetTestSet"
+                Style="{DynamicResource MyButtonStyle}"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="5,0"
+                Height="32"
+                Width="75"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Content="Get TestSet"
+                Click="ButtonGetTestSet_Click" />
+        <Label Content="Rename TestCases"
+               FontWeight="Bold"
+               FontSize="16"
+               HorizontalAlignment="Left"
+               Margin="25,0,0,0"
+               VerticalAlignment="Center"
+               Grid.ColumnSpan="2"  />
+        <Label Content="Rename TestCases"
+               FontWeight="Bold"
+               FontSize="16"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Name="LabelTestSET" Grid.ColumnSpan="2"  />
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+            <Label Content="TestCase Tekst"
+                   VerticalAlignment="Center" Margin="0,0,5,0"></Label>
+            <TextBox Name="TextBoxTestCase" Width="250" Height="28" VerticalContentAlignment="Center" VerticalAlignment="Center" TextChanged="TextBoxTestCase_TextChanged"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" 
+                    Visibility="Visible"
+                    Name="StackPanelFromUpto" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Grid.Row="2"
+                    Grid.Column="1">
+            <Label Content="From Testnr.:" />
+            <TextBox Name="txtFrom" 
+                     Width="75" 
+                     IsEnabled="True"
+                     TextChanged="TxtFrom_TextChanged"
+                     VerticalContentAlignment="Center"/>
+            <Label Content="Up to Testnr.:" />
+            <TextBox Name="txtUpto"
+                     IsEnabled="True"
+                     Width="75" 
+                     VerticalContentAlignment="Center"
+                     TextChanged="TxtUpto_TextChanged" />
+        </StackPanel>
+
+        <Button Name="ButtonTestCase"
+                Grid.Row="4"
+                Grid.Column="1"
+                Width="165"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="5,36,0,2"
+                Content="Execute updatingTestCase(s)"
+                Style="{DynamicResource MyButtonStyle}"
+                IsEnabled="False" Click="ButtonTestCase_Click" />
+        <Button Name="ButtonDatabaseConnectionCancel"
+                Grid.Row="4"
+                Grid.Column="1"
+                Content="Cancel"
+                Style="{DynamicResource MyButtonStyle}"
+                Width="100"
+                Click="ButtonDatabaseConnectionCancel_Click"
+                Margin="345,36,0,0" />
+    </Grid>
+</Window>

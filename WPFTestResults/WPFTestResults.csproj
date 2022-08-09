@@ -235,6 +235,9 @@
     <Compile Include="ChangeExecuteBulkData.xaml.cs">
       <DependentUpon>ChangeExecuteBulkData.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestCaseBulkData.xaml.cs">
+      <DependentUpon>TestCaseBulkData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteBulkData.xaml.cs">
       <DependentUpon>DeleteBulkData.xaml</DependentUpon>
     </Compile>
@@ -293,6 +296,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ChangeExecuteBulkData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TestCaseBulkData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

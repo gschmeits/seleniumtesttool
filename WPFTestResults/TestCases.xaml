@@ -32,61 +32,74 @@
         <Border Grid.Row="0"
                 Margin="3"
                 Style="{DynamicResource BorderaStyleG}" />
-        <StackPanel Orientation="Horizontal"
-                    Margin="254,8,242,12"
+        <StackPanel Margin="175,8,106,12" 
+                    Orientation="Horizontal">
+
+            <StackPanel Orientation="Horizontal"
                     Visibility="Visible"
                     Name="PanelNamen">
-            <Label Content="XML File:"
+                <Label Content="XML File:"
                    HorizontalAlignment="Left"
                    FontWeight="Bold"
                    VerticalAlignment="Center"
-                   VerticalContentAlignment="Center" />
-            <Label Name="textboxApplictionname"
+                   VerticalContentAlignment="Center" Margin="0,7" />
+                <Label x:Name="textboxApplictionname"
                    HorizontalAlignment="Left"
                    Height="32"
                    Margin="5,0,0,0"
                    VerticalAlignment="Center"
                    Width="Auto"
                    VerticalContentAlignment="Center" />
-            <Label Content="Start URL: "
+                <Label Content="Start URL: "
                    VerticalAlignment="Center"
                    FontWeight="Bold"
-                   Margin="5,0,0,0" />
-            <TextBox Text=""
+                   Margin="0,0,0,0" />
+                <TextBox Text=""
                      Height="24"
                      VerticalContentAlignment="Center"
-                     Width="450"
-                     Name="LabelUrl"
+                     Width="400"
+                     x:Name="LabelUrl"
                      VerticalAlignment="Center" KeyDown="LabelUrl_KeyDown" />
-            <TextBox Name="SearchTextBox" VerticalContentAlignment="Center" Width="300" Margin="20,0,0,0" Height="24" />
-            <Button Name="SearchButton" Style="{DynamicResource MyButtonStyle}" 
+                <TextBox x:Name="SearchTextBox" VerticalContentAlignment="Center" Width="275" Margin="20,0,0,0" Height="24" />
+                <Button x:Name="SearchButton" Style="{DynamicResource MyButtonStyle}" 
                     Height="24" 
                     Content="Search" 
                     VerticalContentAlignment="Center" Click="SearchButton_Click" />
-            <Button Name="ClearSearchButton" Style="{DynamicResource MyButtonStyle}" 
+                <Button x:Name="ClearSearchButton" Style="{DynamicResource MyButtonStyle}" 
                     Height="24" 
                     Content="Clear" 
                     VerticalContentAlignment="Center" Click="ClearSearchButton_Click"  />
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Margin="1500,0,120,0" Name="StackPanelCoDeEx" Orientation="Horizontal">
+            <StackPanel Margin="15,0,0,0" 
+                    Name="StackPanelCoDeEx" 
+                    Orientation="Horizontal" Background="#FF9095A8"
+                    >
 
-            <Button Name="CopyRegels"
+                <Button Name="CopyRegels"
                     Style="{DynamicResource MyButtonStyle}" 
                     Width="50" 
+                    Height="24"
                     VerticalAlignment="Center"
                     Click="CopyRegels_Click">Copy</Button>
-            <Button Name="DeleteRegels"
+                <Button Name="DeleteRegels"
                     Style="{DynamicResource MyButtonStyle}" 
-                    Width="50" 
+                    Width="50"
+                    Height="24"
                     VerticalAlignment="Center"
                     Click="DeleteRegels_Click">Delete</Button>
-            <Button Name="ExecuteRegels"
+                <Button Name="ExecuteRegels"
                     Style="{DynamicResource MyButtonStyle}" 
-                    Width="50" 
+                    Width="50"
+                    Height="24"
                     VerticalAlignment="Center"
                     Click="ExecuteRegels_OnClickRegels_Click">Execute</Button>
-
+                <Button Name="Define_TestCase"
+                    Style="{DynamicResource MyButtonStyle}" 
+                    Width="90"
+                    Height="24"
+                    VerticalAlignment="Center" Click="Define_TestCase_Click">Def. TestCase</Button>
+            </StackPanel>
         </StackPanel>
 
         <Button Content="Show Test Cases"

@@ -3206,5 +3206,14 @@ namespace WPFTestResults
                 CheckBoxITParts.Visibility = Visibility.Visible;
             }
         }
+
+        private void Define_TestCase_Click(object sender, RoutedEventArgs e)
+        {
+            var testcaseNameUpdate = "";
+
+            var testCaseBulkData = new TestCaseBulkData(bestandsnaamgeopend);
+            testCaseBulkData.ShowDialog();
+            VulLabel();
+        }
     }
 }
