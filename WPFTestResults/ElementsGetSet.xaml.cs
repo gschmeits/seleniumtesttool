@@ -3507,7 +3507,7 @@ namespace WPFTestResults
                 var sSQL = "UPDATE selenium_elements SET checktext = " +
                            clearText + " WHERE url = '";
                 sSQL += TextBoxURL.Text + "' AND " + kolom + " = '" +
-                        TextBoxChangeText.Text + "';";
+                        TextBoxChangeText.Text + "' AND text != '';";
 
                 GenericDataRead.INUPDEL(sSQL);
 
