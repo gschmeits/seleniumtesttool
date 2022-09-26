@@ -2442,6 +2442,15 @@ namespace WPFTestResults
                 TextBoxImportLogin.Text =
                     "import LoginPage from '../../pageobjects/Pages/LoginPage'";
                 StackPanelRowsLogin.Visibility = Visibility.Visible;
+                if (TextBoxLoginFrom.Text != string.Empty &&
+                    TextBoxLoginTill.Text != string.Empty)
+                {
+                    ButtonWebdriverGenerate.IsEnabled = false;
+                }
+                else
+                {
+                    ButtonWebdriverGenerate.IsEnabled = true;
+                }
             }
             else
             {
@@ -2595,6 +2604,7 @@ namespace WPFTestResults
             foreach (var testCase in testCases)
                 if (testCase.testexecution == "yes")
                 {
+                    var elementname = testCase.testelementname.Trim().Replace("'", "\\'");
                     var from1 = 10000000;
                     var till1 = -1;
 
@@ -2690,7 +2700,7 @@ namespace WPFTestResults
                                   "', () => {\r\n";
                     }
 
-                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                     {
                         if (iTeller > 1)
                         {
@@ -2787,15 +2797,15 @@ namespace WPFTestResults
 
                                 if (testCase.testext_check != string.Empty)
                                 {
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Test the value of the element " +
-                                            testCase.testelementname.Trim() +
+                                            elementname +
                                             "', () => {\r\n";
 
                                     inhoud +=
                                         "\t\tcy.step('Check the text of the element " +
-                                        testCase.testelementname.Trim() +
+                                        elementname +
                                         "')\r\n";
                                     inhoud +=
                                         "\t\tcy.ControlText('";
@@ -2804,7 +2814,7 @@ namespace WPFTestResults
                                     if (soort != "get") inhoud += ", 'xpath'";
                                     inhoud += ")\r\n";
 
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\t})\r\n\r\n";
                                 }
@@ -2812,14 +2822,14 @@ namespace WPFTestResults
                             switch (testCase.testaction.ToUpper())
                             {
                                 case "CLICK":
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element " +
-                                            testCase.testelementname.Trim() +
+                                            elementname +
                                             "', () => {\r\n";
                                     inhoud +=
                                         "\t\tcy.step('Click on the element " +
-                                        testCase.testelementname.Trim() +
+                                        elementname +
                                         "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
@@ -2827,14 +2837,14 @@ namespace WPFTestResults
 
                                     break;
                                 case "DOUBLECLICK":
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element " +
-                                            testCase.testelementname.Trim() +
+                                            elementname +
                                             "', () => {\r\n";
                                     inhoud +=
                                         "\t\tcy.step('Double click on the element " +
-                                        testCase.testelementname.Trim() +
+                                        elementname +
                                         "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
@@ -2849,16 +2859,15 @@ namespace WPFTestResults
 
                                     if (text == "{ENTER}")
                                     {
-                                        if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                        if (CheckBoxIT.IsChecked == false && itname != elementname)
                                             inhoud +=
                                                 "\tit('Test the element " +
-                                                testCase.testelementname
-                                                    .Trim() +
+                                                elementname +
                                                 "', () => {\r\n";
 
                                         inhoud +=
                                             "\t\tcy.step('Sendkey Enter to " +
-                                            testCase.testelementname.Trim() +
+                                            elementname +
                                             "')\r\n";
                                         inhoud +=
                                             "\t\tcy." + soort + "('" + content +
@@ -2867,16 +2876,14 @@ namespace WPFTestResults
                                     }
                                     else
                                     {
-                                        if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                        if (CheckBoxIT.IsChecked == false && itname != elementname)
                                             inhoud +=
                                                 "\tit('Test the element: " +
-                                                testCase.testelementname
-                                                    .Trim() +
+                                                elementname +
                                                 "', () => {\r\n";
                                         inhoud += "\t\tcy.step('Sendkeys: " +
                                                   text + " to " +
-                                                  testCase.testelementname
-                                                      .Trim() +
+                                                  elementname +
                                                   "')\r\n";
                                         inhoud +=
                                             "\t\tcy." + soort + "('" + content +
@@ -2889,14 +2896,14 @@ namespace WPFTestResults
 
                                     break;
                                 case "SELECT":
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element" +
-                                            testCase.testelementname.Trim() +
+                                            elementname +
                                             "', () => {\r\n";
                                     inhoud += "\t\tcy.step('Select: " +
                                               testCase.testtext + " from " +
-                                              testCase.testelementname.Trim() +
+                                              elementname +
                                               "')\r\n";
 
                                     if (testCase.testtext.Contains("|"))
@@ -2924,14 +2931,14 @@ namespace WPFTestResults
 
                                     break;
                                 case "VALUE":
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element '" +
-                                                 testCase.testelementname +
+                                                 testCase.testelementname.Trim().Replace("'", "\'") +
                                             "', () => {\r\n";
                                     inhoud += "\t\tcy.step('Set value: '" +
                                               testCase.testtext + " to " +
-                                              testCase.testelementname +
+                                              testCase.testelementname.Trim().Replace("'", "\'") +
                                               "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
@@ -2945,14 +2952,14 @@ namespace WPFTestResults
                                         testCase.testtext.Trim();
                                     if (tekst3.ToUpper() == "TRUE")
                                         keuze = "true";
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Set checkbox " +
-                                            testCase.testelementname.Trim() +
+                                            elementname +
                                             " to: '" + keuze +
                                             "', () => {\r\n";
                                     inhoud += "\t\tcy.step('Set checkbox " +
-                                              testCase.testelementname.Trim() +
+                                              elementname +
                                               " to: '" + keuze + "')\r\n";
                                     inhoud += waitForEx(content, soort);
                                     inhoud +=
@@ -2961,13 +2968,13 @@ namespace WPFTestResults
 
                                     break;
                                 case "MOVE TO":
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element element " +
-                                            testCase.testelementname.Trim() +
+                                            elementname +
                                             "', () => {\r\n";
                                     inhoud += "\t\tcy.step('Move to element " +
-                                              testCase.testelementname.Trim() +
+                                              elementname +
                                               "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
@@ -3004,7 +3011,7 @@ namespace WPFTestResults
                                 case "SWITCH TO IFRAME":
                                     var detailFrame = content;
                                     //inhoud += waitForEx(content, soort);
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('browser.frame(" +
                                             detailFrame +
@@ -3015,7 +3022,7 @@ namespace WPFTestResults
 
                                     break;
                                 case "SWITCH TO DEFAULT":
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('browser.SwitchTo().DefaultContent()', () => {\r\n";
                                     inhoud +=
@@ -3027,7 +3034,7 @@ namespace WPFTestResults
                                 case "GET_VALUE":
                                     break;
                                 case "WAIT":
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Wait for " +
                                             testCase.testtext +
@@ -3042,7 +3049,7 @@ namespace WPFTestResults
 
                                     break;
                                 case "SCROLL":
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Scroll to: " +
                                             testCase.testtext +
@@ -3059,7 +3066,7 @@ namespace WPFTestResults
 
                                     if (TextBoxSwitchUrl.Text != string.Empty)
                                     {
-                                        if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                        if (CheckBoxIT.IsChecked == false && itname != elementname)
                                             inhoud +=
                                                 "\tit('Visit the URL', () => {\r\n";
                                         inhoud +=
@@ -3078,14 +3085,14 @@ namespace WPFTestResults
                                 case "LOGOUT":
                                     break;
                                 default:
-                                    if (CheckBoxIT.IsChecked == false && itname != testCase.testelementname.Trim())
+                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element " +
-                                            testCase.testelementname.Trim() +
-                                            " exists.', () => {\r\n";
+                                            elementname +
+                                            "', () => {\r\n";
                                     inhoud +=
                                         "\t\tcy.step('Check if the element " +
-                                        testCase.testelementname.Trim() +
+                                        elementname +
                                         " exists.')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
@@ -3099,7 +3106,7 @@ namespace WPFTestResults
 
 
                             testcase_new = testCase.testcase;
-                            itname = testCase.testelementname.Trim();
+                            itname = elementname;
                         }
                     }
 
