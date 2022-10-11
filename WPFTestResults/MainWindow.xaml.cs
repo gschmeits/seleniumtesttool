@@ -1713,5 +1713,10 @@ namespace WPFTestResults
             var changeExecuteBulkData = new ChangeExecuteBulkData();
             changeExecuteBulkData.Show();
         }
+
+        private void Execution_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

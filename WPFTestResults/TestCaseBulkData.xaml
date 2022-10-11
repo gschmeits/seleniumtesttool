@@ -45,6 +45,14 @@
                 HorizontalContentAlignment="Center"
                 Content="Get TestSet"
                 Click="ButtonGetTestSet_Click" />
+        <Label Name="LabelMessage" 
+               Grid.Row="3" 
+               Grid.ColumnSpan="2"
+               Content="TestCase is changed."
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center" 
+               Visibility="Hidden" FontWeight="Bold" FontSize="16">
+        </Label>
         <Label Content="Rename TestCases"
                FontWeight="Bold"
                FontSize="16"

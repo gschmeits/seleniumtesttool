@@ -38,7 +38,7 @@
                                   Offset="0.01" />
                 </LinearGradientBrush>
             </Menu.Background>
-            <MenuItem Name="Execution" Header="Execute Tests" >
+            <MenuItem Name="Execution" Header="Execute Tests" Click="Execution_Click" >
             <MenuItem Name="ExecuteTestsSql"
                       Header="One Test"
                       Click="ExecuteTestsSqlClick" />
