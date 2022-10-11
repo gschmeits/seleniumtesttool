@@ -40,6 +40,7 @@ namespace WPFTestResults
         public TestCaseBulkData(string bestandsnaamopen = "")
         {
             InitializeComponent();
+            TextBoxTestCase.Focus();
             if (bestandsnaamopen != string.Empty)
             {
                 ButtonGetTestSet.Visibility = Visibility.Hidden;
@@ -226,5 +227,6 @@ namespace WPFTestResults
                 txtUpto.IsEnabled = false;
             }
         }
+
     }
 }

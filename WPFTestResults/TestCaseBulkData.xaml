@@ -62,7 +62,8 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
             <Label Content="TestCase Tekst"
                    VerticalAlignment="Center" Margin="0,0,5,0"></Label>
-            <TextBox Name="TextBoxTestCase" Width="250" Height="28" VerticalContentAlignment="Center" VerticalAlignment="Center" TextChanged="TextBoxTestCase_TextChanged"/>
+            <TextBox Name="TextBoxTestCase" Width="250" Height="28" VerticalContentAlignment="Center" VerticalAlignment="Center" 
+                     TextChanged="TextBoxTestCase_TextChanged" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" 
                     Visibility="Visible"
@@ -76,12 +77,14 @@
                      Width="75" 
                      IsEnabled="True"
                      TextChanged="TxtFrom_TextChanged"
+                     HorizontalContentAlignment="Center"
                      VerticalContentAlignment="Center"/>
             <Label Content="Up to Testnr.:" />
             <TextBox Name="txtUpto"
                      IsEnabled="True"
                      Width="75" 
                      VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"
                      TextChanged="TxtUpto_TextChanged" />
         </StackPanel>
 
