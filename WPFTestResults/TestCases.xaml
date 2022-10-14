@@ -1333,5 +1333,91 @@
                         Click="ButtonCloseCSV_Click" TabIndex="5" />
             </Grid>
         </StackPanel>
+        <Grid Name="defTestCase" Grid.Row="2" Width="600" Height="300" VerticalAlignment="Center"
+              Visibility="Visible" HorizontalAlignment="Center" Margin="505,111,483,112">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                 MappingMode="RelativeToBoundingBox"
+                                 StartPoint="0.5,0">
+                    <GradientStop Color="White"
+                              Offset="1" />
+                    <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"
+                              Offset="0.01" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="48" />
+                <RowDefinition Height="48" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Name="LabelMessage" 
+               Grid.Row="3" 
+               Grid.ColumnSpan="2"
+               Content="TestCase is changed."
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center" 
+               Visibility="Hidden" FontWeight="Bold" FontSize="16">
+            </Label>
+            <Label Content="Rename TestCases"
+               FontWeight="Bold"
+               FontSize="16"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Name="LabelTestSET" Grid.ColumnSpan="2"  />
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <Label Content="TestCase Tekst"
+                   VerticalAlignment="Center" Margin="0,0,5,0"></Label>
+                <TextBox Name="TextBoxTestCase1" Width="250" Height="28" VerticalContentAlignment="Center" VerticalAlignment="Center" TextChanged="TextBoxTestCase1_TextChanged" 
+                      />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" 
+                    Visibility="Visible"
+                    Name="StackPanelFromUpto" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Grid.Row="2"
+                    Grid.Column="1">
+                <Label Content="From Testnr.:" />
+
+                <TextBox Name="txtFrom" 
+                     Width="75" 
+                     IsEnabled="True"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center" TextChanged="TxtFrom_TextChanged" GotFocus="TxtFrom_GotFocus"/>
+                <Label Content="Up to Testnr.:" />
+                <TextBox Name="txtUpto"
+                     IsEnabled="True"
+                     Width="75" 
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center" TextChanged="TxtUpto_TextChanged" GotFocus="TxtUpto_GotFocus"
+/>
+            </StackPanel>
+
+            <Button Name="ButtonTestCase"
+                Grid.Row="4"
+                Grid.Column="1"
+                Width="165"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="5,36,0,2"
+                Content="Execute updatingTestCase(s)"
+                Style="{DynamicResource MyButtonStyle}"
+                IsEnabled="False" Click="ButtonTestCase_Click" />
+            <Button Name="ButtonDatabaseConnectionCancel"
+                Grid.Row="4"
+                Grid.Column="1"
+                Content="Close"
+                Style="{DynamicResource MyButtonStyle}"
+                Width="100"
+               Margin="345,36,0,0" Click="ButtonDatabaseConnectionCancel_Click" />
+        </Grid>
     </Grid>
 </Window>

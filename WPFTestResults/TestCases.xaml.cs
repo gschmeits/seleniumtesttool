@@ -24,6 +24,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 using System.Xml;
 using DataStorage;
 using GeneralFunctionality;
@@ -33,6 +34,7 @@ using DataGrid = System.Windows.Controls.DataGrid;
 using DataGridCell = System.Windows.Controls.DataGridCell;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
+using MessageBox1 = System.Windows.Forms.MessageBox;
 
 namespace WPFTestResults
 {
@@ -46,6 +48,14 @@ namespace WPFTestResults
     public partial class TestCases : Window
     {
         private ICollectionView defaultView;
+
+        private DispatcherTimer dispatcherTimer;
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            LabelMessage.Visibility = Visibility.Hidden;
+            dispatcherTimer.IsEnabled = false;
+        }
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="TestCases" /> class.
@@ -102,6 +112,7 @@ namespace WPFTestResults
             CSVImport.Visibility = Visibility.Hidden;
             ModuleWebdriver.Visibility = Visibility.Hidden;
             CheckBoxDataCy.Visibility = Visibility.Hidden;
+            defTestCase.Visibility = Visibility.Hidden;
         }
 
         private static string bestandsnaamgeopend { get; set; }
@@ -2444,13 +2455,9 @@ namespace WPFTestResults
                 StackPanelRowsLogin.Visibility = Visibility.Visible;
                 if (TextBoxLoginFrom.Text != string.Empty &&
                     TextBoxLoginTill.Text != string.Empty)
-                {
                     ButtonWebdriverGenerate.IsEnabled = false;
-                }
                 else
-                {
                     ButtonWebdriverGenerate.IsEnabled = true;
-                }
             }
             else
             {
@@ -2604,8 +2611,9 @@ namespace WPFTestResults
             foreach (var testCase in testCases)
                 if (testCase.testexecution == "yes")
                 {
-                    var elementname = testCase.testelementname.Trim().Replace("'", "\\'");
-                     var from1 = 10000000;
+                    var elementname = testCase.testelementname.Trim()
+                        .Replace("'", "\\'");
+                    var from1 = 10000000;
                     var till1 = -1;
 
                     if (TextBoxLoginFrom.Text != string.Empty)
@@ -2634,9 +2642,7 @@ namespace WPFTestResults
                         var nickname = LabelUrl.Text;
 
                         if (TextBoxSwitchUrl.Text != string.Empty)
-                        {
                             nickname = TextBoxSwitchUrl.Text;
-                        }
 
                         if (TextBoxAppFunction.Text == string.Empty)
                         {
@@ -2649,12 +2655,10 @@ namespace WPFTestResults
                             {
                                 var linespit = nickname.Split('/');
                                 gTekst = string.Empty;
-                                for (int gTeller = 1;
+                                for (var gTeller = 1;
                                      gTeller < linespit.Length;
                                      gTeller++)
-                                {
                                     gTekst += "/" + linespit[gTeller];
-                                }
                             }
 
                             inhoud += "\r\n\t\tcy.visit('" + gTekst +
@@ -2701,12 +2705,8 @@ namespace WPFTestResults
                     }
 
                     if (CheckBoxIT.IsChecked == false && itname != elementname)
-                    {
                         if (iTeller > 1)
-                        {
                             inhoud += "\t})\r\n\r\n";
-                        }
-                    }
 
                     var content = string.Empty;
                     var controleText =
@@ -2797,7 +2797,8 @@ namespace WPFTestResults
 
                                 if (testCase.testext_check != string.Empty)
                                 {
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Test the value of the element " +
                                             elementname +
@@ -2814,7 +2815,8 @@ namespace WPFTestResults
                                     if (soort != "get") inhoud += ", 'xpath'";
                                     inhoud += ")\r\n";
 
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\t})\r\n\r\n";
                                 }
@@ -2822,7 +2824,8 @@ namespace WPFTestResults
                             switch (testCase.testaction.ToUpper())
                             {
                                 case "CLICK":
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element " +
                                             elementname +
@@ -2837,7 +2840,8 @@ namespace WPFTestResults
 
                                     break;
                                 case "DOUBLECLICK":
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element " +
                                             elementname +
@@ -2859,7 +2863,8 @@ namespace WPFTestResults
 
                                     if (text == "{ENTER}")
                                     {
-                                        if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                        if (CheckBoxIT.IsChecked == false &&
+                                            itname != elementname)
                                             inhoud +=
                                                 "\tit('Test the element " +
                                                 elementname +
@@ -2876,7 +2881,8 @@ namespace WPFTestResults
                                     }
                                     else
                                     {
-                                        if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                        if (CheckBoxIT.IsChecked == false &&
+                                            itname != elementname)
                                             inhoud +=
                                                 "\tit('Test the element: " +
                                                 elementname +
@@ -2896,7 +2902,8 @@ namespace WPFTestResults
 
                                     break;
                                 case "SELECT":
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element" +
                                             elementname +
@@ -2931,14 +2938,17 @@ namespace WPFTestResults
 
                                     break;
                                 case "VALUE":
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element '" +
-                                                 testCase.testelementname.Trim().Replace("'", "\'") +
+                                            testCase.testelementname.Trim()
+                                                .Replace("'", "\'") +
                                             "', () => {\r\n";
                                     inhoud += "\t\tcy.step('Set value: '" +
                                               testCase.testtext + " to " +
-                                              testCase.testelementname.Trim().Replace("'", "\'") +
+                                              testCase.testelementname.Trim()
+                                                  .Replace("'", "\'") +
                                               "')\r\n";
                                     inhoud +=
                                         "\t\tcy." + soort + "('" + content +
@@ -2952,7 +2962,8 @@ namespace WPFTestResults
                                         testCase.testtext.Trim();
                                     if (tekst3.ToUpper() == "TRUE")
                                         keuze = "true";
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Set checkbox " +
                                             elementname +
@@ -2968,7 +2979,8 @@ namespace WPFTestResults
 
                                     break;
                                 case "MOVE TO":
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element element " +
                                             elementname +
@@ -3011,7 +3023,8 @@ namespace WPFTestResults
                                 case "SWITCH TO IFRAME":
                                     var detailFrame = content;
                                     //inhoud += waitForEx(content, soort);
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('browser.frame(" +
                                             detailFrame +
@@ -3022,7 +3035,8 @@ namespace WPFTestResults
 
                                     break;
                                 case "SWITCH TO DEFAULT":
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('browser.SwitchTo().DefaultContent()', () => {\r\n";
                                     inhoud +=
@@ -3034,7 +3048,8 @@ namespace WPFTestResults
                                 case "GET_VALUE":
                                     break;
                                 case "WAIT":
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Wait for " +
                                             testCase.testtext +
@@ -3049,7 +3064,8 @@ namespace WPFTestResults
 
                                     break;
                                 case "SCROLL":
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Scroll to: " +
                                             testCase.testtext +
@@ -3066,7 +3082,8 @@ namespace WPFTestResults
 
                                     if (TextBoxSwitchUrl.Text != string.Empty)
                                     {
-                                        if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                        if (CheckBoxIT.IsChecked == false &&
+                                            itname != elementname)
                                             inhoud +=
                                                 "\tit('Visit the URL', () => {\r\n";
                                         inhoud +=
@@ -3085,7 +3102,8 @@ namespace WPFTestResults
                                 case "LOGOUT":
                                     break;
                                 default:
-                                    if (CheckBoxIT.IsChecked == false && itname != elementname)
+                                    if (CheckBoxIT.IsChecked == false &&
+                                        itname != elementname)
                                         inhoud +=
                                             "\tit('Test the element " +
                                             elementname +
@@ -3100,8 +3118,9 @@ namespace WPFTestResults
 
                                     break;
                             }
-                            
-                            if (CheckBoxIT.IsChecked == true && CheckBoxITParts.IsChecked == false)
+
+                            if (CheckBoxIT.IsChecked == true &&
+                                CheckBoxITParts.IsChecked == false)
                                 inhoud += "\r\n";
 
 
@@ -3109,7 +3128,6 @@ namespace WPFTestResults
                             itname = elementname;
                         }
                     }
-
                 }
 
 
@@ -3118,10 +3136,8 @@ namespace WPFTestResults
             inhoud += "})\r\n";
 
             while (inhoud.IndexOf("  ", StringComparison.CurrentCulture) != -1)
-            {
                 inhoud = inhoud.Replace("  ", " ");
-            }
-            
+
             if (Directory.Exists(
                     GeneralFunctionality.Functions.GetCurrentDir(3)))
             {
@@ -3204,11 +3220,147 @@ namespace WPFTestResults
 
         private void Define_TestCase_Click(object sender, RoutedEventArgs e)
         {
-            var testcaseNameUpdate = "";
+            //var testcaseNameUpdate = "";
 
-            var testCaseBulkData = new TestCaseBulkData(bestandsnaamgeopend);
-            testCaseBulkData.ShowDialog();
-            VulLabel();
+            //var testCaseBulkData = new TestCaseBulkData(bestandsnaamgeopend);
+            //testCaseBulkData.ShowDialog();
+            LabelTestSET.Content = bestandsnaamgeopend;
+            defTestCase.Visibility = Visibility.Visible;
+            TextBoxTestCase1.Focus();
+
+        }
+
+        private void ButtonGetTestSet_Click()
+        {
+        }
+
+        private void ButtonDatabaseConnectionCancel_Click(object sender,
+            RoutedEventArgs e)
+        {
+            defTestCase.Visibility = Visibility.Hidden;
+        }
+
+        private void TxtFrom_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtFrom.Text = Regex.Replace(txtFrom.Text, "[^0-9]+", "");
+            if (txtFrom.Text != string.Empty)
+                ButtonTestCase.IsEnabled = true;
+            else
+                ButtonTestCase.IsEnabled = true;
+        }
+
+        private void TxtUpto_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtUpto.Text = Regex.Replace(txtUpto.Text, "[^0-9]+", "");
+            if (txtUpto.Text != string.Empty)
+                ButtonTestCase.IsEnabled = true;
+            else
+                ButtonTestCase.IsEnabled = true;
+        }
+
+        private void TextBoxTestCase1_TextChanged(object sender,
+            TextChangedEventArgs e)
+        {
+            if (TextBoxTestCase.Text != string.Empty)
+                ButtonTestCase.IsEnabled = true;
+            else
+                ButtonTestCase.IsEnabled = false;
+        }
+
+        private void ButtonTestCase_Click(object sender, RoutedEventArgs e)
+        {
+            var testcaseString =
+                "UPDATE testcases_selenium SET testcase = '" +
+                TextBoxTestCase1.Text + "' WHERE testname = '" +
+                LabelTestSET.Content + "'";
+
+            if (txtFrom.Text.Length > 0 && txtUpto.Text.Length > 0)
+                if (Convert.ToInt64(txtUpto.Text) <
+                    Convert.ToInt64(txtFrom.Text))
+                {
+                    MessageBox1.Show(
+                        "Up to testnr can not be lower than from testnr!!!",
+                        "Message",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+
+            if (txtFrom.Text != string.Empty)
+                testcaseString += " AND testnr >= " + txtFrom.Text;
+
+            if (txtUpto.Text != string.Empty)
+                testcaseString += " AND testnr <= " + txtUpto.Text;
+
+            General.LogMessage(
+                "Query for updating TestCases: '" + testcaseString + "'.",
+                3,
+                string.Empty,
+                0,
+                string.Empty,
+                InloggerData.MachineCode);
+
+            var ok = false;
+            try
+            {
+                General.ExecuteQueryCommand(testcaseString);
+                ok = true;
+            }
+            catch (Exception ex)
+            {
+                General.LogMessage(
+                    ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" +
+                    ex.Source,
+                    4,
+                    string.Empty,
+                    0,
+                    string.Empty,
+                    InloggerData.MachineCode);
+                MessageBox1.Show(
+                    "Selected TestSteps are NOT updated from the database!!!",
+                    "Message",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            if (ok)
+            {
+                //MessageBox.Show(
+                //    "Selected TestSteps are deleted from the database!!!",
+                //    "Message",
+                //    MessageBoxButtons.OK,
+                //    MessageBoxIcon.Information);
+                General.LogMessage(
+                    "Selected TestSteps are deleted from the database",
+                    3,
+                    string.Empty,
+                    0,
+                    string.Empty,
+                    InloggerData.MachineCode);
+                //this.Refresh();
+                //LabelMessage.Visibility = Visibility.Visible;
+                //dispatcherTimer.Start();
+                VulLabel();
+                //Close();
+                TextBoxTestCase1.Focus();
+            }
+            else
+            {
+                ButtonTestCase.IsEnabled = false;
+                txtFrom.IsEnabled = false;
+                txtUpto.IsEnabled = false;
+            }
+        }
+
+        private void TxtFrom_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtFrom.SelectAll();
+        }
+
+        private void TxtUpto_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtUpto.SelectAll();
         }
     }
 }
+
