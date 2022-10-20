@@ -3568,6 +3568,11 @@ namespace WPFTestResults
             MessageBox.Show("Excel-file is created", "Create Excel-file",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void ButtonSetToTest_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        {
+
+        }
     }
 
     /// <summary>

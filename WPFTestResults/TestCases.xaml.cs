@@ -2790,6 +2790,14 @@ namespace WPFTestResults
                             if (testCase.testattribute.ToUpper() == "XPATH")
                                 soort = "xpath";
 
+                            if (CheckBoxDataCy.IsChecked == true &&
+                                testCase.datacy != string.Empty)
+                            {
+                                soort = "get";
+                                content = "[data-cy=\"" + testCase.datacy +
+                                          "\"]";
+                            }
+
                             var vergelijking = "contain";
                             var vergelijking1 = "include";
 
