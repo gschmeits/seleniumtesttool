@@ -2857,17 +2857,33 @@ namespace WPFTestResults
                                         "\t\tcy.step('Check the text of the element " +
                                         elementname +
                                         "')\r\n";
-                                    inhoud +=
-                                        "\t\tcy.ControlText('";
-                                    inhoud += content.Trim() + "', '";
-                                    inhoud += controleText + "'";
-                                    if (soort != "get") inhoud += ", 'xpath'";
-                                    inhoud += ")\r\n";
+
+                                    if (CheckBoxXpatn.IsChecked == true)
+                                    {
+                                        inhoud +=
+                                            "\t\tcy.ControlTextCount('";
+                                        inhoud += testCase.testtag + "', '";
+                                        inhoud += controleText + "', '";
+                                        inhoud += testCase.short_xpath + "'";
+                                        inhoud += ")\r\n";
+                                    }
+                                    else
+                                    {
+
+                                        inhoud +=
+                                            "\t\tcy.ControlText('";
+                                        inhoud += content.Trim() + "', '";
+                                        inhoud += controleText + "'";
+                                        if (soort != "get")
+                                            inhoud += ", 'xpath'";
+                                        inhoud += ")\r\n";
+                                    }
 
                                     if (CheckBoxIT.IsChecked == false &&
                                         itname != elementname)
                                         inhoud +=
                                             "\t})\r\n\r\n";
+
                                 }
 
                             switch (testCase.testaction.ToUpper())
