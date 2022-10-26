@@ -298,6 +298,13 @@
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Left"
                      HorizontalContentAlignment="Center" TextChanged="TextBoxTestNr_TextChanged" TabIndex="1" />
+            <CheckBox Name="CheckBoxXpatn" 
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      Margin="150,0,0,0"
+                      VerticalContentAlignment="Center"
+                      Content="XPath kort"
+                      IsChecked="True"/>
             <TextBox Name="TextBoxTestId"
                      Grid.Row="4"
                      Grid.Column="2"
@@ -904,7 +911,14 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-
+                <DataGridTextColumn Header="Href"
+                                    Binding="{Binding href}"
+                                    Width="auto"
+                                    Visibility="Visible" />
+                <DataGridTextColumn Header="src"
+                                    Binding="{Binding src}"
+                                    Width="auto"
+                                    Visibility="Visible" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="buttonUpdate"

@@ -46,6 +46,7 @@ namespace DataStorage
             {
                 selecteren = 1;
             }
+            /*
             var query = "UPDATE selenium_elements ";
             query += "SET " + element + " = " + selecteren;
             query += " WHERE ";
@@ -58,8 +59,25 @@ namespace DataStorage
             {
                 query += " idselenium_elements <= " + eind + " AND ";
             }
+            */
+
+            //query += " url = '" + url + "';";
+
+            var query = "UPDATE elements_short ";
+            query += "SET " + element + " = " + selecteren;
+            query += " WHERE ";
+
+            if (begin > 0)
+            {
+                query += " id_elements >= " + begin + " AND ";
+            }
+            if (eind > 0)
+            {
+                query += " id_elements <= " + eind + " AND ";
+            }
 
             query += " url = '" + url + "';";
+
             General.ExecuteQueryCommand(query);
         }
 
@@ -83,8 +101,11 @@ namespace DataStorage
             {
                 selecteren = 1;
             }
-            var query = "UPDATE selenium_elements ";
-            query += "SET checktext = '" + selecteren + "' WHERE idselenium_elements = " + id + ";";
+            //var query = "UPDATE selenium_elements ";
+            //query += "SET checktext = '" + selecteren + "' WHERE idselenium_elements = " + id + ";";
+
+            var query = "UPDATE elements_short ";
+            query += "SET checktext = '" + selecteren + "' WHERE id_elements = " + id + ";";
             General.ExecuteQueryCommand(query);
 
         }
@@ -96,8 +117,11 @@ namespace DataStorage
             {
                 selecteren = 1;
             }
-            var query = "UPDATE selenium_elements ";
-            query += "SET selenium_check = '" + selecteren + "' WHERE idselenium_elements = " + id + ";";
+            //var query = "UPDATE selenium_elements ";
+            //query += "SET selenium_check = '" + selecteren + "' WHERE idselenium_elements = " + id + ";";
+
+            var query = "UPDATE elements_short ";
+            query += "SET selenium_check = '" + selecteren + "' WHERE id_elements = " + id + ";";
             General.ExecuteQueryCommand(query);
 
         }
@@ -121,9 +145,14 @@ namespace DataStorage
         {
             var elementresults = new List<NewElements.AllElements>();
 
-            var query = "SELECT idselenium_elements, gebruikte_link, tagname, text, href, id, name, class, xpath, selenium_check, " +
-                        "checktext FROM selenium_elements ";
-            query += "WHERE url = '" + url + "' ORDER BY gebruikte_link, idselenium_elements;";
+            //var query = "SELECT idselenium_elements, gebruikte_link, tagname, text, href, id, name, class, xpath, selenium_check, " +
+            //            "checktext FROM selenium_elements ";
+            //query += "WHERE url = '" + url + "' ORDER BY gebruikte_link, idselenium_elements;";
+
+            var query =
+                "SELECT id_elements, url, tagname, text, href, id, name, class, xpath, selenium_check, checktext, short_xpath, src FROM elements_short ";
+            query += "WHERE url = '" + url + "' ORDER BY url, id_elements;";
+
 
             var objConn = new MySqlConnection(General.MySqlConnectionString());
             var objDataAdapter = new MySqlDataAdapter(query, objConn);
@@ -147,7 +176,7 @@ namespace DataStorage
                     elementresults.Add(
                         new NewElements.AllElements
                             {
-                                elementLink = objDataset.Tables[0].Rows[i]["gebruikte_link"].ToString(),
+                                elementLink = objDataset.Tables[0].Rows[i]["url"].ToString(),
                                 elementTagname = objDataset.Tables[0].Rows[i]["tagname"].ToString(),
                                 elementText = objDataset.Tables[0].Rows[i]["text"].ToString(),
                                 elementHref = objDataset.Tables[0].Rows[i]["href"].ToString(),
@@ -155,9 +184,11 @@ namespace DataStorage
                                 elementName = objDataset.Tables[0].Rows[i]["name"].ToString(),
                                 elementClass = objDataset.Tables[0].Rows[i]["class"].ToString(),
                                 elementXpath = objDataset.Tables[0].Rows[i]["xpath"].ToString(),
+                                element_src = objDataset.Tables[0].Rows[i]["src"].ToString(),
                                 elementCheck = boo2,
                                 elementCheckText = boochecktext2,
-                                idSelenium_element = Convert.ToInt32(objDataset.Tables[0].Rows[i]["idselenium_elements"].ToString())
+                                element_short = objDataset.Tables[0].Rows[i]["short_xpath"].ToString(),
+                                idSelenium_element = Convert.ToInt32(objDataset.Tables[0].Rows[i]["id_elements"].ToString())
                             });
                 }
 

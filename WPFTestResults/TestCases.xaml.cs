@@ -635,6 +635,9 @@ namespace WPFTestResults
                         checkstrict,
                         ComboBoxAttributeSave.Text,
                         wachtwoord,
+                        string.Empty, 
+                        string.Empty,
+                        string.Empty,
                         string.Empty
                     ); // text_password
                 }
@@ -660,6 +663,9 @@ namespace WPFTestResults
                         checkstrict,
                         ComboBoxAttributeSave.Text,
                         wachtwoord,
+                        string.Empty,
+                        string.Empty,
+                        string.Empty,
                         string.Empty);
                     ganaar = true;
                 }
@@ -1398,6 +1404,9 @@ namespace WPFTestResults
                                 "yes",
                                 values[7],
                                 string.Empty,
+                                string.Empty,
+                                string.Empty, 
+                                string.Empty,
                                 string.Empty);
 
                             testnr++;
@@ -1484,6 +1493,9 @@ namespace WPFTestResults
                                 "yes",
                                 testcheck,
                                 string.Empty,
+                                string.Empty,
+                                string.Empty,
+                                string.Empty,
                                 string.Empty);
 
                             testnr++;
@@ -1564,6 +1576,9 @@ namespace WPFTestResults
                             "yes",
                             values[7],
                             string.Empty,
+                            string.Empty, 
+                            string.Empty,
+                            string.Empty,
                             string.Empty);
                     }
 
@@ -1643,6 +1658,9 @@ namespace WPFTestResults
                                 testcheck,
                                 "yes",
                                 testcheck,
+                                string.Empty,
+                                string.Empty,
+                                string.Empty,
                                 string.Empty,
                                 string.Empty);
                         }
@@ -1798,6 +1816,9 @@ namespace WPFTestResults
                     var testmachinecode = "";
                     var testtag = dt.Rows[row]["testtag"].ToString();
                     var testcheck = dt.Rows[row]["testext_check"].ToString();
+                    var href_1 = dt.Rows[row]["href"].ToString();
+                    var src_1 = dt.Rows[row]["src"].ToString();
+                    var xpath_1 = dt.Rows[row]["short_xpath"].ToString();
 
                     DataStorage.TestCases.AddTestCase(
                         textboxApplictionname.Content.ToString().Substring(
@@ -1824,7 +1845,10 @@ namespace WPFTestResults
                         "yes",
                         testcheck,
                         string.Empty,
-                        string.Empty);
+                        string.Empty,
+                        href_1,
+                        src_1,
+                        xpath_1);
 
                     testnr++;
                 }
@@ -2737,6 +2761,7 @@ namespace WPFTestResults
 
                                 case "XPATH":
                                     content = testCase.testelement;
+
                                     break;
 
                                 case "CSSSELECTOR":
@@ -2746,7 +2771,14 @@ namespace WPFTestResults
 
                             var soort = "get";
                             if (testCase.testattribute.ToUpper() == "XPATH")
+                            {
                                 soort = "xpath";
+                                if (CheckBoxXpatn.IsChecked == true)
+                                {
+                                    soort = "get";
+                                }
+                            }
+                                
                         }
 
                         if (testCase.testnr == from1)
@@ -2788,7 +2820,16 @@ namespace WPFTestResults
 
                             var soort = "get";
                             if (testCase.testattribute.ToUpper() == "XPATH")
-                                soort = "xpath";
+                            {
+                                if (CheckBoxXpatn.IsChecked == true)
+                                {
+                                    soort = "get";
+                                }
+                                else
+                                {
+                                    soort = "xpath";
+                                }
+                            }
 
                             if (CheckBoxDataCy.IsChecked == true &&
                                 testCase.datacy != string.Empty)
@@ -2842,9 +2883,16 @@ namespace WPFTestResults
                                         "\t\tcy.step('Click on the element " +
                                         elementname +
                                         "')\r\n";
-                                    inhoud +=
-                                        "\t\tcy." + soort + "('" + content +
-                                        "').click({force: true})\r\n";
+
+                                    if (CheckBoxXpatn.IsChecked == true)
+                                    {
+                                        inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").click({force: true})\r\n";
+                                    }
+                                    else
+                                    {
+                                        inhoud += "\t\tcy." + soort + "('" + content +
+                                                  "').click({force: true})\r\n";
+                                    }
 
                                     break;
                                 case "DOUBLECLICK":
@@ -2858,10 +2906,15 @@ namespace WPFTestResults
                                         "\t\tcy.step('Double click on the element " +
                                         elementname +
                                         "')\r\n";
-                                    inhoud +=
-                                        "\t\tcy." + soort + "('" + content +
-                                        "').doubleClick()\r\n";
-
+                                    if (CheckBoxXpatn.IsChecked == true)
+                                    {
+                                        inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").click({force: true})\r\n";
+                                    }
+                                    else
+                                    {
+                                        inhoud += "\t\tcy." + soort + "('" + content +
+                                                  "').doubleclick({force: true})\r\n";
+                                    }
                                     break;
                                 case "SENDKEYS":
                                     var text = testCase.testtext;
@@ -2882,10 +2935,19 @@ namespace WPFTestResults
                                             "\t\tcy.step('Sendkey Enter to " +
                                             elementname +
                                             "')\r\n";
-                                        inhoud +=
-                                            "\t\tcy." + soort + "('" + content +
-                                            "').type('" +
-                                            text.ToLower() + "')\r\n";
+                                        if (CheckBoxXpatn.IsChecked == true)
+                                        {
+                                            inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").type('" +
+                                                text.ToLower() + "')\r\n";
+                                        }
+                                        else
+                                        {
+
+                                            inhoud +=
+                                                "\t\tcy." + soort + "('" + content +
+                                                "').type('" +
+                                                text.ToLower() + "')\r\n";
+                                        }
                                     }
                                     else
                                     {
@@ -2899,15 +2961,27 @@ namespace WPFTestResults
                                                   text + " to " +
                                                   elementname +
                                                   "')\r\n";
-                                        inhoud +=
-                                            "\t\tcy." + soort + "('" + content +
-                                            "').clear()\r\n";
-                                        inhoud +=
-                                            "\t\tcy." + soort + "('" + content +
-                                            "').type('" +
-                                            text + "')\r\n";
-                                    }
 
+
+                                        if (CheckBoxXpatn.IsChecked == true)
+                                        {
+                                            inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").clear()\r\n";
+                                            inhoud +=
+                                                "\t\tcy." + soort + "('" + content +
+                                                "').type('" +
+                                                text + "')\r\n";
+                                        }
+                                        else
+                                        {
+                                            inhoud +=
+                                                "\t\tcy." + soort + "('" + content +
+                                                "').clear()\r\n";
+                                            inhoud +=
+                                                "\t\tcy." + soort + "('" + content +
+                                                "').type('" +
+                                                text + "')\r\n";
+                                        }
+                                    }
                                     break;
                                 case "SELECT":
                                     if (CheckBoxIT.IsChecked == false &&
@@ -2958,11 +3032,18 @@ namespace WPFTestResults
                                               testCase.testelementname.Trim()
                                                   .Replace("'", "\'") +
                                               "')\r\n";
-                                    inhoud +=
-                                        "\t\tcy." + soort + "('" + content +
-                                        "').setValue('" +
-                                        testCase.testtext + "')\r\n";
-
+                                    if (CheckBoxXpatn.IsChecked == true)
+                                    {
+                                        inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").setValue('" +
+                                                  testCase.testtext + "')\r\n";
+                                    }
+                                    else
+                                    {
+                                        inhoud +=
+                                            "\t\tcy." + soort + "('" + content +
+                                            "').setValue('" +
+                                            testCase.testtext + "')\r\n";
+                                    }
                                     break;
                                 case "CHECKBOX":
                                     var keuze = "false";
@@ -2981,10 +3062,16 @@ namespace WPFTestResults
                                               elementname +
                                               " to: '" + keuze + "')\r\n";
                                     inhoud += waitForEx(content, soort);
-                                    inhoud +=
-                                        "\t\tcy." + soort + "('" + content +
-                                        "').isSelected(" + keuze + ")\r\n";
-
+                                    if (CheckBoxXpatn.IsChecked == true)
+                                    {
+                                        inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").isSelected(" + keuze + ")\r\n";
+                                    }
+                                    else
+                                    {
+                                        inhoud +=
+                                            "\t\tcy." + soort + "('" + content +
+                                            "').isSelected(" + keuze + ")\r\n";
+                                    }
                                     break;
                                 case "MOVE TO":
                                     if (CheckBoxIT.IsChecked == false &&
@@ -2996,10 +3083,16 @@ namespace WPFTestResults
                                     inhoud += "\t\tcy.step('Move to element " +
                                               elementname +
                                               "')\r\n";
-                                    inhoud +=
-                                        "\t\tcy." + soort + "('" + content +
-                                        "').scrollTo('center')\r\n";
-
+                                    if (CheckBoxXpatn.IsChecked == true)
+                                    {
+                                        inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").scrollTo('center')\r\n";
+                                    }
+                                    else
+                                    {
+                                        inhoud +=
+                                            "\t\tcy." + soort + "('" + content +
+                                            "').scrollTo('center')\r\n";
+                                    }
                                     break;
                                 case "UPLOAD":
                                     var tekst1 =
@@ -3120,10 +3213,18 @@ namespace WPFTestResults
                                         "\t\tcy.step('Check if the element " +
                                         elementname +
                                         " exists.')\r\n";
-                                    inhoud +=
-                                        "\t\tcy." + soort + "('" + content +
-                                        "').should('exist')\r\n";
 
+                                    if (CheckBoxXpatn.IsChecked == true)
+                                    {
+                                        inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").should('exist')\r\n";
+                                    }
+                                    else
+                                    {
+
+                                        inhoud +=
+                                            "\t\tcy." + soort + "('" + content +
+                                            "').should('exist')\r\n";
+                                    }
                                     break;
                             }
 

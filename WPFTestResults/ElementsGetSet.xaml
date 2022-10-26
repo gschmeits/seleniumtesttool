@@ -623,11 +623,13 @@
                 <DataGridTextColumn Header="Name" IsReadOnly="true" Binding="{Binding elementName}" />
                 <DataGridTextColumn Header="XPath" IsReadOnly="true" Binding="{Binding elementXpath}" MaxWidth="500" />
                 <DataGridTextColumn Header="Tagname" IsReadOnly="true" Binding="{Binding elementTagname}" />
+                <DataGridTextColumn Header="Tag Counter" IsReadOnly="True" Binding="{Binding element_short}"  />
                 <DataGridTextColumn Header="Text" IsReadOnly="true" Binding="{Binding elementText}" MaxWidth="500" />
                 <DataGridCheckBoxColumn Header="Check Text" IsReadOnly="false"
                                         Binding="{Binding elementCheckText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTextColumn Header="Class" IsReadOnly="true" Binding="{Binding elementClass}" />
                 <DataGridTextColumn Header="Href" IsReadOnly="true" Binding="{Binding elementHref}" />
+                <DataGridTextColumn Header="src" IsReadOnly="true" Binding="{Binding element_src}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="ButtonJSON"

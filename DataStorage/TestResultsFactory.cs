@@ -147,7 +147,7 @@ namespace DataStorage
             var sqlConn =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, " +
                 "testaction, testtext, testurl, testswitch, testexecution, testext_check, testinverse,testtag, " +
-                "test_comment, testpage, test_password, test_check_strict, datacy ";
+                "test_comment, testpage, test_password, test_check_strict, datacy, href, src, short_xpath ";
             sqlConn += "FROM testcases_selenium WHERE testname = '" + testname +
                        "' ";
             sqlConn += "ORDER BY testname, testnr";
@@ -210,7 +210,10 @@ namespace DataStorage
                                 .ToString(),
                             testcheckstrict = objDataset.Tables[0].Rows[i]["test_check_strict"].ToString(),
                             testpassword =  objDataset.Tables[0].Rows[i]["test_password"].ToString(),
-                            datacy = objDataset.Tables[0].Rows[i]["datacy"].ToString()
+                            datacy = objDataset.Tables[0].Rows[i]["datacy"].ToString(),
+                            href = objDataset.Tables[0].Rows[i]["href"].ToString(),
+                            src = objDataset.Tables[0].Rows[i]["src"].ToString(),
+                            short_xpath = objDataset.Tables[0].Rows[i]["short_xpath"].ToString(),
                         });
                     rownumber++;
                 }
@@ -1180,6 +1183,10 @@ namespace DataStorage
             public string testpassword { get; set; }
 
             public string datacy { get; set; }
+
+            public string href { get; set; }
+            public string src { get; set; }
+            public string short_xpath { get; set; }
         }
 
         public class TestBlocks
