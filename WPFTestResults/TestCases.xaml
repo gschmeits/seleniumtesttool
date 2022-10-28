@@ -301,10 +301,18 @@
             <CheckBox Name="CheckBoxXpatn" 
                       Grid.Row="4"
                       Grid.Column="5"
-                      Margin="340,0,0,0"
+                      Margin="361,0,0,0"
                       VerticalContentAlignment="Center"
                       Content="XPath kort"
                       IsChecked="True"/>
+            <CheckBox Content="Testcase Order" 
+                      Name="CheckBoxTestCase" 
+                      Grid.Column="5" 
+                      Grid.Row="4"
+                      VerticalContentAlignment="Center"
+                      Margin="225,0,0,0"
+ Click="CheckBoxTestCase_Click"
+            />
             <TextBox Name="TextBoxTestId"
                      Grid.Row="4"
                      Grid.Column="2"
@@ -1348,7 +1356,7 @@
             </Grid>
         </StackPanel>
         <Grid Name="defTestCase" Grid.Row="2" Width="600" Height="300" VerticalAlignment="Center"
-              Visibility="Visible" HorizontalAlignment="Center" Margin="505,111,483,112">
+              Visibility="Hidden" HorizontalAlignment="Center" Margin="505,111,483,112">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1"
                                  MappingMode="RelativeToBoundingBox"

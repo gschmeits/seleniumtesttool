@@ -1131,10 +1131,22 @@ namespace WPFTestResults
 
         private void VulLabel()
         {
-            testCases = TestResultsFactory.GetTestCases(
-                textboxApplictionname.Content.ToString().Substring(
-                    0,
-                    textboxApplictionname.Content.ToString().Length - 4));
+            if (CheckBoxTestCase.IsChecked == true)
+            {
+                testCases = TestResultsFactory.GetTestCasesTestCase(
+                    textboxApplictionname.Content.ToString().Substring(
+                        0,
+                        textboxApplictionname.Content.ToString().Length - 4));
+            }
+
+            if (CheckBoxTestCase.IsChecked == false)
+            {
+                testCases = TestResultsFactory.GetTestCases(
+                    textboxApplictionname.Content.ToString().Substring(
+                        0,
+                        textboxApplictionname.Content.ToString().Length - 4));
+            }
+
             testCasesCount = TestResultsFactory.GetTestCasesCount(
                 textboxApplictionname.Content.ToString().Substring(
                     0,
@@ -2562,10 +2574,21 @@ namespace WPFTestResults
         private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
         {
             SearchTextBox.Text = string.Empty;
-            testCases = TestResultsFactory.GetTestCases(
-                textboxApplictionname.Content.ToString().Substring(
-                    0,
-                    textboxApplictionname.Content.ToString().Length - 4));
+            if (CheckBoxTestCase.IsChecked == true)
+            {
+                testCases = TestResultsFactory.GetTestCasesTestCase(
+                    textboxApplictionname.Content.ToString().Substring(
+                        0,
+                        textboxApplictionname.Content.ToString().Length - 4));
+            }
+
+            if (CheckBoxTestCase.IsChecked == false)
+            {
+                testCases = TestResultsFactory.GetTestCases(
+                    textboxApplictionname.Content.ToString().Substring(
+                        0,
+                        textboxApplictionname.Content.ToString().Length - 4));
+            }
 
             AddDataGrid.ItemsSource = null;
             AddDataGrid.ItemsSource = testCases;
@@ -3478,6 +3501,11 @@ namespace WPFTestResults
         private void TxtUpto_GotFocus(object sender, RoutedEventArgs e)
         {
             txtUpto.SelectAll();
+        }
+
+        private void CheckBoxTestCase_Click(object sender, RoutedEventArgs e)
+        {
+            VulLabel();
         }
     }
 }
