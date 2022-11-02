@@ -471,7 +471,7 @@ namespace WPFTestResults.Tests
             var dt = GenericDataRead.GetData("SELECT * FROM selenium_elements WHERE url= 'http://squerist.nl';");
             Assert.AreEqual(teller, dt.Rows.Count);
 
-            gegevens = ElementsFromDatabase.GetDataTable(url);
+            gegevens = ElementsFromDatabase.GetDataTable(url, 0);
         }
 
 

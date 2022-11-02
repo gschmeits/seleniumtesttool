@@ -3510,11 +3510,17 @@ namespace WPFTestResults
                 var kolom = CheckClassText.Text;
                 var clearText = 1;
                 if (CheckBoxClearTextCheck.IsChecked == true) clearText = 0;
+
+                var tabel = "selenium_elements";
+                if (ComboBoxWeeergaveElelemts.SelectedIndex == 0)
+                {
+                    tabel = "elements_short";
+                }
                 /*var sSQL = "UPDATE selenium_elements SET checktext = " +
                            clearText + " WHERE url = '";
                 sSQL += TextBoxURL.Text + "' AND " + kolom + " = '" +
                         TextBoxChangeText.Text + "' AND text != '';";*/
-                var sSQL = "UPDATE elements_short SET checktext = " +
+                var sSQL = "UPDATE " + tabel + " SET checktext = " +
                            clearText + " WHERE url = '";
                 sSQL += TextBoxURL.Text + "' AND " + kolom + " = '" +
                         TextBoxChangeText.Text + "' AND text != '';";
