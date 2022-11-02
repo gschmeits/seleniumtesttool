@@ -1977,7 +1977,7 @@ namespace WPFTestResults
                     }
 
                     ElementsFromDatabase.UpdateCheckBox(cellContent.Text,
-                        checkedGer0);
+                        checkedGer0, ComboBoxWeeergaveElelemts.SelectedIndex);
                 }
 
                 // if (kolom.DisplayIndex == 8)
@@ -1989,7 +1989,7 @@ namespace WPFTestResults
                         checkedGer = false;
 
                     ElementsFromDatabase.UpdateCheckBox8(cellContent.Text,
-                        checkedGer);
+                        checkedGer, ComboBoxWeeergaveElelemts.SelectedIndex);
                 }
 
                 //if (kolom.DisplayIndex == 8)
@@ -2711,8 +2711,13 @@ namespace WPFTestResults
             var class_1 = "";
             var value_1 = "";
 
+
+            // url = !(ElementSetting == "GET")
+            //     ? ComboBoxURL.Text
+            //     : TextBoxURL.Text;
+
             General.ExecuteQueryCommand(
-                "TRUNCATE `autotest`.`elements_short`;");
+                "DELETE FROM elements_short WHERE url = '" + url + "';");
 
             using (new PleaseWait())
             {
