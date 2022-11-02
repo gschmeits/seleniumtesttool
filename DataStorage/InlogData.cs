@@ -24,8 +24,6 @@ using System.Windows;
 /// TODO Edit XML Comment Template for DataStorage
 namespace DataStorage
 {
-    using System.Xml.Linq;
-
     /// <summary>
     /// Class InlogData.
     /// </summary>
@@ -47,47 +45,47 @@ namespace DataStorage
                 var query = "SELECT * FROM login_code";
                 var dt = General.ExecuteQueryCommandReturnTable(query);
                 inlogData = (from DataRow row in dt.Rows
-                    select new InlogDataRecords
-                    {
-                        IdLoginCode = Convert.ToInt64(row["idlogin_code"].ToString()),
-                        LoginURL = row["login_url"].ToString(),
-                        LoginAttributeUsername = row["login_attribute_username"].ToString(),
-                        LoginAttributePassword = row["login_attribute_password"].ToString(),
-                        LoginAttributeButton = row["login_attribute_button"].ToString(),
-                        LoginTagUsername = row["login_tagname_user"].ToString(),
-                        LoginTagPassword = row["login_tagname_password"].ToString(),
-                        LoginTagButton = row["login_tagname_button"].ToString(),
-                        LoginValueUsername = row["login_user_value"].ToString(),
-                        LoginValuePassword = row["login_password_value"].ToString(),
-                        LoginMachinecode = row["login_machine_code"].ToString(),
-                        LoginAttributeExtra1 = row["login_attribute_extra1"].ToString(),
-                        LoginAttributeExtra2 = row["login_attribute_extra2"].ToString(),
-                        LoginAttributeExtra3 = row["login_attribute_extra3"].ToString(),
-                        LoginAttributeExtra4 = row["login_attribute_extra4"].ToString(),
-                        LoginTagnameExtra1 = row["login_tagname_extra1"].ToString(),
-                        LoginTagnameExtra2 = row["login_tagname_extra2"].ToString(),
-                        LoginTagnameExtra3 = row["login_tagname_extra3"].ToString(),
-                        LoginTagnameExtra4 = row["login_tagname_extra4"].ToString(),
-                        LoginDescriptionExtra1 = row["login_description_extra1"].ToString(),
-                        LoginDescriptionExtra2 = row["login_description_extra2"].ToString(),
-                        LoginDescriptionExtra3 = row["login_description_extra3"].ToString(),
-                        LoginDescriptionExtra4 = row["login_description_extra4"].ToString(),
-                        LoginOrder1 = row["login_order1"].ToString(),
-                        LoginOrder2 = row["login_order2"].ToString(),
-                        LoginOrder3 = row["login_order3"].ToString(),
-                        LoginOrder4 = row["login_order4"].ToString(),
-                        LoginOrder5 = row["login_order5"].ToString(),
-                        LoginOrder6 = row["login_order6"].ToString(),
-                        LoginOrder7 = row["login_order7"].ToString(),
-                        LoginAction1 = row["login_action1"].ToString(),
-                        LoginAction2 = row["login_action2"].ToString(),
-                        LoginAction3 = row["login_action3"].ToString(),
-                        LoginAction4 = row["login_action4"].ToString(),
-                        LoginAction5 = row["login_action5"].ToString(),
-                        LoginAction6 = row["login_action6"].ToString(),
-                        LoginAction7 = row["login_action7"].ToString(),
-                        LoginName = row["login_name"].ToString()
-                    }).ToList();
+                             select new InlogDataRecords
+                             {
+                                 IdLoginCode = Convert.ToInt64(row["idlogin_code"].ToString()),
+                                 LoginURL = row["login_url"].ToString(),
+                                 LoginAttributeUsername = row["login_attribute_username"].ToString(),
+                                 LoginAttributePassword = row["login_attribute_password"].ToString(),
+                                 LoginAttributeButton = row["login_attribute_button"].ToString(),
+                                 LoginTagUsername = row["login_tagname_user"].ToString(),
+                                 LoginTagPassword = row["login_tagname_password"].ToString(),
+                                 LoginTagButton = row["login_tagname_button"].ToString(),
+                                 LoginValueUsername = row["login_user_value"].ToString(),
+                                 LoginValuePassword = row["login_password_value"].ToString(),
+                                 LoginMachinecode = row["login_machine_code"].ToString(),
+                                 LoginAttributeExtra1 = row["login_attribute_extra1"].ToString(),
+                                 LoginAttributeExtra2 = row["login_attribute_extra2"].ToString(),
+                                 LoginAttributeExtra3 = row["login_attribute_extra3"].ToString(),
+                                 LoginAttributeExtra4 = row["login_attribute_extra4"].ToString(),
+                                 LoginTagnameExtra1 = row["login_tagname_extra1"].ToString(),
+                                 LoginTagnameExtra2 = row["login_tagname_extra2"].ToString(),
+                                 LoginTagnameExtra3 = row["login_tagname_extra3"].ToString(),
+                                 LoginTagnameExtra4 = row["login_tagname_extra4"].ToString(),
+                                 LoginDescriptionExtra1 = row["login_description_extra1"].ToString(),
+                                 LoginDescriptionExtra2 = row["login_description_extra2"].ToString(),
+                                 LoginDescriptionExtra3 = row["login_description_extra3"].ToString(),
+                                 LoginDescriptionExtra4 = row["login_description_extra4"].ToString(),
+                                 LoginOrder1 = row["login_order1"].ToString(),
+                                 LoginOrder2 = row["login_order2"].ToString(),
+                                 LoginOrder3 = row["login_order3"].ToString(),
+                                 LoginOrder4 = row["login_order4"].ToString(),
+                                 LoginOrder5 = row["login_order5"].ToString(),
+                                 LoginOrder6 = row["login_order6"].ToString(),
+                                 LoginOrder7 = row["login_order7"].ToString(),
+                                 LoginAction1 = row["login_action1"].ToString(),
+                                 LoginAction2 = row["login_action2"].ToString(),
+                                 LoginAction3 = row["login_action3"].ToString(),
+                                 LoginAction4 = row["login_action4"].ToString(),
+                                 LoginAction5 = row["login_action5"].ToString(),
+                                 LoginAction6 = row["login_action6"].ToString(),
+                                 LoginAction7 = row["login_action7"].ToString(),
+                                 LoginName = row["login_name"].ToString()
+                             }).ToList();
             }
             catch (Exception e)
             {

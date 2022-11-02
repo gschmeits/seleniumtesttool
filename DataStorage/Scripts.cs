@@ -1,6 +1,4 @@
-﻿using System.Collections.Specialized;
-
-namespace DataStorage
+﻿namespace DataStorage
 {
     public class Scripts1
     {

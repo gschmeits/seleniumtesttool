@@ -14,13 +14,7 @@
 
 namespace WPFTestResults
 {
-    using System;
     using System.Windows;
-    using System.Windows.Forms;
-
-    using DataStorage;
-
-    using GeneralFunctionality;
 
     /// <summary>
     /// Class UpdateDataBulk.

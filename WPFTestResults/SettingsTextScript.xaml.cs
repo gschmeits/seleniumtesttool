@@ -14,15 +14,12 @@
 
 namespace WPFTestResults
 {
+    using DataStorage;
+    using GeneralFunctionality;
     using System;
     using System.Windows;
     using System.Windows.Input;
     using System.Xml;
-
-    using DataStorage;
-
-    using GeneralFunctionality;
-
     using OpenFileDialog = System.Windows.Forms.OpenFileDialog;
 
     /// <summary>
@@ -112,7 +109,7 @@ namespace WPFTestResults
                 settingsXML.IndentChars = "\t";
 
                 using (XmlWriter writer =
-                    XmlWriter.Create(Functions.GetCurrentDir(1)+ GeneralFunctionality.Functions._project + @"\" + this.TextBoxTestSetName.Text + ".xml", settingsXML))
+                    XmlWriter.Create(Functions.GetCurrentDir(1) + GeneralFunctionality.Functions._project + @"\" + this.TextBoxTestSetName.Text + ".xml", settingsXML))
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement("settings");

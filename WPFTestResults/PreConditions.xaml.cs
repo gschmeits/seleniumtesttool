@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
-using DataStorage;
+﻿using DataStorage;
 using GeneralFunctionality;
+using System.Collections.Generic;
+using System.Windows;
 
 namespace WPFTestResults
 {

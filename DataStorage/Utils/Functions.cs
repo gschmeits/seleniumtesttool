@@ -12,13 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using DataStorage;
 using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
-using DataStorage;
 
 /// <summary>
 ///     Class Functions.
@@ -244,11 +244,11 @@ public static class Functions
         var sF1 = string.Empty;
         foreach (var c in s)
         {
-            if (c == (char) 45) sF += c;
+            if (c == (char)45) sF += c;
 
-            if (c == (char) 46) sF += c;
-            if (c > (char) 47 && c < (char) 58) sF += c;
-            if (c == (char) 44) sF += '.';
+            if (c == (char)46) sF += c;
+            if (c > (char)47 && c < (char)58) sF += c;
+            if (c == (char)44) sF += '.';
 
             // iCount++;
         }
@@ -283,9 +283,9 @@ public static class Functions
         {
             foreach (var c in s)
             {
-                if (c == (char) 45) sF += c;
-                if (c > (char) 47 && c < (char) 58) sF += c;
-                if (c == (char) 44) iPos = iCount;
+                if (c == (char)45) sF += c;
+                if (c > (char)47 && c < (char)58) sF += c;
+                if (c == (char)44) iPos = iCount;
                 iCount++;
             }
 
@@ -329,8 +329,8 @@ public static class Functions
         {
             foreach (var c in s)
             {
-                if (c == (char) 45) sF += c;
-                if (c > (char) 47 && c < (char) 58) sF += c;
+                if (c == (char)45) sF += c;
+                if (c > (char)47 && c < (char)58) sF += c;
                 else break;
             }
 
@@ -357,9 +357,9 @@ public static class Functions
         {
             foreach (var c in s)
             {
-                if (c == (char) 45) sF += c;
-                if (c > (char) 47 && c < (char) 58) sF += c;
-                if (c == (char) 44) iPos = iCount;
+                if (c == (char)45) sF += c;
+                if (c > (char)47 && c < (char)58) sF += c;
+                if (c == (char)44) iPos = iCount;
                 iCount++;
             }
 
@@ -402,10 +402,10 @@ public static class Functions
         if (s.Length > 0)
         {
             foreach (var c in s)
-                if (c == (char) 46)
+                if (c == (char)46)
                     sF += c;
-                else if (c > (char) 47 && c < (char) 58) sF += c;
-                else if (c == (char) 44) sF += (char) 46;
+                else if (c > (char)47 && c < (char)58) sF += c;
+                else if (c == (char)44) sF += (char)46;
                 else break;
             sF1 = sF;
         }
@@ -432,14 +432,14 @@ public static class Functions
 
         foreach (var c in s)
         {
-            if (c == (char) 46 && iPos >= iLengte - 2)
+            if (c == (char)46 && iPos >= iLengte - 2)
             {
                 sF += c;
                 if (iPos == iLengte - 2) iTeller = 2;
             }
 
-            if (c > (char) 47 && c < (char) 58) sF += c;
-            if (c == (char) 44)
+            if (c > (char)47 && c < (char)58) sF += c;
+            if (c == (char)44)
             {
                 sF += '.';
                 iTeller++;

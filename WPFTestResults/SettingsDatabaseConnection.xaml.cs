@@ -14,12 +14,10 @@
 
 namespace WPFTestResults
 {
+    using DataStorage;
+    using GeneralFunctionality;
     using System.Windows;
     using System.Xml;
-
-    using DataStorage;
-
-    using GeneralFunctionality;
 
     /// <summary>
     /// Interaction logic for SettingsDatabaseConnection.xaml

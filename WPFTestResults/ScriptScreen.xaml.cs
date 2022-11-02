@@ -1,30 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Globalization;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Threading;
-using DataStorage;
+﻿using DataStorage;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Threading;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Threading;
 using MessageBox = System.Windows.MessageBox;
 using TreeView = System.Windows.Controls.TreeView;
 
 namespace WPFTestResults
 {
-    using System.Xml;
-
     using GeneralFunctionality;
+    using System.Xml;
 
 
     public static class ExtensionMethods
@@ -67,7 +63,7 @@ namespace WPFTestResults
 
             project = _project;
             project_id = projectid;
-            
+
             var w = 1920 * 0.65;
             var h = 1080 * 0.60;
 
@@ -154,7 +150,7 @@ namespace WPFTestResults
 
                 //var credits = GeneralFunctionality.Functions.GetCredentials(bestandsnaam);
                 var credits = Functions.GetCredentials(Functions._project + @"\" + bestandsnaam);
-                item.ItemsSource = new[] {bestandsnaam, credits.Url, credits.Application, credits.Page};
+                item.ItemsSource = new[] { bestandsnaam, credits.Url, credits.Application, credits.Page };
 
                 TreeView1.Items.Add(item);
             }
@@ -205,7 +201,7 @@ namespace WPFTestResults
 
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var tv = (TreeView) sender;
+            var tv = (TreeView)sender;
 
             var treeViewItem = tv.SelectedItem as TreeViewItem;
 
@@ -266,7 +262,7 @@ namespace WPFTestResults
 
         private void TreeView_SelectedItemChanged2(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var tv = (TreeView) sender;
+            var tv = (TreeView)sender;
 
             var treeViewItem = tv.SelectedItem as TreeViewItem;
 
@@ -315,16 +311,16 @@ namespace WPFTestResults
         private void ButtonOneTo_Click(object sender, RoutedEventArgs e)
         {
             foreach (TreeViewItem node in TreeView1.Items)
-            foreach (var gdd in selectedItems)
-                if (gdd.Key.Header == node.Header)
-                {
-                    var item = new TreeViewItem();
-                    item.Header = node.Header;
-                    item.ItemsSource = node.ItemsSource;
+                foreach (var gdd in selectedItems)
+                    if (gdd.Key.Header == node.Header)
+                    {
+                        var item = new TreeViewItem();
+                        item.Header = node.Header;
+                        item.ItemsSource = node.ItemsSource;
 
-                    TreeView2.Items.Add(item);
-                    break;
-                }
+                        TreeView2.Items.Add(item);
+                        break;
+                    }
 
             if (TreeView2.Items.Count > 0)
             {
@@ -543,7 +539,7 @@ namespace WPFTestResults
             DataGridPre.ItemsSource = null;
             DataGridPre.Height = Preconditionses.Count * 18;
             DataGridPre.ItemsSource = Preconditionses;
-            
+
             if (Preconditionses.Count > 0)
             {
                 GridBrowser.Visibility = Visibility.Hidden;
@@ -585,7 +581,7 @@ namespace WPFTestResults
                 query += "', '" + enDateTime.ToString("yyyy-MM-dd HH:mm:ss");
                 query += "', '" + Convert.ToString(enDateTime - beDateTime) +
                          "', ";
-                    query += project_id + ");";
+                query += project_id + ");";
             }
             else
             {
@@ -601,16 +597,16 @@ namespace WPFTestResults
 
             GenericDataRead.INUPDEL(query);
             double totaal = passed + failed;
-            LabelDone.Content = String.Format("Begin Time: {0} - End Time: {1} --- Duration: {2:T}", beDateTime, enDateTime, enDateTime-beDateTime);
+            LabelDone.Content = String.Format("Begin Time: {0} - End Time: {1} --- Duration: {2:T}", beDateTime, enDateTime, enDateTime - beDateTime);
             LabelDone1.Content = String.Format(
                 "Test Steps Passed: {0} ({3:P2})  - " +
                 "Test Steps Failed: {1} ({4:P2}) --- " +
                 "Total Test Steps: {2} ({5:P2})",
-                passed, 
-                failed, 
-                totaal, 
-                (passed / totaal), 
-                (failed / totaal), 
+                passed,
+                failed,
+                totaal,
+                (passed / totaal),
+                (failed / totaal),
                 totaal / totaal);
 
         }
@@ -699,7 +695,7 @@ namespace WPFTestResults
                 writer.WriteStartDocument();
                 writer.WriteStartElement("settings");
                 writer.WriteStartElement("start");
-                writer.WriteElementString("url",urlstr);
+                writer.WriteElementString("url", urlstr);
                 writer.WriteElementString("application", applicationstr);
                 writer.WriteElementString("page", pagestr);
                 writer.WriteEndElement();
@@ -724,7 +720,7 @@ namespace WPFTestResults
             var query = "SELECT * FROM testscripts WHERE name='" + TextBoxSaveAs.Text + "';";
             var dt = GenericDataRead.GetData(query);
             if (dt.Rows.Count == 0)
-            {   
+            {
                 // Voeg toe aan testscripts
                 query = "INSERT INTO testscripts (name) VALUES ('" + TextBoxSaveAs.Text + "'); ";
                 General.ExecuteQueryCommand(query);
@@ -746,7 +742,7 @@ namespace WPFTestResults
                 query = "DELETE FROM testscript_detail WHERE testscriptid = " + id;
                 GenericDataRead.INUPDEL(query);
             }
-            
+
             foreach (TreeViewItem node in TreeView2.Items)
             {
                 var item = new TreeViewItem();

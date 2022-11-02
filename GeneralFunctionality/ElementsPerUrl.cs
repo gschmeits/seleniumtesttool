@@ -13,14 +13,11 @@
 // ***********************************************************************
 namespace GeneralFunctionality
 {
-    using System;
-    using System.Collections.Generic;
-
     using DataStorage;
-
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
-    using HtmlAgilityPack;
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Class ElementsPerUrl.
@@ -204,7 +201,7 @@ namespace GeneralFunctionality
                     element.GetAttribute("usemap"), // img
                     element.GetAttribute("value"), // input
                     element.GetAttribute("vspace"), // img
-                    element.GetAttribute("width"), 
+                    element.GetAttribute("width"),
                     true); // input, iframe
             }
         }

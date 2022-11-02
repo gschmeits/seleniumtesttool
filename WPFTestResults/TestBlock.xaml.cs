@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using DataStorage;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,7 +24,6 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Xml;
-using DataStorage;
 using DataGrid = System.Windows.Controls.DataGrid;
 using DataGridCell = System.Windows.Controls.DataGridCell;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
@@ -217,7 +217,7 @@ namespace WPFTestResults
             var childrenCount = VisualTreeHelper.GetChildrenCount(parent);
             for (var childIndex = 0; childIndex < childrenCount; ++childIndex)
             {
-                var child = (Visual) VisualTreeHelper.GetChild(parent, childIndex);
+                var child = (Visual)VisualTreeHelper.GetChild(parent, childIndex);
                 obj = child as T;
                 if (obj == null)
                     obj = GetVisualChild<T>(child);
@@ -280,11 +280,11 @@ namespace WPFTestResults
                 var visualChild = GetVisualChild<DataGridCellsPresenter>(row1);
                 if (visualChild != null)
                 {
-                    var dataGridCell = (DataGridCell) visualChild.ItemContainerGenerator.ContainerFromIndex(column);
+                    var dataGridCell = (DataGridCell)visualChild.ItemContainerGenerator.ContainerFromIndex(column);
                     if (dataGridCell == null)
                     {
                         AddDataGrid.ScrollIntoView(row1, AddDataGrid.Columns[column]);
-                        dataGridCell = (DataGridCell) visualChild.ItemContainerGenerator.ContainerFromIndex(column);
+                        dataGridCell = (DataGridCell)visualChild.ItemContainerGenerator.ContainerFromIndex(column);
                     }
 
                     return dataGridCell;
@@ -316,12 +316,12 @@ namespace WPFTestResults
         /// <returns>DataGridRow.</returns>
         public DataGridRow GetRow(int index)
         {
-            var dataGridRow = (DataGridRow) AddDataGrid.ItemContainerGenerator.ContainerFromIndex(index);
+            var dataGridRow = (DataGridRow)AddDataGrid.ItemContainerGenerator.ContainerFromIndex(index);
             if (dataGridRow == null)
             {
                 AddDataGrid.UpdateLayout();
                 AddDataGrid.ScrollIntoView(AddDataGrid.Items[index]);
-                dataGridRow = (DataGridRow) AddDataGrid.ItemContainerGenerator.ContainerFromIndex(index);
+                dataGridRow = (DataGridRow)AddDataGrid.ItemContainerGenerator.ContainerFromIndex(index);
             }
 
             return dataGridRow;

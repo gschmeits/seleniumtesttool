@@ -14,15 +14,11 @@
 
 namespace WPFTestResults
 {
+    using GeneralFunctionality;
     using System;
     using System.Reflection;
     using System.Windows;
-    using System.Windows.Media.TextFormatting;
     using System.Xml;
-
-    using DataStorage;
-
-    using GeneralFunctionality;
 
     /// <summary>
     /// Class SettingsConfig.
@@ -119,7 +115,7 @@ namespace WPFTestResults
             }
 
             OverallSettings.ShowData();
-            
+
             MessageBox.Show(
                 "TestSet settings are saved!!!",
                 "Message",

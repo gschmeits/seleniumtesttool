@@ -15,14 +15,12 @@
 
 namespace WPFTestResults
 {
+    using DataStorage;
+    using GeneralFunctionality;
     using System;
     using System.Deployment.Application;
     using System.Reflection;
     using System.Windows.Forms;
-
-    using DataStorage;
-
-    using GeneralFunctionality;
 
     /// <summary>
     /// Class VersionClass.
@@ -76,13 +74,13 @@ namespace WPFTestResults
             Bestandsnaam = string.Empty;
 
             var openFileDialog = new OpenFileDialog
-                                     {
-                                         InitialDirectory = Functions.GetCurrentDir(1) + Functions._project,
-                                         Filter = Properties.Resources
+            {
+                InitialDirectory = Functions.GetCurrentDir(1) + Functions._project,
+                Filter = Properties.Resources
                                              .UpdateDataBulk_OpenBestand_XML_files___xml____xml_All_files_________,
-                                         FilterIndex = 2,
-                                         RestoreDirectory = true
-                                     };
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
 
             if (openFileDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
             try

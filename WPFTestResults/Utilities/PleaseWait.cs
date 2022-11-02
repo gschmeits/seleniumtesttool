@@ -11,12 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using BikeBillWPF2016;
 using System;
-using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-
-using BikeBillWPF2016;
 
 /// <summary>
 /// Class PleaseWait.

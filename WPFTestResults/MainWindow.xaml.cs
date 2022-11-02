@@ -12,6 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using DataStorage;
+using GeneralFunctionality;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,13 +36,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Xml;
 using System.Xml.Linq;
-using DataStorage;
-using GeneralFunctionality;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
 using Application = System.Windows.Application;
 using DataGridCell = System.Windows.Controls.DataGridCell;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
@@ -345,7 +345,7 @@ namespace WPFTestResults
                     switch (RadioButton)
                     {
                         case 1:
-                            driver = new ChromeDriver(chromePath) {Url = urlstring};
+                            driver = new ChromeDriver(chromePath) { Url = urlstring };
                             General.LogMessage("Chrome gekozen als 'driver'", 0, string.Empty, 0,
                                 string.Empty,
                                 machinestatic);
@@ -494,60 +494,60 @@ namespace WPFTestResults
 
                         var xml = XDocument.Load(openFileDialog.FileName);
                         foreach (XmlNode node in xDoc.DocumentElement.ChildNodes)
-                        foreach (XmlNode locNode in node)
-                        {
-                            foreach (XmlNode nodeElement in locNode)
-                                switch (nodeElement.Name)
-                                {
-                                    case "element_xpath"
-                                        when nodeElement.InnerText != "null" && attribute == string.Empty:
-                                        element = nodeElement.InnerText;
-                                        attribute = "xpath";
-                                        break;
-                                    case "element_name"
-                                        when nodeElement.InnerText != "null" && attribute == string.Empty:
-                                        element = nodeElement.InnerText;
-                                        attribute = "name";
-                                        break;
-                                    case "element_id" when nodeElement.InnerText != "null" && attribute == string.Empty:
-                                        element = nodeElement.InnerText;
-                                        attribute = "id";
-                                        break;
-                                }
-
-                            if (element.Length != 0 && attribute.Length != 0)
+                            foreach (XmlNode locNode in node)
                             {
-                                DataStorage.TestCases.AddTestCase(
-                                    TextBoxTestNameImport.Text,
-                                    intTeller.ToString(),
-                                    testCase,
-                                    string.Empty,
-                                    element,
-                                    string.Empty,
-                                    attribute,
-                                    string.Empty,
-                                    string.Empty,
-                                    string.Empty,
-                                    "yes",
-                                    string.Empty,
-                                    "no",
-                                    string.Empty,
-                                    string.Empty,
-                                    machinestatic,
-                                    string.Empty,
-                                    string.Empty,
-                                    "yes",
-                                    string.Empty,
-                                    string.Empty,
-                                    string.Empty,
-                                    string.Empty,
-                                    string.Empty, 
-                                    string.Empty);
-                                intTeller++;
-                                element = string.Empty;
-                                attribute = string.Empty;
+                                foreach (XmlNode nodeElement in locNode)
+                                    switch (nodeElement.Name)
+                                    {
+                                        case "element_xpath"
+                                            when nodeElement.InnerText != "null" && attribute == string.Empty:
+                                            element = nodeElement.InnerText;
+                                            attribute = "xpath";
+                                            break;
+                                        case "element_name"
+                                            when nodeElement.InnerText != "null" && attribute == string.Empty:
+                                            element = nodeElement.InnerText;
+                                            attribute = "name";
+                                            break;
+                                        case "element_id" when nodeElement.InnerText != "null" && attribute == string.Empty:
+                                            element = nodeElement.InnerText;
+                                            attribute = "id";
+                                            break;
+                                    }
+
+                                if (element.Length != 0 && attribute.Length != 0)
+                                {
+                                    DataStorage.TestCases.AddTestCase(
+                                        TextBoxTestNameImport.Text,
+                                        intTeller.ToString(),
+                                        testCase,
+                                        string.Empty,
+                                        element,
+                                        string.Empty,
+                                        attribute,
+                                        string.Empty,
+                                        string.Empty,
+                                        string.Empty,
+                                        "yes",
+                                        string.Empty,
+                                        "no",
+                                        string.Empty,
+                                        string.Empty,
+                                        machinestatic,
+                                        string.Empty,
+                                        string.Empty,
+                                        "yes",
+                                        string.Empty,
+                                        string.Empty,
+                                        string.Empty,
+                                        string.Empty,
+                                        string.Empty,
+                                        string.Empty);
+                                    intTeller++;
+                                    element = string.Empty;
+                                    attribute = string.Empty;
+                                }
                             }
-                        }
                     }
                     catch (Exception ex)
                     {
@@ -712,7 +712,7 @@ namespace WPFTestResults
                 switch (browser_number)
                 {
                     case 1:
-                        driver = new ChromeDriver(chromePath) {Url = credits.Url};
+                        driver = new ChromeDriver(chromePath) { Url = credits.Url };
                         break;
                     case 2:
                         driver = new FirefoxDriver();
@@ -790,8 +790,8 @@ namespace WPFTestResults
                     //ComboTestTill.Text = ComboTestTill.Items[0].ToString();
                     CheckFromTill();
                     var ttt = ComboTestFrom.Text.Split(' ');
-                   // LabelAppliction.Visibility = Visibility.Visible;
-                   // LabelApplicationData.Visibility = Visibility.Visible;
+                    // LabelAppliction.Visibility = Visibility.Visible;
+                    // LabelApplicationData.Visibility = Visibility.Visible;
                     EinDateTime = DateTime.Now;
                     TextBlockDateTime.Text = (EinDateTime - BeginDateTime).ToString();
                     Version.Text = TextBoxVersion.Text;
@@ -1351,11 +1351,11 @@ namespace WPFTestResults
                 var visualChild = GetVisualChild<DataGridCellsPresenter>(row1);
                 if (visualChild != null)
                 {
-                    var dataGridCell = (DataGridCell) visualChild.ItemContainerGenerator.ContainerFromIndex(column);
+                    var dataGridCell = (DataGridCell)visualChild.ItemContainerGenerator.ContainerFromIndex(column);
                     if (dataGridCell == null)
                     {
                         DataGridScripts.ScrollIntoView(row1, DataGridScripts.Columns[column]);
-                        dataGridCell = (DataGridCell) visualChild.ItemContainerGenerator.ContainerFromIndex(column);
+                        dataGridCell = (DataGridCell)visualChild.ItemContainerGenerator.ContainerFromIndex(column);
                     }
 
                     return dataGridCell;
@@ -1367,12 +1367,12 @@ namespace WPFTestResults
 
         public DataGridRow GetRow(int index)
         {
-            var dataGridRow = (DataGridRow) DataGridScripts.ItemContainerGenerator.ContainerFromIndex(index);
+            var dataGridRow = (DataGridRow)DataGridScripts.ItemContainerGenerator.ContainerFromIndex(index);
             if (dataGridRow == null)
             {
                 DataGridScripts.UpdateLayout();
                 DataGridGer.ScrollIntoView(DataGridScripts.Items[index]);
-                dataGridRow = (DataGridRow) DataGridScripts.ItemContainerGenerator.ContainerFromIndex(index);
+                dataGridRow = (DataGridRow)DataGridScripts.ItemContainerGenerator.ContainerFromIndex(index);
             }
 
             return dataGridRow;
@@ -1384,7 +1384,7 @@ namespace WPFTestResults
             var childrenCount = VisualTreeHelper.GetChildrenCount(parent);
             for (var childIndex = 0; childIndex < childrenCount; ++childIndex)
             {
-                var child = (Visual) VisualTreeHelper.GetChild(parent, childIndex);
+                var child = (Visual)VisualTreeHelper.GetChild(parent, childIndex);
                 obj = child as T;
                 if (obj == null)
                     obj = GetVisualChild<T>(child);

@@ -16,12 +16,9 @@ using System.Windows;
 
 namespace WPFTestResults
 {
-    using System.Collections.Generic;
-    using System.Data;
-
     using BlogsPrajeesh.BlogSpot.WPFControls;
-
     using DataStorage;
+    using System.Data;
 
     /// <summary>
     /// Interaction logic for WachtwoordWijzigen.xaml

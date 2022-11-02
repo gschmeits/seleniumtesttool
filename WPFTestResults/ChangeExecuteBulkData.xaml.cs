@@ -12,12 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
+using DataStorage;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
-using DataStorage;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.Forms.MessageBox;
 
@@ -82,7 +82,7 @@ namespace WPFTestResults
             }
 
             var deleteString =
-                "UPDATE testcases_selenium SET testexecution = '" + waar +"' WHERE testname = '" +
+                "UPDATE testcases_selenium SET testexecution = '" + waar + "' WHERE testname = '" +
                 LabelTestSET.Content + "'";
 
             if (txtFrom.Text.Length > 0 && txtUpto.Text.Length > 0)
