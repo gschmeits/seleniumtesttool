@@ -13,33 +13,23 @@
 // ***********************************************************************
 namespace WPFTestResults
 {
+    using BlogsPrajeesh.BlogSpot.WPFControls;
+    using DataStorage;
+    using GeneralFunctionality;
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Edge;
+    using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.IE;
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.IO;
     using System.Security.Cryptography;
     using System.Text;
     using System.Windows;
     using System.Windows.Input;
     using System.Windows.Media;
-
-    using BlogsPrajeesh.BlogSpot.WPFControls;
-
-    using DataStorage;
-
-    using GeneralFunctionality;
-
-
-    using NUnit.Framework;
-
-    using OpenQA.Selenium;
-    using OpenQA.Selenium.Chrome;
-    using OpenQA.Selenium.Edge;
-    using OpenQA.Selenium.Firefox;
-    using OpenQA.Selenium.IE;
     //using OpenQA.Selenium.PhantomJS;
-    using OpenQA.Selenium.Support.UI;
-
     using Application = System.Windows.Application;
     using KeyEventArgs = System.Windows.Input.KeyEventArgs;
     using MessageBox = System.Windows.MessageBox;
@@ -177,8 +167,8 @@ namespace WPFTestResults
 
             if (returnwaarde != 2)
             {
-              // LicenceKey lk = new LicenceKey();
-               // lk.Show();
+                // LicenceKey lk = new LicenceKey();
+                // lk.Show();
                 this.Close();
             }
             else
@@ -361,7 +351,7 @@ namespace WPFTestResults
                 }
 
                 driver.Manage().Window.Maximize();
-                Functions.Teststap(driver, machinestatic, browser_number.ToString(),"", bestandsnaam_argument, true);
+                Functions.Teststap(driver, machinestatic, browser_number.ToString(), "", bestandsnaam_argument, true);
             }
             catch (Exception ex)
             {
@@ -374,8 +364,8 @@ namespace WPFTestResults
                     driver.Quit();
                     var testresultsCount = TestResultsFactory.GetTestResultSelects(1);
                     var indexT = testresultsCount.Count;
-                    
-                    var ttt = testresultsCount[indexT-1].ToString().Split(' ');
+
+                    var ttt = testresultsCount[indexT - 1].ToString().Split(' ');
                     this.EinDateTime = DateTime.Now;
                     var TextBlockDateTime = (this.EinDateTime - this.BeginDateTime).ToString();
                     var Version = string.Empty;
@@ -433,7 +423,7 @@ namespace WPFTestResults
                         string.Empty,
                         InloggerData.MachineCode,
                         credits.Url,
-                        bestandsnaam_argument, 
+                        bestandsnaam_argument,
                         Convert.ToString(GeneralFunctionality.Functions.getProjectID()),
                         ""
                     );
@@ -494,7 +484,7 @@ namespace WPFTestResults
             {
                 WPFMessageBox.Show(
                     "Error message",
-                    "Expired date!!!\r\nCurrent date: " + datumTijd + ", End date: " + eindDatum ,
+                    "Expired date!!!\r\nCurrent date: " + datumTijd + ", End date: " + eindDatum,
                     WPFMessageBoxButtons.OK, WPFMessageBoxImage.Error);
                 this.Close();
             }
@@ -681,7 +671,7 @@ namespace WPFTestResults
 
             var resultZoek = this.ZoekMedewerker(this.txtGebruikersnaam.Text, this.txtWachtwoord.Password);
 
-            if(resultZoek == 0)
+            if (resultZoek == 0)
             {
                 General.LogMessage("Na inloggen is gebruiker niet gevonden", 1, string.Empty, 0, string.Empty, InloggerData.MachineCode);
                 message = "Gebruiker en/of wachtwoord zijn niet gevonden of niet correct!!!\r\nNogmaals proberen?";

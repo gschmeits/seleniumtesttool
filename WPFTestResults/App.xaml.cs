@@ -18,8 +18,6 @@ using System.Windows;
 /// </summary>
 namespace WPFTestResults
 {
-    using DataStorage;
-
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>

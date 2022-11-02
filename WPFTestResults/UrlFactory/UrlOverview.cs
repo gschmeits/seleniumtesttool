@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using DataStorage;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using DataStorage;
-using MySql.Data.MySqlClient;
 
 namespace UrlFactory
 {
@@ -23,9 +23,14 @@ namespace UrlFactory
     {
         public string urlstring { get; set; }
 
-        public static List<UrlOverview> GetUrLs()
+        public static List<UrlOverview> GetUrLs(int keuze = 0)
         {
-            var sqlConn = "SELECT url FROM autotest.selenium_elements GROUP BY url ORDER BY url;";
+            var tabel = "elements_short";
+            if (keuze == 1)
+            {
+                tabel = "selenium_elements";
+            }
+            var sqlConn = "SELECT url FROM " + tabel + " GROUP BY url ORDER BY url;";
             var objConn = new MySqlConnection(General.MySqlConnectionString());
             var testurl = new List<UrlOverview>();
 

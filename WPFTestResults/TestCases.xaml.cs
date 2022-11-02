@@ -12,6 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
+using DataStorage;
+using GeneralFunctionality;
+using MySql.Data.MySqlClient;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,10 +30,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using System.Xml;
-using DataStorage;
-using GeneralFunctionality;
-using MySql.Data.MySqlClient;
-using OpenQA.Selenium;
 using DataGrid = System.Windows.Controls.DataGrid;
 using DataGridCell = System.Windows.Controls.DataGridCell;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
@@ -635,7 +635,7 @@ namespace WPFTestResults
                         checkstrict,
                         ComboBoxAttributeSave.Text,
                         wachtwoord,
-                        string.Empty, 
+                        string.Empty,
                         string.Empty,
                         string.Empty,
                         string.Empty
@@ -1417,7 +1417,7 @@ namespace WPFTestResults
                                 values[7],
                                 string.Empty,
                                 string.Empty,
-                                string.Empty, 
+                                string.Empty,
                                 string.Empty,
                                 string.Empty);
 
@@ -1588,7 +1588,7 @@ namespace WPFTestResults
                             "yes",
                             values[7],
                             string.Empty,
-                            string.Empty, 
+                            string.Empty,
                             string.Empty,
                             string.Empty,
                             string.Empty);
@@ -2801,7 +2801,7 @@ namespace WPFTestResults
                                     soort = "get";
                                 }
                             }
-                                
+
                         }
 
                         if (testCase.testnr == from1)
@@ -2844,7 +2844,7 @@ namespace WPFTestResults
                             var soort = "get";
                             if (testCase.testattribute.ToUpper() == "XPATH")
                             {
-                                    soort = "xpath";
+                                soort = "xpath";
                             }
 
                             if (CheckBoxDataCy.IsChecked == true &&

@@ -11,14 +11,9 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using MySql;
-using MySql.Data;
 using MySql.Data.MySqlClient;
-using System;
-using System.Configuration;
 using System.Data;
 using System.Data.Common;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 
@@ -94,7 +89,7 @@ namespace DataStorage
                 //MessageBox.Show(ex.Message + ex.StackTrace, "Ger Exception Detail");
                 var str = ex;
                 string message = "De database kan niet geraadpleegd worden.\r\n\r\nControleer of er een netwerkconnectie is.";
-                message += "\r\n\r\n" + ex.Message + ex.StackTrace + "\r\n\r\n" + strQue ;
+                message += "\r\n\r\n" + ex.Message + ex.StackTrace + "\r\n\r\n" + strQue;
                 MessageBox.Show(message);
                 General.LogMessage(
                     "INUPDEL query: '" + strQue + "'.",

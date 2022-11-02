@@ -12,7 +12,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System.Windows;
 
 /// <summary>
 /// The DataStorage namespace.
@@ -21,12 +20,11 @@ using System.Windows;
 /// TODO Edit XML Comment Template for DataStorage
 namespace DataStorage
 {
+    using MySql.Data.MySqlClient;
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics;
-
-    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Class TestResults.
@@ -85,7 +83,7 @@ namespace DataStorage
             string testelementname,
             string start_url,
             string texttext,
-            string testpage, 
+            string testpage,
             string testscenario_name,
             string project_id)
         {
@@ -176,23 +174,23 @@ namespace DataStorage
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                     testresults1.Add(
                         new Testruns_Selenium
-                            {
-                                idtestrun_selenium =
+                        {
+                            idtestrun_selenium =
                                     Convert.ToInt64(objDataset.Tables[0].Rows[i][0].ToString()),
-                                testrun_application = objDataset.Tables[0].Rows[i][1].ToString(),
-                                testrun_run = objDataset.Tables[0].Rows[i][2].ToString(),
-                                testrun_passed = objDataset.Tables[0].Rows[i][3].ToString(),
-                                testrun_failed = objDataset.Tables[0].Rows[i][4].ToString(),
-                                testrun_begintime =
+                            testrun_application = objDataset.Tables[0].Rows[i][1].ToString(),
+                            testrun_run = objDataset.Tables[0].Rows[i][2].ToString(),
+                            testrun_passed = objDataset.Tables[0].Rows[i][3].ToString(),
+                            testrun_failed = objDataset.Tables[0].Rows[i][4].ToString(),
+                            testrun_begintime =
                                     Convert.ToDateTime(objDataset.Tables[0].Rows[i][5].ToString()),
-                                testrun_endtime =
+                            testrun_endtime =
                                     Convert.ToDateTime(objDataset.Tables[0].Rows[i][6].ToString()),
-                                testrun_time = objDataset.Tables[0].Rows[i][7].ToString(),
-                                testrun_browserID =
+                            testrun_time = objDataset.Tables[0].Rows[i][7].ToString(),
+                            testrun_browserID =
                                     Convert.ToInt32(objDataset.Tables[0].Rows[i][8].ToString()),
-                                testrun_version = objDataset.Tables[0].Rows[i][9].ToString(),
-                                testrun_scenario = objDataset.Tables[0].Rows[i][10].ToString()
-                            });
+                            testrun_version = objDataset.Tables[0].Rows[i][9].ToString(),
+                            testrun_scenario = objDataset.Tables[0].Rows[i][10].ToString()
+                        });
                 objConn.Close();
             }
             catch (Exception e)
@@ -232,12 +230,12 @@ namespace DataStorage
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                     testrun_browsers.Add(
                         new Testrun_Browsers
-                            {
-                                id = Convert.ToInt32(
+                        {
+                            id = Convert.ToInt32(
                                     objDataset.Tables[0].Rows[i]["idselenium_browser"].ToString()),
-                                browser_name =
+                            browser_name =
                                     objDataset.Tables[0].Rows[i]["selenium_browsername"].ToString()
-                            });
+                        });
                 objConn.Close();
             }
             catch (Exception e)
@@ -283,26 +281,26 @@ namespace DataStorage
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                     testresults.Add(
                         new TestResultsHTML
-                            {
-                                testrun =
+                        {
+                            testrun =
                                     Convert.ToInt32(objDataset.Tables[0].Rows[i]["testrun"].ToString()),
-                                application = objDataset.Tables[0].Rows[i]["application"].ToString(),
-                                testname = objDataset.Tables[0].Rows[i]["testname"].ToString(),
-                                testnr = objDataset.Tables[0].Rows[i]["testnr"].ToString(),
-                                elementname = objDataset.Tables[0].Rows[i]["elementname"].ToString(),
-                                element = objDataset.Tables[0].Rows[i]["element"].ToString(),
-                                attribute = objDataset.Tables[0].Rows[i]["attribute"].ToString(),
-                                action = objDataset.Tables[0].Rows[i]["action"].ToString(),
-                                text = objDataset.Tables[0].Rows[i]["text"].ToString(),
-                                url = objDataset.Tables[0].Rows[i]["url"].ToString(),
-                                switch1 = objDataset.Tables[0].Rows[i]["switch"].ToString(),
-                                description = objDataset.Tables[0].Rows[i]["description"].ToString(),
-                                browserID = objDataset.Tables[0].Rows[i]["browserid"].ToString(),
-                                result = objDataset.Tables[0].Rows[i]["result"].ToString(),
-                                screenshot = objDataset.Tables[0].Rows[i]["screenshot"].ToString(),
-                                datecreated = Convert.ToDateTime(
+                            application = objDataset.Tables[0].Rows[i]["application"].ToString(),
+                            testname = objDataset.Tables[0].Rows[i]["testname"].ToString(),
+                            testnr = objDataset.Tables[0].Rows[i]["testnr"].ToString(),
+                            elementname = objDataset.Tables[0].Rows[i]["elementname"].ToString(),
+                            element = objDataset.Tables[0].Rows[i]["element"].ToString(),
+                            attribute = objDataset.Tables[0].Rows[i]["attribute"].ToString(),
+                            action = objDataset.Tables[0].Rows[i]["action"].ToString(),
+                            text = objDataset.Tables[0].Rows[i]["text"].ToString(),
+                            url = objDataset.Tables[0].Rows[i]["url"].ToString(),
+                            switch1 = objDataset.Tables[0].Rows[i]["switch"].ToString(),
+                            description = objDataset.Tables[0].Rows[i]["description"].ToString(),
+                            browserID = objDataset.Tables[0].Rows[i]["browserid"].ToString(),
+                            result = objDataset.Tables[0].Rows[i]["result"].ToString(),
+                            screenshot = objDataset.Tables[0].Rows[i]["screenshot"].ToString(),
+                            datecreated = Convert.ToDateTime(
                                     objDataset.Tables[0].Rows[i]["datetime_created"].ToString())
-                            });
+                        });
                 objConn.Close();
             }
             catch (Exception e)
@@ -350,21 +348,21 @@ namespace DataStorage
                 for (var i = 0; i < objDataset.Tables[0].Rows.Count; i++)
                     testresults.Add(
                         new TotalTestResultsHTML
-                            {
-                                idtestruns =
+                        {
+                            idtestruns =
                                     Convert.ToInt64(objDataset.Tables[0].Rows[i][0].ToString()),
-                                testrun =
+                            testrun =
                                     Convert.ToInt64(objDataset.Tables[0].Rows[i][1].ToString()),
-                                testrun_passed =
+                            testrun_passed =
                                     Convert.ToInt64(objDataset.Tables[0].Rows[i][2].ToString()),
-                                testrun_failed =
+                            testrun_failed =
                                     Convert.ToInt64(objDataset.Tables[0].Rows[i][3].ToString()),
-                                testrun_begintime = objDataset.Tables[0].Rows[i][4].ToString(),
-                                testrun_endtime = objDataset.Tables[0].Rows[i][5].ToString(),
-                                testrun_browser = objDataset.Tables[0].Rows[i][7].ToString(),
-                                testrun_application = objDataset.Tables[0].Rows[i][8].ToString(),
-                                testrun_time = objDataset.Tables[0].Rows[i][9].ToString()
-                            });
+                            testrun_begintime = objDataset.Tables[0].Rows[i][4].ToString(),
+                            testrun_endtime = objDataset.Tables[0].Rows[i][5].ToString(),
+                            testrun_browser = objDataset.Tables[0].Rows[i][7].ToString(),
+                            testrun_application = objDataset.Tables[0].Rows[i][8].ToString(),
+                            testrun_time = objDataset.Tables[0].Rows[i][9].ToString()
+                        });
                 objConn.Close();
             }
             catch (Exception e)

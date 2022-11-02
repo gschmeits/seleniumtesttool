@@ -28,12 +28,13 @@
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,5">
             <Label Content="URL:" Margin="0,3,5,4" VerticalAlignment="Center" VerticalContentAlignment="Center"
                    HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="62" Height="26" />
+
             <TextBox KeyDown="TextBoxURL_KeyDown" LostFocus="TextBoxURL_LostFocus" TextChanged="TextBoxURL_TextChanged"
                      Name="TextBoxURL" Margin="5,0,5,0" Height="24" Width="400" Text="" VerticalAlignment="Center"
                      VerticalContentAlignment="Center" TextWrapping="Wrap" TabIndex="1" Visibility="Collapsed" />
             <ComboBox DropDownClosed="ComboBoxUrlDropDownClosed" Name="ComboBoxURL" Margin="5,0,5,0" Height="24"
-                      Width="400" Text="http://127.0.0.1:8000/en" VerticalAlignment="Center"
-                      VerticalContentAlignment="Center" TabIndex="1" />
+                      Width="400" VerticalAlignment="Center"
+                      VerticalContentAlignment="Center" TabIndex="1" IsManipulationEnabled="True" IsEditable="True" />
             <Label Content="Application Name:" Margin="0,3,5,4" VerticalAlignment="Center"
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Right"
                    Height="26" Visibility="Hidden" />
@@ -43,6 +44,15 @@
             <Button Click="ButtonTest_Click" Name="ButtonTest" Content="Test" Style="{DynamicResource MyButtonStyle}"
                     Margin="5,0,0,0" Visibility="Hidden" />
 
+        </StackPanel>
+
+<StackPanel Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal">
+    <Label Content="Select elements option:" VerticalContentAlignment="Top"></Label>
+            <ComboBox Name="ComboBoxWeeergaveElelemts" Width="175"  Height="24" VerticalAlignment="Top" 
+                      SelectedIndex="0" SelectionChanged="ComboBoxWeeergaveElelemts_SelectionChanged">
+                <ComboBoxItem Content="With element numbers"/>
+                <ComboBoxItem Content="Without element numbers"/>
+            </ComboBox>
         </StackPanel>
 
 
@@ -308,8 +318,6 @@
                 <TextBox Margin="5,0,0,0" Name="Order7" Width="25" VerticalContentAlignment="Center" Height="26"
                          HorizontalContentAlignment="Center" TabIndex="7" />
             </StackPanel>
-
-
             <StackPanel Orientation="Horizontal">
                 <Label Name="LabelFoundElements1" Content="Extra elements to use:" VerticalContentAlignment="Center"
                        FontWeight="Bold" />

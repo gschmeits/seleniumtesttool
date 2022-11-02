@@ -60,6 +60,15 @@
     <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Awesomium.Core, Version=1.7.4.2, Culture=neutral, PublicKeyToken=e1a0d7c8071a5214, processorArchitecture=x86">
+      <HintPath>..\packages\Unofficial.Awesomium.Complete.1.7.4.2\lib\Awesomium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Awesomium.Windows.Controls, Version=1.7.4.2, Culture=neutral, PublicKeyToken=7a34e179b8b61c39, processorArchitecture=x86">
+      <HintPath>..\packages\Unofficial.Awesomium.Complete.1.7.4.2\lib\Awesomium.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Awesomium.Windows.Forms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=9bd24830fbe304a0, processorArchitecture=x86">
+      <HintPath>..\packages\Awesomium.NetWrapper.Unofficial.1.7.5.0\lib\Awesomium.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net46\CommonServiceLocator.dll</HintPath>
     </Reference>
@@ -102,6 +111,9 @@
       <HintPath>..\packages\HtmlAgilityPack.1.11.4\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MVVMAwesomium, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\MVVM.awesomium.0.9.9.0\lib\MVVMAwesomium.dll</HintPath>
+    </Reference>
     <Reference Include="NCodeFactory.Toolkit.Mvvm.Wpf, Version=1.0.0.21, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NCodeFactory.Toolkit.Mvvm.Wpf.1.0.0.21\lib\net45\NCodeFactory.Toolkit.Mvvm.Wpf.dll</HintPath>
     </Reference>
@@ -205,6 +217,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
+    <Content Include="Javascript\Ko_Extension.min.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -245,6 +260,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Hopstarter-Sleek-Xp-Software-Windows-Close-Program.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Javascript\knockout.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Ko_Extension.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Javascript\Ko_Extension.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

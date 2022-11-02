@@ -16,12 +16,11 @@
 /// The DataStorage namespace.
 /// </summary>
 
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Windows;
-using MySql.Data.MySqlClient;
 
 namespace DataStorage
 {
@@ -209,7 +208,7 @@ namespace DataStorage
                             testtag = objDataset.Tables[0].Rows[i]["testtag"]
                                 .ToString(),
                             testcheckstrict = objDataset.Tables[0].Rows[i]["test_check_strict"].ToString(),
-                            testpassword =  objDataset.Tables[0].Rows[i]["test_password"].ToString(),
+                            testpassword = objDataset.Tables[0].Rows[i]["test_password"].ToString(),
                             datacy = objDataset.Tables[0].Rows[i]["datacy"].ToString(),
                             href = objDataset.Tables[0].Rows[i]["href"].ToString(),
                             src = objDataset.Tables[0].Rows[i]["src"].ToString(),

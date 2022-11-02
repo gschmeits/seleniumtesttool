@@ -1,12 +1,9 @@
-﻿using System.Windows.Documents;
-
-namespace DataStorage
+﻿namespace DataStorage
 {
+    using MySql.Data.MySqlClient;
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using System.Windows;
-    using MySql.Data.MySqlClient;
 
     public class ScriptsDataFactory
     {
@@ -46,7 +43,7 @@ namespace DataStorage
             var sqlConn = "SELECT a.id, a.name, b.bestandsnaam, b.id, b.testscriptid, b.url, b.application, b.page ";
             sqlConn += "FROM testscripts as a RIGHT JOIN testscript_detail as b ";
             sqlConn += "ON a.id = b.testscriptid ";
-            sqlConn += "WHERE a.id = "+ id + ";";
+            sqlConn += "WHERE a.id = " + id + ";";
 
             var objConn = new MySqlConnection(General.MySqlConnectionString());
             var objDataAdapter = new MySqlDataAdapter(sqlConn, objConn);

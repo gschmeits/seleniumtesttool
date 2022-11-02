@@ -14,18 +14,12 @@
 
 namespace WPFTestResults
 {
+    using DataStorage;
+    using MySql.Data.MySqlClient;
     using System;
+    using System.Text.RegularExpressions;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Forms;
-    using System.Text.RegularExpressions;
-
-    using DataStorage;
-
-    using GeneralFunctionality;
-
-    using MySql.Data.MySqlClient;
-
     using MessageBox = System.Windows.MessageBox;
 
     /// <summary>
@@ -35,7 +29,7 @@ namespace WPFTestResults
     /// <seealso cref="System.Windows.Markup.IComponentConnector" />
     public partial class UpdateCopyDataBulk : Window
     {
-        private  string bestandsnaam { get; set; }
+        private string bestandsnaam { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateCopyDataBulk"/> class.
         /// </summary>

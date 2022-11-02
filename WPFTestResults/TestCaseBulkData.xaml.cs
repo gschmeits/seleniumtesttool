@@ -12,13 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using DataStorage;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Threading;
-using DataStorage;
 using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace WPFTestResults
@@ -154,88 +154,88 @@ namespace WPFTestResults
 
         private void ButtonTestCase_Click(object sender, RoutedEventArgs e)
         {
-                var testcaseString =
-                    "UPDATE testcases_selenium SET testcase = '" +
-                    TextBoxTestCase.Text + "' WHERE testname = '" +
-                    LabelTestSET.Content + "'";
+            var testcaseString =
+                "UPDATE testcases_selenium SET testcase = '" +
+                TextBoxTestCase.Text + "' WHERE testname = '" +
+                LabelTestSET.Content + "'";
 
-                if (txtFrom.Text.Length > 0 && txtUpto.Text.Length > 0)
-                    if (Convert.ToInt64(txtUpto.Text) <
-                        Convert.ToInt64(txtFrom.Text))
-                    {
-                        MessageBox.Show(
-                            "Up to testnr can not be lower than from testnr!!!",
-                            "Message",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                        return;
-                    }
+            if (txtFrom.Text.Length > 0 && txtUpto.Text.Length > 0)
+                if (Convert.ToInt64(txtUpto.Text) <
+                    Convert.ToInt64(txtFrom.Text))
+                {
+                    MessageBox.Show(
+                        "Up to testnr can not be lower than from testnr!!!",
+                        "Message",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
 
-                if (txtFrom.Text != string.Empty)
-                    testcaseString += " AND testnr >= " + txtFrom.Text;
+            if (txtFrom.Text != string.Empty)
+                testcaseString += " AND testnr >= " + txtFrom.Text;
 
-                if (txtUpto.Text != string.Empty)
-                    testcaseString += " AND testnr <= " + txtUpto.Text;
+            if (txtUpto.Text != string.Empty)
+                testcaseString += " AND testnr <= " + txtUpto.Text;
 
+            General.LogMessage(
+                "Query for updating TestCases: '" + testcaseString + "'.",
+                3,
+                string.Empty,
+                0,
+                string.Empty,
+                InloggerData.MachineCode);
+
+            var ok = false;
+            try
+            {
+
+                General.ExecuteQueryCommand(testcaseString);
+                ok = true;
+
+            }
+            catch (Exception ex)
+            {
                 General.LogMessage(
-                    "Query for updating TestCases: '" + testcaseString + "'.",
+                    ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" +
+                    ex.Source,
+                    4,
+                    string.Empty,
+                    0,
+                    string.Empty,
+                    InloggerData.MachineCode);
+                MessageBox.Show(
+                    "Selected TestSteps are NOT updated from the database!!!",
+                    "Message",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            if (ok)
+            {
+                //MessageBox.Show(
+                //    "Selected TestSteps are deleted from the database!!!",
+                //    "Message",
+                //    MessageBoxButtons.OK,
+                //    MessageBoxIcon.Information);
+                General.LogMessage(
+                    "Selected TestSteps are deleted from the database",
                     3,
                     string.Empty,
                     0,
                     string.Empty,
                     InloggerData.MachineCode);
+                //this.Refresh();
+                LabelMessage.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
+                //Close();
+            }
+            else
+            {
+                ButtonTestCase.IsEnabled = false;
+                txtFrom.IsEnabled = false;
+                txtUpto.IsEnabled = false;
+            }
 
-                var ok = false;
-                try
-                {
-
-                    General.ExecuteQueryCommand(testcaseString);
-                    ok = true;
-
-                }
-                catch (Exception ex)
-                {
-                    General.LogMessage(
-                        ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" +
-                        ex.Source,
-                        4,
-                        string.Empty,
-                        0,
-                        string.Empty,
-                        InloggerData.MachineCode);
-                    MessageBox.Show(
-                        "Selected TestSteps are NOT updated from the database!!!",
-                        "Message",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-
-                if (ok)
-                {
-                    //MessageBox.Show(
-                    //    "Selected TestSteps are deleted from the database!!!",
-                    //    "Message",
-                    //    MessageBoxButtons.OK,
-                    //    MessageBoxIcon.Information);
-                    General.LogMessage(
-                        "Selected TestSteps are deleted from the database",
-                        3,
-                        string.Empty,
-                        0,
-                        string.Empty,
-                        InloggerData.MachineCode);
-                    //this.Refresh();
-                    LabelMessage.Visibility = Visibility.Visible;
-                    dispatcherTimer.Start();
-                    //Close();
-                }
-                else
-                {
-                    ButtonTestCase.IsEnabled = false;
-                    txtFrom.IsEnabled = false;
-                    txtUpto.IsEnabled = false;
-                }
-            
         }
 
 

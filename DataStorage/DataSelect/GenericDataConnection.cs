@@ -20,7 +20,6 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
-using BlogsPrajeesh.BlogSpot.WPFControls;
 
 /// <summary>
 /// The DataStorage namespace.
@@ -89,9 +88,9 @@ namespace DataStorage
                 sPassword = testElement.Element("password").Value;
             }
 
-            
+
             // Stel de connection string samen
-            dbConnectionString = "server=" + sServerName + ":"+ sPort +";";
+            dbConnectionString = "server=" + sServerName + ":" + sPort + ";";
             dbConnectionString += "User ID=" + sUserName + ";";
             dbConnectionString += "Password=" + sPassword + ";";
             dbConnectionString += "database=" + sDatabase + ";";

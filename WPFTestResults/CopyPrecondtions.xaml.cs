@@ -1,9 +1,9 @@
-﻿using System;
+﻿using DataStorage;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using DataStorage;
-using MySql.Data.MySqlClient;
 
 namespace WPFTestResults
 {
@@ -127,7 +127,7 @@ namespace WPFTestResults
                                 que += MySqlHelper.EscapeString(dataTableSource.Rows[i]["pre_condition"].ToString()) +
                                        "');";
 
-                                General.LogMessage( que, 1);
+                                General.LogMessage(que, 1);
                                 General.ExecuteQueryCommand(que);
                             }
                         }

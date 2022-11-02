@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using GeneralFunctionality;
+using System.Windows;
 using System.Xml;
-using GeneralFunctionality;
 
 namespace WPFTestResults
 {
@@ -44,7 +44,7 @@ namespace WPFTestResults
             {
                 writer.WriteStartDocument();
                 writer.WriteStartElement("settings");
-                writer.WriteElementString("settingsdir", TextBoxSettingsDir.Text );
+                writer.WriteElementString("settingsdir", TextBoxSettingsDir.Text);
                 writer.WriteElementString("datadir", TextBoxDataDir.Text);
                 writer.WriteElementString("wdiodir", TextBoxwdioDir.Text);
                 writer.WriteElementString("cypressiodir", TextBoxcypressioDir.Text);

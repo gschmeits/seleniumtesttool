@@ -1,12 +1,4 @@
-﻿using System;
-using NUnit.Framework;
-using System.Collections.Generic;
-using System.Data;
-using System.Threading;
-using DataStorage;
-using HtmlAgilityPack;
-using MySql.Data.MySqlClient;
-using OpenQA.Selenium.Chrome;
+﻿using NUnit.Framework;
 
 namespace WPFTestResults.Tests
 {
@@ -14,7 +6,7 @@ namespace WPFTestResults.Tests
 
     public class TestClass_0003_TestCase_Form
     {
-        
+
         [Test]
         [Category("TestCase_Form_Buttons")]
         public void GetCurrentConfuguredDirs_0()

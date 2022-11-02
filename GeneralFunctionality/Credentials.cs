@@ -13,15 +13,11 @@
 // ***********************************************************************
 
 using System.Linq;
-using System.Windows.Forms;
-using NUnit.Framework.Constraints;
 
 namespace GeneralFunctionality
 {
     using System.Collections.Generic;
     using System.Xml.Linq;
-
-    using NUnit.Framework;
 
     /// <summary>
     /// Class Credentials.XElement.Load(Functions.GetCurrentDir(
@@ -55,7 +51,7 @@ namespace GeneralFunctionality
         /// TODO Edit XML Comment Template for #ctor
         public Credentials(string bestandsnaam)
         {
-            if (bestandsnaam != null && bestandsnaam.Length != 0) 
+            if (bestandsnaam != null && bestandsnaam.Length != 0)
             {
                 //MessageBox.Show(Functions.GetCurrentDir(1) + bestandsnaam + ".xml");
                 XElement xelement = XElement.Load(Functions.GetCurrentDir(1) + bestandsnaam + ".xml");
