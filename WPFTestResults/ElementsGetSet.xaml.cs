@@ -1452,15 +1452,23 @@ namespace WPFTestResults
                             num8 += 10;
                         }
 
-                        /*var query = "SELECT * FROM autotest.selenium_elements ";
-                        query += "WHERE url = '" + TextBoxURL.Text + "' ";
-                        query += "AND selenium_check = '1' ";
-                        query += "ORDER BY idselenium_elements";*/
+                        var query = string.Empty;
 
-                        var query = "SELECT * FROM autotest.elements_short ";
-                        query += "WHERE url = '" + TextBoxURL.Text + "' ";
-                        query += "AND selenium_check = '1' ";
-                        query += "ORDER BY id_elements";
+                        if (ComboBoxWeeergaveElelemts.SelectedIndex == 1)
+                        {
+                            query = "SELECT * FROM autotest.selenium_elements ";
+                            query += "WHERE url = '" + TextBoxURL.Text + "' ";
+                            query += "AND selenium_check = '1' ";
+                            query += "ORDER BY idselenium_elements";
+                        }
+
+                        if (ComboBoxWeeergaveElelemts.SelectedIndex == 0)
+                        {
+                            query = "SELECT * FROM autotest.elements_short ";
+                            query += "WHERE url = '" + TextBoxURL.Text + "' ";
+                            query += "AND selenium_check = '1' ";
+                            query += "ORDER BY id_elements";
+                        }
 
                         var dt = GenericDataRead.GetData(query);
 
