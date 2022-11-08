@@ -2874,7 +2874,7 @@ namespace WPFTestResults
                                         elementname +
                                         "')\r\n";
 
-                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath")
+                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath" && testCase.short_xpath != string.Empty)
                                     {
                                         inhoud +=
                                             "\t\tcy.ControlTextCount('";
@@ -2916,7 +2916,7 @@ namespace WPFTestResults
                                         elementname +
                                         "')\r\n";
 
-                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath")
+                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath" && testCase.short_xpath != string.Empty)
                                     {
                                         inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").click({force: true})\r\n";
                                     }
@@ -2938,7 +2938,7 @@ namespace WPFTestResults
                                         "\t\tcy.step('Double click on the element " +
                                         elementname +
                                         "')\r\n";
-                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath")
+                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath" && testCase.short_xpath != string.Empty)
                                     {
                                         inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").click({force: true})\r\n";
                                     }
@@ -2967,7 +2967,7 @@ namespace WPFTestResults
                                             "\t\tcy.step('Sendkey Enter to " +
                                             elementname +
                                             "')\r\n";
-                                        if (CheckBoxXpatn.IsChecked == true && soort == "xpath")
+                                        if (CheckBoxXpatn.IsChecked == true && soort == "xpath" && testCase.short_xpath != string.Empty)
                                         {
                                             inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").type('" +
                                                 text.ToLower() + "')\r\n";
@@ -2995,7 +2995,7 @@ namespace WPFTestResults
                                                   "')\r\n";
 
 
-                                        if (CheckBoxXpatn.IsChecked == true && soort == "xpath")
+                                        if (CheckBoxXpatn.IsChecked == true && soort == "xpath" && testCase.short_xpath != string.Empty)
                                         {
                                             inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").clear()\r\n";
                                             inhoud +=
@@ -3064,7 +3064,7 @@ namespace WPFTestResults
                                               testCase.testelementname.Trim()
                                                   .Replace("'", "\'") +
                                               "')\r\n";
-                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath")
+                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath" && testCase.short_xpath != string.Empty)
                                     {
                                         inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").setValue('" +
                                                   testCase.testtext + "')\r\n";
@@ -3094,7 +3094,7 @@ namespace WPFTestResults
                                               elementname +
                                               " to: '" + keuze + "')\r\n";
                                     inhoud += waitForEx(content, soort);
-                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath")
+                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath" && testCase.short_xpath != string.Empty)
                                     {
                                         inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").isSelected(" + keuze + ")\r\n";
                                     }
@@ -3115,7 +3115,7 @@ namespace WPFTestResults
                                     inhoud += "\t\tcy.step('Move to element " +
                                               elementname +
                                               "')\r\n";
-                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath")
+                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath" && testCase.short_xpath != string.Empty)
                                     {
                                         inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").scrollTo('center')\r\n";
                                     }
@@ -3246,7 +3246,7 @@ namespace WPFTestResults
                                         elementname +
                                         " exists.')\r\n";
 
-                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath")
+                                    if (CheckBoxXpatn.IsChecked == true && soort == "xpath" && testCase.short_xpath != string.Empty)
                                     {
                                         inhoud += "\t\tcy.get('" + testCase.testtag + "').eq(" + testCase.short_xpath + ").should('exist')\r\n";
                                     }
