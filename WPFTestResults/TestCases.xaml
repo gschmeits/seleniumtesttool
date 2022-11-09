@@ -301,16 +301,17 @@
             <CheckBox Name="CheckBoxXpatn" 
                       Grid.Row="4"
                       Grid.Column="5"
-                      Margin="361,0,0,0"
+                      Margin="362,0,0,0"
                       VerticalContentAlignment="Center"
                       Content="XPath kort"
-                      IsChecked="True"/>
+                      IsChecked="False" Click="CheckBoxXpatn_Click"
+                      />
             <CheckBox Content="Testcase Order" 
                       Name="CheckBoxTestCase" 
                       Grid.Column="5" 
                       Grid.Row="4"
                       VerticalContentAlignment="Center"
-                      Margin="225,0,0,0"
+                      Margin="223,0,115,0"
  Click="CheckBoxTestCase_Click"
             />
             <TextBox Name="TextBoxTestId"
@@ -673,7 +674,7 @@
                 Margin="3"
                 Style="{DynamicResource BorderaStyleG}" />
         <DataGrid Name="AddDataGrid"
-                  Margin="10,10,15,11"
+                  Margin="10,14,15,7"
                   Grid.Row="2"
                   AutoGenerateColumns="False"
                   IsSynchronizedWithCurrentItem="True"

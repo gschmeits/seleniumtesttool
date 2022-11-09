@@ -1131,33 +1131,34 @@ namespace WPFTestResults
 
         private void VulLabel()
         {
-            if (CheckBoxTestCase.IsChecked == true)
-            {
-                testCases = TestResultsFactory.GetTestCasesTestCase(
+
+                if (CheckBoxTestCase.IsChecked == true)
+                {
+                    testCases = TestResultsFactory.GetTestCasesTestCase(
+                        textboxApplictionname.Content.ToString().Substring(
+                            0,
+                            textboxApplictionname.Content.ToString().Length - 4));
+                }
+
+                if (CheckBoxTestCase.IsChecked == false)
+                {
+                    testCases = TestResultsFactory.GetTestCases(
+                        textboxApplictionname.Content.ToString().Substring(
+                            0,
+                            textboxApplictionname.Content.ToString().Length - 4));
+                }
+
+                testCasesCount = TestResultsFactory.GetTestCasesCount(
                     textboxApplictionname.Content.ToString().Substring(
                         0,
                         textboxApplictionname.Content.ToString().Length - 4));
-            }
-
-            if (CheckBoxTestCase.IsChecked == false)
-            {
-                testCases = TestResultsFactory.GetTestCases(
-                    textboxApplictionname.Content.ToString().Substring(
-                        0,
-                        textboxApplictionname.Content.ToString().Length - 4));
-            }
-
-            testCasesCount = TestResultsFactory.GetTestCasesCount(
-                textboxApplictionname.Content.ToString().Substring(
-                    0,
-                    textboxApplictionname.Content.ToString().Length - 4));
-            LabelTestSteps.Content = testCasesCount;
-            AddDataGrid.ItemsSource = null;
-            AddDataGrid.ItemsSource = testCases;
-            AddDataGrid.SelectedIndex = -1;
-            if (AddDataGrid.Items.Count == 0) TextBoxTestNr.Text = "1";
-            PanelNamen.Visibility = Visibility.Visible;
-            VulTestNr(testCases);
+                LabelTestSteps.Content = testCasesCount;
+                AddDataGrid.ItemsSource = null;
+                AddDataGrid.ItemsSource = testCases;
+                AddDataGrid.SelectedIndex = -1;
+                if (AddDataGrid.Items.Count == 0) TextBoxTestNr.Text = "1";
+                PanelNamen.Visibility = Visibility.Visible;
+                VulTestNr(testCases);
         }
 
         private void VulTestNr(List<TestResultsFactory.TestCases> testCases)
@@ -2656,7 +2657,7 @@ namespace WPFTestResults
             var itname = string.Empty;
 
             foreach (var testCase in testCases)
-                if (testCase.testexecution == "yes")
+                if (testCase.testexecution == "yes" && testCase.testelement != string.Empty)
                 {
                     var elementname = testCase.testelementname.Trim()
                         .Replace("'", "\\'");
@@ -3505,7 +3506,15 @@ namespace WPFTestResults
 
         private void CheckBoxTestCase_Click(object sender, RoutedEventArgs e)
         {
-            VulLabel();
+            if (LabelUrl.Text != string.Empty)
+            {
+                VulLabel();
+            }
+        }
+
+        private void CheckBoxXpatn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
