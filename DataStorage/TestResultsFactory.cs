@@ -146,7 +146,7 @@ namespace DataStorage
             var sqlConn =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, " +
                 "testaction, testtext, testurl, testswitch, testexecution, testext_check, testinverse,testtag, " +
-                "test_comment, testpage, test_password, test_check_strict, datacy, href, src, short_xpath ";
+                "test_comment, testpage, test_password, test_check_strict, datacy, href, src, save_attribute, short_xpath, action_get, get_value ";
             sqlConn += "FROM testcases_selenium WHERE testname = '" + testname +
                        "' ";
             sqlConn += "ORDER BY testname, testnr";
@@ -213,6 +213,9 @@ namespace DataStorage
                             href = objDataset.Tables[0].Rows[i]["href"].ToString(),
                             src = objDataset.Tables[0].Rows[i]["src"].ToString(),
                             short_xpath = objDataset.Tables[0].Rows[i]["short_xpath"].ToString(),
+                            save_attribute = objDataset.Tables[0].Rows[i]["save_attribute"].ToString(),
+                            action_get = objDataset.Tables[0].Rows[i]["action_get"].ToString(),
+                            get_value = objDataset.Tables[0].Rows[i]["get_value"].ToString(),
                         });
                     rownumber++;
                 }
@@ -235,7 +238,7 @@ namespace DataStorage
             var sqlConn =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, " +
                 "testaction, testtext, testurl, testswitch, testexecution, testext_check, testinverse,testtag, " +
-                "test_comment, testpage, test_password, test_check_strict, datacy, href, src, short_xpath ";
+                "test_comment, testpage, test_password, test_check_strict, datacy, href, src, save_attribute, short_xpath, active_get, get_value ";
             sqlConn += "FROM testcases_selenium WHERE testname = '" + testname +
                        "' ";
             sqlConn += "ORDER BY testname, testcase, testnr";
@@ -302,6 +305,9 @@ namespace DataStorage
                             href = objDataset.Tables[0].Rows[i]["href"].ToString(),
                             src = objDataset.Tables[0].Rows[i]["src"].ToString(),
                             short_xpath = objDataset.Tables[0].Rows[i]["short_xpath"].ToString(),
+                            save_attribute = objDataset.Tables[0].Rows[i]["save_attribute"].ToString(),
+                            action_get = objDataset.Tables[0].Rows[i]["action_get"].ToString(),
+                            get_value = objDataset.Tables[0].Rows[i]["get_value"].ToString(),
                         });
                     rownumber++;
                 }
@@ -325,7 +331,7 @@ namespace DataStorage
             var sqlConn =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, " +
                 "testaction, testtext, testurl, testswitch, testexecution, testext_check, testinverse,testtag, " +
-                "test_comment, testpage, test_password, test_check_strict ";
+                "test_comment, testpage, test_password, test_check_strict, save_attribute, short_xpath, action_get, get_value";
             sqlConn += "FROM testcases_selenium WHERE testname = '" + testname +
                        "' AND testelement LIKE '%" + searchText + "%'";
             sqlConn += " ORDER BY testname, testnr";
@@ -387,7 +393,11 @@ namespace DataStorage
                             testtag = objDataset.Tables[0].Rows[i]["testtag"]
                                 .ToString(),
                             testcheckstrict = objDataset.Tables[0].Rows[i]["test_check_strict"].ToString(),
-                            testpassword = objDataset.Tables[0].Rows[i]["test_password"].ToString()
+                            testpassword = objDataset.Tables[0].Rows[i]["test_password"].ToString(),
+                            save_attribute = objDataset.Tables[0].Rows[i]["save_attribute"].ToString(),
+                            get_value = objDataset.Tables[0].Rows[i]["get_value"].ToString(),
+                            action_get = objDataset.Tables[0].Rows[i]["action_get"].ToString(),
+                            short_xpath = objDataset.Tables[0].Rows[i]["short_xpath"].ToString(),
                         });
                     rownumber++;
                 }
@@ -1275,6 +1285,10 @@ namespace DataStorage
             public string href { get; set; }
             public string src { get; set; }
             public string short_xpath { get; set; }
+            public string action_get { get; set; }
+            public string get_value { get; set; }
+
+            public string save_attribute { get; set; }
         }
 
         public class TestBlocks

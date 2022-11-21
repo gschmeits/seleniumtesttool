@@ -51,7 +51,9 @@ namespace DataStorage
             string datacy, 
             string href,
             string src,
-            string short_xpath)
+            string short_xpath,
+            string action_get,
+            string get_value)
         {
             try
             {
@@ -80,6 +82,8 @@ namespace DataStorage
                 commandText += "href = '" + MySqlHelper.EscapeString(href) + "', ";
                 commandText += "src = '" + MySqlHelper.EscapeString(src) + "', ";
                 commandText += "short_xpath = '" + MySqlHelper.EscapeString(short_xpath) + "', ";
+                commandText += "action_get = '" + MySqlHelper.EscapeString(action_get) + "', ";
+                commandText += "get_value = '" + MySqlHelper.EscapeString(get_value) + "', ";
                 commandText += "datacy = '" + MySqlHelper.EscapeString(datacy) +
                                "';";
                 General.ExecuteQueryCommand(commandText);
@@ -114,7 +118,9 @@ namespace DataStorage
             string datacy,
             string href,
             string src,
-            string short_xpath)
+            string short_xpath,
+            string action_get,
+            string get_value)
         {
             try
             {
@@ -142,6 +148,10 @@ namespace DataStorage
                 commandText += "src = '" + MySqlHelper.EscapeString(src) +
                                "', ";
                 commandText += "short_xpath = '" + MySqlHelper.EscapeString(short_xpath) +
+                               "', ";
+                commandText += "action_get = '" + MySqlHelper.EscapeString(action_get) +
+                               "', ";
+                commandText += "get_value = '" + MySqlHelper.EscapeString(get_value) +
                                "', ";
                 commandText += "datacy = '" + MySqlHelper.EscapeString(datacy) +
                                "', "; 

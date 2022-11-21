@@ -703,7 +703,8 @@
                           VerticalContentAlignment="Center" Content="Save testresults" Height="30"
                           IsChecked="True" Width="125" Name="CheckBoxSaveResults" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" HorizontalAlignment="Center"
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="28,11,27,0" 
+                        HorizontalAlignment="Center"
                         VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <Button
                     Style="{DynamicResource MyButtonStyle}"

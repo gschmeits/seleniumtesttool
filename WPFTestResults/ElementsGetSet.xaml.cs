@@ -970,6 +970,8 @@ namespace WPFTestResults
                                     datacy,
                                     string.Empty,
                                     string.Empty,
+                                    string.Empty,
+                                    string.Empty,
                                     string.Empty);
 
 
@@ -1027,6 +1029,8 @@ namespace WPFTestResults
                                     datacy,
                                     string.Empty,
                                     string.Empty,
+                                    string.Empty,
+                                    string.Empty,
                                     string.Empty);
 
                                 if (ButtonCSV.IsChecked != null &&
@@ -1081,6 +1085,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     string.Empty,
                                     datacy,
+                                    string.Empty,
+                                    string.Empty,
                                     string.Empty,
                                     string.Empty,
                                     string.Empty);
@@ -1145,6 +1151,8 @@ namespace WPFTestResults
                                     datacy,
                                     string.Empty,
                                     string.Empty,
+                                    string.Empty,
+                                    string.Empty,
                                     string.Empty);
 
                                 if (ButtonCSV.IsChecked != null &&
@@ -1203,6 +1211,8 @@ namespace WPFTestResults
                                     datacy,
                                     string.Empty,
                                     string.Empty,
+                                    string.Empty,
+                                    string.Empty,
                                     string.Empty);
 
                                 if (ButtonCSV.IsChecked != null &&
@@ -1257,6 +1267,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     string.Empty,
                                     datacy,
+                                    string.Empty,
+                                    string.Empty,
                                     string.Empty,
                                     string.Empty,
                                     string.Empty);
@@ -1317,6 +1329,8 @@ namespace WPFTestResults
                                     datacy,
                                     string.Empty,
                                     string.Empty,
+                                    string.Empty,
+                                    string.Empty,
                                     string.Empty);
 
 
@@ -1368,6 +1382,8 @@ namespace WPFTestResults
                                     string.Empty,
                                     PasswordText.Password,
                                     datacy,
+                                    string.Empty,
+                                    string.Empty,
                                     string.Empty,
                                     string.Empty,
                                     string.Empty);
@@ -1424,6 +1440,8 @@ namespace WPFTestResults
                                 string.Empty,
                                 string.Empty,
                                 datacy,
+                                string.Empty,
+                                string.Empty,
                                 string.Empty,
                                 string.Empty,
                                 string.Empty);
@@ -1609,7 +1627,9 @@ namespace WPFTestResults
                                 datacy,
                                 href_1,
                                 src_1,
-                                xpath_1);
+                                xpath_1,
+                                string.Empty,
+                                string.Empty);
 
                             if (ButtonCSV.IsChecked != null &&
                                 (bool)ButtonCSV.IsChecked)

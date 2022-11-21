@@ -200,7 +200,7 @@ namespace DataStorage
             var commandText =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, testattribute, testaction, testtext, " +
                 "testurl, testswitch, testdescription, testexecution, testext_check, testinverse, test_comment, " +
-                "test_password, test_check_strict, save_attribute FROM testcases_selenium WHERE testname = '" +
+                "test_password, test_check_strict, save_attribute, short_xpath, action_get, get_value FROM testcases_selenium WHERE testname = '" +
                 testname + "' AND testexecution = 'yes' ORDER BY testnr";
             return ExecuteQueryCommandReturnTable(commandText);
         }
@@ -218,7 +218,8 @@ namespace DataStorage
             var commandText =
                 "SELECT id, testname, testnr, testcase, testlogicalobjectname, testelement, " +
                 "testattribute, testaction, testtext, testurl, testswitch, testdescription, " +
-                "testexecution, testext_check, testinverse, test_comment, test_password, test_check_strict, save_attribute " +
+                "testexecution, testext_check, testinverse, test_comment, test_password, " + 
+                "test_check_strict, save_attribute, short_xpath, action_get, get_value " +
                 "FROM testcases_selenium WHERE id = '" +
                 id + "';";
             return ExecuteQueryCommandReturnTable(commandText);

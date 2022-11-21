@@ -1544,47 +1544,50 @@ namespace GeneralFunctionality
                             var testaction = table.Rows[intx]["testaction"]
                                 .ToString().Trim();
 
-                            Assert.IsTrue(
-                                CheckBy(
-                                    driver,
-                                    table.Rows[intx]["testelement"].ToString()
-                                        .Trim(),
-                                    table.Rows[intx]["testattribute"].ToString()
-                                        .Trim(),
-                                    table.Rows[intx]["testnr"].ToString()
-                                        .Trim(),
-                                    radiobutton,
-                                    table.Rows[intx]["testext_check"].ToString()
-                                        .Trim(),
-                                    table.Rows[intx]["testaction"].ToString()
-                                        .Trim(),
-                                    table.Rows[intx]["testurl"].ToString()
-                                        .Trim(),
-                                    table.Rows[intx]["testswitch"].ToString()
-                                        .Trim(),
-                                    table.Rows[intx]["testdescription"]
-                                        .ToString().Trim(),
-                                    table.Rows[intx]["testinverse"].ToString()
-                                        .Trim(),
-                                    table.Rows[intx]["test_comment"].ToString()
-                                        .Trim(),
-                                    table.Rows[intx]["testname"].ToString()
-                                        .Trim(),
-                                    table.Rows[intx]["testcase"].ToString()
-                                        .Trim(),
-                                    version,
-                                    0,
-                                    machineNumber,
-                                    table.Rows[intx]["testlogicalobjectname"]
-                                        .ToString().Trim(),
-                                    credits.Url,
-                                    table.Rows[intx]["testtext"].ToString()
-                                        .Trim(),
-                                    bestandsnaamArgument,
-                                    "",
-                                    opslaan,
-                                    strikt
-                                ));
+                            if(idString != string.Empty)
+                            {
+                                Assert.IsTrue(
+                                    CheckBy(
+                                        driver,
+                                        table.Rows[intx]["testelement"].ToString()
+                                            .Trim(),
+                                        table.Rows[intx]["testattribute"].ToString()
+                                            .Trim(),
+                                        table.Rows[intx]["testnr"].ToString()
+                                            .Trim(),
+                                        radiobutton,
+                                        table.Rows[intx]["testext_check"].ToString()
+                                            .Trim(),
+                                        table.Rows[intx]["testaction"].ToString()
+                                            .Trim(),
+                                        table.Rows[intx]["testurl"].ToString()
+                                            .Trim(),
+                                        table.Rows[intx]["testswitch"].ToString()
+                                            .Trim(),
+                                        table.Rows[intx]["testdescription"]
+                                            .ToString().Trim(),
+                                        table.Rows[intx]["testinverse"].ToString()
+                                            .Trim(),
+                                        table.Rows[intx]["test_comment"].ToString()
+                                            .Trim(),
+                                        table.Rows[intx]["testname"].ToString()
+                                            .Trim(),
+                                        table.Rows[intx]["testcase"].ToString()
+                                            .Trim(),
+                                        version,
+                                        0,
+                                        machineNumber,
+                                        table.Rows[intx]["testlogicalobjectname"]
+                                            .ToString().Trim(),
+                                        credits.Url,
+                                        table.Rows[intx]["testtext"].ToString()
+                                            .Trim(),
+                                        bestandsnaamArgument,
+                                        "",
+                                        opslaan,
+                                        strikt
+                                    ));
+                            }
 
 
                             IWebElement content = null;
@@ -1592,36 +1595,43 @@ namespace GeneralFunctionality
 
                             var testElement = table.Rows[intx]["testelement"]
                                 .ToString().Trim();
+
+
+
+
                             var testAttribute =
                                 table.Rows[intx]["testattribute"].ToString()
                                     .Trim()
                                     .ToUpper();
-                            switch (testAttribute)
+                            if (testElement != string.Empty)
                             {
-                                case "ID":
-                                    content =
-                                        driver.FindElement(By.Id(testElement));
-                                    break;
-                                case "NAME":
-                                    content =
-                                        driver.FindElement(
-                                            By.Name(testElement));
-                                    break;
-                                case "CLASS":
-                                    content =
-                                        driver.FindElement(
-                                            By.ClassName(testElement));
-                                    break;
-                                case "XPATH":
-                                    content =
-                                        driver.FindElement(
-                                            By.XPath(testElement));
-                                    break;
-                                case "CSSSELECTOR":
-                                    content =
-                                        driver.FindElement(
-                                            By.CssSelector(testElement));
-                                    break;
+                                switch (testAttribute)
+                                {
+                                    case "ID":
+                                        content =
+                                            driver.FindElement(By.Id(testElement));
+                                        break;
+                                    case "NAME":
+                                        content =
+                                            driver.FindElement(
+                                                By.Name(testElement));
+                                        break;
+                                    case "CLASS":
+                                        content =
+                                            driver.FindElement(
+                                                By.ClassName(testElement));
+                                        break;
+                                    case "XPATH":
+                                        content =
+                                            driver.FindElement(
+                                                By.XPath(testElement));
+                                        break;
+                                    case "CSSSELECTOR":
+                                        content =
+                                            driver.FindElement(
+                                                By.CssSelector(testElement));
+                                        break;
+                                }
                             }
 
                             if (table.Rows[intx]["testelement"].ToString()
@@ -1885,13 +1895,6 @@ namespace GeneralFunctionality
                                             driver.SwitchTo().DefaultContent();
                                             break;
                                         case "set_value":
-                                            /*
-                                                kolommen
-                                                    saved_values_id
-                                                    saved_values_testname    bestandsnaamArgument 
-                                                    saved_values_name        table.Rows[intx]["testtext"].ToString()
-                                                    saved_values_value       content.Text.Trim().Replace("\r\n", string.Empty)
-                                            */
                                             var query = string.Empty;
 
                                             query =
@@ -1917,11 +1920,21 @@ namespace GeneralFunctionality
                                                             .Replace("\r\n",
                                                                 string.Empty) +
                                                         "' ";
-                                                if (savedAttribute == "href")
+                                                if (savedAttribute.ToUpper() == "HREF")
                                                     query += content.GetAttribute(
                                                             "href").Trim()
                                                         +
                                                         "' ";
+                                                if (savedAttribute.ToUpper() == "ID")
+                                                    query += content.GetAttribute(
+                                                                 "id").Trim()
+                                                             +
+                                                             "' ";
+                                                if (savedAttribute.ToUpper() == "NAME")
+                                                    query += content.GetAttribute(
+                                                                 "name").Trim()
+                                                             +
+                                                             "' ";
                                                 query += "WHERE ";
                                                 query += "saved_values_id = " +
                                                     save_id + ";";
@@ -1946,12 +1959,21 @@ namespace GeneralFunctionality
                                                             .Replace("\r\n",
                                                                 string.Empty) +
                                                         "', ";
-                                                if (savedAttribute == "href")
+                                                if (savedAttribute.ToUpper() == "HREF")
                                                     query += content.GetAttribute(
                                                             "href").Trim()
                                                         +
                                                         "', ";
-
+                                                if (savedAttribute.ToUpper() == "ID")
+                                                    query += content.GetAttribute(
+                                                                 "id").Trim()
+                                                             +
+                                                             "', ";
+                                                if (savedAttribute.ToUpper() == "NAME")
+                                                    query += content.GetAttribute(
+                                                                 "name").Trim()
+                                                             +
+                                                             "', ";
                                                 query += getProjectID() + ");";
                                             }
 
@@ -1990,11 +2012,23 @@ namespace GeneralFunctionality
                                                 }
 
                                                 if (dtget.Rows[0][1]
-                                                    .ToString() == "href")
+                                                    .ToString().ToUpper() == "HREF")
+                                                {
                                                     driver.Navigate()
                                                         .GoToUrl(
                                                             dtget.Rows[0][0]
                                                                 .ToString());
+                                                }
+                                                if (dtget.Rows[0][1]
+                                                        .ToString().ToUpper() == "ID")
+                                                {
+                                                    MessageBox.Show("Waarde ID: " + dtget.Rows[0][0].ToString());
+                                                }
+                                                if (dtget.Rows[0][1]
+                                                        .ToString().ToUpper() == "NAME")
+                                                {
+                                                    MessageBox.Show("Waarde Name: " + dtget.Rows[0][0].ToString());
+                                                }
                                             }
 
                                             break;
@@ -2079,12 +2113,12 @@ namespace GeneralFunctionality
                                     testaction, testAttribute);
                         }
 
-                        var appendtext = GetCurrentDir(2) + "\\" +
+                        /*var appendtext = GetCurrentDir(2) + "\\" +
                                          vestandsnaam + ".js";
                         var sw = File.CreateText(appendtext);
                         sw.WriteLine(inhoud);
 
-                        sw.Close();
+                        sw.Close(); */
                     }
                     catch (Exception exception)
                     {

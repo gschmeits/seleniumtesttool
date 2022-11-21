@@ -191,6 +191,14 @@
                    HorizontalContentAlignment="Right"
                    Margin="5"
                    FontWeight="Bold" />
+            <Label Content="Action:"
+                   Grid.Column="3"
+                   VerticalAlignment="Center"
+                   HorizontalContentAlignment="Right"
+                   Name="labelActionGet"
+                   Margin="249,9,149,2"
+                   FontWeight="Bold" Grid.Row="1"
+                   Visibility="Hidden"/>
             <Label Name="LabelTextBox"
                    Content="Text:"
                    Grid.Row="2"
@@ -228,11 +236,10 @@
                    FontWeight="Bold" />
             <Label Name="LabelNameGetValue"
                    Content="Get Value:"
-                   Grid.Row="2"
-                   Grid.Column="2"
+                   Grid.Column="3"
                    VerticalAlignment="Center"
                    HorizontalContentAlignment="Right"
-                   Margin="5"
+                   Margin="116,4,256,7"
                    Visibility="Hidden"
                    FontWeight="Bold" />
             <TextBox Name="TextBoxSetValueName"
@@ -402,6 +409,19 @@
                 <ListBoxItem Content="logout" />
             </ComboBox>
 
+            <ComboBox Name="ComboBoxActionGet"
+                      Grid.Row="1"
+                      Grid.Column="3"
+                      Margin="275,5,5,5"
+                      Width="150"
+                      Visibility="Hidden"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Height="24" TabIndex="6" DropDownClosed="ComboBoxAction_DropDownClosed" Grid.ColumnSpan="2">
+                <ListBoxItem Content="" />
+                <ListBoxItem Content="click" />
+                <ListBoxItem Content="sendkeys" />
+            </ComboBox>
             <ComboBox Name="ComboBoxAttributeSave"
                       Grid.Row="1"
                       Grid.Column="3"
@@ -412,6 +432,8 @@
                       Height="24" TabIndex="6"
                       Visibility="Hidden">
                 <ListBoxItem Content="" />
+                <ListBoxItem Content ="ID"/>
+                <ListBoxItem Content ="Name"/>
                 <ListBoxItem Content="href" />
             </ComboBox>
             <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Content="Description:" FontWeight="Bold"
@@ -465,9 +487,8 @@
                 <ListBoxItem Content="iframe" />
             </ComboBox>
             <ComboBox Name="ComboBoxGetValue"
-                      Grid.Row="2"
                       Grid.Column="3"
-                      Margin="5"
+                      Margin="194,5,0,7"
                       Height="25"
                       Width="214"
                       VerticalAlignment="Center"

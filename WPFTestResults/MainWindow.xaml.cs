@@ -542,6 +542,8 @@ namespace WPFTestResults
                                         string.Empty,
                                         string.Empty,
                                         string.Empty,
+                                        string.Empty,
+                                        string.Empty,
                                         string.Empty);
                                     intTeller++;
                                     element = string.Empty;
@@ -851,19 +853,6 @@ namespace WPFTestResults
             BeginDateTime = DateTime.Now;
 
             DataGridGer.ItemsSource = null;
-            //LabelAppliction.Visibility = Visibility.Hidden;
-            //LabelApplicationData.Visibility = Visibility.Hidden;
-
-            //VersionClass.OpenBestand();
-
-            //var openFileDialog = new OpenFileDialog();
-            //openFileDialog.InitialDirectory = GeneralFunctionality.Functions.GetCurrentDir(1) + GeneralFunctionality.Functions._project;
-
-
-            //openFileDialog.Filter = "XML files(*.xml)|*.xml|All files(*.*)|*.*";
-            //openFileDialog.FilterIndex = 2;
-            //openFileDialog.RestoreDirectory = true;
-
 
             VersionClass.OpenBestand();
             var bestandsnaam = VersionClass.Bestandsnaam;
