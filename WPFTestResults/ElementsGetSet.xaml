@@ -46,8 +46,8 @@
 
         </StackPanel>
 
-<StackPanel Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal">
-    <Label Content="Select elements option:" VerticalContentAlignment="Top"></Label>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Label Content="Select elements option:" VerticalContentAlignment="Top"></Label>
             <ComboBox Name="ComboBoxWeeergaveElelemts" Width="175"  Height="24" VerticalAlignment="Top" 
                       SelectedIndex="0" SelectionChanged="ComboBoxWeeergaveElelemts_SelectionChanged">
                 <ComboBoxItem Content="With element numbers"/>
@@ -656,12 +656,12 @@
                     Grid.Column="1"
                     Grid.Row="1"
                     Grid.RowSpan="2"
-                    Width="1000"
+                    Width="952"
                     Height="50"
                     Name="GridCheckText"
                     Visibility="Visible"
                     HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
+                    VerticalAlignment="Top" Margin="0,0,48,0"
                     >
 
 
@@ -688,7 +688,17 @@
                      Grid.Column="2"
                      Height="26"
                      VerticalContentAlignment="Center"
-                     VerticalAlignment="Center" TextChanged="TextBoxChangeText_TextChanged" Margin="0,12" Width="433"/>
+                     VerticalAlignment="Center" TextChanged="TextBoxChangeText_TextChanged" Margin="0,12" Width="273"/>
+            <Button Name="ButtonSelectElement"                     
+                    Style="{DynamicResource MyButtonStyle}"
+                    Height="26"
+                    Width="100"
+                    IsEnabled="False"
+                    VerticalContentAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Select element" Margin="5,0" Click="ButtonSelectElement_Click" 
+                    />
+
             <Button Name="ButtonSetTextCheck"
                     Style="{DynamicResource MyButtonStyle}"
                     Grid.Column="3"
@@ -699,7 +709,7 @@
                     VerticalAlignment="Center"
                     Content="Set Check Text" Margin="5,0" 
                     Click="ButtonSetTextCheck_Click"/>
-            <CheckBox Content="Clear Text"
+            <CheckBox Content="Clear"
                       IsEnabled="False"
                       Name="CheckBoxClearTextCheck"
                       Grid.Column="4"

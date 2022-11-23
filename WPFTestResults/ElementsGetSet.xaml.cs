@@ -128,6 +128,7 @@ namespace WPFTestResults
             TextBoxTestCasePage.Visibility = Visibility.Hidden;
             GridCheckText.Visibility = Visibility.Hidden;
             ButtonSetTextCheck.IsEnabled = false;
+            ButtonSelectElement.IsEnabled = false;
             CheckBoxClearTextCheck.IsEnabled = false;
             UserAttribute.Text = "Name";
             PasswordAtrribute.Text = "Name";
@@ -571,6 +572,7 @@ namespace WPFTestResults
             ButtonGetElements.IsEnabled = false;
             LabelID.Content = string.Empty;
             ButtonSetTextCheck.IsEnabled = false;
+            ButtonSelectElement.IsEnabled = false;
             CheckBoxClearTextCheck.IsEnabled = false;
             SetButtonContext();
             ButtonSave.IsEnabled = false;
@@ -2728,7 +2730,8 @@ namespace WPFTestResults
                 "li",
                 "form",
                 "span",
-                "div"
+                "div", 
+                "form"
             };
 
             var legestring = "";
@@ -2738,6 +2741,7 @@ namespace WPFTestResults
             var name_1 = "";
             var class_1 = "";
             var value_1 = "";
+            var datacy = "";
 
 
             // url = !(ElementSetting == "GET")
@@ -2761,6 +2765,7 @@ namespace WPFTestResults
                         name_1 = "";
                         class_1 = "";
                         value_1 = "";
+                        datacy = "";
 
                         if (li_list[x1].Attributes["src"] != null)
                             src_1 = li_list[x1].Attributes["src"].Value;
@@ -2781,9 +2786,12 @@ namespace WPFTestResults
                             if (li_list[x1].Attributes["value"] != null)
                                 value_1 = li_list[x1].Attributes["value"].Value;
 
+                        if (li_list[x1].Attributes["data-cy"] != null)
+                            datacy = li_list[x1].Attributes["data-cy"].Value;
+
                         var sSQL = "INSERT INTO `autotest`.`elements_short` " +
                                    "(`url`, `tagname`, `short_xpath`, `xpath`, "
-                                   + "`text`, `id`, `name`, `class`, `href`, `value`, `project_id`,  `src`) " +
+                                   + "`text`, `id`, `name`, `class`, `href`, `value`, `project_id`,  `src`, `datacy`) " +
                                    "VALUES " +
                                    "('" + MySqlHelper.EscapeString(TextBoxURL.Text)
                                    + "', '" +
@@ -2807,7 +2815,8 @@ namespace WPFTestResults
                                    MySqlHelper.EscapeString(value_1) +
                                    "', "
                                    + project_id + ", '" +
-                                   MySqlHelper.EscapeString(src_1) + "'); ";
+                                   MySqlHelper.EscapeString(src_1) + "', '" +
+                                   MySqlHelper.EscapeString(datacy) + "'); ";
 
                         General.ExecuteQueryCommand(sSQL);
                     }
@@ -3580,11 +3589,13 @@ namespace WPFTestResults
             if (TextBoxChangeText.Text != string.Empty)
             {
                 ButtonSetTextCheck.IsEnabled = true;
+                ButtonSelectElement.IsEnabled = true;
                 CheckBoxClearTextCheck.IsEnabled = true;
             }
             else
             {
                 ButtonSetTextCheck.IsEnabled = false;
+                ButtonSelectElement.IsEnabled = false;
                 CheckBoxClearTextCheck.IsEnabled = false;
             }
         }
@@ -3646,6 +3657,31 @@ namespace WPFTestResults
                 DataGridElements.ItemsSource = null;
                 DataGridElements.ItemsSource = ElementsFromDatabase.GetDataTable(url, keuze);
                 DataGridElements.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ButtonSelectElement_Click(object sender, RoutedEventArgs e)
+        {
+            using (new PleaseWait())
+            {
+                var kolom = CheckClassText.Text;
+                var clearText = 1;
+                if (CheckBoxClearTextCheck.IsChecked == true) clearText = 0;
+
+                var tabel = "selenium_elements";
+                if (ComboBoxWeeergaveElelemts.SelectedIndex == 0)
+                {
+                    tabel = "elements_short";
+                }
+
+                var sSQL = "UPDATE " + tabel + " SET selenium_check = " +
+                           clearText + " WHERE url = '";
+                sSQL += TextBoxURL.Text + "' AND " + kolom + " = '" +
+                        TextBoxChangeText.Text + "';";
+
+                GenericDataRead.INUPDEL(sSQL);
+
+                Bouwdatagrid();
             }
         }
     }
