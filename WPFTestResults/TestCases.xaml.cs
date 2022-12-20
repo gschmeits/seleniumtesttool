@@ -2447,7 +2447,7 @@ namespace WPFTestResults
             TextBoxSwitchUrl.Text = "App.";
             CheckBoxDataCy.Visibility = Visibility.Hidden;
             CheckBoxDataCy.IsChecked = false;
-
+            ComboBoxBefore.SelectedIndex = 0;
             ModuleWebdriver.Visibility = Visibility.Visible;
         }
 
@@ -2683,6 +2683,7 @@ namespace WPFTestResults
             //TextBoxSwitchUrl.Text = "";
             CheckBoxDataCy.Visibility = Visibility.Visible;
             CheckBoxDataCy.IsChecked = true;
+            ComboBoxBefore.SelectedIndex = 0;
             ModuleWebdriver.Visibility = Visibility.Visible;
         }
 
@@ -2694,6 +2695,11 @@ namespace WPFTestResults
             var huidigProject = GeneralFunctionality.Functions._project;
             var testcase_new = "";
             var itname = string.Empty;
+            var beforeText = "before";
+            if (ComboBoxBefore.SelectedIndex != -1)
+            {
+                beforeText = ComboBoxBefore.Text;
+            }
 
             foreach (var testCase in testCases)
                 if (testCase.testexecution == "yes" && (testCase.testelement != string.Empty || testCase.testaction.ToUpper() == "GET_VALUE"))
@@ -2738,7 +2744,7 @@ namespace WPFTestResults
 
                         if (TextBoxAppFunction.Text == string.Empty)
                         {
-                            inhoud += "\r\n\tbefore(() => {";
+                            inhoud += "\r\n\t" + beforeText + "(() => {";
                             inhoud += "\r\n\t\tcy.step('Visit: " +
                                       nickname + "')";
 

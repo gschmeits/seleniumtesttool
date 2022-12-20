@@ -1279,6 +1279,13 @@
                         Name="ButtonCloseWebdriver" Content="Close Module"
                         Grid.Row="7" Grid.ColumnSpan="5" Width="100" HorizontalAlignment="Right"
                         TabIndex="7" Click="ButtonCloseWebdriver_Click" />
+                <ComboBox Grid.Column="4" Name="ComboBoxBefore" 
+                          HorizontalAlignment="Left" 
+                          Margin="80,0,0,0" 
+                          Grid.Row="5" VerticalAlignment="Center" Width="100">
+                    <ComboBoxItem Content="before" HorizontalAlignment="Left"/>
+                    <ComboBoxItem Content="beforeEach" HorizontalAlignment="Left"/>
+                </ComboBox>
             </Grid>
         </StackPanel>
 
