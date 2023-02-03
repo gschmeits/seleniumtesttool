@@ -359,7 +359,7 @@ namespace GeneralFunctionality
                     if (result == gewoon) ScreenshotName = string.Empty;
                     if (idString.ToUpper().Trim() == "POPUP") result = gewoon;
 
-                    if (opslaan)
+                    if (opslaan && action != "get_value" && action != "set_value")
                         TestResults.AddTestResult(
                             applicationName,
                             className,

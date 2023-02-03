@@ -2922,7 +2922,7 @@ namespace WPFTestResults
                                         testCase.short_xpath != string.Empty)
                                     {
                                         inhoud +=
-                                            "\t\tcy.ControlTextCount('";
+                                            "\t\tcy.controlTextCount('";
                                         inhoud += testCase.testtag + "', '";
                                         inhoud += controleText + "', '";
                                         inhoud += testCase.short_xpath + "'";
@@ -2931,7 +2931,7 @@ namespace WPFTestResults
                                     else
                                     {
                                         inhoud +=
-                                            "\t\tcy.ControlText('";
+                                            "\t\tcy.controlText('";
                                         inhoud += content.Trim() + "', '";
                                         inhoud += controleText + "'";
                                         if (soort != "get")
