@@ -77,7 +77,7 @@
 
             if (keuze == 0)
             {
-                query = " UPDATE elements_short";
+                query = " UPDATE elements_short ";
                 query += "SET " + element + " = " + selecteren;
                 query += " WHERE id_elements = '" + id + "';";
             }

@@ -2689,7 +2689,7 @@ namespace WPFTestResults
 
         private void generateJavascriptCypress()
         {
-            var inhoud = "";
+            var inhoud = "/// <reference types=\"Cypress\" />\r\n\r\n";
             var iTeller = 0;
             var tellerNew = 0;
             var huidigProject = GeneralFunctionality.Functions._project;
